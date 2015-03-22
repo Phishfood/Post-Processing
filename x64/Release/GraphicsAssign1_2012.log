@@ -1,0 +1,54 @@
+﻿Build started 24/09/2014 09:31:00.
+     1>Project "C:\Users\Simon\Documents\Visual Studio 2012\Projects\CO2409 - Assignment Project\GraphicsAssign1_2012.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /O2 /D WIN32 /D NDEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0710 /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc110.pdb" /Gd /TP /errorReport:prompt Camera.cpp CTimer.cpp Colours.cpp Import\CImportXFile.cpp Import\Common\CFatalException.cpp Import\Common\MSDefines.cpp Import\Common\Utility.cpp Import\Math\BaseMath.cpp Import\Math\CMatrix2x2.cpp Import\Math\CMatrix3x3.cpp Import\Math\CMatrix4x4.cpp Import\Math\CQuaternion.cpp Import\Math\CQuatTransform.cpp Import\Math\CVector2.cpp Import\Math\CVector3.cpp Import\Math\CVector4.cpp Import\Math\MathIO.cpp Light.cpp Model.cpp GraphicsAssign1.cpp Input.cpp RenderObject.cpp Scene.cpp TextureManager.cpp
+         Camera.cpp
+     1>c:\users\simon\documents\visual studio 2012\projects\co2409 - assignment project\Defines.h(13): fatal error C1083: Cannot open include file: 'd3dx10.h': No such file or directory
+         CTimer.cpp
+         Colours.cpp
+         CImportXFile.cpp
+     1>Import\CImportXFile.cpp(20): fatal error C1083: Cannot open include file: 'dxfile.h': No such file or directory
+         CFatalException.cpp
+         MSDefines.cpp
+         Utility.cpp
+         BaseMath.cpp
+     1>Import\Math\BaseMath.cpp(15): fatal error C1083: Cannot open include file: 'Error.h': No such file or directory
+         CMatrix2x2.cpp
+     1>c:\users\simon\documents\visual studio 2012\projects\co2409 - assignment project\import\math\CMatrix2x2.h(30): fatal error C1083: Cannot open include file: 'GenDefines.h': No such file or directory
+         CMatrix3x3.cpp
+     1>c:\users\simon\documents\visual studio 2012\projects\co2409 - assignment project\import\math\CMatrix3x3.h(59): fatal error C1083: Cannot open include file: 'GenDefines.h': No such file or directory
+         CMatrix4x4.cpp
+     1>c:\users\simon\documents\visual studio 2012\projects\co2409 - assignment project\import\math\CMatrix4x4.h(55): fatal error C1083: Cannot open include file: 'GenDefines.h': No such file or directory
+         CQuaternion.cpp
+     1>c:\users\simon\documents\visual studio 2012\projects\co2409 - assignment project\import\math\CQuaternion.h(17): fatal error C1083: Cannot open include file: 'GenDefines.h': No such file or directory
+         CQuatTransform.cpp
+     1>c:\users\simon\documents\visual studio 2012\projects\co2409 - assignment project\import\math\CQuatTransform.h(12): fatal error C1083: Cannot open include file: 'GenDefines.h': No such file or directory
+         CVector2.cpp
+     1>c:\users\simon\documents\visual studio 2012\projects\co2409 - assignment project\import\math\CVector2.h(18): fatal error C1083: Cannot open include file: 'GenDefines.h': No such file or directory
+         CVector3.cpp
+     1>c:\users\simon\documents\visual studio 2012\projects\co2409 - assignment project\import\math\CVector3.h(18): fatal error C1083: Cannot open include file: 'GenDefines.h': No such file or directory
+         CVector4.cpp
+     1>c:\users\simon\documents\visual studio 2012\projects\co2409 - assignment project\import\math\CVector4.h(18): fatal error C1083: Cannot open include file: 'GenDefines.h': No such file or directory
+         MathIO.cpp
+     1>Import\Math\MathIO.cpp(17): fatal error C1083: Cannot open include file: 'GenDefines.h': No such file or directory
+         Light.cpp
+     1>c:\users\simon\documents\visual studio 2012\projects\co2409 - assignment project\Defines.h(13): fatal error C1083: Cannot open include file: 'd3dx10.h': No such file or directory
+         Model.cpp
+     1>c:\users\simon\documents\visual studio 2012\projects\co2409 - assignment project\Defines.h(13): fatal error C1083: Cannot open include file: 'd3dx10.h': No such file or directory
+         GraphicsAssign1.cpp
+     1>c:\users\simon\documents\visual studio 2012\projects\co2409 - assignment project\Defines.h(13): fatal error C1083: Cannot open include file: 'd3dx10.h': No such file or directory
+         Generating Code...
+         Compiling...
+         Input.cpp
+         RenderObject.cpp
+     1>c:\users\simon\documents\visual studio 2012\projects\co2409 - assignment project\Defines.h(13): fatal error C1083: Cannot open include file: 'd3dx10.h': No such file or directory
+         Scene.cpp
+     1>c:\users\simon\documents\visual studio 2012\projects\co2409 - assignment project\Scene.h(5): fatal error C1083: Cannot open include file: 'd3dx10.h': No such file or directory
+         TextureManager.cpp
+     1>c:\users\simon\documents\visual studio 2012\projects\co2409 - assignment project\TextureManager.h(4): fatal error C1083: Cannot open include file: 'd3dx10.h': No such file or directory
+         Generating Code...
+     1>Done Building Project "C:\Users\Simon\Documents\Visual Studio 2012\Projects\CO2409 - Assignment Project\GraphicsAssign1_2012.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:08.84
