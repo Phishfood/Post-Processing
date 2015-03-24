@@ -1,0 +1,51 @@
+﻿Build started 24/03/2015 22:33:30.
+     1>Project "C:\Users\Simon\Documents\GitHub\Post-Processing\GraphicsAssign1_2012.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IHelpers /IImport /IImport\Common /IImport\Math /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0710 /D _UNICODE /D UNICODE /Gm- /EHsc /MT /GS /fp:precise /Zc:wchar_t /Zc:forScope /FAs /Fa"Release\\" /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Scene.cpp
+         Scene.cpp
+     1>Scene.cpp(60): warning C4316: 'CCamera' : object allocated on the heap may not be aligned 16
+     1>Scene.cpp(784): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>Scene.cpp(793): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>Scene.cpp(1384): warning C4316: 'CModel' : object allocated on the heap may not be aligned 16
+     1>Scene.cpp(1398): warning C4316: 'CModel' : object allocated on the heap may not be aligned 16
+     1>Scene.cpp(1413): warning C4316: 'CModel' : object allocated on the heap may not be aligned 16
+     1>Scene.cpp(1457): warning C4316: 'CModel' : object allocated on the heap may not be aligned 16
+     1>Scene.cpp(1478): warning C4316: 'CModel' : object allocated on the heap may not be aligned 16
+     1>Scene.cpp(1489): warning C4316: 'CModel' : object allocated on the heap may not be aligned 16
+     1>Scene.cpp(1500): warning C4316: 'CModel' : object allocated on the heap may not be aligned 16
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Release\GraphicsAssign1.exe" /INCREMENTAL:NO /NOLOGO winmm.lib d3d10.lib d3dx10.lib d3dx9.lib dxguid.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST:NO /DEBUG /PDB:"Release\GraphicsAssign1.pdb" /SUBSYSTEM:WINDOWS /LARGEADDRESSAWARE /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"Release\GraphicsAssign1.lib" /MACHINE:X86 /SAFESEH Release\GraphicsAssign1.res
+         Release\Camera.obj
+         Release\CTimer.obj
+         Release\Colours.obj
+         Release\CImportXFile.obj
+         Release\CFatalException.obj
+         Release\MSDefines.obj
+         Release\Utility.obj
+         Release\BaseMath.obj
+         Release\CMatrix2x2.obj
+         Release\CMatrix3x3.obj
+         Release\CMatrix4x4.obj
+         Release\CQuaternion.obj
+         Release\CQuatTransform.obj
+         Release\CVector2.obj
+         Release\CVector3.obj
+         Release\CVector4.obj
+         Release\MathIO.obj
+         Release\Light.obj
+         Release\Model.obj
+         Release\GraphicsAssign1.obj
+         Release\Input.obj
+         Release\RenderObject.obj
+         Release\Scene.obj
+         Release\TextureManager.obj
+         GraphicsAssign1_2012.vcxproj -> C:\Users\Simon\Documents\GitHub\Post-Processing\Release\GraphicsAssign1.exe
+       PostBuildEvent:
+         copy "C:\Users\Simon\Documents\GitHub\Post-Processing\GraphicsAssign1.fx" "C:\Users\Simon\Documents\GitHub\Post-Processing\Release\"
+         :VCEnd
+                 1 file(s) copied.
+     1>Done Building Project "C:\Users\Simon\Documents\GitHub\Post-Processing\GraphicsAssign1_2012.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.32

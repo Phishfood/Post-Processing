@@ -46,11 +46,13 @@ int WINAPI wWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdL
 	{
 		return 0;
 	}
-	if( !myScene->InitDevice() || !myScene->LoadEffectFile() || !myScene->InitScene() )
+	if( !myScene->InitDevice() || !myScene->LoadEffectFile() || !myScene->InitScene() || !myScene->InitPP() )
 	{
 		myScene->ReleaseResources(); // Cleanup DirectX on failure
 		return 0;
 	}
+
+	myScene->InitATB();
 
 	// Initialise simple input functions (in Input.h/.cpp, not part of DirectX)
 	InitInput();

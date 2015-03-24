@@ -19,6 +19,11 @@
 
 #include "Colours.h"		// Functions to adjust colours
 
+#include "AntTweakBar.h"
+#pragma comment(lib, "AntTweakBar.lib")
+
+#include <vector>
+
 class CScene
 {
 private:
@@ -64,10 +69,88 @@ private:
 
 	// Effects / techniques
 	ID3D10Effect*          Effect;
+	ID3D10Effect*		   mPPEffect;
+	
+	////////////////////////////
+	//POST PROCESS VARIABLES
+	////////////////////////////
+	enum PostProcesses
+	{
+		Copy, 
+		Tint,
+		Shock,
+		BoxBlur3,
+		BoxBlur5,
+		BoxBlurV,
+		DoubleVision,
+		Edge,
+		Contrast,
+		Blood,
+		Invert,
+		SolariseA,
+		SolariseB,
+		NumPostProcesses
+	};
+
+	ID3D10EffectTechnique* mPPTechniques[NumPostProcesses];
 	ID3D10EffectTechnique* mTechniques[30];
 	ID3D10EffectTechnique* mTechniquesMirror[30];
 	int miNumTechniques;
 
+	ID3D10Texture2D*	mInitialTexture;
+	D3D10_TEXTURE2D_DESC mInitialTextureDesc;
+	ID3D10RenderTargetView* mInitialRenderTarget;
+	ID3D10ShaderResourceView* mInitialShaderResource;
+	D3D10_SHADER_RESOURCE_VIEW_DESC mInitialShaderDesc;
+	ID3D10EffectShaderResourceVariable* mInitialTextureVar;
+	
+
+	float mBlood;
+	ID3D10EffectVariable* mdxBlood;
+	ID3D10Texture2D* mPostProcessMap;
+	ID3D10EffectShaderResourceVariable* mPostProcessMapVar;
+
+	//shock effect
+	float mShock, mShockStrength, mShockTime, mShockSpeed, mShockLength;
+	ID3D10EffectVariable* mdxPPShock;
+
+	//tint effect
+	float mCumulativeFTime;
+	ID3D10EffectVariable* mdxPPTintColour;
+	D3DXVECTOR3 mTintColour;
+	float mTintCycleTime;
+
+	//Blur
+	int mBlurRadius;
+	float mBlurStrength;
+	ID3D10EffectVariable* mdxBlurRadius;
+	
+
+	//DoubleVision
+	float mDoubleVisionRadius;
+	ID3D10EffectVariable* mdxDoubleVisionRadius;
+
+	//Contrast
+	float mContrastChange;
+	float mContrastFactor;
+	ID3D10EffectVariable* mdxContrastFactor;
+
+	int mCurrentPP;
+
+	ID3D10Texture2D* mTextureOne, *mTextureTwo;
+	ID3D10RenderTargetView* mRenderTargetOne, *mRenderTargetTwo;
+	ID3D10ShaderResourceView* mTextureOneShader, *mTextureTwoShader;
+	bool ppDirection;
+
+	int mSolariseInt;
+	float mSolariseFloat;
+	ID3D10EffectVariable* mdxSolariseFloat;
+
+	bool impact;
+
+	////////////////////////////
+	//RENDER VARIABLES
+	////////////////////////////
 	// Matrices
 	ID3D10EffectMatrixVariable* WorldMatrixVar;
 	ID3D10EffectMatrixVariable* ViewMatrixVar;
@@ -109,6 +192,14 @@ private:
 	HINSTANCE HInst;
 	HWND      HWnd;
 
+	////////////////////////////
+	//AntTweakBar Variables
+	////////////////////////////
+
+	TwBar* mtwBarPP; //general settings
+	TwBar* mtwBarSinglePP; //Single Pass PP options
+	TwBar* mtwBarMultiPP; //Multi Pass PP options
+
 	// Functions to load items into the scene - purely for neatness
 	bool BasicItems();  
 	bool SceneItems();
@@ -124,15 +215,30 @@ private:
 
 	inline void DrawObject(int i, bool mirror = false);
 	inline void DrawAllObjects(bool mirror);
+
+	
+	void UpdateImpact(float frameTime);
+	void RenderImpact();
+
 public:
+
+	void StartImpact();
+
+	bool multiprocess;
+	bool mbGaussian;
+
 	CScene(void);
 	~CScene(void);
 
+	void ResetShock();
 
+	void SetSinglePP(int index);
 	bool InitDevice();
 	void ReleaseResources();
 	bool LoadEffectFile();
 	bool InitScene();
+	bool InitPP();
+	bool InitATB();
 	void UpdateScene( float frameTime );
 	void RenderScene();
 	void RenderMirrors();
@@ -140,3 +246,8 @@ public:
 
 };
 
+struct ScenePP
+{
+	static CScene* scenePointer;
+	int PPindex;
+};

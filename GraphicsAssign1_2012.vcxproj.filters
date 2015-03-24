@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="GraphicsAssign1.fx" />
+    <None Include="PostProcess.fx" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Import">

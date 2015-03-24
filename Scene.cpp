@@ -15,6 +15,32 @@ CScene::CScene(void)
 	//set the controlled object to the mirror
 	mControlObject = 0;
 
+	mCurrentPP = 0;
+	mCumulativeFTime = 0.0f;
+	
+	mTintCycleTime = 8.0f;
+
+	mShockStrength = 0.2f;
+	mShockSpeed = 20.0f;
+	mShockLength = 2.0f;
+
+	mDoubleVisionRadius = 0.05f;
+
+	mBlurRadius = 10;
+
+	multiprocess = false;
+	ppDirection = true;
+
+	mbGaussian = false;
+
+	mContrastChange = 0.0f;
+	mContrastFactor = 0.0f;
+
+	mBlood = 0.5;
+
+	impact = false;
+	mSolariseInt = 127;
+	mSolariseFloat = 0.5f;
 }
 
 CScene::~CScene(void)
@@ -37,22 +63,23 @@ bool CScene::InitScene()
 	Camera->SetNearClip( 1.0f );
 
 	//load all textures and maps
-	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"StoneDiffuseSpecular.dds",		NULL, NULL, &mpMaps[0], NULL ) )) return false;
-	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"WoodDiffuseSpecular.dds",		NULL, NULL, &mpMaps[1], NULL ) )) return false;
-	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Moon.jpg",						NULL, NULL, &mpMaps[2], NULL ) )) return false; 
-	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"WallDiffuseSpecular.dds",		NULL, NULL, &mpMaps[3], NULL ) )) return false;
-	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"WallNormalDepth.dds",			NULL, NULL, &mpMaps[4], NULL ) )) return false;
-	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"MetalDiffuseSpecular.dds",		NULL, NULL, &mpMaps[5], NULL ) )) return false;
-	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"PatternDiffuseSpecular.dds",		NULL, NULL, &mpMaps[6], NULL ) )) return false;
-	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"PatternNormalDepth.dds",			NULL, NULL, &mpMaps[7], NULL ) )) return false;
-	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Glass.jpg",						NULL, NULL, &mpMaps[8], NULL ) )) return false;
-	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Troll1DiffuseSpecular.dds",		NULL, NULL, &mpMaps[9], NULL ) )) return false;
+	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"StoneDiffuseSpecular.dds",		NULL, NULL, &mpMaps[0],  NULL ) )) return false;
+	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"WoodDiffuseSpecular.dds",		NULL, NULL, &mpMaps[1],  NULL ) )) return false;
+	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Moon.jpg",						NULL, NULL, &mpMaps[2],  NULL ) )) return false; 
+	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"WallDiffuseSpecular.dds",		NULL, NULL, &mpMaps[3],  NULL ) )) return false;
+	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"WallNormalDepth.dds",			NULL, NULL, &mpMaps[4],  NULL ) )) return false;
+	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"MetalDiffuseSpecular.dds",		NULL, NULL, &mpMaps[5],  NULL ) )) return false;
+	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"PatternDiffuseSpecular.dds",		NULL, NULL, &mpMaps[6],  NULL ) )) return false;
+	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"PatternNormalDepth.dds",			NULL, NULL, &mpMaps[7],  NULL ) )) return false;
+	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Glass.jpg",						NULL, NULL, &mpMaps[8],  NULL ) )) return false;
+	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Troll1DiffuseSpecular.dds",		NULL, NULL, &mpMaps[9],  NULL ) )) return false;
 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Troll2DiffuseSpecular.dds",		NULL, NULL, &mpMaps[10], NULL ) )) return false;
 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Troll3DiffuseSpecular.dds",		NULL, NULL, &mpMaps[11], NULL ) )) return false;
 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Troll4DiffuseSpecular.dds",		NULL, NULL, &mpMaps[12], NULL ) )) return false;
 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"BrainDiffuseSpecular.dds",		NULL, NULL, &mpMaps[13], NULL ) )) return false;
 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"BrainNormalDepth.dds",			NULL, NULL, &mpMaps[14], NULL ) )) return false;
-	miNumMaps = 15;
+	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Blood.jpg",                      NULL, NULL, &mpMaps[15], NULL ) )) return false;
+	miNumMaps = 16;
 
 	//Create the mirror as object 0, makes life easier. 
 	mpObjects[0] = new CRenderObject("Mirror.x",	D3DXVECTOR3( -20, 30, 0 ),		D3DXVECTOR3(0.2f, 0.2f, 0.3f), mTechniquesMirror[18], mTechniquesMirror[19], NULL, NULL, false, false, false);
@@ -71,7 +98,254 @@ bool CScene::InitScene()
 	return true;
 }
 
+void TW_CALL ToggleSingle(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->multiprocess = !temp->multiprocess;
+}
 
+void TW_CALL SetPP00(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->SetSinglePP( 0 );
+}
+
+void TW_CALL SetPP01(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->SetSinglePP( 1 );
+}
+
+void TW_CALL SetPP02(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->SetSinglePP( 2 );
+	temp->ResetShock();
+}
+
+void TW_CALL SetPP03(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->SetSinglePP( 3 );
+}
+
+void TW_CALL SetPP04(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->SetSinglePP( 4 );
+}
+
+void TW_CALL SetPP05(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->SetSinglePP( 5 );
+}
+
+void TW_CALL SetPP06(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->SetSinglePP( 6 );
+}
+
+void TW_CALL SetPP07(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->SetSinglePP( 7 );
+}
+
+void TW_CALL SetPP08(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->SetSinglePP( 8 );
+}
+
+void TW_CALL SetPP09(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->SetSinglePP( 9 );
+}
+
+void TW_CALL SetPP10(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->SetSinglePP( 10 );
+}
+
+void TW_CALL SetPP11(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->SetSinglePP( 11 );
+}
+
+void TW_CALL SetPP12(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->SetSinglePP( 12 );
+}
+
+void TW_CALL SetGauss(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->mbGaussian = !temp->mbGaussian;
+}
+
+void TW_CALL TWImpact(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->StartImpact();
+}
+
+void CScene::SetSinglePP(int index)
+{
+	if(index < 0)
+	{
+		mCurrentPP = 0;
+		return;
+	}
+
+	if(index > NumPostProcesses)
+	{
+		mCurrentPP = 0;
+		return;
+	}
+
+	mCurrentPP = index;
+}
+
+void CScene::ResetShock()
+{
+	mShockTime = mShockLength;	
+}
+
+bool CScene::InitATB()
+{
+	TwInit(TW_DIRECT3D10, mpd3dDevice);
+	TwWindowSize(mViewportWidth, mViewportHeight);
+
+	mtwBarPP = TwNewBar("PostProcessing");
+	TwDefine(" PostProcessing position='5 5' ");
+	TwAddVarRW(mtwBarPP, "Tint Cycle Time", TW_TYPE_FLOAT, &mTintCycleTime, "min=0.1 max=30 step=0.1");
+	TwAddSeparator(mtwBarPP, "", "");
+	TwAddVarRW(mtwBarPP, "Shock Strength", TW_TYPE_FLOAT, &mShockStrength, "min=0.01 max=0.5 step=0.01");
+	TwAddVarRW(mtwBarPP, "Shock Speed", TW_TYPE_FLOAT, &mShockSpeed, "min=0.1 max=30 step=0.1");
+	TwAddVarRW(mtwBarPP, "Shock Length", TW_TYPE_FLOAT, &mShockLength, "min=0.1 max=5 step=0.1");
+	TwAddSeparator(mtwBarPP, "", "");
+	TwAddVarRW(mtwBarPP, "Blur Radius", TW_TYPE_INT32, &mBlurRadius, "min=2 max=50 step=1");
+	TwAddSeparator(mtwBarPP, "", "");
+	TwAddVarRW(mtwBarPP, "Double Vision Radius", TW_TYPE_FLOAT, &mDoubleVisionRadius, "min=0 max=0.5 step=0.005");
+	TwAddSeparator(mtwBarPP, "", "");
+	TwAddVarRW(mtwBarPP, "Contrast Shift", TW_TYPE_FLOAT, &mContrastChange, "min=-128 max=128 step=1");
+	//TwAddVarRO(mtwBarPP, "Contrast Factor", TW_TYPE_FLOAT, &mContrastFactor, "");
+	TwAddVarRW(mtwBarPP, "Jamminess", TW_TYPE_FLOAT, &mBlood, "min=0 max=1 step=0.05");
+	TwAddSeparator(mtwBarPP, "", "");
+	TwAddVarRW(mtwBarPP, "Solarise Threshold", TW_TYPE_INT32, &mSolariseInt, "min=32 max=222 step=1");
+	TwAddSeparator(mtwBarPP, "", "");
+	TwAddVarRO(mtwBarPP, "Using multiple: ", TW_TYPE_BOOLCPP, &multiprocess, "");
+	TwAddButton( mtwBarPP, "Toggle Single", ToggleSingle, this, "");
+	
+	mtwBarSinglePP = TwNewBar("Single Pass Select");
+	TwDefine(" 'Single Pass Select' position='210 5' ");
+	TwAddButton(mtwBarSinglePP, "No PP", SetPP00, this, "");
+	TwAddButton(mtwBarSinglePP, "Tint", SetPP01, this, "");
+	TwAddButton(mtwBarSinglePP, "Shock", SetPP02, this, "");
+	TwAddButton(mtwBarSinglePP, "Box Blur (3)", SetPP03, this, "");
+	TwAddButton(mtwBarSinglePP, "Box Blur (5)", SetPP04, this, "");
+	TwAddButton(mtwBarSinglePP, "Box Blur (Custom)", SetPP05, this, "");
+	TwAddButton(mtwBarSinglePP, "Double Vision", SetPP06, this, "");
+	TwAddButton(mtwBarSinglePP, "Edges", SetPP07, this, "");
+	TwAddButton(mtwBarSinglePP, "Contrast", SetPP08, this, "");
+	TwAddButton(mtwBarSinglePP, "Jam on the screen", SetPP09, this, "");
+	TwAddButton(mtwBarSinglePP, "Invert", SetPP10, this, "");
+	TwAddButton(mtwBarSinglePP, "Solarise (Above)", SetPP11, this, "");
+	TwAddButton(mtwBarSinglePP, "Solarise (Below)", SetPP12, this, "");
+	TwAddSeparator(mtwBarSinglePP, "", "");
+	TwAddButton(mtwBarSinglePP, "Toggle Gaussian Blur", SetGauss, this, "");
+
+	mtwBarMultiPP = TwNewBar("Multi Pass Controls");
+	TwDefine(" 'Multi Pass Controls' position='415 5' size='300 320' ");
+	TwAddButton(mtwBarMultiPP, "Stop trying to hit me and hit me!", TWImpact, this, "");
+
+	return true;
+}
+
+bool CScene::InitPP()
+{
+	mInitialTextureDesc.Width = mViewportWidth;
+	mInitialTextureDesc.Height = mViewportHeight;
+	mInitialTextureDesc.MipLevels = 1;
+	mInitialTextureDesc.ArraySize = 1;
+	mInitialTextureDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+	mInitialTextureDesc.SampleDesc.Count = 1;
+	mInitialTextureDesc.SampleDesc.Quality = 0;
+	mInitialTextureDesc.Usage = D3D10_USAGE_DEFAULT;
+	mInitialTextureDesc.BindFlags = D3D10_BIND_RENDER_TARGET | D3D10_BIND_SHADER_RESOURCE;
+	mInitialTextureDesc.CPUAccessFlags = 0;
+	mInitialTextureDesc.MiscFlags = 0;
+	if( FAILED( mpd3dDevice->CreateTexture2D( &mInitialTextureDesc, NULL, &mInitialTexture) ) ) return false;
+	if (FAILED( mpd3dDevice->CreateTexture2D( &mInitialTextureDesc, NULL, &mTextureOne ) ) ) return false;
+	if (FAILED( mpd3dDevice->CreateTexture2D( &mInitialTextureDesc, NULL, &mTextureTwo ) ) ) return false;
+
+	if( FAILED( mpd3dDevice->CreateRenderTargetView( mInitialTexture, NULL, &mInitialRenderTarget ) ) ) return false;
+	if (FAILED( mpd3dDevice->CreateRenderTargetView( mTextureOne, NULL, &mRenderTargetOne) ) ) return false;
+	if (FAILED( mpd3dDevice->CreateRenderTargetView( mTextureTwo, NULL, &mRenderTargetTwo) ) ) return false;
+
+	mInitialShaderDesc.Format = mInitialTextureDesc.Format;
+	mInitialShaderDesc.ViewDimension = D3D10_SRV_DIMENSION_TEXTURE2D;
+	mInitialShaderDesc.Texture2D.MostDetailedMip = 0;
+	mInitialShaderDesc.Texture2D.MipLevels = 1;
+	if( FAILED( mpd3dDevice->CreateShaderResourceView( mInitialTexture, &mInitialShaderDesc, &mInitialShaderResource ) ) ) return false;
+	if (FAILED( mpd3dDevice->CreateShaderResourceView( mTextureOne, &mInitialShaderDesc, &mTextureOneShader))) return false;
+	if (FAILED( mpd3dDevice->CreateShaderResourceView( mTextureTwo, &mInitialShaderDesc, &mTextureTwoShader))) return false;
+
+	ID3D10Blob* pErrors; // This strangely typed variable collects any errors when compiling the effect file
+	DWORD dwShaderFlags = D3D10_SHADER_ENABLE_STRICTNESS; // These "flags" are used to set the compiler options
+
+	// Load and compile the effect file
+	HRESULT hr = D3DX10CreateEffectFromFile( L"PostProcess.fx", NULL, NULL, "fx_4_0", dwShaderFlags, 0, mpd3dDevice, NULL, NULL, &mPPEffect, &pErrors, NULL );
+	if( FAILED( hr ) )
+	{
+		if (pErrors != 0)  MessageBox( NULL, CA2CT(reinterpret_cast<char*>(pErrors->GetBufferPointer())), L"Error", MB_OK ); // Compiler error: display error message
+		else               MessageBox( NULL, L"Error loading Post Processing FX file. Ensure your FX file is in the same folder as this executable.", L"Error", MB_OK );  // No error message - probably file not found
+		return false;
+	}
+
+	mPPTechniques[0]  = mPPEffect->GetTechniqueByName( "PPCopy" );
+	mPPTechniques[1]  = mPPEffect->GetTechniqueByName( "PPTint" );
+	mPPTechniques[2]  = mPPEffect->GetTechniqueByName( "PPShock" );
+	mPPTechniques[3]  = mPPEffect->GetTechniqueByName( "PPBoxBlur3" );
+	mPPTechniques[4]  = mPPEffect->GetTechniqueByName( "PPBoxBlur5" );
+	mPPTechniques[5]  = mPPEffect->GetTechniqueByName( "PPBoxBlurV" );
+	mPPTechniques[6]  = mPPEffect->GetTechniqueByName( "PPDoubleVision" );
+	mPPTechniques[7]  = mPPEffect->GetTechniqueByName( "PPEdge" );
+	mPPTechniques[8]  = mPPEffect->GetTechniqueByName( "PPContrast" );
+	mPPTechniques[9]  = mPPEffect->GetTechniqueByName( "PPBlood" );
+	mPPTechniques[10] = mPPEffect->GetTechniqueByName( "PPInvert" );
+	mPPTechniques[11] = mPPEffect->GetTechniqueByName( "PPSolariseA" );
+	mPPTechniques[12] = mPPEffect->GetTechniqueByName( "PPSolariseB" );
+
+	mInitialTextureVar = mPPEffect->GetVariableByName( "InitialTexture" )->AsShaderResource();
+	mPostProcessMapVar = mPPEffect->GetVariableByName( "BloodTexture" )->AsShaderResource();
+
+	mdxPPTintColour = mPPEffect->GetVariableByName( "TintColour" )->AsVector();
+
+	mdxPPShock = mPPEffect->GetVariableByName( "Shock" )->AsScalar();
+
+	mPPEffect->GetVariableByName( "PixelX" )->AsScalar()->SetFloat(1.0f/mViewportWidth);
+	mPPEffect->GetVariableByName( "PixelY" )->AsScalar()->SetFloat(1.0f/mViewportHeight);
+
+	mdxBlurRadius = mPPEffect->GetVariableByName( "BlurRange" )->AsScalar();
+
+	mdxDoubleVisionRadius = mPPEffect->GetVariableByName( "DVRange" )->AsScalar();
+
+	mdxContrastFactor = mPPEffect->GetVariableByName( "Contrast" )->AsScalar();
+
+	mdxBlood = mPPEffect->GetVariableByName( "Blood" )->AsScalar();
+
+	mdxSolariseFloat = mPPEffect->GetVariableByName("SolariseThreshold")->AsScalar();
+
+	return true;
+
+}
 // Update the scene - move/rotate each model and the camera, then update their matrices
 void CScene::UpdateScene( float frameTime )
 {
@@ -80,7 +354,7 @@ void CScene::UpdateScene( float frameTime )
 	char buffer[6];
 	
 	//copy in base text
-	strcpy_s( caption,  "CO2409 - Graphics Assignment - Shaders FPS ");
+	strcpy_s( caption,  "Post Processing - FPS ");
 	
 	//calculate FPS
 	int FPS = int ( 1.0f / frameTime );
@@ -109,6 +383,38 @@ void CScene::UpdateScene( float frameTime )
 	// Control cube position and update its world matrix each frame
 	mpObjects[mControlObject]->GetModel()->Control( frameTime, Key_I, Key_K, Key_J, Key_L, Key_U, Key_O, Key_Period, Key_Comma );
 
+	if (impact)
+	{
+		UpdateImpact(frameTime);
+	}
+	else
+	{
+		mCumulativeFTime += frameTime;
+
+		//Tint colour cycle
+		float hue = fmodf(mCumulativeFTime, mTintCycleTime) / mTintCycleTime;
+		fHSLToRGB(hue, 0.5f, 0.5f, mTintColour.x, mTintColour.y, mTintColour.z);
+
+		//Shock update
+		if (mShockTime > 0)
+		{
+			mShockTime -= frameTime;
+			mShock = sin(mShockSpeed * mShockTime);
+			mShock -= 0.5f;
+			mShock *= mShockStrength;
+		}
+		else
+		{
+			mShock = 0;
+		}
+
+		//Calculate contrast factor
+		mContrastFactor = (259 * (mContrastChange + 255.0f)) / (255.0f * (259.0f - mContrastChange));
+
+		mSolariseFloat = mSolariseInt / 255.0f;
+
+	}//end if impact
+
 	//update all the objects, including calculating the matrix
 	for(int i = 0; i < miNumObjects; i++)
 	{
@@ -128,6 +434,18 @@ void CScene::UpdateScene( float frameTime )
 		DestroyWindow( HWnd );
 	}
 
+	if( KeyHit( Key_F1  ) ) { mCurrentPP = 0; }
+	if( KeyHit( Key_F2  ) ) { mCurrentPP = 1; }
+	if( KeyHit( Key_F3  ) ) { mCurrentPP = 2;ResetShock();}
+	if( KeyHit( Key_F4  ) ) { mCurrentPP = 3; }
+	if( KeyHit( Key_F5  ) ) { mCurrentPP = 4; }
+	if( KeyHit( Key_F6  ) ) { mCurrentPP = 5; }
+	if( KeyHit( Key_F7  ) ) { mCurrentPP = 6; }
+	if( KeyHit( Key_F8  ) ) { mCurrentPP = 7; }
+	if( KeyHit( Key_F9  ) ) { mCurrentPP = 8; }
+	if( KeyHit( Key_F10 ) ) { mCurrentPP = 9; }
+	if( KeyHit( Key_F11 ) ) { mCurrentPP = 10; }
+	if( KeyHit( Key_F12 ) ) { mCurrentPP = 11; }
 
 	//change the controlled object
 	if( KeyHit( Key_1 ) )
@@ -301,11 +619,17 @@ void CScene::DrawAllObjects(bool mirror)
 // Render everything in the scene
 void CScene::RenderScene()
 {
-	// Clear the back buffer - before drawing the geometry clear the entire window to a fixed colour
-	float ClearColor[4] = { 0.2f, 0.2f, 0.3f, 1.0f }; // Good idea to match background to ambient colour
-	mpd3dDevice->ClearRenderTargetView( RenderTargetView, ClearColor );
-	mpd3dDevice->ClearDepthStencilView( DepthStencilView, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL , 1.0f, 0 ); // Clear the depth buffer too
+	//set render target to a texture for post processing
+	mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
+	mpd3dDevice->ClearRenderTargetView(mInitialRenderTarget, AmbientColour);
+	mpd3dDevice->ClearDepthStencilView(DepthStencilView, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0); // Clear the depth buffer too
 
+	mpd3dDevice->OMSetRenderTargets( 1, &mInitialRenderTarget, DepthStencilView);
+
+	// Clear the back buffer - before drawing the geometry clear the entire window to a fixed colour
+	//float ClearColor[4] = { 0.2f, 0.2f, 0.3f, 1.0f }; // Good idea to match background to ambient colour
+	mpd3dDevice->ClearRenderTargetView( mInitialRenderTarget, AmbientColour );
+	mpd3dDevice->ClearDepthStencilView( DepthStencilView, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL , 1.0f, 0 ); // Clear the depth buffer too
 
 	//---------------------------
 	// Common rendering settings
@@ -328,12 +652,205 @@ void CScene::RenderScene()
 	RenderMirrors();
 	DrawAllObjects(false);
 
+	/////////////////////////////
+	// POST PROCESS PASS
+	/////////////////////////////
+	
+	//Pass the tint colour
+	mdxPPTintColour->SetRawValue( mTintColour, 0, 12 );
 
+	//Pass the shock value
+	mdxPPShock->SetRawValue( &mShock, 0, 4 );
+
+	//Pass the blur radius
+	mdxBlurRadius->SetRawValue( &mBlurRadius, 0, 4 );
+
+	//Pass the double vision radius
+	mdxDoubleVisionRadius->SetRawValue( &mDoubleVisionRadius, 0, 4 );
+
+	//Pass the contrast factor
+	mdxContrastFactor->SetRawValue(&mContrastFactor, 0, 4);
+
+	//Only one person would dare give me the raspberry....LONESTAR!!
+	mdxBlood->SetRawValue(&mBlood, 0, 4);
+	mPostProcessMapVar->SetResource(mpMaps[15]);
+
+	mdxSolariseFloat->SetRawValue(&mSolariseFloat, 0, 4);
+
+	if(mCurrentPP < 0) mCurrentPP = 0;
+	if(mCurrentPP > NumPostProcesses ) mCurrentPP = 0;
+
+	if (impact)
+	{
+		RenderImpact();
+	}
+	else
+	{
+		if (mbGaussian)
+		{
+
+		}
+
+		if (!multiprocess)
+		{
+			//Set render target back to output
+			mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
+			//send rendered scene to shader as a texture
+			mInitialTextureVar->SetResource(mInitialShaderResource);
+
+			//Apply Post Processing Effect
+			mpd3dDevice->IASetInputLayout(NULL);
+			mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+			mPPTechniques[mCurrentPP]->GetPassByIndex(0)->Apply(0);
+
+			mpd3dDevice->Draw(4, 0);
+
+			mInitialTextureVar->SetResource(0);
+			mPPTechniques[mCurrentPP]->GetPassByIndex(0)->Apply(0);
+		}
+		else
+		{
+
+			//Box Blur
+			mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
+			mInitialTextureVar->SetResource(mInitialShaderResource);
+			mpd3dDevice->IASetInputLayout(NULL);
+			mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+			mPPTechniques[5]->GetPassByIndex(0)->Apply(0);
+			mpd3dDevice->Draw(4, 0);
+			mInitialTextureVar->SetResource(0);
+			mPPTechniques[5]->GetPassByIndex(0)->Apply(0);
+
+			//Double Vision
+			mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
+			mInitialTextureVar->SetResource(mTextureOneShader);
+			mpd3dDevice->IASetInputLayout(NULL);
+			mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+			mPPTechniques[6]->GetPassByIndex(0)->Apply(0);
+			mpd3dDevice->Draw(4, 0);
+			mInitialTextureVar->SetResource(0);
+			mPPTechniques[6]->GetPassByIndex(0)->Apply(0);
+
+			//Copy to Output
+			/*mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
+			mInitialTextureVar->SetResource(mTextureTwoShader);
+			mpd3dDevice->IASetInputLayout(NULL);
+			mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+			mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
+			mpd3dDevice->Draw(4, 0);
+			mInitialTextureVar->SetResource(0);
+			mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
+			*/
+		}
+	}//end else impact
 	//---------------------------
 	// Display the Scene
 
 	// After we've finished drawing to the off-screen back buffer, we "present" it to the front buffer (the screen)
+	TwDraw();
 	SwapChain->Present( 0, 0 );
+}
+
+void CScene::StartImpact()
+{
+	if (!impact)
+	{
+		impact = true;
+		mShockTime = mShockLength;
+	}
+}
+
+void CScene::UpdateImpact(float frameTime)
+{
+	if (mShockTime < 0.0f)
+	{
+		impact = false; 
+		return;
+	}
+
+	//mShock = sin(mShockSpeed * mShockTime);
+	//mShock -= 0.5f;
+	//mShock *= mShockStrength;
+	
+	
+
+	//build phase
+	if (mShockTime > 1.0f)
+	{
+		mContrastChange = -128.0f * (1.0f - (mShockTime - 1.0f));
+		mTintColour.x = 1.0f;
+		mTintColour.y = 1.0f - (1.0f - (mShockTime - 1.0f));
+		mTintColour.z = 1.0f - (1.0f - (mShockTime - 1.0f));
+		mBlurRadius = 20 * (1.0f - (mShockTime - 1.0f));
+		mShock = mShockStrength * sin( mShockSpeed * (1.0f - (mShockTime - 1.0f)) );
+	}
+	else //fade phase
+	{
+		mContrastChange = -128.0f * mShockTime;
+		mTintColour.x = 1.0f;
+		mTintColour.y = 1.0f - mShockTime;
+		mTintColour.z = 1.0f - mShockTime;
+		mBlurRadius = 20 * mShockTime;
+		mShock = mShockStrength * sin(mShockSpeed * mShockTime);
+	}
+	
+	mContrastFactor = (259 * (mContrastChange + 255.0f)) / (255.0f * (259.0f - mContrastChange));
+
+	mShockTime -= (frameTime/2.0f);
+}
+
+void CScene::RenderImpact()
+{
+	//PP One - Initial -> One, Blur.
+	mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetOne, DepthStencilView);
+	mInitialTextureVar->SetResource(mInitialShaderResource);
+	mpd3dDevice->IASetInputLayout(NULL);
+	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+	mPPTechniques[5]->GetPassByIndex(0)->Apply(0);
+	mpd3dDevice->Draw(4, 0);
+	mInitialTextureVar->SetResource(0);
+	mPPTechniques[5]->GetPassByIndex(0)->Apply(0);
+
+	//PP Two = One -> Two, Contrast
+	mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetTwo, DepthStencilView);
+	mInitialTextureVar->SetResource(mTextureOneShader);
+	mpd3dDevice->IASetInputLayout(NULL);
+	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+	mPPTechniques[8]->GetPassByIndex(0)->Apply(0);
+	mpd3dDevice->Draw(4, 0);
+	mInitialTextureVar->SetResource(0);
+	mPPTechniques[8]->GetPassByIndex(0)->Apply(0);
+
+	//PP Three = Two -> One, Tint
+	mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetOne, DepthStencilView);
+	mInitialTextureVar->SetResource(mTextureTwoShader);
+	mpd3dDevice->IASetInputLayout(NULL);
+	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+	mPPTechniques[1]->GetPassByIndex(0)->Apply(0);
+	mpd3dDevice->Draw(4, 0);
+	mInitialTextureVar->SetResource(0);
+	mPPTechniques[1]->GetPassByIndex(0)->Apply(0);
+
+	//PP Four = One -> Two, Shake
+	mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetTwo, DepthStencilView);
+	mInitialTextureVar->SetResource(mTextureOneShader);
+	mpd3dDevice->IASetInputLayout(NULL);
+	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+	mPPTechniques[2]->GetPassByIndex(0)->Apply(0);
+	mpd3dDevice->Draw(4, 0);
+	mInitialTextureVar->SetResource(0);
+	mPPTechniques[2]->GetPassByIndex(0)->Apply(0);
+
+	//Copy to Output
+	mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
+	mInitialTextureVar->SetResource(mTextureTwoShader);
+	mpd3dDevice->IASetInputLayout(NULL);
+	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+	mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
+	mpd3dDevice->Draw(4, 0);
+	mInitialTextureVar->SetResource(0);
+	mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
+
 }
 
 void CScene::RenderMirrors()
@@ -439,6 +956,8 @@ LRESULT CALLBACK CScene::WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM
 {
 	PAINTSTRUCT ps;
 	HDC hdc;
+	if( TwEventWin(hWnd, message, wParam, lParam) ) // send event message to AntTweakBar
+        return 0;
 
 	switch( message )
 	{
