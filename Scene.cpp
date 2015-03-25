@@ -26,7 +26,9 @@ CScene::CScene(void)
 
 	mDoubleVisionRadius = 0.05f;
 
-	mBlurRadius = 10;
+	mBlurRadius = 11;
+	mBlurStrength = 1.0f;
+	mBlurMean = 0.5f;
 
 	multiprocess = false;
 	ppDirection = true;
@@ -41,6 +43,12 @@ CScene::CScene(void)
 	impact = false;
 	mSolariseInt = 127;
 	mSolariseFloat = 0.5f;
+
+	for (int i = 0; i < MAX_BLUR_RADIUS; i++)
+	{
+		mBlurWeights[i] = 1.0f;
+	}
+
 }
 
 CScene::~CScene(void)
@@ -183,6 +191,18 @@ void TW_CALL SetPP12(void* clientData)
 	temp->SetSinglePP( 12 );
 }
 
+void TW_CALL SetPP13(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->SetSinglePP(13);
+}
+
+void TW_CALL SetPP14(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->SetSinglePP(14);
+}
+
 void TW_CALL SetGauss(void* clientData)
 {
 	CScene* temp = static_cast<CScene*>(clientData);
@@ -193,6 +213,103 @@ void TW_CALL TWImpact(void* clientData)
 {
 	CScene* temp = static_cast<CScene*>(clientData);
 	temp->StartImpact();
+}
+
+void TW_CALL AddPP00(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->mPPSteps.push_back(0);
+}
+
+void TW_CALL AddPP01(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->mPPSteps.push_back(1);
+}
+
+void TW_CALL AddPP02(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->mPPSteps.push_back(2);
+}
+
+void TW_CALL AddPP03(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->mPPSteps.push_back(3);
+}
+
+void TW_CALL AddPP04(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->mPPSteps.push_back(4);
+}
+
+void TW_CALL AddPP05(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->mPPSteps.push_back(5);
+}
+
+void TW_CALL AddPP06(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->mPPSteps.push_back(6);
+}
+
+void TW_CALL AddPP07(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->mPPSteps.push_back(7);
+}
+
+void TW_CALL AddPP08(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->mPPSteps.push_back(8);
+}
+
+void TW_CALL AddPP09(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->mPPSteps.push_back(9);
+}
+
+void TW_CALL AddPP10(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->mPPSteps.push_back(10);
+}
+
+void TW_CALL AddPP11(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->mPPSteps.push_back(11);
+}
+
+void TW_CALL AddPP12(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->mPPSteps.push_back(12);
+}
+
+void TW_CALL AddPP13(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->mPPSteps.push_back(13);
+}
+
+void TW_CALL AddPP14(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->mPPSteps.push_back(14);
+}
+
+void TW_CALL ClearChain(void* clientData)
+{
+	CScene* temp = static_cast<CScene*>(clientData);
+	temp->mPPSteps.clear();
+	temp->multiprocess = false;
 }
 
 void CScene::SetSinglePP(int index)
@@ -230,7 +347,9 @@ bool CScene::InitATB()
 	TwAddVarRW(mtwBarPP, "Shock Speed", TW_TYPE_FLOAT, &mShockSpeed, "min=0.1 max=30 step=0.1");
 	TwAddVarRW(mtwBarPP, "Shock Length", TW_TYPE_FLOAT, &mShockLength, "min=0.1 max=5 step=0.1");
 	TwAddSeparator(mtwBarPP, "", "");
-	TwAddVarRW(mtwBarPP, "Blur Radius", TW_TYPE_INT32, &mBlurRadius, "min=2 max=50 step=1");
+	TwAddVarRW(mtwBarPP, "Blur Radius", TW_TYPE_INT32, &mBlurRadius, "min=3 max=51 step=2");
+	TwAddVarRW(mtwBarPP, "Blur Strength", TW_TYPE_FLOAT, &mBlurStrength, "min=0.1 max=50 step=0.1");
+	TwAddVarRW(mtwBarPP, "Blur Mean", TW_TYPE_FLOAT, &mBlurMean, "min=0.1 max=2.0 step=0.01");
 	TwAddSeparator(mtwBarPP, "", "");
 	TwAddVarRW(mtwBarPP, "Double Vision Radius", TW_TYPE_FLOAT, &mDoubleVisionRadius, "min=0 max=0.5 step=0.005");
 	TwAddSeparator(mtwBarPP, "", "");
@@ -252,18 +371,36 @@ bool CScene::InitATB()
 	TwAddButton(mtwBarSinglePP, "Box Blur (5)", SetPP04, this, "");
 	TwAddButton(mtwBarSinglePP, "Box Blur (Custom)", SetPP05, this, "");
 	TwAddButton(mtwBarSinglePP, "Double Vision", SetPP06, this, "");
-	TwAddButton(mtwBarSinglePP, "Edges", SetPP07, this, "");
+	TwAddButton(mtwBarSinglePP, "Edges (Sobel)", SetPP07, this, "");
 	TwAddButton(mtwBarSinglePP, "Contrast", SetPP08, this, "");
 	TwAddButton(mtwBarSinglePP, "Jam on the screen", SetPP09, this, "");
 	TwAddButton(mtwBarSinglePP, "Invert", SetPP10, this, "");
 	TwAddButton(mtwBarSinglePP, "Solarise (Above)", SetPP11, this, "");
 	TwAddButton(mtwBarSinglePP, "Solarise (Below)", SetPP12, this, "");
-	TwAddSeparator(mtwBarSinglePP, "", "");
-	TwAddButton(mtwBarSinglePP, "Toggle Gaussian Blur", SetGauss, this, "");
+	TwAddButton(mtwBarSinglePP, "Cell Shade", SetPP13, this, "");
+	TwAddButton(mtwBarSinglePP, "Gaussian Blur", SetPP14, this, "");
 
 	mtwBarMultiPP = TwNewBar("Multi Pass Controls");
-	TwDefine(" 'Multi Pass Controls' position='415 5' size='300 320' ");
+	TwDefine(" 'Multi Pass Controls' position='5 325' size='300 400' ");
 	TwAddButton(mtwBarMultiPP, "Stop trying to hit me and hit me!", TWImpact, this, "");
+	TwAddSeparator(mtwBarPP, "", "");
+	TwAddVarRO(mtwBarMultiPP, "Chain Length", TW_TYPE_INT32, &mChainLength, "");
+	TwAddButton(mtwBarMultiPP, "Clear Chain", ClearChain, this, "");
+	TwAddSeparator(mtwBarMultiPP, "", "");
+	TwAddButton(mtwBarMultiPP, "Tint", AddPP01, this, "");
+	TwAddButton(mtwBarMultiPP, "Shock", AddPP02, this, "");
+	TwAddButton(mtwBarMultiPP, "Box Blur (3)", AddPP03, this, "");
+	TwAddButton(mtwBarMultiPP, "Box Blur (5)", AddPP04, this, "");
+	TwAddButton(mtwBarMultiPP, "Box Blur (Custom)", AddPP05, this, "");
+	TwAddButton(mtwBarMultiPP, "Double Vision", AddPP06, this, "");
+	TwAddButton(mtwBarMultiPP, "Edges (Sobel)", AddPP07, this, "");
+	TwAddButton(mtwBarMultiPP, "Contrast", AddPP08, this, "");
+	TwAddButton(mtwBarMultiPP, "Jam on the screen", AddPP09, this, "");
+	TwAddButton(mtwBarMultiPP, "Invert", AddPP10, this, "");
+	TwAddButton(mtwBarMultiPP, "Solarise (Above)", AddPP11, this, "");
+	TwAddButton(mtwBarMultiPP, "Solarise (Below)", AddPP12, this, "");
+	TwAddButton(mtwBarMultiPP, "Cell Shade", AddPP13, this, "");
+	TwAddButton(mtwBarMultiPP, "Gaussian Blur", AddPP14, this, "");
 
 	return true;
 }
@@ -281,6 +418,8 @@ bool CScene::InitPP()
 	mInitialTextureDesc.BindFlags = D3D10_BIND_RENDER_TARGET | D3D10_BIND_SHADER_RESOURCE;
 	mInitialTextureDesc.CPUAccessFlags = 0;
 	mInitialTextureDesc.MiscFlags = 0;
+
+
 	if( FAILED( mpd3dDevice->CreateTexture2D( &mInitialTextureDesc, NULL, &mInitialTexture) ) ) return false;
 	if (FAILED( mpd3dDevice->CreateTexture2D( &mInitialTextureDesc, NULL, &mTextureOne ) ) ) return false;
 	if (FAILED( mpd3dDevice->CreateTexture2D( &mInitialTextureDesc, NULL, &mTextureTwo ) ) ) return false;
@@ -309,7 +448,7 @@ bool CScene::InitPP()
 		return false;
 	}
 
-	mPPTechniques[0]  = mPPEffect->GetTechniqueByName( "PPCopy" );
+	mPPTechniques[0]  = mPPEffect->GetTechniqueByName( "PPDMCopy" );
 	mPPTechniques[1]  = mPPEffect->GetTechniqueByName( "PPTint" );
 	mPPTechniques[2]  = mPPEffect->GetTechniqueByName( "PPShock" );
 	mPPTechniques[3]  = mPPEffect->GetTechniqueByName( "PPBoxBlur3" );
@@ -322,9 +461,12 @@ bool CScene::InitPP()
 	mPPTechniques[10] = mPPEffect->GetTechniqueByName( "PPInvert" );
 	mPPTechniques[11] = mPPEffect->GetTechniqueByName( "PPSolariseA" );
 	mPPTechniques[12] = mPPEffect->GetTechniqueByName( "PPSolariseB" );
+	mPPTechniques[13] = mPPEffect->GetTechniqueByName( "PPCell" );
+	mPPTechniques[14] = mPPEffect->GetTechniqueByName( "PPGaussian" );
 
 	mInitialTextureVar = mPPEffect->GetVariableByName( "InitialTexture" )->AsShaderResource();
 	mPostProcessMapVar = mPPEffect->GetVariableByName( "BloodTexture" )->AsShaderResource();
+	mPPDepthMap        = mPPEffect->GetVariableByName( "DepthMap" )->AsShaderResource();
 
 	mdxPPTintColour = mPPEffect->GetVariableByName( "TintColour" )->AsVector();
 
@@ -343,9 +485,30 @@ bool CScene::InitPP()
 
 	mdxSolariseFloat = mPPEffect->GetVariableByName("SolariseThreshold")->AsScalar();
 
+	mdxBlurWeights = mPPEffect->GetVariableByName("GaussianFilter")->AsVector();
+
 	return true;
 
 }
+
+void CScene::UpdateGaussianDist(float sigma, int samples)
+{
+	//p(x) = exp(-(x - mu) ^ 2 / (2 * sigma ^ 2)) / sqrt(2 * pi*sigma ^ 2)
+
+	for (int i = 0; i < MAX_BLUR_RADIUS; i++)
+	{
+		mBlurWeights[i] = 0.0f;
+	}
+
+	for (int i = 0; i < samples; i++)
+	{	
+		float r = (samples / 2) - i;
+		mBlurWeights[i] = mBlurMean * exp( -(r*r) / (2 * sigma * sigma) );
+		//mBlurWeights[i] /= (2 * sigma * sigma);
+	}
+
+}
+
 // Update the scene - move/rotate each model and the camera, then update their matrices
 void CScene::UpdateScene( float frameTime )
 {
@@ -413,7 +576,14 @@ void CScene::UpdateScene( float frameTime )
 
 		mSolariseFloat = mSolariseInt / 255.0f;
 
+		UpdateGaussianDist(mBlurStrength, mBlurRadius);
+
+
 	}//end if impact
+
+	ppDirection = true;
+
+	mChainLength = mPPSteps.size();
 
 	//update all the objects, including calculating the matrix
 	for(int i = 0; i < miNumObjects; i++)
@@ -620,9 +790,9 @@ void CScene::DrawAllObjects(bool mirror)
 void CScene::RenderScene()
 {
 	//set render target to a texture for post processing
-	mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
-	mpd3dDevice->ClearRenderTargetView(mInitialRenderTarget, AmbientColour);
-	mpd3dDevice->ClearDepthStencilView(DepthStencilView, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0); // Clear the depth buffer too
+	//mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
+	//mpd3dDevice->ClearRenderTargetView(mInitialRenderTarget, AmbientColour);
+	//mpd3dDevice->ClearDepthStencilView(DepthStencilView, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0); // Clear the depth buffer too
 
 	mpd3dDevice->OMSetRenderTargets( 1, &mInitialRenderTarget, DepthStencilView);
 
@@ -664,6 +834,7 @@ void CScene::RenderScene()
 
 	//Pass the blur radius
 	mdxBlurRadius->SetRawValue( &mBlurRadius, 0, 4 );
+	mdxBlurWeights->SetRawValue(&mBlurWeights, 0, MAX_BLUR_RADIUS * 4);
 
 	//Pass the double vision radius
 	mdxDoubleVisionRadius->SetRawValue( &mDoubleVisionRadius, 0, 4 );
@@ -675,80 +846,100 @@ void CScene::RenderScene()
 	mdxBlood->SetRawValue(&mBlood, 0, 4);
 	mPostProcessMapVar->SetResource(mpMaps[15]);
 
+	mPPDepthMap->SetResource(mDepthShaderView);
+
 	mdxSolariseFloat->SetRawValue(&mSolariseFloat, 0, 4);
 
 	if(mCurrentPP < 0) mCurrentPP = 0;
-	if(mCurrentPP > NumPostProcesses ) mCurrentPP = 0;
+	if(mCurrentPP >= NumPostProcesses ) mCurrentPP = 0;
 
+	//Copy to Texture One - Not vital, but made the rest conceptually easier.
+	mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetOne, DepthStencilView);
+	mInitialTextureVar->SetResource(mInitialShaderResource);
+	mpd3dDevice->IASetInputLayout(NULL);
+	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+	mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
+	mpd3dDevice->Draw(4, 0);
+	mInitialTextureVar->SetResource(0);
+	mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
+	
 	if (impact)
 	{
 		RenderImpact();
 	}
+	else if (!multiprocess)
+	{
+		PostProcess(mCurrentPP);
+	}
 	else
 	{
-		if (mbGaussian)
+		auto it = mPPSteps.begin();
+		while (it != mPPSteps.end())
 		{
-
-		}
-
-		if (!multiprocess)
-		{
-			//Set render target back to output
-			mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
-			//send rendered scene to shader as a texture
-			mInitialTextureVar->SetResource(mInitialShaderResource);
-
-			//Apply Post Processing Effect
-			mpd3dDevice->IASetInputLayout(NULL);
-			mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-			mPPTechniques[mCurrentPP]->GetPassByIndex(0)->Apply(0);
-
-			mpd3dDevice->Draw(4, 0);
-
-			mInitialTextureVar->SetResource(0);
-			mPPTechniques[mCurrentPP]->GetPassByIndex(0)->Apply(0);
-		}
-		else
-		{
-
-			//Box Blur
-			mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
-			mInitialTextureVar->SetResource(mInitialShaderResource);
-			mpd3dDevice->IASetInputLayout(NULL);
-			mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-			mPPTechniques[5]->GetPassByIndex(0)->Apply(0);
-			mpd3dDevice->Draw(4, 0);
-			mInitialTextureVar->SetResource(0);
-			mPPTechniques[5]->GetPassByIndex(0)->Apply(0);
-
-			//Double Vision
-			mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
-			mInitialTextureVar->SetResource(mTextureOneShader);
-			mpd3dDevice->IASetInputLayout(NULL);
-			mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-			mPPTechniques[6]->GetPassByIndex(0)->Apply(0);
-			mpd3dDevice->Draw(4, 0);
-			mInitialTextureVar->SetResource(0);
-			mPPTechniques[6]->GetPassByIndex(0)->Apply(0);
-
-			//Copy to Output
-			/*mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
-			mInitialTextureVar->SetResource(mTextureTwoShader);
-			mpd3dDevice->IASetInputLayout(NULL);
-			mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-			mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
-			mpd3dDevice->Draw(4, 0);
-			mInitialTextureVar->SetResource(0);
-			mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
-			*/
+			
+			PostProcess(*it);
+			it++;
 		}
 	}//end else impact
+
+	//copy to viewport
+	mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
+	if (ppDirection)
+	{
+		mInitialTextureVar->SetResource(mTextureOneShader);
+	}
+	else
+	{
+		mInitialTextureVar->SetResource(mTextureTwoShader);
+	}
+
+	mpd3dDevice->IASetInputLayout(NULL);
+	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+	mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
+	mpd3dDevice->Draw(4, 0);
+	mInitialTextureVar->SetResource(0);
+
+	
 	//---------------------------
 	// Display the Scene
 
 	// After we've finished drawing to the off-screen back buffer, we "present" it to the front buffer (the screen)
 	TwDraw();
 	SwapChain->Present( 0, 0 );
+}
+
+void CScene::PostProcess(int process)
+{
+	D3D10_TECHNIQUE_DESC tDesc;
+	mPPTechniques[process]->GetDesc(&tDesc);
+
+	ID3D10ShaderResourceView *const pSRV[1] = { NULL };
+	mpd3dDevice->PSSetShaderResources(0, 1, pSRV);
+
+	for (unsigned int i = 0; i < tDesc.Passes; ++i)
+	{
+		//set render target and source
+		if (ppDirection) // rendering "forwards"
+		{
+			mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetTwo, DepthStencilView);
+			mInitialTextureVar->SetResource(mTextureOneShader);
+		}
+		else // rendering "backwards"
+		{
+			mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetOne, DepthStencilView);
+			mInitialTextureVar->SetResource(mTextureTwoShader);
+		}
+
+		//Apply Post Processing Effect
+		mpd3dDevice->IASetInputLayout(NULL);
+		mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+		mPPTechniques[process]->GetPassByIndex(i)->Apply(0);
+		mpd3dDevice->Draw(4, 0);
+		mInitialTextureVar->SetResource(0);
+		
+		ppDirection = !ppDirection;
+		//mPPTechniques[process]->GetPassByIndex(i)->Apply(0);
+	}
 }
 
 void CScene::StartImpact()
@@ -842,14 +1033,16 @@ void CScene::RenderImpact()
 	mPPTechniques[2]->GetPassByIndex(0)->Apply(0);
 
 	//Copy to Output
-	mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
-	mInitialTextureVar->SetResource(mTextureTwoShader);
-	mpd3dDevice->IASetInputLayout(NULL);
-	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-	mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
-	mpd3dDevice->Draw(4, 0);
-	mInitialTextureVar->SetResource(0);
-	mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
+	//mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
+	//mInitialTextureVar->SetResource(mTextureTwoShader);
+	//mpd3dDevice->IASetInputLayout(NULL);
+	//mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+	//mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
+	//mpd3dDevice->Draw(4, 0);
+	//mInitialTextureVar->SetResource(0);
+	//mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
+
+	ppDirection = true;
 
 }
 
@@ -1031,7 +1224,7 @@ bool CScene::InitDevice()
 	sd.SampleDesc.Quality = 0;
 	sd.OutputWindow = HWnd;                          // Target window
 	sd.Windowed = TRUE;                                // Whether to render in a window (TRUE) or go fullscreen (FALSE)
-	hr = D3D10CreateDeviceAndSwapChain( NULL, D3D10_DRIVER_TYPE_HARDWARE, NULL, D3D10_CREATE_DEVICE_DEBUG,
+	hr = D3D10CreateDeviceAndSwapChain( NULL, D3D10_DRIVER_TYPE_HARDWARE, NULL, 0,
 										D3D10_SDK_VERSION, &sd, &SwapChain, &mpd3dDevice );
 	if( FAILED( hr ) ) return false;
 
@@ -1051,13 +1244,13 @@ bool CScene::InitDevice()
 	descDepth.Height = mViewportHeight;
 	descDepth.MipLevels = 1;
 	descDepth.ArraySize = 1;
-	descDepth.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;		// 24 bits for depth, 8 for stencil - more memory efficient
-	//descDepth.Format = DXGI_FORMAT_D32_FLOAT;				// 32 bit float depth only 
-	//descDepth.Format = DXGI_FORMAT_D32_FLOAT_S8X24_UINT;	// 32 bit depth + 8 for stencil, 24 unused bytes - more precise depth buffer
+	//descDepth.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;		// 24 bits for depth, 8 for stencil - more memory efficient
+	descDepth.Format = DXGI_FORMAT_R24G8_TYPELESS;
+	//descDepth.Format = DXGI_FORMAT_R32_TYPELESS;
 	descDepth.SampleDesc.Count = 1;
 	descDepth.SampleDesc.Quality = 0;
 	descDepth.Usage = D3D10_USAGE_DEFAULT;
-	descDepth.BindFlags = D3D10_BIND_DEPTH_STENCIL;
+	descDepth.BindFlags = D3D10_BIND_DEPTH_STENCIL | D3D10_BIND_SHADER_RESOURCE;
 	descDepth.CPUAccessFlags = 0;
 	descDepth.MiscFlags = 0;
 	hr = mpd3dDevice->CreateTexture2D( &descDepth, NULL, &DepthStencil );
@@ -1065,11 +1258,19 @@ bool CScene::InitDevice()
 
 	// Create the depth stencil view, i.e. indicate that the texture just created is to be used as a depth buffer
 	D3D10_DEPTH_STENCIL_VIEW_DESC descDSV;
-	descDSV.Format = descDepth.Format;
+	descDSV.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
 	descDSV.ViewDimension = D3D10_DSV_DIMENSION_TEXTURE2D;
 	descDSV.Texture2D.MipSlice = 0;
 	hr = mpd3dDevice->CreateDepthStencilView( DepthStencil, &descDSV, &DepthStencilView );
 	if( FAILED( hr ) ) return false;
+
+	// Create a shader resource view for the depth buffer - required for the soft-particles shaders that will access the depth buffer as a texture
+	
+	mDepthShaderDesc.Format = DXGI_FORMAT::DXGI_FORMAT_R24_UNORM_X8_TYPELESS;
+	mDepthShaderDesc.ViewDimension = D3D10_SRV_DIMENSION_TEXTURE2D;
+	mDepthShaderDesc.Texture2D.MipLevels = 1;
+	mDepthShaderDesc.Texture2D.MostDetailedMip = 0;
+	if (FAILED(mpd3dDevice->CreateShaderResourceView(DepthStencil, &mDepthShaderDesc, &mDepthShaderView))) return false;
 
 	// Select the back buffer and depth buffer to use for rendering now
 	mpd3dDevice->OMSetRenderTargets( 1, &RenderTargetView, DepthStencilView );

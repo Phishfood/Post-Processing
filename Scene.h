@@ -6,6 +6,7 @@
 #include <atlbase.h>
 #include <sstream>
 #include <iostream>
+#include <random>
 #include "resource.h"
 
 #include "Defines.h" // General definitions shared by all source files
@@ -23,6 +24,8 @@
 #pragma comment(lib, "AntTweakBar.lib")
 
 #include <vector>
+
+const int MAX_BLUR_RADIUS = 64;
 
 class CScene
 {
@@ -89,6 +92,8 @@ private:
 		Invert,
 		SolariseA,
 		SolariseB,
+		CellShade,
+		Gaussian,
 		NumPostProcesses
 	};
 
@@ -123,8 +128,11 @@ private:
 	//Blur
 	int mBlurRadius;
 	float mBlurStrength;
+	float mBlurMean;
 	ID3D10EffectVariable* mdxBlurRadius;
-	
+	ID3D10EffectVariable* mdxBlurWeights;
+
+	float mBlurWeights[MAX_BLUR_RADIUS];
 
 	//DoubleVision
 	float mDoubleVisionRadius;
@@ -136,17 +144,25 @@ private:
 	ID3D10EffectVariable* mdxContrastFactor;
 
 	int mCurrentPP;
+	int mChainLength;
 
 	ID3D10Texture2D* mTextureOne, *mTextureTwo;
 	ID3D10RenderTargetView* mRenderTargetOne, *mRenderTargetTwo;
 	ID3D10ShaderResourceView* mTextureOneShader, *mTextureTwoShader;
-	bool ppDirection;
+	bool ppDirection, fromSource;
 
 	int mSolariseInt;
 	float mSolariseFloat;
 	ID3D10EffectVariable* mdxSolariseFloat;
 
 	bool impact;
+
+	ID3D10ShaderResourceView* mDepthShaderView;
+	D3D10_DEPTH_STENCIL_VIEW_DESC mDepthStencilViewDesc;
+	D3D10_SHADER_RESOURCE_VIEW_DESC mDepthShaderDesc;
+	D3D10_TEXTURE2D_DESC mDepthDesc;
+
+	ID3D10EffectShaderResourceVariable* mPPDepthMap;
 
 	////////////////////////////
 	//RENDER VARIABLES
@@ -219,6 +235,10 @@ private:
 	
 	void UpdateImpact(float frameTime);
 	void RenderImpact();
+	
+	void UpdateGaussianDist(float sigma, int samples);
+
+	void PostProcess(int process);
 
 public:
 
@@ -226,6 +246,8 @@ public:
 
 	bool multiprocess;
 	bool mbGaussian;
+
+	std::vector<int> mPPSteps;
 
 	CScene(void);
 	~CScene(void);

@@ -19,6 +19,7 @@
 	//Invert
 	//Solarise Above
 	//Solarise Below
+	//2 Pass Gaussian Blur
 
 
 
@@ -27,6 +28,7 @@
 /////////////////////////////////////////////////////////////////
 Texture2D InitialTexture;
 Texture2D BloodTexture;
+Texture2D DepthMap;
 
 float PixelX, PixelY;
 
@@ -43,6 +45,10 @@ float Contrast;
 float Blood;
 
 float SolariseThreshold;
+
+float4 GaussTemp[16];
+
+float4 GaussianFilter[64];
 
 /////////////////////////////////////////////////////////////////
 //Sampler States
@@ -177,7 +183,8 @@ PS_INPUT FullScreenQuad(VS_INPUT vIn)
 
 float4 PPCopyShader( PS_INPUT ppIn ) : SV_Target
 {
-	float3 ppColour = InitialTexture.Sample( PointSample, ppIn.UV );
+	float3 ppColour = InitialTexture.Sample(PointSample, ppIn.UV);
+	float3 dmColour = DepthMap.Sample(PointSample, ppIn.UV);
 	return float4( ppColour, 1.0f );
 }
 
@@ -618,6 +625,147 @@ technique10 PPSolariseB
 		SetVertexShader(CompileShader(vs_4_0, FullScreenQuad()));
 		SetGeometryShader(NULL);
 		SetPixelShader(CompileShader(ps_4_0, PPSolariseBShader()));
+
+		SetBlendState(NoBlend, float4(0.0f, 0.0f, 0.0f, 0.0f), 0xFFFFFFFF);
+		SetRasterizerState(CullNone);
+		SetDepthStencilState(DisableDepth, 0);
+	}
+}
+
+///////////
+// CellShade
+//////////
+
+float4 PPCellShader(PS_INPUT ppIn) : SV_Target
+{
+	float3 ppCol = float3(0.0f, 0.0f, 0.0f);
+
+	float e11 = InitialTexture.Sample(PointSample, ppIn.UV + float2(-PixelX, -PixelY));
+	float e12 = InitialTexture.Sample(PointSample, ppIn.UV + float2(0, -PixelY));
+	float e13 = InitialTexture.Sample(PointSample, ppIn.UV + float2(+PixelX, -PixelY));
+
+	float e21 = InitialTexture.Sample(PointSample, ppIn.UV + float2(-PixelX, 0));
+	float e22 = InitialTexture.Sample(PointSample, ppIn.UV + float2(0, 0));
+	float e23 = InitialTexture.Sample(PointSample, ppIn.UV + float2(+PixelX, 0));
+
+	float e31 = InitialTexture.Sample(PointSample, ppIn.UV + float2(-PixelX, +PixelY));
+	float e32 = InitialTexture.Sample(PointSample, ppIn.UV + float2(0, +PixelY));
+	float e33 = InitialTexture.Sample(PointSample, ppIn.UV + float2(+PixelX, +PixelY));
+
+	float t1 = e13 + e33 + (2 * e23) - e11 - (2 * e21) - e31;
+	float t2 = e31 + (2 * e32) + e33 - e11 - (2 * e12) - e13;
+
+	if (((t1 * t1) + (t2 * t2)) > 0.05)
+	{
+		return float4(0.0f, 0.0f, 0.0f, 1.0f);
+	}
+	else
+	{
+		return InitialTexture.Sample(PointSample, ppIn.UV + float2(0, 0));
+	}
+}
+
+technique10 PPCell
+{
+	pass P0
+	{
+		SetVertexShader(CompileShader(vs_4_0, FullScreenQuad()));
+		SetGeometryShader(NULL);
+		SetPixelShader(CompileShader(ps_4_0, PPCellShader()));
+
+		SetBlendState(NoBlend, float4(0.0f, 0.0f, 0.0f, 0.0f), 0xFFFFFFFF);
+		SetRasterizerState(CullNone);
+		SetDepthStencilState(DisableDepth, 0);
+	}
+}
+
+///////////////
+// 2 Pass Gaussian
+///////////////
+
+float4 PPGaussianHorizontalShader( PS_INPUT ppIn ) : SV_Target
+{
+	
+	float3 ppCol = float3(0.0f, 0.0f, 0.0f);
+	int halfBlurRange = BlurRange / 2;
+
+	float weightTotal = 0;
+
+	for (int i = 0; i < BlurRange; i++)
+	{
+		float xOffset = (i - halfBlurRange) * PixelX;
+		float weight = ((float[4])(GaussianFilter[i / 4]))[i % 4];
+		weightTotal += weight;
+		ppCol += InitialTexture.Sample(PointSample, ppIn.UV + float2(xOffset, 0.0f)) * weight;
+	}
+
+	ppCol /= weightTotal;
+	return float4(ppCol, 1.0f);
+}
+
+float4 PPGaussianVerticalShader( PS_INPUT ppIn ) : SV_Target
+{
+	float3 ppCol = float3(0.0f, 0.0f, 0.0f);
+	int halfBlurRange = BlurRange / 2;
+
+	float weightTotal = 0;
+
+	for (int i = 0; i < BlurRange; i++)
+	{
+		float yOffset = (i - halfBlurRange) * PixelY;
+		float weight = ((float[4])(GaussianFilter[i / 4]))[i % 4];
+		weightTotal += weight;
+		ppCol += InitialTexture.Sample(PointSample, ppIn.UV + float2(0.0f, yOffset)) * weight;
+	}
+
+	ppCol /= weightTotal;
+	ppCol.r += 0.5f;
+	return float4(ppCol, 1.0f);
+
+}
+
+technique10 PPGaussian
+{
+	pass P0
+	{
+		SetVertexShader(CompileShader(vs_4_0, FullScreenQuad()));
+		SetGeometryShader(NULL);
+		SetPixelShader(CompileShader(ps_4_0, PPGaussianHorizontalShader()));
+
+		SetBlendState(NoBlend, float4(0.0f, 0.0f, 0.0f, 0.0f), 0xFFFFFFFF);
+		SetRasterizerState(CullNone);
+		SetDepthStencilState(DisableDepth, 0);
+	}
+
+	pass P1
+	{
+		SetVertexShader(CompileShader(vs_4_0, FullScreenQuad()));
+		SetGeometryShader(NULL);
+		SetPixelShader(CompileShader(ps_4_0, PPGaussianVerticalShader()));
+
+		SetBlendState(NoBlend, float4(0.0f, 0.0f, 0.0f, 0.0f), 0xFFFFFFFF);
+		SetRasterizerState(CullNone);
+		SetDepthStencilState(DisableDepth, 0);
+	}
+}
+
+///////////////
+// Copy Depth Buffer
+//////////////
+
+float4 PPDMCopyShader(PS_INPUT ppIn) : SV_Target
+{
+	float3 ppColour = DepthMap.Sample(PointSample, ppIn.UV);
+	return float4(ppColour.r,0.5f,0.5f, 1.0f);
+}
+
+technique10 PPDMCopy
+{
+	pass P0
+	{
+		SetVertexShader(CompileShader(vs_4_0, FullScreenQuad()));
+		SetGeometryShader(NULL);
+		SetPixelShader(CompileShader(ps_4_0, PPDMCopyShader()));
 
 		SetBlendState(NoBlend, float4(0.0f, 0.0f, 0.0f, 0.0f), 0xFFFFFFFF);
 		SetRasterizerState(CullNone);

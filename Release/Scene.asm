@@ -9,8 +9,12 @@
 INCLUDELIB LIBCMT
 INCLUDELIB OLDNAMES
 
-PUBLIC	__GUID_9b7e4c04_342c_4106_a19f_4f2704f689f0
 PUBLIC	_LIBID_ATLLib
+PUBLIC	?mViewportWidth@CScene@@0HA			; CScene::mViewportWidth
+PUBLIC	?mViewportHeight@CScene@@0HA			; CScene::mViewportHeight
+PUBLIC	?MAX_LIGHTS@CScene@@0HB				; CScene::MAX_LIGHTS
+PUBLIC	?MAX_SHADER_LIGHTS@CScene@@0HB			; CScene::MAX_SHADER_LIGHTS
+PUBLIC	?MAX_OBJECTS@CScene@@0HB			; CScene::MAX_OBJECTS
 PUBLIC	??_C@_1CK@OEKPKBNA@?$AAC?$AAo?$AAm?$AAp?$AAo?$AAn?$AAe?$AAn?$AAt?$AA?5?$AAC?$AAa?$AAt?$AAe?$AAg?$AAo?$AAr?$AAi?$AAe?$AAs?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BC@NKMMNMGL@?$AAF?$AAi?$AAl?$AAe?$AAT?$AAy?$AAp?$AAe?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1BE@EKPAFMCP@?$AAI?$AAn?$AAt?$AAe?$AAr?$AAf?$AAa?$AAc?$AAe?$AA?$AA@ ; `string'
@@ -67,12 +71,12 @@ PUBLIC	?is_bounded@_Num_float_base@std@@2_NB		; std::_Num_float_base::is_bounded
 PUBLIC	?is_exact@_Num_float_base@std@@2_NB		; std::_Num_float_base::is_exact
 PUBLIC	?value@?$integral_constant@_N$00@std@@2_NB	; std::integral_constant<bool,1>::value
 PUBLIC	?is_iec559@_Num_float_base@std@@2_NB		; std::_Num_float_base::is_iec559
+PUBLIC	?MAX_VERTEX_ELTS@CModel@@0HB			; CModel::MAX_VERTEX_ELTS
 PUBLIC	?is_integer@_Num_float_base@std@@2_NB		; std::_Num_float_base::is_integer
 PUBLIC	?value@?$integral_constant@I$07@std@@2IB	; std::integral_constant<unsigned int,8>::value
 PUBLIC	?is_modulo@_Num_float_base@std@@2_NB		; std::_Num_float_base::is_modulo
 PUBLIC	?is_signed@_Num_float_base@std@@2_NB		; std::_Num_float_base::is_signed
 PUBLIC	?is_specialized@_Num_float_base@std@@2_NB	; std::_Num_float_base::is_specialized
-PUBLIC	?MAX_VERTEX_ELTS@CModel@@0HB			; CModel::MAX_VERTEX_ELTS
 PUBLIC	?tinyness_before@_Num_float_base@std@@2_NB	; std::_Num_float_base::tinyness_before
 PUBLIC	?traps@_Num_float_base@std@@2_NB		; std::_Num_float_base::traps
 PUBLIC	?round_style@_Num_float_base@std@@2W4float_round_style@2@B ; std::_Num_float_base::round_style
@@ -87,13 +91,8 @@ PUBLIC	??_C@_1M@KANJNLFF@?$AAC?$AAL?$AAS?$AAI?$AAD?$AA?$AA@ ; `string'
 PUBLIC	?is_signed@?$numeric_limits@_W@std@@2_NB	; std::numeric_limits<wchar_t>::is_signed
 PUBLIC	?digits@?$numeric_limits@_W@std@@2HB		; std::numeric_limits<wchar_t>::digits
 PUBLIC	?digits10@?$numeric_limits@_W@std@@2HB		; std::numeric_limits<wchar_t>::digits10
-PUBLIC	?mViewportWidth@CScene@@0HA			; CScene::mViewportWidth
-PUBLIC	?mViewportHeight@CScene@@0HA			; CScene::mViewportHeight
-PUBLIC	?MAX_LIGHTS@CScene@@0HB				; CScene::MAX_LIGHTS
 PUBLIC	??_C@_1M@EJNEECMJ@?$AAA?$AAp?$AAp?$AAI?$AAD?$AA?$AA@ ; `string'
-PUBLIC	?MAX_SHADER_LIGHTS@CScene@@0HB			; CScene::MAX_SHADER_LIGHTS
 PUBLIC	?skipws@?$_Iosb@H@std@@2W4_Fmtflags@12@B	; std::_Iosb<int>::skipws
-PUBLIC	?MAX_OBJECTS@CScene@@0HB			; CScene::MAX_OBJECTS
 PUBLIC	?unitbuf@?$_Iosb@H@std@@2W4_Fmtflags@12@B	; std::_Iosb<int>::unitbuf
 PUBLIC	?uppercase@?$_Iosb@H@std@@2W4_Fmtflags@12@B	; std::_Iosb<int>::uppercase
 PUBLIC	?showbase@?$_Iosb@H@std@@2W4_Fmtflags@12@B	; std::_Iosb<int>::showbase
@@ -285,6 +284,7 @@ PUBLIC	?digits10@?$numeric_limits@N@std@@2HB		; std::numeric_limits<double>::dig
 PUBLIC	?pmField@?$CVarTypeInfo@PAPA_W@ATL@@2QQtagVARIANT@@PAPA_WQ3@ ; ATL::CVarTypeInfo<wchar_t * *>::pmField
 PUBLIC	?max_digits10@?$numeric_limits@N@std@@2HB	; std::numeric_limits<double>::max_digits10
 PUBLIC	?max_exponent@?$numeric_limits@N@std@@2HB	; std::numeric_limits<double>::max_exponent
+PUBLIC	__GUID_9b7e4c04_342c_4106_a19f_4f2704f689f0
 PUBLIC	?max_exponent10@?$numeric_limits@N@std@@2HB	; std::numeric_limits<double>::max_exponent10
 PUBLIC	?VT@?$CVarTypeInfo@PAUIUnknown@@@ATL@@2GB	; ATL::CVarTypeInfo<IUnknown *>::VT
 PUBLIC	__GUID_b196b284_bab4_101a_b69c_00aa00341d07
@@ -317,6 +317,10 @@ PUBLIC	__GUID_00020400_0000_0000_c000_000000000046
 PUBLIC	__GUID_00000146_0000_0000_c000_000000000046
 PUBLIC	_IID_IAxWinHostWindowLic
 PUBLIC	_IID_IAxWinAmbientDispatch
+_BSS	SEGMENT
+?mViewportWidth@CScene@@0HA DD 01H DUP (?)		; CScene::mViewportWidth
+?mViewportHeight@CScene@@0HA DD 01H DUP (?)		; CScene::mViewportHeight
+_BSS	ENDS
 ;	COMDAT ?_pModule@ATL@@3PAVCComModule@1@A
 _BSS	SEGMENT
 ?_pModule@ATL@@3PAVCComModule@1@A DD 01H DUP (?)	; ATL::_pModule
@@ -332,10 +336,6 @@ _BSS	ENDS
 ;	COMDAT ?_AtlRegisterPerUser@ATL@@3_NA
 _BSS	SEGMENT
 ?_AtlRegisterPerUser@ATL@@3_NA DB 01H DUP (?)		; ATL::_AtlRegisterPerUser
-_BSS	ENDS
-_BSS	SEGMENT
-?mViewportWidth@CScene@@0HA DD 01H DUP (?)		; CScene::mViewportWidth
-?mViewportHeight@CScene@@0HA DD 01H DUP (?)		; CScene::mViewportHeight
 _BSS	ENDS
 ;	COMDAT ?ATL_CREATE_OBJECT@CComApartment@ATL@@2IA
 _BSS	SEGMENT
@@ -542,6 +542,20 @@ CONST	ENDS
 ;	COMDAT ?max_exponent10@?$numeric_limits@N@std@@2HB
 CONST	SEGMENT
 ?max_exponent10@?$numeric_limits@N@std@@2HB DD 0134H	; std::numeric_limits<double>::max_exponent10
+CONST	ENDS
+;	COMDAT __GUID_9b7e4c04_342c_4106_a19f_4f2704f689f0
+CONST	SEGMENT
+__GUID_9b7e4c04_342c_4106_a19f_4f2704f689f0 DD 09b7e4c04H
+	DW	0342cH
+	DW	04106H
+	DB	0a1H
+	DB	09fH
+	DB	04fH
+	DB	027H
+	DB	04H
+	DB	0f6H
+	DB	089H
+	DB	0f0H
 CONST	ENDS
 ;	COMDAT ?max_exponent@?$numeric_limits@N@std@@2HB
 CONST	SEGMENT
@@ -1376,26 +1390,14 @@ CONST	ENDS
 CONST	SEGMENT
 ?unitbuf@?$_Iosb@H@std@@2W4_Fmtflags@12@B DD 02H	; std::_Iosb<int>::unitbuf
 CONST	ENDS
-;	COMDAT ?MAX_OBJECTS@CScene@@0HB
-CONST	SEGMENT
-?MAX_OBJECTS@CScene@@0HB DD 0c8H			; CScene::MAX_OBJECTS
-CONST	ENDS
 ;	COMDAT ?skipws@?$_Iosb@H@std@@2W4_Fmtflags@12@B
 CONST	SEGMENT
 ?skipws@?$_Iosb@H@std@@2W4_Fmtflags@12@B DD 01H		; std::_Iosb<int>::skipws
-CONST	ENDS
-;	COMDAT ?MAX_SHADER_LIGHTS@CScene@@0HB
-CONST	SEGMENT
-?MAX_SHADER_LIGHTS@CScene@@0HB DD 0cH			; CScene::MAX_SHADER_LIGHTS
 CONST	ENDS
 ;	COMDAT ??_C@_1M@EJNEECMJ@?$AAA?$AAp?$AAp?$AAI?$AAD?$AA?$AA@
 CONST	SEGMENT
 ??_C@_1M@EJNEECMJ@?$AAA?$AAp?$AAp?$AAI?$AAD?$AA?$AA@ DB 'A', 00H, 'p', 00H
 	DB	'p', 00H, 'I', 00H, 'D', 00H, 00H, 00H	; `string'
-CONST	ENDS
-;	COMDAT ?MAX_LIGHTS@CScene@@0HB
-CONST	SEGMENT
-?MAX_LIGHTS@CScene@@0HB DD 01eH				; CScene::MAX_LIGHTS
 CONST	ENDS
 ;	COMDAT ?digits10@?$numeric_limits@_W@std@@2HB
 CONST	SEGMENT
@@ -1474,10 +1476,6 @@ CONST	ENDS
 CONST	SEGMENT
 ?tinyness_before@_Num_float_base@std@@2_NB DB 01H	; std::_Num_float_base::tinyness_before
 CONST	ENDS
-;	COMDAT ?MAX_VERTEX_ELTS@CModel@@0HB
-CONST	SEGMENT
-?MAX_VERTEX_ELTS@CModel@@0HB DD 040H			; CModel::MAX_VERTEX_ELTS
-CONST	ENDS
 ;	COMDAT ?is_specialized@_Num_float_base@std@@2_NB
 CONST	SEGMENT
 ?is_specialized@_Num_float_base@std@@2_NB DB 01H	; std::_Num_float_base::is_specialized
@@ -1497,6 +1495,10 @@ CONST	ENDS
 ;	COMDAT ?is_integer@_Num_float_base@std@@2_NB
 CONST	SEGMENT
 ?is_integer@_Num_float_base@std@@2_NB DB 00H		; std::_Num_float_base::is_integer
+CONST	ENDS
+;	COMDAT ?MAX_VERTEX_ELTS@CModel@@0HB
+CONST	SEGMENT
+?MAX_VERTEX_ELTS@CModel@@0HB DD 040H			; CModel::MAX_VERTEX_ELTS
 CONST	ENDS
 ;	COMDAT ?is_iec559@_Num_float_base@std@@2_NB
 CONST	SEGMENT
@@ -1735,6 +1737,18 @@ CONST	SEGMENT
 	DB	00H, 'g', 00H, 'o', 00H, 'r', 00H, 'i', 00H, 'e', 00H, 's', 00H
 	DB	00H, 00H					; `string'
 CONST	ENDS
+;	COMDAT ?MAX_OBJECTS@CScene@@0HB
+CONST	SEGMENT
+?MAX_OBJECTS@CScene@@0HB DD 0c8H			; CScene::MAX_OBJECTS
+CONST	ENDS
+;	COMDAT ?MAX_SHADER_LIGHTS@CScene@@0HB
+CONST	SEGMENT
+?MAX_SHADER_LIGHTS@CScene@@0HB DD 0cH			; CScene::MAX_SHADER_LIGHTS
+CONST	ENDS
+;	COMDAT ?MAX_LIGHTS@CScene@@0HB
+CONST	SEGMENT
+?MAX_LIGHTS@CScene@@0HB DD 01eH				; CScene::MAX_LIGHTS
+CONST	ENDS
 ;	COMDAT _LIBID_ATLLib
 CONST	SEGMENT
 _LIBID_ATLLib DD 044ec0535H
@@ -1749,25 +1763,13 @@ _LIBID_ATLLib DD 044ec0535H
 	DB	091H
 	DB	0d3H
 CONST	ENDS
-;	COMDAT __GUID_9b7e4c04_342c_4106_a19f_4f2704f689f0
-CONST	SEGMENT
-__GUID_9b7e4c04_342c_4106_a19f_4f2704f689f0 DD 09b7e4c04H
-	DW	0342cH
-	DW	04106H
-	DB	0a1H
-	DB	09fH
-	DB	04fH
-	DB	027H
-	DB	04H
-	DB	0f6H
-	DB	089H
-	DB	0f0H
-CONST	ENDS
 PUBLIC	??_H@YGXPAXIHP6EPAX0@Z@Z			; `vector constructor iterator'
 PUBLIC	_HRESULT_FROM_WIN32
 PUBLIC	_hypot
+PUBLIC	_expf
 PUBLIC	_fmodf
 PUBLIC	_sinf
+PUBLIC	?exp@@YAMM@Z					; exp
 PUBLIC	?sin@@YAMM@Z					; sin
 PUBLIC	??0D3DXVECTOR3@@QAE@XZ				; D3DXVECTOR3::D3DXVECTOR3
 PUBLIC	??0D3DXVECTOR3@@QAE@PBM@Z			; D3DXVECTOR3::D3DXVECTOR3
@@ -1843,6 +1845,8 @@ PUBLIC	?length@?$char_traits@D@std@@SAIPBD@Z		; std::char_traits<char>::length
 PUBLIC	?copy@?$char_traits@D@std@@SAPADPADPBDI@Z	; std::char_traits<char>::copy
 PUBLIC	?move@?$char_traits@D@std@@SAPADPADPBDI@Z	; std::char_traits<char>::move
 PUBLIC	?assign@?$char_traits@D@std@@SAXAADABD@Z	; std::char_traits<char>::assign
+PUBLIC	?_Orphan_all@_Container_base0@std@@QAEXXZ	; std::_Container_base0::_Orphan_all
+PUBLIC	?_Adopt@_Iterator_base0@std@@QAEXPBX@Z		; std::_Iterator_base0::_Adopt
 PUBLIC	??0?$allocator@D@std@@QAE@XZ			; std::allocator<char>::allocator<char>
 PUBLIC	?deallocate@?$allocator@D@std@@QAEXPADI@Z	; std::allocator<char>::deallocate
 PUBLIC	?allocate@?$allocator@D@std@@QAEPADI@Z		; std::allocator<char>::allocate
@@ -1953,7 +1957,39 @@ PUBLIC	?DrawObject@CScene@@AAEXH_N@Z			; CScene::DrawObject
 PUBLIC	?DrawAllObjects@CScene@@AAEX_N@Z		; CScene::DrawAllObjects
 PUBLIC	?UpdateImpact@CScene@@AAEXM@Z			; CScene::UpdateImpact
 PUBLIC	?RenderImpact@CScene@@AAEXXZ			; CScene::RenderImpact
+PUBLIC	?UpdateGaussianDist@CScene@@AAEXMH@Z		; CScene::UpdateGaussianDist
+PUBLIC	?PostProcess@CScene@@AAEXH@Z			; CScene::PostProcess
 PUBLIC	?StartImpact@CScene@@QAEXXZ			; CScene::StartImpact
+PUBLIC	??0?$allocator@H@std@@QAE@XZ			; std::allocator<int>::allocator<int>
+PUBLIC	?deallocate@?$allocator@H@std@@QAEXPAHI@Z	; std::allocator<int>::deallocate
+PUBLIC	?allocate@?$allocator@H@std@@QAEPAHI@Z		; std::allocator<int>::allocate
+PUBLIC	?max_size@?$allocator@H@std@@QBEIXZ		; std::allocator<int>::max_size
+PUBLIC	?max_size@?$allocator_traits@V?$allocator@H@std@@@std@@SAIABV?$allocator@H@2@@Z ; std::allocator_traits<std::allocator<int> >::max_size
+PUBLIC	??0?$_Wrap_alloc@V?$allocator@H@std@@@std@@QAE@XZ ; std::_Wrap_alloc<std::allocator<int> >::_Wrap_alloc<std::allocator<int> >
+PUBLIC	?allocate@?$_Wrap_alloc@V?$allocator@H@std@@@std@@QAEPAHI@Z ; std::_Wrap_alloc<std::allocator<int> >::allocate
+PUBLIC	?deallocate@?$_Wrap_alloc@V?$allocator@H@std@@@std@@QAEXPAHI@Z ; std::_Wrap_alloc<std::allocator<int> >::deallocate
+PUBLIC	?max_size@?$_Wrap_alloc@V?$allocator@H@std@@@std@@QBEIXZ ; std::_Wrap_alloc<std::allocator<int> >::max_size
+PUBLIC	??0?$_Vector_val@U?$_Simple_types@H@std@@@std@@QAE@XZ ; std::_Vector_val<std::_Simple_types<int> >::_Vector_val<std::_Simple_types<int> >
+PUBLIC	??0?$_Vector_alloc@$0A@U?$_Vec_base_types@HV?$allocator@H@std@@@std@@@std@@QAE@ABV?$allocator@H@1@@Z ; std::_Vector_alloc<0,std::_Vec_base_types<int,std::allocator<int> > >::_Vector_alloc<0,std::_Vec_base_types<int,std::allocator<int> > >
+PUBLIC	?_Getal@?$_Vector_alloc@$0A@U?$_Vec_base_types@HV?$allocator@H@std@@@std@@@std@@QBE?AU?$_Wrap_alloc@V?$allocator@H@std@@@2@XZ ; std::_Vector_alloc<0,std::_Vec_base_types<int,std::allocator<int> > >::_Getal
+PUBLIC	??0?$vector@HV?$allocator@H@std@@@std@@QAE@XZ	; std::vector<int,std::allocator<int> >::vector<int,std::allocator<int> >
+PUBLIC	?push_back@?$vector@HV?$allocator@H@std@@@std@@QAEX$$QAH@Z ; std::vector<int,std::allocator<int> >::push_back
+PUBLIC	??1?$vector@HV?$allocator@H@std@@@std@@QAE@XZ	; std::vector<int,std::allocator<int> >::~vector<int,std::allocator<int> >
+PUBLIC	?capacity@?$vector@HV?$allocator@H@std@@@std@@QBEIXZ ; std::vector<int,std::allocator<int> >::capacity
+PUBLIC	?_Unused_capacity@?$vector@HV?$allocator@H@std@@@std@@QBEIXZ ; std::vector<int,std::allocator<int> >::_Unused_capacity
+PUBLIC	?begin@?$vector@HV?$allocator@H@std@@@std@@QAE?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@2@XZ ; std::vector<int,std::allocator<int> >::begin
+PUBLIC	?end@?$vector@HV?$allocator@H@std@@@std@@QAE?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@2@XZ ; std::vector<int,std::allocator<int> >::end
+PUBLIC	?size@?$vector@HV?$allocator@H@std@@@std@@QBEIXZ ; std::vector<int,std::allocator<int> >::size
+PUBLIC	?max_size@?$vector@HV?$allocator@H@std@@@std@@QBEIXZ ; std::vector<int,std::allocator<int> >::max_size
+PUBLIC	?clear@?$vector@HV?$allocator@H@std@@@std@@QAEXXZ ; std::vector<int,std::allocator<int> >::clear
+PUBLIC	?_Destroy@?$vector@HV?$allocator@H@std@@@std@@IAEXPAH0@Z ; std::vector<int,std::allocator<int> >::_Destroy
+PUBLIC	?_Grow_to@?$vector@HV?$allocator@H@std@@@std@@IBEII@Z ; std::vector<int,std::allocator<int> >::_Grow_to
+PUBLIC	?_Inside@?$vector@HV?$allocator@H@std@@@std@@IBE_NPBH@Z ; std::vector<int,std::allocator<int> >::_Inside
+PUBLIC	?_Reallocate@?$vector@HV?$allocator@H@std@@@std@@IAEXI@Z ; std::vector<int,std::allocator<int> >::_Reallocate
+PUBLIC	?_Reserve@?$vector@HV?$allocator@H@std@@@std@@IAEXI@Z ; std::vector<int,std::allocator<int> >::_Reserve
+PUBLIC	?_Tidy@?$vector@HV?$allocator@H@std@@@std@@IAEXXZ ; std::vector<int,std::allocator<int> >::_Tidy
+PUBLIC	?_Xlen@?$vector@HV?$allocator@H@std@@@std@@IBEXXZ ; std::vector<int,std::allocator<int> >::_Xlen
+PUBLIC	?_Orphan_range@?$vector@HV?$allocator@H@std@@@std@@IBEXPAH0@Z ; std::vector<int,std::allocator<int> >::_Orphan_range
 PUBLIC	??0CScene@@QAE@XZ				; CScene::CScene
 PUBLIC	??1CScene@@QAE@XZ				; CScene::~CScene
 PUBLIC	?ResetShock@CScene@@QAEXXZ			; CScene::ResetShock
@@ -1982,8 +2018,26 @@ PUBLIC	?SetPP09@@YGXPAX@Z				; SetPP09
 PUBLIC	?SetPP10@@YGXPAX@Z				; SetPP10
 PUBLIC	?SetPP11@@YGXPAX@Z				; SetPP11
 PUBLIC	?SetPP12@@YGXPAX@Z				; SetPP12
+PUBLIC	?SetPP13@@YGXPAX@Z				; SetPP13
+PUBLIC	?SetPP14@@YGXPAX@Z				; SetPP14
 PUBLIC	?SetGauss@@YGXPAX@Z				; SetGauss
 PUBLIC	?TWImpact@@YGXPAX@Z				; TWImpact
+PUBLIC	?AddPP00@@YGXPAX@Z				; AddPP00
+PUBLIC	?AddPP01@@YGXPAX@Z				; AddPP01
+PUBLIC	?AddPP02@@YGXPAX@Z				; AddPP02
+PUBLIC	?AddPP03@@YGXPAX@Z				; AddPP03
+PUBLIC	?AddPP04@@YGXPAX@Z				; AddPP04
+PUBLIC	?AddPP05@@YGXPAX@Z				; AddPP05
+PUBLIC	?AddPP06@@YGXPAX@Z				; AddPP06
+PUBLIC	?AddPP07@@YGXPAX@Z				; AddPP07
+PUBLIC	?AddPP08@@YGXPAX@Z				; AddPP08
+PUBLIC	?AddPP09@@YGXPAX@Z				; AddPP09
+PUBLIC	?AddPP10@@YGXPAX@Z				; AddPP10
+PUBLIC	?AddPP11@@YGXPAX@Z				; AddPP11
+PUBLIC	?AddPP12@@YGXPAX@Z				; AddPP12
+PUBLIC	?AddPP13@@YGXPAX@Z				; AddPP13
+PUBLIC	?AddPP14@@YGXPAX@Z				; AddPP14
+PUBLIC	?ClearChain@@YGXPAX@Z				; ClearChain
 PUBLIC	??0?$CA2WEX@$0IA@@ATL@@QAE@PBD@Z		; ATL::CA2WEX<128>::CA2WEX<128>
 PUBLIC	??1?$CA2WEX@$0IA@@ATL@@QAE@XZ			; ATL::CA2WEX<128>::~CA2WEX<128>
 PUBLIC	??B?$CA2WEX@$0IA@@ATL@@QBEPA_WXZ		; ATL::CA2WEX<128>::operator wchar_t *
@@ -1991,17 +2045,43 @@ PUBLIC	?Init@?$CA2WEX@$0IA@@ATL@@AAEXPBDI@Z		; ATL::CA2WEX<128>::Init
 PUBLIC	??$strcpy_s@$0GE@@@YAHAAY0GE@DPBD@Z		; strcpy_s<100>
 PUBLIC	??$_itoa_s@$05@@YAHHAAY05DH@Z			; _itoa_s<6>
 PUBLIC	??$strcat_s@$0GE@@@YAHAAY0GE@DPBD@Z		; strcat_s<100>
+PUBLIC	??0?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QAE@PAHPBU_Container_base0@1@@Z ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >
+PUBLIC	??D?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QBEABHXZ ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator*
+PUBLIC	??E?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QAEAAV01@XZ ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator++
+PUBLIC	??8?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QBE_NABV01@@Z ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator==
+PUBLIC	??9?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QBE_NABV01@@Z ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator!=
+PUBLIC	?_Compat@?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QBEXABV12@@Z ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >::_Compat
+PUBLIC	??0?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QAE@PAHPBU_Container_base0@1@@Z ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<int> > >::_Vector_iterator<std::_Vector_val<std::_Simple_types<int> > >
+PUBLIC	??D?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QBEAAHXZ ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator*
+PUBLIC	??E?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QAEAAV01@XZ ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator++
+PUBLIC	??E?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QAE?AV01@H@Z ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator++
+PUBLIC	??$addressof@H@std@@YAPAHAAH@Z			; std::addressof<int>
+PUBLIC	??$forward@H@std@@YA$$QAHAAH@Z			; std::forward<int>
+PUBLIC	??$construct@HH@?$_Wrap_alloc@V?$allocator@H@std@@@std@@QAEXPAH$$QAH@Z ; std::_Wrap_alloc<std::allocator<int> >::construct<int,int>
 PUBLIC	??$AtlConvFreeMemory@_W@ATL@@YAXPA_W0H@Z	; ATL::AtlConvFreeMemory<wchar_t>
 PUBLIC	??$construct@PADAAPAD@?$_Wrap_alloc@V?$allocator@D@std@@@std@@QAEXPAPADAAPAD@Z ; std::_Wrap_alloc<std::allocator<char> >::construct<char *,char * &>
 PUBLIC	??$destroy@PAD@?$_Wrap_alloc@V?$allocator@D@std@@@std@@QAEXPAPAD@Z ; std::_Wrap_alloc<std::allocator<char> >::destroy<char *>
 PUBLIC	??$addressof@D@std@@YAPADAAD@Z			; std::addressof<char>
+PUBLIC	??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@H@std@@@std@@@std@@YAXPAH0AAU?$_Wrap_alloc@V?$allocator@H@std@@@0@@Z ; std::_Destroy_range<std::_Wrap_alloc<std::allocator<int> > >
 PUBLIC	??$AtlConvAllocMemory@_W@ATL@@YAXPAPA_WHPA_WH@Z	; ATL::AtlConvAllocMemory<wchar_t>
+PUBLIC	??$_Umove@PAH@?$vector@HV?$allocator@H@std@@@std@@IAEPAHPAH00@Z ; std::vector<int,std::allocator<int> >::_Umove<int *>
+PUBLIC	??$_Allocate@H@std@@YAPAHIPAH@Z			; std::_Allocate<int>
 PUBLIC	??$_Allocate@D@std@@YAPADIPAD@Z			; std::_Allocate<char>
+PUBLIC	??$construct@HH@?$allocator_traits@V?$allocator@H@std@@@std@@SAXAAV?$allocator@H@1@PAH$$QAH@Z ; std::allocator_traits<std::allocator<int> >::construct<int,int>
 PUBLIC	??$forward@AAPAD@std@@YAAAPADAAPAD@Z		; std::forward<char * &>
 PUBLIC	??$construct@PADAAPAD@?$allocator_traits@V?$allocator@D@std@@@std@@SAXAAV?$allocator@D@1@PAPADAAPAD@Z ; std::allocator_traits<std::allocator<char> >::construct<char *,char * &>
 PUBLIC	??$destroy@PAD@?$allocator_traits@V?$allocator@D@std@@@std@@SAXAAV?$allocator@D@1@PAPAD@Z ; std::allocator_traits<std::allocator<char> >::destroy<char *>
+PUBLIC	??$_Ptr_cat@HH@std@@YA?AU_Scalar_ptr_iterator_tag@0@PAH0@Z ; std::_Ptr_cat<int,int>
+PUBLIC	??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@H@std@@@std@@@std@@YAXPAH0AAU?$_Wrap_alloc@V?$allocator@H@std@@@0@U_Scalar_ptr_iterator_tag@0@@Z ; std::_Destroy_range<std::_Wrap_alloc<std::allocator<int> > >
+PUBLIC	??$_Uninitialized_move@PAHPAHU?$_Wrap_alloc@V?$allocator@H@std@@@std@@@std@@YAPAHPAH00AAU?$_Wrap_alloc@V?$allocator@H@std@@@0@@Z ; std::_Uninitialized_move<int *,int *,std::_Wrap_alloc<std::allocator<int> > >
+PUBLIC	??$construct@HH@?$allocator@H@std@@QAEXPAH$$QAH@Z ; std::allocator<int>::construct<int,int>
 PUBLIC	??$construct@PADAAPAD@?$allocator@D@std@@QAEXPAPADAAPAD@Z ; std::allocator<char>::construct<char *,char * &>
 PUBLIC	??$destroy@PAD@?$allocator@D@std@@QAEXPAPAD@Z	; std::allocator<char>::destroy<char *>
+PUBLIC	??$_Unchecked@PAH@std@@YAPAHPAH@Z		; std::_Unchecked<int *>
+PUBLIC	??$_Uninit_move@PAHPAHU?$_Wrap_alloc@V?$allocator@H@std@@@std@@@std@@YAPAHPAH00AAU?$_Wrap_alloc@V?$allocator@H@std@@@0@@Z ; std::_Uninit_move<int *,int *,std::_Wrap_alloc<std::allocator<int> > >
+PUBLIC	??$_Rechecked@PAHPAH@std@@YAAAPAHAAPAHPAH@Z	; std::_Rechecked<int *,int *>
+PUBLIC	??$_Val_type@PAH@std@@YAPAHPAH@Z		; std::_Val_type<int *>
+PUBLIC	??$_Uninit_move@HHH@std@@YAPAHPAH00AAU?$_Wrap_alloc@V?$allocator@H@std@@@0@0U_Scalar_ptr_iterator_tag@0@@Z ; std::_Uninit_move<int,int,int>
 PUBLIC	?atlTraceGeneral@ATL@@3V?$CTraceCategoryEx@$00$0A@@1@A ; ATL::atlTraceGeneral
 PUBLIC	?atlTraceCOM@ATL@@3V?$CTraceCategoryEx@$01$0A@@1@A ; ATL::atlTraceCOM
 PUBLIC	?atlTraceQI@ATL@@3V?$CTraceCategoryEx@$03$0A@@1@A ; ATL::atlTraceQI
@@ -2072,8 +2152,12 @@ PUBLIC	??_C@_0P@HMIPNKPE@Shock?5Strength?$AA@		; `string'
 PUBLIC	??_C@_0M@BCFLJLDD@Shock?5Speed?$AA@		; `string'
 PUBLIC	??_C@_0BH@GEGIJDLI@min?$DN0?41?5max?$DN5?5step?$DN0?41?$AA@ ; `string'
 PUBLIC	??_C@_0N@BBJEPOMH@Shock?5Length?$AA@		; `string'
-PUBLIC	??_C@_0BE@BKDAFDIA@min?$DN2?5max?$DN50?5step?$DN1?$AA@ ; `string'
+PUBLIC	??_C@_0BE@IIAOIFJB@min?$DN3?5max?$DN51?5step?$DN2?$AA@ ; `string'
 PUBLIC	??_C@_0M@DOKJBODC@Blur?5Radius?$AA@		; `string'
+PUBLIC	??_C@_0BI@PCCKFLOI@min?$DN0?41?5max?$DN50?5step?$DN0?41?$AA@ ; `string'
+PUBLIC	??_C@_0O@HBAEFCEA@Blur?5Strength?$AA@		; `string'
+PUBLIC	??_C@_0BK@GNJEKMKK@min?$DN0?41?5max?$DN2?40?5step?$DN0?401?$AA@ ; `string'
+PUBLIC	??_C@_09LKHGBFJD@Blur?5Mean?$AA@		; `string'
 PUBLIC	??_C@_0BJ@BKHNEING@min?$DN0?5max?$DN0?45?5step?$DN0?4005?$AA@ ; `string'
 PUBLIC	??_C@_0BF@OKIMCMFP@Double?5Vision?5Radius?$AA@	; `string'
 PUBLIC	??_C@_0BI@JONKBOAH@min?$DN?9128?5max?$DN128?5step?$DN1?$AA@ ; `string'
@@ -2093,21 +2177,24 @@ PUBLIC	??_C@_0N@DFJGHPEG@Box?5Blur?5?$CI3?$CJ?$AA@	; `string'
 PUBLIC	??_C@_0N@DBBLADPE@Box?5Blur?5?$CI5?$CJ?$AA@	; `string'
 PUBLIC	??_C@_0BC@BBINBACJ@Box?5Blur?5?$CICustom?$CJ?$AA@ ; `string'
 PUBLIC	??_C@_0O@OAINAAFK@Double?5Vision?$AA@		; `string'
-PUBLIC	??_C@_05JBOFPIEK@Edges?$AA@			; `string'
+PUBLIC	??_C@_0O@OMFPBFFM@Edges?5?$CISobel?$CJ?$AA@	; `string'
 PUBLIC	??_C@_08KBHEFHNJ@Contrast?$AA@			; `string'
 PUBLIC	??_C@_0BC@EACNFBOP@Jam?5on?5the?5screen?$AA@	; `string'
 PUBLIC	??_C@_06OHLCGMJD@Invert?$AA@			; `string'
 PUBLIC	??_C@_0BB@OBDMAHBK@Solarise?5?$CIAbove?$CJ?$AA@	; `string'
 PUBLIC	??_C@_0BB@LIMCDIOE@Solarise?5?$CIBelow?$CJ?$AA@	; `string'
-PUBLIC	??_C@_0BF@FHPJJGJD@Toggle?5Gaussian?5Blur?$AA@	; `string'
+PUBLIC	??_C@_0L@OJCECKLM@Cell?5Shade?$AA@		; `string'
+PUBLIC	??_C@_0O@DDFGHDFG@Gaussian?5Blur?$AA@		; `string'
 PUBLIC	??_C@_0BE@DKPHBODF@Multi?5Pass?5Controls?$AA@	; `string'
-PUBLIC	??_C@_0DI@PFMGMAKO@?5?8Multi?5Pass?5Controls?8?5position?$DN@ ; `string'
+PUBLIC	??_C@_0DI@GLJKLPEM@?5?8Multi?5Pass?5Controls?8?5position?$DN@ ; `string'
 PUBLIC	??_C@_0CC@BOCCMAEA@Stop?5trying?5to?5hit?5me?5and?5hit?5me@ ; `string'
+PUBLIC	??_C@_0N@KKFAKGJN@Chain?5Length?$AA@		; `string'
+PUBLIC	??_C@_0M@NLGLMPGD@Clear?5Chain?$AA@		; `string'
 PUBLIC	??_C@_06BACILOGA@fx_4_0?$AA@			; `string'
 PUBLIC	??_C@_1BO@KFFLPJBB@?$AAP?$AAo?$AAs?$AAt?$AAP?$AAr?$AAo?$AAc?$AAe?$AAs?$AAs?$AA?4?$AAf?$AAx?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1M@ILHOPKA@?$AAE?$AAr?$AAr?$AAo?$AAr?$AA?$AA@ ; `string'
 PUBLIC	??_C@_1MK@NLJNNCIH@?$AAE?$AAr?$AAr?$AAo?$AAr?$AA?5?$AAl?$AAo?$AAa?$AAd?$AAi?$AAn?$AAg?$AA?5?$AAP?$AAo?$AAs?$AAt?$AA?5?$AAP?$AAr?$AAo?$AAc?$AAe?$AAs?$AAs?$AAi?$AAn?$AAg?$AA?5?$AAF?$AAX@ ; `string'
-PUBLIC	??_C@_06JLNCKOOC@PPCopy?$AA@			; `string'
+PUBLIC	??_C@_08OLBKHOBK@PPDMCopy?$AA@			; `string'
 PUBLIC	??_C@_06MPGPEKJL@PPTint?$AA@			; `string'
 PUBLIC	??_C@_07GAKLFMHC@PPShock?$AA@			; `string'
 PUBLIC	??_C@_0L@JCFHKKCO@PPBoxBlur3?$AA@		; `string'
@@ -2120,8 +2207,11 @@ PUBLIC	??_C@_07NDCDMOCH@PPBlood?$AA@			; `string'
 PUBLIC	??_C@_08LLKDBFPD@PPInvert?$AA@			; `string'
 PUBLIC	??_C@_0M@LHKPPOCI@PPSolariseA?$AA@		; `string'
 PUBLIC	??_C@_0M@JMICKNOL@PPSolariseB?$AA@		; `string'
+PUBLIC	??_C@_06NGOGPCIG@PPCell?$AA@			; `string'
+PUBLIC	??_C@_0L@IKLBJONP@PPGaussian?$AA@		; `string'
 PUBLIC	??_C@_0P@CCPNLBHC@InitialTexture?$AA@		; `string'
 PUBLIC	??_C@_0N@BCJCHFBA@BloodTexture?$AA@		; `string'
+PUBLIC	??_C@_08NIEOOMPE@DepthMap?$AA@			; `string'
 PUBLIC	??_C@_0L@DBKDBEOO@TintColour?$AA@		; `string'
 PUBLIC	??_C@_06JIEINOID@PixelX?$AA@			; `string'
 PUBLIC	??_C@_06IBFDOPMC@PixelY?$AA@			; `string'
@@ -2129,6 +2219,7 @@ PUBLIC	??_C@_09MINFFJCE@BlurRange?$AA@			; `string'
 PUBLIC	??_C@_07BMPAAFHK@DVRange?$AA@			; `string'
 PUBLIC	??_C@_05HBDAKKJM@Blood?$AA@			; `string'
 PUBLIC	??_C@_0BC@KBOPGDGH@SolariseThreshold?$AA@	; `string'
+PUBLIC	??_C@_0P@LLOKOHHM@GaussianFilter?$AA@		; `string'
 PUBLIC	??_C@_0BH@BEMLJPBO@Post?5Processing?5?9?5FPS?5?$AA@ ; `string'
 PUBLIC	??_C@_04IHBDCLGJ@?5O?3?5?$AA@			; `string'
 PUBLIC	??_C@_04JFKGIEIH@?5L?3?5?$AA@			; `string'
@@ -2197,6 +2288,7 @@ PUBLIC	?id@?$numpunct@D@std@@2V0locale@2@A		; std::numpunct<char>::id
 PUBLIC	?id@?$numpunct@_W@std@@2V0locale@2@A		; std::numpunct<wchar_t>::id
 PUBLIC	??_C@_0BA@JFNIOLAK@string?5too?5long?$AA@	; `string'
 PUBLIC	??_C@_0BI@CFPLBAOH@invalid?5string?5position?$AA@ ; `string'
+PUBLIC	??_C@_0BD@OLBABOEK@vector?$DMT?$DO?5too?5long?$AA@ ; `string'
 PUBLIC	??_R4error_category@std@@6B@			; std::error_category::`RTTI Complete Object Locator'
 PUBLIC	??_R0?AVerror_category@std@@@8			; std::error_category `RTTI Type Descriptor'
 PUBLIC	??_R3error_category@std@@8			; std::error_category::`RTTI Class Hierarchy Descriptor'
@@ -2249,6 +2341,7 @@ PUBLIC	__real@c1a00000
 PUBLIC	__real@c3000000
 PUBLIC	__real@c37a0000
 PUBLIC	__xmm@000003c0000007800000000000000000
+PUBLIC	__xmm@80000000800000008000000080000000
 EXTRN	__purecall:PROC
 EXTRN	??2@YAPAXI@Z:PROC				; operator new
 EXTRN	??3@YAXPAX@Z:PROC				; operator delete
@@ -2335,6 +2428,7 @@ EXTRN	@__security_check_cookie@4:PROC
 EXTRN	__CIfmod:PROC
 EXTRN	__CxxThrowException@8:PROC
 EXTRN	___CxxFrameHandler3:PROC
+EXTRN	__libm_sse2_exp_precise:PROC
 EXTRN	__libm_sse2_sin_precise:PROC
 EXTRN	_memcpy:PROC
 EXTRN	_memset:PROC
@@ -2468,6 +2562,11 @@ _BSS	ENDS
 CRT$XCU	SEGMENT
 __AtlComModule$initializer$ DD FLAT:??__E_AtlComModule@ATL@@YAXXZ
 CRT$XCU	ENDS
+;	COMDAT __xmm@80000000800000008000000080000000
+CONST	SEGMENT
+__xmm@80000000800000008000000080000000 DB 00H, 00H, 00H, 080H, 00H, 00H, 00H
+	DB	080H, 00H, 00H, 00H, 080H, 00H, 00H, 00H, 080H
+CONST	ENDS
 ;	COMDAT __xmm@000003c0000007800000000000000000
 CONST	SEGMENT
 __xmm@000003c0000007800000000000000000 DB 00H, 00H, 00H, 00H, 00H, 00H, 00H
@@ -2742,6 +2841,11 @@ rdata$r	SEGMENT
 	DD	FLAT:??_R0?AVerror_category@std@@@8
 	DD	FLAT:??_R3error_category@std@@8
 rdata$r	ENDS
+;	COMDAT ??_C@_0BD@OLBABOEK@vector?$DMT?$DO?5too?5long?$AA@
+CONST	SEGMENT
+??_C@_0BD@OLBABOEK@vector?$DMT?$DO?5too?5long?$AA@ DB 'vector<T> too long'
+	DB	00H						; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_0BI@CFPLBAOH@invalid?5string?5position?$AA@
 CONST	SEGMENT
 ??_C@_0BI@CFPLBAOH@invalid?5string?5position?$AA@ DB 'invalid string posi'
@@ -3037,6 +3141,10 @@ CONST	SEGMENT
 ??_C@_0BH@BEMLJPBO@Post?5Processing?5?9?5FPS?5?$AA@ DB 'Post Processing -'
 	DB	' FPS ', 00H					; `string'
 CONST	ENDS
+;	COMDAT ??_C@_0P@LLOKOHHM@GaussianFilter?$AA@
+CONST	SEGMENT
+??_C@_0P@LLOKOHHM@GaussianFilter?$AA@ DB 'GaussianFilter', 00H ; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_0BC@KBOPGDGH@SolariseThreshold?$AA@
 CONST	SEGMENT
 ??_C@_0BC@KBOPGDGH@SolariseThreshold?$AA@ DB 'SolariseThreshold', 00H ; `string'
@@ -3065,6 +3173,10 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_0L@DBKDBEOO@TintColour?$AA@ DB 'TintColour', 00H	; `string'
 CONST	ENDS
+;	COMDAT ??_C@_08NIEOOMPE@DepthMap?$AA@
+CONST	SEGMENT
+??_C@_08NIEOOMPE@DepthMap?$AA@ DB 'DepthMap', 00H	; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_0N@BCJCHFBA@BloodTexture?$AA@
 CONST	SEGMENT
 ??_C@_0N@BCJCHFBA@BloodTexture?$AA@ DB 'BloodTexture', 00H ; `string'
@@ -3072,6 +3184,14 @@ CONST	ENDS
 ;	COMDAT ??_C@_0P@CCPNLBHC@InitialTexture?$AA@
 CONST	SEGMENT
 ??_C@_0P@CCPNLBHC@InitialTexture?$AA@ DB 'InitialTexture', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0L@IKLBJONP@PPGaussian?$AA@
+CONST	SEGMENT
+??_C@_0L@IKLBJONP@PPGaussian?$AA@ DB 'PPGaussian', 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_06NGOGPCIG@PPCell?$AA@
+CONST	SEGMENT
+??_C@_06NGOGPCIG@PPCell?$AA@ DB 'PPCell', 00H		; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_0M@JMICKNOL@PPSolariseB?$AA@
 CONST	SEGMENT
@@ -3121,9 +3241,9 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_06MPGPEKJL@PPTint?$AA@ DB 'PPTint', 00H		; `string'
 CONST	ENDS
-;	COMDAT ??_C@_06JLNCKOOC@PPCopy?$AA@
+;	COMDAT ??_C@_08OLBKHOBK@PPDMCopy?$AA@
 CONST	SEGMENT
-??_C@_06JLNCKOOC@PPCopy?$AA@ DB 'PPCopy', 00H		; `string'
+??_C@_08OLBKHOBK@PPDMCopy?$AA@ DB 'PPDMCopy', 00H	; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_1MK@NLJNNCIH@?$AAE?$AAr?$AAr?$AAo?$AAr?$AA?5?$AAl?$AAo?$AAa?$AAd?$AAi?$AAn?$AAg?$AA?5?$AAP?$AAo?$AAs?$AAt?$AA?5?$AAP?$AAr?$AAo?$AAc?$AAe?$AAs?$AAs?$AAi?$AAn?$AAg?$AA?5?$AAF?$AAX@
 CONST	SEGMENT
@@ -3161,23 +3281,35 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_06BACILOGA@fx_4_0?$AA@ DB 'fx_4_0', 00H		; `string'
 CONST	ENDS
+;	COMDAT ??_C@_0M@NLGLMPGD@Clear?5Chain?$AA@
+CONST	SEGMENT
+??_C@_0M@NLGLMPGD@Clear?5Chain?$AA@ DB 'Clear Chain', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0N@KKFAKGJN@Chain?5Length?$AA@
+CONST	SEGMENT
+??_C@_0N@KKFAKGJN@Chain?5Length?$AA@ DB 'Chain Length', 00H ; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_0CC@BOCCMAEA@Stop?5trying?5to?5hit?5me?5and?5hit?5me@
 CONST	SEGMENT
 ??_C@_0CC@BOCCMAEA@Stop?5trying?5to?5hit?5me?5and?5hit?5me@ DB 'Stop tryi'
 	DB	'ng to hit me and hit me!', 00H		; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0DI@PFMGMAKO@?5?8Multi?5Pass?5Controls?8?5position?$DN@
+;	COMDAT ??_C@_0DI@GLJKLPEM@?5?8Multi?5Pass?5Controls?8?5position?$DN@
 CONST	SEGMENT
-??_C@_0DI@PFMGMAKO@?5?8Multi?5Pass?5Controls?8?5position?$DN@ DB ' ''Mult'
-	DB	'i Pass Controls'' position=''415 5'' size=''300 320'' ', 00H ; `string'
+??_C@_0DI@GLJKLPEM@?5?8Multi?5Pass?5Controls?8?5position?$DN@ DB ' ''Mult'
+	DB	'i Pass Controls'' position=''5 325'' size=''300 400'' ', 00H ; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_0BE@DKPHBODF@Multi?5Pass?5Controls?$AA@
 CONST	SEGMENT
 ??_C@_0BE@DKPHBODF@Multi?5Pass?5Controls?$AA@ DB 'Multi Pass Controls', 00H ; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0BF@FHPJJGJD@Toggle?5Gaussian?5Blur?$AA@
+;	COMDAT ??_C@_0O@DDFGHDFG@Gaussian?5Blur?$AA@
 CONST	SEGMENT
-??_C@_0BF@FHPJJGJD@Toggle?5Gaussian?5Blur?$AA@ DB 'Toggle Gaussian Blur', 00H ; `string'
+??_C@_0O@DDFGHDFG@Gaussian?5Blur?$AA@ DB 'Gaussian Blur', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0L@OJCECKLM@Cell?5Shade?$AA@
+CONST	SEGMENT
+??_C@_0L@OJCECKLM@Cell?5Shade?$AA@ DB 'Cell Shade', 00H	; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_0BB@LIMCDIOE@Solarise?5?$CIBelow?$CJ?$AA@
 CONST	SEGMENT
@@ -3199,9 +3331,9 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_08KBHEFHNJ@Contrast?$AA@ DB 'Contrast', 00H	; `string'
 CONST	ENDS
-;	COMDAT ??_C@_05JBOFPIEK@Edges?$AA@
+;	COMDAT ??_C@_0O@OMFPBFFM@Edges?5?$CISobel?$CJ?$AA@
 CONST	SEGMENT
-??_C@_05JBOFPIEK@Edges?$AA@ DB 'Edges', 00H		; `string'
+??_C@_0O@OMFPBFFM@Edges?5?$CISobel?$CJ?$AA@ DB 'Edges (Sobel)', 00H ; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_0O@OAINAAFK@Double?5Vision?$AA@
 CONST	SEGMENT
@@ -3284,14 +3416,32 @@ CONST	SEGMENT
 ??_C@_0BJ@BKHNEING@min?$DN0?5max?$DN0?45?5step?$DN0?4005?$AA@ DB 'min=0 m'
 	DB	'ax=0.5 step=0.005', 00H			; `string'
 CONST	ENDS
+;	COMDAT ??_C@_09LKHGBFJD@Blur?5Mean?$AA@
+CONST	SEGMENT
+??_C@_09LKHGBFJD@Blur?5Mean?$AA@ DB 'Blur Mean', 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BK@GNJEKMKK@min?$DN0?41?5max?$DN2?40?5step?$DN0?401?$AA@
+CONST	SEGMENT
+??_C@_0BK@GNJEKMKK@min?$DN0?41?5max?$DN2?40?5step?$DN0?401?$AA@ DB 'min=0'
+	DB	'.1 max=2.0 step=0.01', 00H			; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0O@HBAEFCEA@Blur?5Strength?$AA@
+CONST	SEGMENT
+??_C@_0O@HBAEFCEA@Blur?5Strength?$AA@ DB 'Blur Strength', 00H ; `string'
+CONST	ENDS
+;	COMDAT ??_C@_0BI@PCCKFLOI@min?$DN0?41?5max?$DN50?5step?$DN0?41?$AA@
+CONST	SEGMENT
+??_C@_0BI@PCCKFLOI@min?$DN0?41?5max?$DN50?5step?$DN0?41?$AA@ DB 'min=0.1 '
+	DB	'max=50 step=0.1', 00H			; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_0M@DOKJBODC@Blur?5Radius?$AA@
 CONST	SEGMENT
 ??_C@_0M@DOKJBODC@Blur?5Radius?$AA@ DB 'Blur Radius', 00H ; `string'
 CONST	ENDS
-;	COMDAT ??_C@_0BE@BKDAFDIA@min?$DN2?5max?$DN50?5step?$DN1?$AA@
+;	COMDAT ??_C@_0BE@IIAOIFJB@min?$DN3?5max?$DN51?5step?$DN2?$AA@
 CONST	SEGMENT
-??_C@_0BE@BKDAFDIA@min?$DN2?5max?$DN50?5step?$DN1?$AA@ DB 'min=2 max=50 s'
-	DB	'tep=1', 00H					; `string'
+??_C@_0BE@IIAOIFJB@min?$DN3?5max?$DN51?5step?$DN2?$AA@ DB 'min=3 max=51 s'
+	DB	'tep=2', 00H					; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_0N@BBJEPOMH@Shock?5Length?$AA@
 CONST	SEGMENT
@@ -3753,6 +3903,158 @@ CRT$XCU	SEGMENT
 ?_System_object$initializer$@?$_Error_objects@H@std@@2P6AXXZA DD FLAT:??__E?_System_object@?$_Error_objects@H@std@@2V_System_error_category@2@A@@YAXXZ ; std::_Error_objects<int>::_System_object$initializer$
 CRT$XCU	ENDS
 ; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory
+;	COMDAT ??$_Uninit_move@HHH@std@@YAPAHPAH00AAU?$_Wrap_alloc@V?$allocator@H@std@@@0@0U_Scalar_ptr_iterator_tag@0@@Z
+_TEXT	SEGMENT
+__First$ = 8						; size = 4
+__Last$ = 12						; size = 4
+__Dest$ = 16						; size = 4
+___formal$ = 20						; size = 4
+___formal$ = 24						; size = 4
+___formal$ = 28						; size = 1
+??$_Uninit_move@HHH@std@@YAPAHPAH00AAU?$_Wrap_alloc@V?$allocator@H@std@@@0@0U_Scalar_ptr_iterator_tag@0@@Z PROC ; std::_Uninit_move<int,int,int>, COMDAT
+
+; 469  : 	{	// move [_First, _Last) to raw _Dest, scalar type
+
+	push	ebp
+	mov	ebp, esp
+
+; 470  : 	_DEBUG_RANGE(_First, _Last);
+; 471  : 	_DEBUG_POINTER(_Dest);
+; 472  : 	size_t _Count = (size_t)(_Last - _First);
+
+	mov	ecx, DWORD PTR __First$[ebp]
+	mov	eax, DWORD PTR __Last$[ebp]
+	sub	eax, ecx
+	sar	eax, 2
+	push	esi
+
+; 473  : 	return ((_Ty2 *)_CSTD memmove(&*_Dest, &*_First,
+; 474  : 		_Count * sizeof (*_First)) + _Count);	// NB: non-overlapping move
+
+	lea	esi, DWORD PTR [eax*4]
+	push	esi
+	push	ecx
+	push	DWORD PTR __Dest$[ebp]
+	call	_memmove
+	add	esp, 12					; 0000000cH
+	add	eax, esi
+	pop	esi
+
+; 475  : 	}
+
+	pop	ebp
+	ret	0
+??$_Uninit_move@HHH@std@@YAPAHPAH00AAU?$_Wrap_alloc@V?$allocator@H@std@@@0@0U_Scalar_ptr_iterator_tag@0@@Z ENDP ; std::_Uninit_move<int,int,int>
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility
+;	COMDAT ??$_Val_type@PAH@std@@YAPAHPAH@Z
+_TEXT	SEGMENT
+___formal$ = 8						; size = 4
+??$_Val_type@PAH@std@@YAPAHPAH@Z PROC			; std::_Val_type<int *>, COMDAT
+
+; 646  : 	return (0);
+
+	xor	eax, eax
+
+; 647  : 	}
+
+	ret	0
+??$_Val_type@PAH@std@@YAPAHPAH@Z ENDP			; std::_Val_type<int *>
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility
+;	COMDAT ??$_Rechecked@PAHPAH@std@@YAAAPAHAAPAHPAH@Z
+_TEXT	SEGMENT
+__Dest$ = 8						; size = 4
+__Src$ = 12						; size = 4
+??$_Rechecked@PAHPAH@std@@YAAAPAHAAPAHPAH@Z PROC	; std::_Rechecked<int *,int *>, COMDAT
+
+; 288  : 	{	// reset checked from unchecked, generic
+
+	push	ebp
+	mov	ebp, esp
+
+; 289  : 	_Dest = _Src;
+
+	mov	eax, DWORD PTR __Dest$[ebp]
+	mov	ecx, DWORD PTR __Src$[ebp]
+	mov	DWORD PTR [eax], ecx
+
+; 290  : 	return (_Dest);
+; 291  : 	}
+
+	pop	ebp
+	ret	0
+??$_Rechecked@PAHPAH@std@@YAAAPAHAAPAHPAH@Z ENDP	; std::_Rechecked<int *,int *>
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory
+;	COMDAT ??$_Uninit_move@PAHPAHU?$_Wrap_alloc@V?$allocator@H@std@@@std@@@std@@YAPAHPAH00AAU?$_Wrap_alloc@V?$allocator@H@std@@@0@@Z
+_TEXT	SEGMENT
+__First$ = 8						; size = 4
+__Last$ = 12						; size = 4
+__Dest$ = 16						; size = 4
+__Al$ = 20						; size = 4
+??$_Uninit_move@PAHPAHU?$_Wrap_alloc@V?$allocator@H@std@@@std@@@std@@YAPAHPAH00AAU?$_Wrap_alloc@V?$allocator@H@std@@@0@@Z PROC ; std::_Uninit_move<int *,int *,std::_Wrap_alloc<std::allocator<int> > >, COMDAT
+
+; 482  : 	{	// move [_First, _Last) to raw _Dest, using _Al
+
+	push	ebp
+	mov	ebp, esp
+
+; 472  : 	size_t _Count = (size_t)(_Last - _First);
+
+	mov	ecx, DWORD PTR __First$[ebp]
+	mov	eax, DWORD PTR __Last$[ebp]
+	sub	eax, ecx
+	sar	eax, 2
+	push	esi
+
+; 473  : 	return ((_Ty2 *)_CSTD memmove(&*_Dest, &*_First,
+; 474  : 		_Count * sizeof (*_First)) + _Count);	// NB: non-overlapping move
+
+	lea	esi, DWORD PTR [eax*4]
+	push	esi
+	push	ecx
+	push	DWORD PTR __Dest$[ebp]
+	call	_memmove
+	add	esp, 12					; 0000000cH
+	add	eax, esi
+	pop	esi
+
+; 483  : 	return (_Uninit_move(_First, _Last, _Dest, _Al,
+; 484  : 		_Val_type(_First), _Ptr_cat(_First, _Dest)));
+; 485  : 	}
+
+	pop	ebp
+	ret	0
+??$_Uninit_move@PAHPAHU?$_Wrap_alloc@V?$allocator@H@std@@@std@@@std@@YAPAHPAH00AAU?$_Wrap_alloc@V?$allocator@H@std@@@0@@Z ENDP ; std::_Uninit_move<int *,int *,std::_Wrap_alloc<std::allocator<int> > >
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility
+;	COMDAT ??$_Unchecked@PAH@std@@YAPAHPAH@Z
+_TEXT	SEGMENT
+__Src$ = 8						; size = 4
+??$_Unchecked@PAH@std@@YAPAHPAH@Z PROC			; std::_Unchecked<int *>, COMDAT
+
+; 280  : 	{	// construct unchecked from checked, generic
+
+	push	ebp
+	mov	ebp, esp
+
+; 281  : 	return (_Src);
+
+	mov	eax, DWORD PTR __Src$[ebp]
+
+; 282  : 	}
+
+	pop	ebp
+	ret	0
+??$_Unchecked@PAH@std@@YAPAHPAH@Z ENDP			; std::_Unchecked<int *>
+_TEXT	ENDS
+; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
 ;	COMDAT ??$destroy@PAD@?$allocator@D@std@@QAEXPAPAD@Z
 _TEXT	SEGMENT
@@ -3797,6 +4099,123 @@ $LN3@construct:
 	pop	ebp
 	ret	8
 ??$construct@PADAAPAD@?$allocator@D@std@@QAEXPAPADAAPAD@Z ENDP ; std::allocator<char>::construct<char *,char * &>
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+;	COMDAT ??$construct@HH@?$allocator@H@std@@QAEXPAH$$QAH@Z
+_TEXT	SEGMENT
+__Ptr$ = 8						; size = 4
+_<_Args_0>$ = 12					; size = 4
+??$construct@HH@?$allocator@H@std@@QAEXPAH$$QAH@Z PROC	; std::allocator<int>::construct<int,int>, COMDAT
+; _this$ = ecx
+
+; 598  : 		void construct(_Objty *_Ptr, _Types&&... _Args)
+
+	push	ebp
+	mov	ebp, esp
+
+; 599  : 		{	// construct _Objty(_Types...) at _Ptr
+; 600  : 		::new ((void *)_Ptr) _Objty(_STD forward<_Types>(_Args)...);
+
+	mov	ecx, DWORD PTR __Ptr$[ebp]
+	test	ecx, ecx
+	je	SHORT $LN3@construct
+	mov	eax, DWORD PTR _<_Args_0>$[ebp]
+	mov	eax, DWORD PTR [eax]
+	mov	DWORD PTR [ecx], eax
+$LN3@construct:
+
+; 601  : 		}
+
+	pop	ebp
+	ret	8
+??$construct@HH@?$allocator@H@std@@QAEXPAH$$QAH@Z ENDP	; std::allocator<int>::construct<int,int>
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory
+;	COMDAT ??$_Uninitialized_move@PAHPAHU?$_Wrap_alloc@V?$allocator@H@std@@@std@@@std@@YAPAHPAH00AAU?$_Wrap_alloc@V?$allocator@H@std@@@0@@Z
+_TEXT	SEGMENT
+__First$ = 8						; size = 4
+__Last$ = 12						; size = 4
+__Dest$ = 16						; size = 4
+__Al$ = 20						; size = 4
+??$_Uninitialized_move@PAHPAHU?$_Wrap_alloc@V?$allocator@H@std@@@std@@@std@@YAPAHPAH00AAU?$_Wrap_alloc@V?$allocator@H@std@@@0@@Z PROC ; std::_Uninitialized_move<int *,int *,std::_Wrap_alloc<std::allocator<int> > >, COMDAT
+
+; 492  : 	{	// move [_First, _Last) to raw _Dest, using _Al
+
+	push	ebp
+	mov	ebp, esp
+
+; 472  : 	size_t _Count = (size_t)(_Last - _First);
+
+	mov	ecx, DWORD PTR __First$[ebp]
+	mov	eax, DWORD PTR __Last$[ebp]
+	sub	eax, ecx
+	sar	eax, 2
+	push	esi
+
+; 473  : 	return ((_Ty2 *)_CSTD memmove(&*_Dest, &*_First,
+; 474  : 		_Count * sizeof (*_First)) + _Count);	// NB: non-overlapping move
+
+	lea	esi, DWORD PTR [eax*4]
+	push	esi
+	push	ecx
+	push	DWORD PTR __Dest$[ebp]
+	call	_memmove
+	add	esp, 12					; 0000000cH
+	add	eax, esi
+	pop	esi
+
+; 493  : 	return (_Rechecked(_Dest,
+; 494  : 		_Uninit_move(_Unchecked(_First), _Unchecked(_Last),
+; 495  : 			_Unchecked(_Dest), _Al)));
+; 496  : 	}
+
+	pop	ebp
+	ret	0
+??$_Uninitialized_move@PAHPAHU?$_Wrap_alloc@V?$allocator@H@std@@@std@@@std@@YAPAHPAH00AAU?$_Wrap_alloc@V?$allocator@H@std@@@0@@Z ENDP ; std::_Uninitialized_move<int *,int *,std::_Wrap_alloc<std::allocator<int> > >
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+;	COMDAT ??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@H@std@@@std@@@std@@YAXPAH0AAU?$_Wrap_alloc@V?$allocator@H@std@@@0@U_Scalar_ptr_iterator_tag@0@@Z
+_TEXT	SEGMENT
+__First$ = 8						; size = 4
+__Last$ = 12						; size = 4
+__Al$ = 16						; size = 4
+___formal$ = 20						; size = 1
+??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@H@std@@@std@@@std@@YAXPAH0AAU?$_Wrap_alloc@V?$allocator@H@std@@@0@U_Scalar_ptr_iterator_tag@0@@Z PROC ; std::_Destroy_range<std::_Wrap_alloc<std::allocator<int> > >, COMDAT
+
+; 90   : 	}
+
+	ret	0
+??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@H@std@@@std@@@std@@YAXPAH0AAU?$_Wrap_alloc@V?$allocator@H@std@@@0@U_Scalar_ptr_iterator_tag@0@@Z ENDP ; std::_Destroy_range<std::_Wrap_alloc<std::allocator<int> > >
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility
+;	COMDAT ??$_Ptr_cat@HH@std@@YA?AU_Scalar_ptr_iterator_tag@0@PAH0@Z
+_TEXT	SEGMENT
+__Cat$ = -1						; size = 1
+___formal$ = 8						; size = 4
+___formal$ = 12						; size = 4
+??$_Ptr_cat@HH@std@@YA?AU_Scalar_ptr_iterator_tag@0@PAH0@Z PROC ; std::_Ptr_cat<int,int>, COMDAT
+
+; 444  : 	{	// return pointer category from pointers
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+
+; 445  : 	typename _Ptr_cat_helper<_Elem1, _Elem2>::type _Cat;
+; 446  : 	return (_Cat);
+
+	mov	al, BYTE PTR __Cat$[ebp]
+
+; 447  : 	}
+
+	mov	esp, ebp
+	pop	ebp
+	ret	0
+??$_Ptr_cat@HH@std@@YA?AU_Scalar_ptr_iterator_tag@0@PAH0@Z ENDP ; std::_Ptr_cat<int,int>
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
@@ -3867,6 +4286,39 @@ __Arg$ = 8						; size = 4
 	pop	ebp
 	ret	0
 ??$forward@AAPAD@std@@YAAAPADAAPAD@Z ENDP		; std::forward<char * &>
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+;	COMDAT ??$construct@HH@?$allocator_traits@V?$allocator@H@std@@@std@@SAXAAV?$allocator@H@1@PAH$$QAH@Z
+_TEXT	SEGMENT
+__Al$ = 8						; size = 4
+__Ptr$ = 12						; size = 4
+_<_Args_0>$ = 16					; size = 4
+??$construct@HH@?$allocator_traits@V?$allocator@H@std@@@std@@SAXAAV?$allocator@H@1@PAH$$QAH@Z PROC ; std::allocator_traits<std::allocator<int> >::construct<int,int>, COMDAT
+
+; 720  : 		static void construct(_Alloc& _Al, _Objty *_Ptr,
+
+	push	ebp
+	mov	ebp, esp
+
+; 600  : 		::new ((void *)_Ptr) _Objty(_STD forward<_Types>(_Args)...);
+
+	mov	ecx, DWORD PTR __Ptr$[ebp]
+	test	ecx, ecx
+	je	SHORT $LN7@construct
+	mov	eax, DWORD PTR _<_Args_0>$[ebp]
+	mov	eax, DWORD PTR [eax]
+	mov	DWORD PTR [ecx], eax
+$LN7@construct:
+
+; 721  : 			_Types&&... _Args)
+; 722  : 		{	// construct _Objty(_Types...) at _Ptr
+; 723  : 		_Al.construct(_Ptr, _STD forward<_Types>(_Args)...);
+; 724  : 		}
+
+	pop	ebp
+	ret	0
+??$construct@HH@?$allocator_traits@V?$allocator@H@std@@@std@@SAXAAV?$allocator@H@1@PAH$$QAH@Z ENDP ; std::allocator_traits<std::allocator<int> >::construct<int,int>
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\system_error
@@ -3997,6 +4449,104 @@ $LN2@Allocate:
 	pop	ebp
 	ret	0
 ??$_Allocate@D@std@@YAPADIPAD@Z ENDP			; std::_Allocate<char>
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+;	COMDAT ??$_Allocate@H@std@@YAPAHIPAH@Z
+_TEXT	SEGMENT
+__Count$ = 8						; size = 4
+___formal$ = 12						; size = 4
+??$_Allocate@H@std@@YAPAHIPAH@Z PROC			; std::_Allocate<int>, COMDAT
+
+; 22   : 	{	// allocate storage for _Count elements of type _Ty
+
+	push	ebp
+	mov	ebp, esp
+
+; 23   : 	void *_Ptr = 0;
+; 24   : 
+; 25   : 	if (_Count == 0)
+
+	mov	eax, DWORD PTR __Count$[ebp]
+	xor	ecx, ecx
+	test	eax, eax
+	je	SHORT $LN2@Allocate
+
+; 26   : 		;
+; 27   : 	else if (((size_t)(-1) / sizeof (_Ty) < _Count)
+; 28   : 		|| (_Ptr = ::operator new(_Count * sizeof (_Ty))) == 0)
+
+	cmp	eax, 1073741823				; 3fffffffH
+	ja	SHORT $LN1@Allocate
+	shl	eax, 2
+	push	eax
+	call	??2@YAPAXI@Z				; operator new
+	mov	ecx, eax
+	add	esp, 4
+	test	ecx, ecx
+	jne	SHORT $LN2@Allocate
+$LN1@Allocate:
+
+; 29   : 		_Xbad_alloc();	// report no memory
+
+	jmp	?_Xbad_alloc@std@@YAXXZ			; std::_Xbad_alloc
+$LN2@Allocate:
+
+; 30   : 
+; 31   : 	return ((_Ty *)_Ptr);
+
+	mov	eax, ecx
+
+; 32   : 	}
+
+	pop	ebp
+	ret	0
+??$_Allocate@H@std@@YAPAHIPAH@Z ENDP			; std::_Allocate<int>
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ??$_Umove@PAH@?$vector@HV?$allocator@H@std@@@std@@IAEPAHPAH00@Z
+_TEXT	SEGMENT
+__First$ = 8						; size = 4
+__Last$ = 12						; size = 4
+__Ptr$ = 16						; size = 4
+??$_Umove@PAH@?$vector@HV?$allocator@H@std@@@std@@IAEPAHPAH00@Z PROC ; std::vector<int,std::allocator<int> >::_Umove<int *>, COMDAT
+; _this$ = ecx
+
+; 1644 : 		pointer _Umove(_Iter _First, _Iter _Last, pointer _Ptr)
+
+	push	ebp
+	mov	ebp, esp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory
+
+; 472  : 	size_t _Count = (size_t)(_Last - _First);
+
+	mov	ecx, DWORD PTR __First$[ebp]
+	mov	eax, DWORD PTR __Last$[ebp]
+	sub	eax, ecx
+	sar	eax, 2
+	push	esi
+
+; 473  : 	return ((_Ty2 *)_CSTD memmove(&*_Dest, &*_First,
+; 474  : 		_Count * sizeof (*_First)) + _Count);	// NB: non-overlapping move
+
+	lea	esi, DWORD PTR [eax*4]
+	push	esi
+	push	ecx
+	push	DWORD PTR __Ptr$[ebp]
+	call	_memmove
+	add	esp, 12					; 0000000cH
+	add	eax, esi
+	pop	esi
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+
+; 1649 : 		}
+
+	pop	ebp
+	ret	12					; 0000000cH
+??$_Umove@PAH@?$vector@HV?$allocator@H@std@@@std@@IAEPAHPAH00@Z ENDP ; std::vector<int,std::allocator<int> >::_Umove<int *>
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 12.0\vc\atlmfc\include\atlconv.h
@@ -4164,6 +4714,21 @@ $LN32@AtlConvAll:
 ??$AtlConvAllocMemory@_W@ATL@@YAXPAPA_WHPA_WH@Z ENDP	; ATL::AtlConvAllocMemory<wchar_t>
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+;	COMDAT ??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@H@std@@@std@@@std@@YAXPAH0AAU?$_Wrap_alloc@V?$allocator@H@std@@@0@@Z
+_TEXT	SEGMENT
+__First$ = 8						; size = 4
+__Last$ = 12						; size = 4
+__Al$ = 16						; size = 4
+??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@H@std@@@std@@@std@@YAXPAH0AAU?$_Wrap_alloc@V?$allocator@H@std@@@0@@Z PROC ; std::_Destroy_range<std::_Wrap_alloc<std::allocator<int> > >, COMDAT
+
+; 96   : 	_Destroy_range(_First, _Last, _Al, _Ptr_cat(_First, _Last));
+; 97   : 	}
+
+	ret	0
+??$_Destroy_range@U?$_Wrap_alloc@V?$allocator@H@std@@@std@@@std@@YAXPAH0AAU?$_Wrap_alloc@V?$allocator@H@std@@@0@@Z ENDP ; std::_Destroy_range<std::_Wrap_alloc<std::allocator<int> > >
+_TEXT	ENDS
+; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstddef
 ;	COMDAT ??$addressof@D@std@@YAPADAAD@Z
 _TEXT	SEGMENT
@@ -4277,6 +4842,355 @@ $LN1@AtlConvFre:
 	pop	ebp
 	ret	0
 ??$AtlConvFreeMemory@_W@ATL@@YAXPA_W0H@Z ENDP		; ATL::AtlConvFreeMemory<wchar_t>
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+;	COMDAT ??$construct@HH@?$_Wrap_alloc@V?$allocator@H@std@@@std@@QAEXPAH$$QAH@Z
+_TEXT	SEGMENT
+__Ptr$ = 8						; size = 4
+_<_Args_0>$ = 12					; size = 4
+??$construct@HH@?$_Wrap_alloc@V?$allocator@H@std@@@std@@QAEXPAH$$QAH@Z PROC ; std::_Wrap_alloc<std::allocator<int> >::construct<int,int>, COMDAT
+; _this$ = ecx
+
+; 868  : 		void construct(_Ty *_Ptr,
+
+	push	ebp
+	mov	ebp, esp
+
+; 600  : 		::new ((void *)_Ptr) _Objty(_STD forward<_Types>(_Args)...);
+
+	mov	ecx, DWORD PTR __Ptr$[ebp]
+	test	ecx, ecx
+	je	SHORT $LN11@construct
+	mov	eax, DWORD PTR _<_Args_0>$[ebp]
+	mov	eax, DWORD PTR [eax]
+	mov	DWORD PTR [ecx], eax
+$LN11@construct:
+
+; 869  : 			_Types&&... _Args)
+; 870  : 		{	// construct _Ty(_Types...) at _Ptr
+; 871  : 		_Mytraits::construct(*this, _Ptr,
+; 872  : 			_STD forward<_Types>(_Args)...);
+; 873  : 		}
+
+	pop	ebp
+	ret	8
+??$construct@HH@?$_Wrap_alloc@V?$allocator@H@std@@@std@@QAEXPAH$$QAH@Z ENDP ; std::_Wrap_alloc<std::allocator<int> >::construct<int,int>
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\type_traits
+;	COMDAT ??$forward@H@std@@YA$$QAHAAH@Z
+_TEXT	SEGMENT
+__Arg$ = 8						; size = 4
+??$forward@H@std@@YA$$QAHAAH@Z PROC			; std::forward<int>, COMDAT
+
+; 1504 : 	{	// forward an lvalue
+
+	push	ebp
+	mov	ebp, esp
+
+; 1505 : 	return (static_cast<_Ty&&>(_Arg));
+
+	mov	eax, DWORD PTR __Arg$[ebp]
+
+; 1506 : 	}
+
+	pop	ebp
+	ret	0
+??$forward@H@std@@YA$$QAHAAH@Z ENDP			; std::forward<int>
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xstddef
+;	COMDAT ??$addressof@H@std@@YAPAHAAH@Z
+_TEXT	SEGMENT
+__Val$ = 8						; size = 4
+??$addressof@H@std@@YAPAHAAH@Z PROC			; std::addressof<int>, COMDAT
+
+; 92   : 	{	// return address of _Val
+
+	push	ebp
+	mov	ebp, esp
+
+; 93   : 	return (reinterpret_cast<_Ty *>(
+; 94   : 		(&const_cast<char&>(
+; 95   : 		reinterpret_cast<const volatile char&>(_Val)))));
+
+	mov	eax, DWORD PTR __Val$[ebp]
+
+; 96   : 	}
+
+	pop	ebp
+	ret	0
+??$addressof@H@std@@YAPAHAAH@Z ENDP			; std::addressof<int>
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ??E?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QAE?AV01@H@Z
+_TEXT	SEGMENT
+___$ReturnUdt$ = 8					; size = 4
+___formal$ = 12						; size = 4
+??E?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QAE?AV01@H@Z PROC ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator++, COMDAT
+; _this$ = ecx
+
+; 339  : 		{	// postincrement
+
+	push	ebp
+	mov	ebp, esp
+
+; 340  : 		_Myiter _Tmp = *this;
+
+	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
+	mov	edx, DWORD PTR [ecx]
+	mov	DWORD PTR [eax], edx
+
+; 112  : 		++this->_Ptr;
+
+	add	edx, 4
+	mov	DWORD PTR [ecx], edx
+
+; 341  : 		++*this;
+; 342  : 		return (_Tmp);
+; 343  : 		}
+
+	pop	ebp
+	ret	8
+??E?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QAE?AV01@H@Z ENDP ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator++
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ??E?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QAEAAV01@XZ
+_TEXT	SEGMENT
+??E?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QAEAAV01@XZ PROC ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator++, COMDAT
+; _this$ = ecx
+
+; 112  : 		++this->_Ptr;
+
+	add	DWORD PTR [ecx], 4
+
+; 334  : 		++*(_Mybase *)this;
+; 335  : 		return (*this);
+
+	mov	eax, ecx
+
+; 336  : 		}
+
+	ret	0
+??E?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QAEAAV01@XZ ENDP ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator++
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ??D?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QBEAAHXZ
+_TEXT	SEGMENT
+??D?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QBEAAHXZ PROC ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator*, COMDAT
+; _this$ = ecx
+
+; 324  : 		return ((reference)**(_Mybase *)this);
+
+	mov	eax, DWORD PTR [ecx]
+
+; 325  : 		}
+
+	ret	0
+??D?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QBEAAHXZ ENDP ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator*
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ??0?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QAE@PAHPBU_Container_base0@1@@Z
+_TEXT	SEGMENT
+__Parg$ = 8						; size = 4
+__Pvector$ = 12						; size = 4
+??0?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QAE@PAHPBU_Container_base0@1@@Z PROC ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<int> > >::_Vector_iterator<std::_Vector_val<std::_Simple_types<int> > >, COMDAT
+; _this$ = ecx
+
+; 306  : 		{	// construct with pointer _Parg
+
+	push	ebp
+	mov	ebp, esp
+
+; 47   : 		{	// construct with pointer _Parg
+
+	mov	eax, DWORD PTR __Parg$[ebp]
+	mov	DWORD PTR [ecx], eax
+
+; 307  : 		}
+
+	mov	eax, ecx
+	pop	ebp
+	ret	8
+??0?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QAE@PAHPBU_Container_base0@1@@Z ENDP ; std::_Vector_iterator<std::_Vector_val<std::_Simple_types<int> > >::_Vector_iterator<std::_Vector_val<std::_Simple_types<int> > >
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ?_Compat@?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QBEXABV12@@Z
+_TEXT	SEGMENT
+___formal$ = 8						; size = 4
+?_Compat@?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QBEXABV12@@Z PROC ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >::_Compat, COMDAT
+; _this$ = ecx
+
+; 255  : 		}
+
+	ret	4
+?_Compat@?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QBEXABV12@@Z ENDP ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >::_Compat
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ??9?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QBE_NABV01@@Z
+_TEXT	SEGMENT
+__Right$ = 8						; size = 4
+??9?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QBE_NABV01@@Z PROC ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator!=, COMDAT
+; _this$ = ecx
+
+; 209  : 		{	// test for iterator inequality
+
+	push	ebp
+	mov	ebp, esp
+
+; 205  : 		return (this->_Ptr == _Right._Ptr);
+
+	mov	edx, DWORD PTR [ecx]
+
+; 210  : 		return (!(*this == _Right));
+
+	xor	eax, eax
+
+; 205  : 		return (this->_Ptr == _Right._Ptr);
+
+	mov	ecx, DWORD PTR __Right$[ebp]
+	cmp	edx, DWORD PTR [ecx]
+
+; 210  : 		return (!(*this == _Right));
+
+	setne	al
+
+; 211  : 		}
+
+	pop	ebp
+	ret	4
+??9?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QBE_NABV01@@Z ENDP ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator!=
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ??8?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QBE_NABV01@@Z
+_TEXT	SEGMENT
+__Right$ = 8						; size = 4
+??8?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QBE_NABV01@@Z PROC ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator==, COMDAT
+; _this$ = ecx
+
+; 203  : 		{	// test for iterator equality
+
+	push	ebp
+	mov	ebp, esp
+
+; 204  : 		_Compat(_Right);
+; 205  : 		return (this->_Ptr == _Right._Ptr);
+
+	mov	edx, DWORD PTR [ecx]
+	xor	eax, eax
+	mov	ecx, DWORD PTR __Right$[ebp]
+	cmp	edx, DWORD PTR [ecx]
+	sete	al
+
+; 206  : 		}
+
+	pop	ebp
+	ret	4
+??8?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QBE_NABV01@@Z ENDP ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator==
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ??E?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QAEAAV01@XZ
+_TEXT	SEGMENT
+??E?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QAEAAV01@XZ PROC ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator++, COMDAT
+; _this$ = ecx
+
+; 96   :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 97   : 		if (this->_Getcont() == 0
+; 98   : 			|| this->_Ptr == 0
+; 99   : 			|| ((_Myvec *)this->_Getcont())->_Mylast <= this->_Ptr)
+; 100  : 			{	// report error
+; 101  : 			_DEBUG_ERROR("vector iterator not incrementable");
+; 102  : 			_SCL_SECURE_OUT_OF_RANGE;
+; 103  : 			}
+; 104  : 
+; 105  :  #elif _ITERATOR_DEBUG_LEVEL == 1
+; 106  : 		_SCL_SECURE_VALIDATE(this->_Getcont() != 0);
+; 107  : 		_SCL_SECURE_VALIDATE_RANGE(
+; 108  : 			this->_Ptr != _Tptr()
+; 109  : 			&& this->_Ptr < ((_Myvec *)this->_Getcont())->_Mylast);
+; 110  :  #endif /* _ITERATOR_DEBUG_LEVEL */
+; 111  : 
+; 112  : 		++this->_Ptr;
+
+	add	DWORD PTR [ecx], 4
+
+; 113  : 		return (*this);
+
+	mov	eax, ecx
+
+; 114  : 		}
+
+	ret	0
+??E?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QAEAAV01@XZ ENDP ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator++
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ??D?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QBEABHXZ
+_TEXT	SEGMENT
+??D?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QBEABHXZ PROC ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator*, COMDAT
+; _this$ = ecx
+
+; 66   :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 67   : 		if (this->_Getcont() == 0
+; 68   : 			|| this->_Ptr == 0
+; 69   : 			|| this->_Ptr < ((_Myvec *)this->_Getcont())->_Myfirst
+; 70   : 			|| ((_Myvec *)this->_Getcont())->_Mylast <= this->_Ptr)
+; 71   : 			{	// report error
+; 72   : 			_DEBUG_ERROR("vector iterator not dereferencable");
+; 73   : 			_SCL_SECURE_OUT_OF_RANGE;
+; 74   : 			}
+; 75   : 
+; 76   :  #elif _ITERATOR_DEBUG_LEVEL == 1
+; 77   : 		_SCL_SECURE_VALIDATE(this->_Getcont() != 0);
+; 78   : 		_SCL_SECURE_VALIDATE_RANGE(
+; 79   : 			this->_Ptr != _Tptr()
+; 80   : 			&& ((_Myvec *)this->_Getcont())->_Myfirst <= this->_Ptr
+; 81   : 			&& this->_Ptr < ((_Myvec *)this->_Getcont())->_Mylast);
+; 82   :  #endif /* _ITERATOR_DEBUG_LEVEL */
+; 83   : 
+; 84   : 		_Analysis_assume_(this->_Ptr != _Tptr());
+; 85   : 
+; 86   : 		return (*this->_Ptr);
+
+	mov	eax, DWORD PTR [ecx]
+
+; 87   : 		}
+
+	ret	0
+??D?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QBEABHXZ ENDP ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >::operator*
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ??0?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QAE@PAHPBU_Container_base0@1@@Z
+_TEXT	SEGMENT
+__Parg$ = 8						; size = 4
+__Pvector$ = 12						; size = 4
+??0?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QAE@PAHPBU_Container_base0@1@@Z PROC ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >, COMDAT
+; _this$ = ecx
+
+; 47   : 		{	// construct with pointer _Parg
+
+	push	ebp
+	mov	ebp, esp
+	mov	eax, DWORD PTR __Parg$[ebp]
+	mov	DWORD PTR [ecx], eax
+
+; 48   : 		this->_Adopt(_Pvector);
+; 49   : 		}
+
+	mov	eax, ecx
+	pop	ebp
+	ret	8
+??0?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@std@@QAE@PAHPBU_Container_base0@1@@Z ENDP ; std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<int> > >
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h
@@ -4581,593 +5495,1265 @@ _psz$ = 8						; size = 4
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+;	COMDAT ?ClearChain@@YGXPAX@Z
+_TEXT	SEGMENT
+_clientData$ = 8					; size = 4
+?ClearChain@@YGXPAX@Z PROC				; ClearChain, COMDAT
+
+; 309  : {
+
+	push	ebp
+	mov	ebp, esp
+
+; 310  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 311  : 	temp->mPPSteps.clear();
+
+	mov	ecx, DWORD PTR _clientData$[ebp]
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+
+; 1510 : 		this->_Mylast = this->_Myfirst;
+
+	mov	eax, DWORD PTR [ecx+3560]
+	mov	DWORD PTR [ecx+3564], eax
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+
+; 312  : 	temp->multiprocess = false;
+
+	mov	BYTE PTR [ecx+3556], 0
+
+; 313  : }
+
+	pop	ebp
+	ret	4
+?ClearChain@@YGXPAX@Z ENDP				; ClearChain
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+;	COMDAT ?AddPP14@@YGXPAX@Z
+_TEXT	SEGMENT
+$T1 = -4						; size = 4
+_clientData$ = 8					; size = 4
+?AddPP14@@YGXPAX@Z PROC					; AddPP14, COMDAT
+
+; 303  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+
+; 304  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 305  : 	temp->mPPSteps.push_back(14);
+
+	mov	ecx, DWORD PTR _clientData$[ebp]
+	lea	eax, DWORD PTR $T1[ebp]
+	push	eax
+	mov	DWORD PTR $T1[ebp], 14			; 0000000eH
+	lea	ecx, DWORD PTR [ecx+3560]
+	call	?push_back@?$vector@HV?$allocator@H@std@@@std@@QAEX$$QAH@Z ; std::vector<int,std::allocator<int> >::push_back
+
+; 306  : }
+
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?AddPP14@@YGXPAX@Z ENDP					; AddPP14
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+;	COMDAT ?AddPP13@@YGXPAX@Z
+_TEXT	SEGMENT
+$T1 = -4						; size = 4
+_clientData$ = 8					; size = 4
+?AddPP13@@YGXPAX@Z PROC					; AddPP13, COMDAT
+
+; 297  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+
+; 298  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 299  : 	temp->mPPSteps.push_back(13);
+
+	mov	ecx, DWORD PTR _clientData$[ebp]
+	lea	eax, DWORD PTR $T1[ebp]
+	push	eax
+	mov	DWORD PTR $T1[ebp], 13			; 0000000dH
+	lea	ecx, DWORD PTR [ecx+3560]
+	call	?push_back@?$vector@HV?$allocator@H@std@@@std@@QAEX$$QAH@Z ; std::vector<int,std::allocator<int> >::push_back
+
+; 300  : }
+
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?AddPP13@@YGXPAX@Z ENDP					; AddPP13
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+;	COMDAT ?AddPP12@@YGXPAX@Z
+_TEXT	SEGMENT
+$T1 = -4						; size = 4
+_clientData$ = 8					; size = 4
+?AddPP12@@YGXPAX@Z PROC					; AddPP12, COMDAT
+
+; 291  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+
+; 292  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 293  : 	temp->mPPSteps.push_back(12);
+
+	mov	ecx, DWORD PTR _clientData$[ebp]
+	lea	eax, DWORD PTR $T1[ebp]
+	push	eax
+	mov	DWORD PTR $T1[ebp], 12			; 0000000cH
+	lea	ecx, DWORD PTR [ecx+3560]
+	call	?push_back@?$vector@HV?$allocator@H@std@@@std@@QAEX$$QAH@Z ; std::vector<int,std::allocator<int> >::push_back
+
+; 294  : }
+
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?AddPP12@@YGXPAX@Z ENDP					; AddPP12
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+;	COMDAT ?AddPP11@@YGXPAX@Z
+_TEXT	SEGMENT
+$T1 = -4						; size = 4
+_clientData$ = 8					; size = 4
+?AddPP11@@YGXPAX@Z PROC					; AddPP11, COMDAT
+
+; 285  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+
+; 286  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 287  : 	temp->mPPSteps.push_back(11);
+
+	mov	ecx, DWORD PTR _clientData$[ebp]
+	lea	eax, DWORD PTR $T1[ebp]
+	push	eax
+	mov	DWORD PTR $T1[ebp], 11			; 0000000bH
+	lea	ecx, DWORD PTR [ecx+3560]
+	call	?push_back@?$vector@HV?$allocator@H@std@@@std@@QAEX$$QAH@Z ; std::vector<int,std::allocator<int> >::push_back
+
+; 288  : }
+
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?AddPP11@@YGXPAX@Z ENDP					; AddPP11
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+;	COMDAT ?AddPP10@@YGXPAX@Z
+_TEXT	SEGMENT
+$T1 = -4						; size = 4
+_clientData$ = 8					; size = 4
+?AddPP10@@YGXPAX@Z PROC					; AddPP10, COMDAT
+
+; 279  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+
+; 280  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 281  : 	temp->mPPSteps.push_back(10);
+
+	mov	ecx, DWORD PTR _clientData$[ebp]
+	lea	eax, DWORD PTR $T1[ebp]
+	push	eax
+	mov	DWORD PTR $T1[ebp], 10			; 0000000aH
+	lea	ecx, DWORD PTR [ecx+3560]
+	call	?push_back@?$vector@HV?$allocator@H@std@@@std@@QAEX$$QAH@Z ; std::vector<int,std::allocator<int> >::push_back
+
+; 282  : }
+
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?AddPP10@@YGXPAX@Z ENDP					; AddPP10
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+;	COMDAT ?AddPP09@@YGXPAX@Z
+_TEXT	SEGMENT
+$T1 = -4						; size = 4
+_clientData$ = 8					; size = 4
+?AddPP09@@YGXPAX@Z PROC					; AddPP09, COMDAT
+
+; 273  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+
+; 274  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 275  : 	temp->mPPSteps.push_back(9);
+
+	mov	ecx, DWORD PTR _clientData$[ebp]
+	lea	eax, DWORD PTR $T1[ebp]
+	push	eax
+	mov	DWORD PTR $T1[ebp], 9
+	lea	ecx, DWORD PTR [ecx+3560]
+	call	?push_back@?$vector@HV?$allocator@H@std@@@std@@QAEX$$QAH@Z ; std::vector<int,std::allocator<int> >::push_back
+
+; 276  : }
+
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?AddPP09@@YGXPAX@Z ENDP					; AddPP09
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+;	COMDAT ?AddPP08@@YGXPAX@Z
+_TEXT	SEGMENT
+$T1 = -4						; size = 4
+_clientData$ = 8					; size = 4
+?AddPP08@@YGXPAX@Z PROC					; AddPP08, COMDAT
+
+; 267  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+
+; 268  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 269  : 	temp->mPPSteps.push_back(8);
+
+	mov	ecx, DWORD PTR _clientData$[ebp]
+	lea	eax, DWORD PTR $T1[ebp]
+	push	eax
+	mov	DWORD PTR $T1[ebp], 8
+	lea	ecx, DWORD PTR [ecx+3560]
+	call	?push_back@?$vector@HV?$allocator@H@std@@@std@@QAEX$$QAH@Z ; std::vector<int,std::allocator<int> >::push_back
+
+; 270  : }
+
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?AddPP08@@YGXPAX@Z ENDP					; AddPP08
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+;	COMDAT ?AddPP07@@YGXPAX@Z
+_TEXT	SEGMENT
+$T1 = -4						; size = 4
+_clientData$ = 8					; size = 4
+?AddPP07@@YGXPAX@Z PROC					; AddPP07, COMDAT
+
+; 261  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+
+; 262  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 263  : 	temp->mPPSteps.push_back(7);
+
+	mov	ecx, DWORD PTR _clientData$[ebp]
+	lea	eax, DWORD PTR $T1[ebp]
+	push	eax
+	mov	DWORD PTR $T1[ebp], 7
+	lea	ecx, DWORD PTR [ecx+3560]
+	call	?push_back@?$vector@HV?$allocator@H@std@@@std@@QAEX$$QAH@Z ; std::vector<int,std::allocator<int> >::push_back
+
+; 264  : }
+
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?AddPP07@@YGXPAX@Z ENDP					; AddPP07
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+;	COMDAT ?AddPP06@@YGXPAX@Z
+_TEXT	SEGMENT
+$T1 = -4						; size = 4
+_clientData$ = 8					; size = 4
+?AddPP06@@YGXPAX@Z PROC					; AddPP06, COMDAT
+
+; 255  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+
+; 256  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 257  : 	temp->mPPSteps.push_back(6);
+
+	mov	ecx, DWORD PTR _clientData$[ebp]
+	lea	eax, DWORD PTR $T1[ebp]
+	push	eax
+	mov	DWORD PTR $T1[ebp], 6
+	lea	ecx, DWORD PTR [ecx+3560]
+	call	?push_back@?$vector@HV?$allocator@H@std@@@std@@QAEX$$QAH@Z ; std::vector<int,std::allocator<int> >::push_back
+
+; 258  : }
+
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?AddPP06@@YGXPAX@Z ENDP					; AddPP06
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+;	COMDAT ?AddPP05@@YGXPAX@Z
+_TEXT	SEGMENT
+$T1 = -4						; size = 4
+_clientData$ = 8					; size = 4
+?AddPP05@@YGXPAX@Z PROC					; AddPP05, COMDAT
+
+; 249  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+
+; 250  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 251  : 	temp->mPPSteps.push_back(5);
+
+	mov	ecx, DWORD PTR _clientData$[ebp]
+	lea	eax, DWORD PTR $T1[ebp]
+	push	eax
+	mov	DWORD PTR $T1[ebp], 5
+	lea	ecx, DWORD PTR [ecx+3560]
+	call	?push_back@?$vector@HV?$allocator@H@std@@@std@@QAEX$$QAH@Z ; std::vector<int,std::allocator<int> >::push_back
+
+; 252  : }
+
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?AddPP05@@YGXPAX@Z ENDP					; AddPP05
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+;	COMDAT ?AddPP04@@YGXPAX@Z
+_TEXT	SEGMENT
+$T1 = -4						; size = 4
+_clientData$ = 8					; size = 4
+?AddPP04@@YGXPAX@Z PROC					; AddPP04, COMDAT
+
+; 243  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+
+; 244  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 245  : 	temp->mPPSteps.push_back(4);
+
+	mov	ecx, DWORD PTR _clientData$[ebp]
+	lea	eax, DWORD PTR $T1[ebp]
+	push	eax
+	mov	DWORD PTR $T1[ebp], 4
+	lea	ecx, DWORD PTR [ecx+3560]
+	call	?push_back@?$vector@HV?$allocator@H@std@@@std@@QAEX$$QAH@Z ; std::vector<int,std::allocator<int> >::push_back
+
+; 246  : }
+
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?AddPP04@@YGXPAX@Z ENDP					; AddPP04
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+;	COMDAT ?AddPP03@@YGXPAX@Z
+_TEXT	SEGMENT
+$T1 = -4						; size = 4
+_clientData$ = 8					; size = 4
+?AddPP03@@YGXPAX@Z PROC					; AddPP03, COMDAT
+
+; 237  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+
+; 238  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 239  : 	temp->mPPSteps.push_back(3);
+
+	mov	ecx, DWORD PTR _clientData$[ebp]
+	lea	eax, DWORD PTR $T1[ebp]
+	push	eax
+	mov	DWORD PTR $T1[ebp], 3
+	lea	ecx, DWORD PTR [ecx+3560]
+	call	?push_back@?$vector@HV?$allocator@H@std@@@std@@QAEX$$QAH@Z ; std::vector<int,std::allocator<int> >::push_back
+
+; 240  : }
+
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?AddPP03@@YGXPAX@Z ENDP					; AddPP03
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+;	COMDAT ?AddPP02@@YGXPAX@Z
+_TEXT	SEGMENT
+$T1 = -4						; size = 4
+_clientData$ = 8					; size = 4
+?AddPP02@@YGXPAX@Z PROC					; AddPP02, COMDAT
+
+; 231  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+
+; 232  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 233  : 	temp->mPPSteps.push_back(2);
+
+	mov	ecx, DWORD PTR _clientData$[ebp]
+	lea	eax, DWORD PTR $T1[ebp]
+	push	eax
+	mov	DWORD PTR $T1[ebp], 2
+	lea	ecx, DWORD PTR [ecx+3560]
+	call	?push_back@?$vector@HV?$allocator@H@std@@@std@@QAEX$$QAH@Z ; std::vector<int,std::allocator<int> >::push_back
+
+; 234  : }
+
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?AddPP02@@YGXPAX@Z ENDP					; AddPP02
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+;	COMDAT ?AddPP01@@YGXPAX@Z
+_TEXT	SEGMENT
+$T1 = -4						; size = 4
+_clientData$ = 8					; size = 4
+?AddPP01@@YGXPAX@Z PROC					; AddPP01, COMDAT
+
+; 225  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+
+; 226  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 227  : 	temp->mPPSteps.push_back(1);
+
+	mov	ecx, DWORD PTR _clientData$[ebp]
+	lea	eax, DWORD PTR $T1[ebp]
+	push	eax
+	mov	DWORD PTR $T1[ebp], 1
+	lea	ecx, DWORD PTR [ecx+3560]
+	call	?push_back@?$vector@HV?$allocator@H@std@@@std@@QAEX$$QAH@Z ; std::vector<int,std::allocator<int> >::push_back
+
+; 228  : }
+
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?AddPP01@@YGXPAX@Z ENDP					; AddPP01
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+;	COMDAT ?AddPP00@@YGXPAX@Z
+_TEXT	SEGMENT
+$T1 = -4						; size = 4
+_clientData$ = 8					; size = 4
+?AddPP00@@YGXPAX@Z PROC					; AddPP00, COMDAT
+
+; 219  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+
+; 220  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 221  : 	temp->mPPSteps.push_back(0);
+
+	mov	ecx, DWORD PTR _clientData$[ebp]
+	lea	eax, DWORD PTR $T1[ebp]
+	push	eax
+	mov	DWORD PTR $T1[ebp], 0
+	lea	ecx, DWORD PTR [ecx+3560]
+	call	?push_back@?$vector@HV?$allocator@H@std@@@std@@QAEX$$QAH@Z ; std::vector<int,std::allocator<int> >::push_back
+
+; 222  : }
+
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?AddPP00@@YGXPAX@Z ENDP					; AddPP00
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\simon\documents\github\post-processing\scene.cpp
 ;	COMDAT ?TWImpact@@YGXPAX@Z
 _TEXT	SEGMENT
 _clientData$ = 8					; size = 4
 ?TWImpact@@YGXPAX@Z PROC				; TWImpact, COMDAT
 
-; 193  : {
+; 213  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 197  : 
-; 198  : void CScene::SetSinglePP(int index)
-; 199  : {
-; 200  : 	if(index < 0)
-; 201  : 	{
-; 202  : 		mCurrentPP = 0;
-; 203  : 		return;
-; 204  : 	}
-; 205  : 
-; 206  : 	if(index > NumPostProcesses)
-; 207  : 	{
-; 208  : 		mCurrentPP = 0;
-; 209  : 		return;
-; 210  : 	}
-; 211  : 
-; 212  : 	mCurrentPP = index;
-; 213  : }
-; 214  : 
-; 215  : void CScene::ResetShock()
-; 216  : {
-; 217  : 	mShockTime = mShockLength;	
-; 218  : }
-; 219  : 
-; 220  : bool CScene::InitATB()
-; 221  : {
-; 222  : 	TwInit(TW_DIRECT3D10, mpd3dDevice);
-; 223  : 	TwWindowSize(mViewportWidth, mViewportHeight);
-; 224  : 
-; 225  : 	mtwBarPP = TwNewBar("PostProcessing");
-; 226  : 	TwDefine(" PostProcessing position='5 5' ");
-; 227  : 	TwAddVarRW(mtwBarPP, "Tint Cycle Time", TW_TYPE_FLOAT, &mTintCycleTime, "min=0.1 max=30 step=0.1");
-; 228  : 	TwAddSeparator(mtwBarPP, "", "");
-; 229  : 	TwAddVarRW(mtwBarPP, "Shock Strength", TW_TYPE_FLOAT, &mShockStrength, "min=0.01 max=0.5 step=0.01");
-; 230  : 	TwAddVarRW(mtwBarPP, "Shock Speed", TW_TYPE_FLOAT, &mShockSpeed, "min=0.1 max=30 step=0.1");
-; 231  : 	TwAddVarRW(mtwBarPP, "Shock Length", TW_TYPE_FLOAT, &mShockLength, "min=0.1 max=5 step=0.1");
-; 232  : 	TwAddSeparator(mtwBarPP, "", "");
-; 233  : 	TwAddVarRW(mtwBarPP, "Blur Radius", TW_TYPE_INT32, &mBlurRadius, "min=2 max=50 step=1");
-; 234  : 	TwAddSeparator(mtwBarPP, "", "");
-; 235  : 	TwAddVarRW(mtwBarPP, "Double Vision Radius", TW_TYPE_FLOAT, &mDoubleVisionRadius, "min=0 max=0.5 step=0.005");
-; 236  : 	TwAddSeparator(mtwBarPP, "", "");
-; 237  : 	TwAddVarRW(mtwBarPP, "Contrast Shift", TW_TYPE_FLOAT, &mContrastChange, "min=-128 max=128 step=1");
-; 238  : 	//TwAddVarRO(mtwBarPP, "Contrast Factor", TW_TYPE_FLOAT, &mContrastFactor, "");
-; 239  : 	TwAddVarRW(mtwBarPP, "Jamminess", TW_TYPE_FLOAT, &mBlood, "min=0 max=1 step=0.05");
-; 240  : 	TwAddSeparator(mtwBarPP, "", "");
-; 241  : 	TwAddVarRW(mtwBarPP, "Solarise Threshold", TW_TYPE_INT32, &mSolariseInt, "min=32 max=222 step=1");
-; 242  : 	TwAddSeparator(mtwBarPP, "", "");
-; 243  : 	TwAddVarRO(mtwBarPP, "Using multiple: ", TW_TYPE_BOOLCPP, &multiprocess, "");
-; 244  : 	TwAddButton( mtwBarPP, "Toggle Single", ToggleSingle, this, "");
-; 245  : 	
-; 246  : 	mtwBarSinglePP = TwNewBar("Single Pass Select");
-; 247  : 	TwDefine(" 'Single Pass Select' position='210 5' ");
-; 248  : 	TwAddButton(mtwBarSinglePP, "No PP", SetPP00, this, "");
-; 249  : 	TwAddButton(mtwBarSinglePP, "Tint", SetPP01, this, "");
-; 250  : 	TwAddButton(mtwBarSinglePP, "Shock", SetPP02, this, "");
-; 251  : 	TwAddButton(mtwBarSinglePP, "Box Blur (3)", SetPP03, this, "");
-; 252  : 	TwAddButton(mtwBarSinglePP, "Box Blur (5)", SetPP04, this, "");
-; 253  : 	TwAddButton(mtwBarSinglePP, "Box Blur (Custom)", SetPP05, this, "");
-; 254  : 	TwAddButton(mtwBarSinglePP, "Double Vision", SetPP06, this, "");
-; 255  : 	TwAddButton(mtwBarSinglePP, "Edges", SetPP07, this, "");
-; 256  : 	TwAddButton(mtwBarSinglePP, "Contrast", SetPP08, this, "");
-; 257  : 	TwAddButton(mtwBarSinglePP, "Jam on the screen", SetPP09, this, "");
-; 258  : 	TwAddButton(mtwBarSinglePP, "Invert", SetPP10, this, "");
-; 259  : 	TwAddButton(mtwBarSinglePP, "Solarise (Above)", SetPP11, this, "");
-; 260  : 	TwAddButton(mtwBarSinglePP, "Solarise (Below)", SetPP12, this, "");
-; 261  : 	TwAddSeparator(mtwBarSinglePP, "", "");
-; 262  : 	TwAddButton(mtwBarSinglePP, "Toggle Gaussian Blur", SetGauss, this, "");
-; 263  : 
-; 264  : 	mtwBarMultiPP = TwNewBar("Multi Pass Controls");
-; 265  : 	TwDefine(" 'Multi Pass Controls' position='415 5' size='300 320' ");
-; 266  : 	TwAddButton(mtwBarMultiPP, "Stop trying to hit me and hit me!", TWImpact, this, "");
-; 267  : 
-; 268  : 	return true;
-; 269  : }
-; 270  : 
-; 271  : bool CScene::InitPP()
-; 272  : {
-; 273  : 	mInitialTextureDesc.Width = mViewportWidth;
-; 274  : 	mInitialTextureDesc.Height = mViewportHeight;
-; 275  : 	mInitialTextureDesc.MipLevels = 1;
-; 276  : 	mInitialTextureDesc.ArraySize = 1;
-; 277  : 	mInitialTextureDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-; 278  : 	mInitialTextureDesc.SampleDesc.Count = 1;
-; 279  : 	mInitialTextureDesc.SampleDesc.Quality = 0;
-; 280  : 	mInitialTextureDesc.Usage = D3D10_USAGE_DEFAULT;
-; 281  : 	mInitialTextureDesc.BindFlags = D3D10_BIND_RENDER_TARGET | D3D10_BIND_SHADER_RESOURCE;
-; 282  : 	mInitialTextureDesc.CPUAccessFlags = 0;
-; 283  : 	mInitialTextureDesc.MiscFlags = 0;
-; 284  : 	if( FAILED( mpd3dDevice->CreateTexture2D( &mInitialTextureDesc, NULL, &mInitialTexture) ) ) return false;
-; 285  : 	if (FAILED( mpd3dDevice->CreateTexture2D( &mInitialTextureDesc, NULL, &mTextureOne ) ) ) return false;
-; 286  : 	if (FAILED( mpd3dDevice->CreateTexture2D( &mInitialTextureDesc, NULL, &mTextureTwo ) ) ) return false;
-; 287  : 
-; 288  : 	if( FAILED( mpd3dDevice->CreateRenderTargetView( mInitialTexture, NULL, &mInitialRenderTarget ) ) ) return false;
-; 289  : 	if (FAILED( mpd3dDevice->CreateRenderTargetView( mTextureOne, NULL, &mRenderTargetOne) ) ) return false;
-; 290  : 	if (FAILED( mpd3dDevice->CreateRenderTargetView( mTextureTwo, NULL, &mRenderTargetTwo) ) ) return false;
-; 291  : 
-; 292  : 	mInitialShaderDesc.Format = mInitialTextureDesc.Format;
-; 293  : 	mInitialShaderDesc.ViewDimension = D3D10_SRV_DIMENSION_TEXTURE2D;
-; 294  : 	mInitialShaderDesc.Texture2D.MostDetailedMip = 0;
-; 295  : 	mInitialShaderDesc.Texture2D.MipLevels = 1;
-; 296  : 	if( FAILED( mpd3dDevice->CreateShaderResourceView( mInitialTexture, &mInitialShaderDesc, &mInitialShaderResource ) ) ) return false;
-; 297  : 	if (FAILED( mpd3dDevice->CreateShaderResourceView( mTextureOne, &mInitialShaderDesc, &mTextureOneShader))) return false;
-; 298  : 	if (FAILED( mpd3dDevice->CreateShaderResourceView( mTextureTwo, &mInitialShaderDesc, &mTextureTwoShader))) return false;
-; 299  : 
-; 300  : 	ID3D10Blob* pErrors; // This strangely typed variable collects any errors when compiling the effect file
-; 301  : 	DWORD dwShaderFlags = D3D10_SHADER_ENABLE_STRICTNESS; // These "flags" are used to set the compiler options
-; 302  : 
-; 303  : 	// Load and compile the effect file
-; 304  : 	HRESULT hr = D3DX10CreateEffectFromFile( L"PostProcess.fx", NULL, NULL, "fx_4_0", dwShaderFlags, 0, mpd3dDevice, NULL, NULL, &mPPEffect, &pErrors, NULL );
-; 305  : 	if( FAILED( hr ) )
-; 306  : 	{
-; 307  : 		if (pErrors != 0)  MessageBox( NULL, CA2CT(reinterpret_cast<char*>(pErrors->GetBufferPointer())), L"Error", MB_OK ); // Compiler error: display error message
-; 308  : 		else               MessageBox( NULL, L"Error loading Post Processing FX file. Ensure your FX file is in the same folder as this executable.", L"Error", MB_OK );  // No error message - probably file not found
-; 309  : 		return false;
-; 310  : 	}
-; 311  : 
-; 312  : 	mPPTechniques[0]  = mPPEffect->GetTechniqueByName( "PPCopy" );
-; 313  : 	mPPTechniques[1]  = mPPEffect->GetTechniqueByName( "PPTint" );
-; 314  : 	mPPTechniques[2]  = mPPEffect->GetTechniqueByName( "PPShock" );
-; 315  : 	mPPTechniques[3]  = mPPEffect->GetTechniqueByName( "PPBoxBlur3" );
-; 316  : 	mPPTechniques[4]  = mPPEffect->GetTechniqueByName( "PPBoxBlur5" );
-; 317  : 	mPPTechniques[5]  = mPPEffect->GetTechniqueByName( "PPBoxBlurV" );
-; 318  : 	mPPTechniques[6]  = mPPEffect->GetTechniqueByName( "PPDoubleVision" );
-; 319  : 	mPPTechniques[7]  = mPPEffect->GetTechniqueByName( "PPEdge" );
-; 320  : 	mPPTechniques[8]  = mPPEffect->GetTechniqueByName( "PPContrast" );
-; 321  : 	mPPTechniques[9]  = mPPEffect->GetTechniqueByName( "PPBlood" );
-; 322  : 	mPPTechniques[10] = mPPEffect->GetTechniqueByName( "PPInvert" );
-; 323  : 	mPPTechniques[11] = mPPEffect->GetTechniqueByName( "PPSolariseA" );
-; 324  : 	mPPTechniques[12] = mPPEffect->GetTechniqueByName( "PPSolariseB" );
-; 325  : 
-; 326  : 	mInitialTextureVar = mPPEffect->GetVariableByName( "InitialTexture" )->AsShaderResource();
-; 327  : 	mPostProcessMapVar = mPPEffect->GetVariableByName( "BloodTexture" )->AsShaderResource();
+; 217  : 
+; 218  : void TW_CALL AddPP00(void* clientData)
+; 219  : {
+; 220  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 221  : 	temp->mPPSteps.push_back(0);
+; 222  : }
+; 223  : 
+; 224  : void TW_CALL AddPP01(void* clientData)
+; 225  : {
+; 226  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 227  : 	temp->mPPSteps.push_back(1);
+; 228  : }
+; 229  : 
+; 230  : void TW_CALL AddPP02(void* clientData)
+; 231  : {
+; 232  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 233  : 	temp->mPPSteps.push_back(2);
+; 234  : }
+; 235  : 
+; 236  : void TW_CALL AddPP03(void* clientData)
+; 237  : {
+; 238  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 239  : 	temp->mPPSteps.push_back(3);
+; 240  : }
+; 241  : 
+; 242  : void TW_CALL AddPP04(void* clientData)
+; 243  : {
+; 244  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 245  : 	temp->mPPSteps.push_back(4);
+; 246  : }
+; 247  : 
+; 248  : void TW_CALL AddPP05(void* clientData)
+; 249  : {
+; 250  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 251  : 	temp->mPPSteps.push_back(5);
+; 252  : }
+; 253  : 
+; 254  : void TW_CALL AddPP06(void* clientData)
+; 255  : {
+; 256  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 257  : 	temp->mPPSteps.push_back(6);
+; 258  : }
+; 259  : 
+; 260  : void TW_CALL AddPP07(void* clientData)
+; 261  : {
+; 262  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 263  : 	temp->mPPSteps.push_back(7);
+; 264  : }
+; 265  : 
+; 266  : void TW_CALL AddPP08(void* clientData)
+; 267  : {
+; 268  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 269  : 	temp->mPPSteps.push_back(8);
+; 270  : }
+; 271  : 
+; 272  : void TW_CALL AddPP09(void* clientData)
+; 273  : {
+; 274  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 275  : 	temp->mPPSteps.push_back(9);
+; 276  : }
+; 277  : 
+; 278  : void TW_CALL AddPP10(void* clientData)
+; 279  : {
+; 280  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 281  : 	temp->mPPSteps.push_back(10);
+; 282  : }
+; 283  : 
+; 284  : void TW_CALL AddPP11(void* clientData)
+; 285  : {
+; 286  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 287  : 	temp->mPPSteps.push_back(11);
+; 288  : }
+; 289  : 
+; 290  : void TW_CALL AddPP12(void* clientData)
+; 291  : {
+; 292  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 293  : 	temp->mPPSteps.push_back(12);
+; 294  : }
+; 295  : 
+; 296  : void TW_CALL AddPP13(void* clientData)
+; 297  : {
+; 298  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 299  : 	temp->mPPSteps.push_back(13);
+; 300  : }
+; 301  : 
+; 302  : void TW_CALL AddPP14(void* clientData)
+; 303  : {
+; 304  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 305  : 	temp->mPPSteps.push_back(14);
+; 306  : }
+; 307  : 
+; 308  : void TW_CALL ClearChain(void* clientData)
+; 309  : {
+; 310  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 311  : 	temp->mPPSteps.clear();
+; 312  : 	temp->multiprocess = false;
+; 313  : }
+; 314  : 
+; 315  : void CScene::SetSinglePP(int index)
+; 316  : {
+; 317  : 	if(index < 0)
+; 318  : 	{
+; 319  : 		mCurrentPP = 0;
+; 320  : 		return;
+; 321  : 	}
+; 322  : 
+; 323  : 	if(index > NumPostProcesses)
+; 324  : 	{
+; 325  : 		mCurrentPP = 0;
+; 326  : 		return;
+; 327  : 	}
 ; 328  : 
-; 329  : 	mdxPPTintColour = mPPEffect->GetVariableByName( "TintColour" )->AsVector();
-; 330  : 
-; 331  : 	mdxPPShock = mPPEffect->GetVariableByName( "Shock" )->AsScalar();
-; 332  : 
-; 333  : 	mPPEffect->GetVariableByName( "PixelX" )->AsScalar()->SetFloat(1.0f/mViewportWidth);
-; 334  : 	mPPEffect->GetVariableByName( "PixelY" )->AsScalar()->SetFloat(1.0f/mViewportHeight);
-; 335  : 
-; 336  : 	mdxBlurRadius = mPPEffect->GetVariableByName( "BlurRange" )->AsScalar();
-; 337  : 
-; 338  : 	mdxDoubleVisionRadius = mPPEffect->GetVariableByName( "DVRange" )->AsScalar();
-; 339  : 
-; 340  : 	mdxContrastFactor = mPPEffect->GetVariableByName( "Contrast" )->AsScalar();
+; 329  : 	mCurrentPP = index;
+; 330  : }
+; 331  : 
+; 332  : void CScene::ResetShock()
+; 333  : {
+; 334  : 	mShockTime = mShockLength;	
+; 335  : }
+; 336  : 
+; 337  : bool CScene::InitATB()
+; 338  : {
+; 339  : 	TwInit(TW_DIRECT3D10, mpd3dDevice);
+; 340  : 	TwWindowSize(mViewportWidth, mViewportHeight);
 ; 341  : 
-; 342  : 	mdxBlood = mPPEffect->GetVariableByName( "Blood" )->AsScalar();
-; 343  : 
-; 344  : 	mdxSolariseFloat = mPPEffect->GetVariableByName("SolariseThreshold")->AsScalar();
-; 345  : 
-; 346  : 	return true;
-; 347  : 
-; 348  : }
-; 349  : // Update the scene - move/rotate each model and the camera, then update their matrices
-; 350  : void CScene::UpdateScene( float frameTime )
-; 351  : {
-; 352  : 	//Show Framerate
-; 353  : 	char caption[100];
-; 354  : 	char buffer[6];
-; 355  : 	
-; 356  : 	//copy in base text
-; 357  : 	strcpy_s( caption,  "Post Processing - FPS ");
-; 358  : 	
-; 359  : 	//calculate FPS
-; 360  : 	int FPS = int ( 1.0f / frameTime );
-; 361  : 	
-; 362  : 	//convert to string in base 10 and add to caption
-; 363  : 	_itoa_s( FPS,buffer,10 );
-; 364  : 	strcat_s( caption, buffer );
-; 365  : 	
-; 366  : 	//add in object and light counts as above
-; 367  : 	strcat_s( caption, " O: " );
-; 368  : 	_itoa_s( miNumObjects, buffer, 10 );
-; 369  : 	strcat_s( caption, buffer );
-; 370  : 
-; 371  : 	strcat_s( caption, " L: " );
-; 372  : 	_itoa_s( miNumLights, buffer, 10 );
-; 373  : 	strcat_s( caption, buffer );
-; 374  : 
-; 375  : 	//pass the new caption to the window
-; 376  : 	SetWindowTextA( HWnd, caption );
-; 377  : 
-; 378  : 	// Control camera position and update its matrices (view matrix, projection matrix) each frame
-; 379  : 	// Don't be deceived into thinking that this is a new method to control models - the same code we used previously is in the camera class
-; 380  : 	Camera->Control( frameTime, Key_Up, Key_Down, Key_Left, Key_Right, Key_W, Key_S, Key_A, Key_D );
-; 381  : 	Camera->UpdateMatrices();
-; 382  : 	
-; 383  : 	// Control cube position and update its world matrix each frame
-; 384  : 	mpObjects[mControlObject]->GetModel()->Control( frameTime, Key_I, Key_K, Key_J, Key_L, Key_U, Key_O, Key_Period, Key_Comma );
-; 385  : 
-; 386  : 	if (impact)
-; 387  : 	{
-; 388  : 		UpdateImpact(frameTime);
-; 389  : 	}
-; 390  : 	else
-; 391  : 	{
-; 392  : 		mCumulativeFTime += frameTime;
-; 393  : 
-; 394  : 		//Tint colour cycle
-; 395  : 		float hue = fmodf(mCumulativeFTime, mTintCycleTime) / mTintCycleTime;
-; 396  : 		fHSLToRGB(hue, 0.5f, 0.5f, mTintColour.x, mTintColour.y, mTintColour.z);
-; 397  : 
-; 398  : 		//Shock update
-; 399  : 		if (mShockTime > 0)
-; 400  : 		{
-; 401  : 			mShockTime -= frameTime;
-; 402  : 			mShock = sin(mShockSpeed * mShockTime);
-; 403  : 			mShock -= 0.5f;
-; 404  : 			mShock *= mShockStrength;
-; 405  : 		}
-; 406  : 		else
-; 407  : 		{
-; 408  : 			mShock = 0;
-; 409  : 		}
-; 410  : 
-; 411  : 		//Calculate contrast factor
-; 412  : 		mContrastFactor = (259 * (mContrastChange + 255.0f)) / (255.0f * (259.0f - mContrastChange));
-; 413  : 
-; 414  : 		mSolariseFloat = mSolariseInt / 255.0f;
-; 415  : 
-; 416  : 	}//end if impact
-; 417  : 
-; 418  : 	//update all the objects, including calculating the matrix
-; 419  : 	for(int i = 0; i < miNumObjects; i++)
-; 420  : 	{
-; 421  : 		mpObjects[i]->Update(frameTime);
-; 422  : 	}
-; 423  : 
-; 424  : 	//same for the lights
-; 425  : 	for(int i = 0; i < miNumLights; i++)
-; 426  : 	{
-; 427  : 		mpLights[i]->Update(frameTime);
-; 428  : 	}
-; 429  : 
+; 342  : 	mtwBarPP = TwNewBar("PostProcessing");
+; 343  : 	TwDefine(" PostProcessing position='5 5' ");
+; 344  : 	TwAddVarRW(mtwBarPP, "Tint Cycle Time", TW_TYPE_FLOAT, &mTintCycleTime, "min=0.1 max=30 step=0.1");
+; 345  : 	TwAddSeparator(mtwBarPP, "", "");
+; 346  : 	TwAddVarRW(mtwBarPP, "Shock Strength", TW_TYPE_FLOAT, &mShockStrength, "min=0.01 max=0.5 step=0.01");
+; 347  : 	TwAddVarRW(mtwBarPP, "Shock Speed", TW_TYPE_FLOAT, &mShockSpeed, "min=0.1 max=30 step=0.1");
+; 348  : 	TwAddVarRW(mtwBarPP, "Shock Length", TW_TYPE_FLOAT, &mShockLength, "min=0.1 max=5 step=0.1");
+; 349  : 	TwAddSeparator(mtwBarPP, "", "");
+; 350  : 	TwAddVarRW(mtwBarPP, "Blur Radius", TW_TYPE_INT32, &mBlurRadius, "min=3 max=51 step=2");
+; 351  : 	TwAddVarRW(mtwBarPP, "Blur Strength", TW_TYPE_FLOAT, &mBlurStrength, "min=0.1 max=50 step=0.1");
+; 352  : 	TwAddVarRW(mtwBarPP, "Blur Mean", TW_TYPE_FLOAT, &mBlurMean, "min=0.1 max=2.0 step=0.01");
+; 353  : 	TwAddSeparator(mtwBarPP, "", "");
+; 354  : 	TwAddVarRW(mtwBarPP, "Double Vision Radius", TW_TYPE_FLOAT, &mDoubleVisionRadius, "min=0 max=0.5 step=0.005");
+; 355  : 	TwAddSeparator(mtwBarPP, "", "");
+; 356  : 	TwAddVarRW(mtwBarPP, "Contrast Shift", TW_TYPE_FLOAT, &mContrastChange, "min=-128 max=128 step=1");
+; 357  : 	//TwAddVarRO(mtwBarPP, "Contrast Factor", TW_TYPE_FLOAT, &mContrastFactor, "");
+; 358  : 	TwAddVarRW(mtwBarPP, "Jamminess", TW_TYPE_FLOAT, &mBlood, "min=0 max=1 step=0.05");
+; 359  : 	TwAddSeparator(mtwBarPP, "", "");
+; 360  : 	TwAddVarRW(mtwBarPP, "Solarise Threshold", TW_TYPE_INT32, &mSolariseInt, "min=32 max=222 step=1");
+; 361  : 	TwAddSeparator(mtwBarPP, "", "");
+; 362  : 	TwAddVarRO(mtwBarPP, "Using multiple: ", TW_TYPE_BOOLCPP, &multiprocess, "");
+; 363  : 	TwAddButton( mtwBarPP, "Toggle Single", ToggleSingle, this, "");
+; 364  : 	
+; 365  : 	mtwBarSinglePP = TwNewBar("Single Pass Select");
+; 366  : 	TwDefine(" 'Single Pass Select' position='210 5' ");
+; 367  : 	TwAddButton(mtwBarSinglePP, "No PP", SetPP00, this, "");
+; 368  : 	TwAddButton(mtwBarSinglePP, "Tint", SetPP01, this, "");
+; 369  : 	TwAddButton(mtwBarSinglePP, "Shock", SetPP02, this, "");
+; 370  : 	TwAddButton(mtwBarSinglePP, "Box Blur (3)", SetPP03, this, "");
+; 371  : 	TwAddButton(mtwBarSinglePP, "Box Blur (5)", SetPP04, this, "");
+; 372  : 	TwAddButton(mtwBarSinglePP, "Box Blur (Custom)", SetPP05, this, "");
+; 373  : 	TwAddButton(mtwBarSinglePP, "Double Vision", SetPP06, this, "");
+; 374  : 	TwAddButton(mtwBarSinglePP, "Edges (Sobel)", SetPP07, this, "");
+; 375  : 	TwAddButton(mtwBarSinglePP, "Contrast", SetPP08, this, "");
+; 376  : 	TwAddButton(mtwBarSinglePP, "Jam on the screen", SetPP09, this, "");
+; 377  : 	TwAddButton(mtwBarSinglePP, "Invert", SetPP10, this, "");
+; 378  : 	TwAddButton(mtwBarSinglePP, "Solarise (Above)", SetPP11, this, "");
+; 379  : 	TwAddButton(mtwBarSinglePP, "Solarise (Below)", SetPP12, this, "");
+; 380  : 	TwAddButton(mtwBarSinglePP, "Cell Shade", SetPP13, this, "");
+; 381  : 	TwAddButton(mtwBarSinglePP, "Gaussian Blur", SetPP14, this, "");
+; 382  : 
+; 383  : 	mtwBarMultiPP = TwNewBar("Multi Pass Controls");
+; 384  : 	TwDefine(" 'Multi Pass Controls' position='5 325' size='300 400' ");
+; 385  : 	TwAddButton(mtwBarMultiPP, "Stop trying to hit me and hit me!", TWImpact, this, "");
+; 386  : 	TwAddSeparator(mtwBarPP, "", "");
+; 387  : 	TwAddVarRO(mtwBarMultiPP, "Chain Length", TW_TYPE_INT32, &mChainLength, "");
+; 388  : 	TwAddButton(mtwBarMultiPP, "Clear Chain", ClearChain, this, "");
+; 389  : 	TwAddSeparator(mtwBarMultiPP, "", "");
+; 390  : 	TwAddButton(mtwBarMultiPP, "Tint", AddPP01, this, "");
+; 391  : 	TwAddButton(mtwBarMultiPP, "Shock", AddPP02, this, "");
+; 392  : 	TwAddButton(mtwBarMultiPP, "Box Blur (3)", AddPP03, this, "");
+; 393  : 	TwAddButton(mtwBarMultiPP, "Box Blur (5)", AddPP04, this, "");
+; 394  : 	TwAddButton(mtwBarMultiPP, "Box Blur (Custom)", AddPP05, this, "");
+; 395  : 	TwAddButton(mtwBarMultiPP, "Double Vision", AddPP06, this, "");
+; 396  : 	TwAddButton(mtwBarMultiPP, "Edges (Sobel)", AddPP07, this, "");
+; 397  : 	TwAddButton(mtwBarMultiPP, "Contrast", AddPP08, this, "");
+; 398  : 	TwAddButton(mtwBarMultiPP, "Jam on the screen", AddPP09, this, "");
+; 399  : 	TwAddButton(mtwBarMultiPP, "Invert", AddPP10, this, "");
+; 400  : 	TwAddButton(mtwBarMultiPP, "Solarise (Above)", AddPP11, this, "");
+; 401  : 	TwAddButton(mtwBarMultiPP, "Solarise (Below)", AddPP12, this, "");
+; 402  : 	TwAddButton(mtwBarMultiPP, "Cell Shade", AddPP13, this, "");
+; 403  : 	TwAddButton(mtwBarMultiPP, "Gaussian Blur", AddPP14, this, "");
+; 404  : 
+; 405  : 	return true;
+; 406  : }
+; 407  : 
+; 408  : bool CScene::InitPP()
+; 409  : {
+; 410  : 	mInitialTextureDesc.Width = mViewportWidth;
+; 411  : 	mInitialTextureDesc.Height = mViewportHeight;
+; 412  : 	mInitialTextureDesc.MipLevels = 1;
+; 413  : 	mInitialTextureDesc.ArraySize = 1;
+; 414  : 	mInitialTextureDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+; 415  : 	mInitialTextureDesc.SampleDesc.Count = 1;
+; 416  : 	mInitialTextureDesc.SampleDesc.Quality = 0;
+; 417  : 	mInitialTextureDesc.Usage = D3D10_USAGE_DEFAULT;
+; 418  : 	mInitialTextureDesc.BindFlags = D3D10_BIND_RENDER_TARGET | D3D10_BIND_SHADER_RESOURCE;
+; 419  : 	mInitialTextureDesc.CPUAccessFlags = 0;
+; 420  : 	mInitialTextureDesc.MiscFlags = 0;
+; 421  : 
+; 422  : 
+; 423  : 	if( FAILED( mpd3dDevice->CreateTexture2D( &mInitialTextureDesc, NULL, &mInitialTexture) ) ) return false;
+; 424  : 	if (FAILED( mpd3dDevice->CreateTexture2D( &mInitialTextureDesc, NULL, &mTextureOne ) ) ) return false;
+; 425  : 	if (FAILED( mpd3dDevice->CreateTexture2D( &mInitialTextureDesc, NULL, &mTextureTwo ) ) ) return false;
+; 426  : 
+; 427  : 	if( FAILED( mpd3dDevice->CreateRenderTargetView( mInitialTexture, NULL, &mInitialRenderTarget ) ) ) return false;
+; 428  : 	if (FAILED( mpd3dDevice->CreateRenderTargetView( mTextureOne, NULL, &mRenderTargetOne) ) ) return false;
+; 429  : 	if (FAILED( mpd3dDevice->CreateRenderTargetView( mTextureTwo, NULL, &mRenderTargetTwo) ) ) return false;
 ; 430  : 
-; 431  : 	// Allow user to quit with escape key
-; 432  : 	if (KeyHit( Key_Escape )) 
-; 433  : 	{
-; 434  : 		DestroyWindow( HWnd );
-; 435  : 	}
-; 436  : 
-; 437  : 	if( KeyHit( Key_F1  ) ) { mCurrentPP = 0; }
-; 438  : 	if( KeyHit( Key_F2  ) ) { mCurrentPP = 1; }
-; 439  : 	if( KeyHit( Key_F3  ) ) { mCurrentPP = 2;ResetShock();}
-; 440  : 	if( KeyHit( Key_F4  ) ) { mCurrentPP = 3; }
-; 441  : 	if( KeyHit( Key_F5  ) ) { mCurrentPP = 4; }
-; 442  : 	if( KeyHit( Key_F6  ) ) { mCurrentPP = 5; }
-; 443  : 	if( KeyHit( Key_F7  ) ) { mCurrentPP = 6; }
-; 444  : 	if( KeyHit( Key_F8  ) ) { mCurrentPP = 7; }
-; 445  : 	if( KeyHit( Key_F9  ) ) { mCurrentPP = 8; }
-; 446  : 	if( KeyHit( Key_F10 ) ) { mCurrentPP = 9; }
-; 447  : 	if( KeyHit( Key_F11 ) ) { mCurrentPP = 10; }
-; 448  : 	if( KeyHit( Key_F12 ) ) { mCurrentPP = 11; }
-; 449  : 
-; 450  : 	//change the controlled object
-; 451  : 	if( KeyHit( Key_1 ) )
-; 452  : 	{
-; 453  : 		mControlObject = 0;
-; 454  : 	}
-; 455  : 
-; 456  : 	if( KeyHit( Key_2 ) )
-; 457  : 	{
-; 458  : 		mControlObject = 1;
-; 459  : 	}
-; 460  : 
-; 461  : 	if( KeyHit( Key_3 ) )
-; 462  : 	{
-; 463  : 		mControlObject = 2;
-; 464  : 	}
-; 465  : 
-; 466  : 	if( KeyHit( Key_4 ) )
-; 467  : 	{
-; 468  : 		mControlObject = 3;
-; 469  : 	}
+; 431  : 	mInitialShaderDesc.Format = mInitialTextureDesc.Format;
+; 432  : 	mInitialShaderDesc.ViewDimension = D3D10_SRV_DIMENSION_TEXTURE2D;
+; 433  : 	mInitialShaderDesc.Texture2D.MostDetailedMip = 0;
+; 434  : 	mInitialShaderDesc.Texture2D.MipLevels = 1;
+; 435  : 	if( FAILED( mpd3dDevice->CreateShaderResourceView( mInitialTexture, &mInitialShaderDesc, &mInitialShaderResource ) ) ) return false;
+; 436  : 	if (FAILED( mpd3dDevice->CreateShaderResourceView( mTextureOne, &mInitialShaderDesc, &mTextureOneShader))) return false;
+; 437  : 	if (FAILED( mpd3dDevice->CreateShaderResourceView( mTextureTwo, &mInitialShaderDesc, &mTextureTwoShader))) return false;
+; 438  : 
+; 439  : 	ID3D10Blob* pErrors; // This strangely typed variable collects any errors when compiling the effect file
+; 440  : 	DWORD dwShaderFlags = D3D10_SHADER_ENABLE_STRICTNESS; // These "flags" are used to set the compiler options
+; 441  : 
+; 442  : 	// Load and compile the effect file
+; 443  : 	HRESULT hr = D3DX10CreateEffectFromFile( L"PostProcess.fx", NULL, NULL, "fx_4_0", dwShaderFlags, 0, mpd3dDevice, NULL, NULL, &mPPEffect, &pErrors, NULL );
+; 444  : 	if( FAILED( hr ) )
+; 445  : 	{
+; 446  : 		if (pErrors != 0)  MessageBox( NULL, CA2CT(reinterpret_cast<char*>(pErrors->GetBufferPointer())), L"Error", MB_OK ); // Compiler error: display error message
+; 447  : 		else               MessageBox( NULL, L"Error loading Post Processing FX file. Ensure your FX file is in the same folder as this executable.", L"Error", MB_OK );  // No error message - probably file not found
+; 448  : 		return false;
+; 449  : 	}
+; 450  : 
+; 451  : 	mPPTechniques[0]  = mPPEffect->GetTechniqueByName( "PPDMCopy" );
+; 452  : 	mPPTechniques[1]  = mPPEffect->GetTechniqueByName( "PPTint" );
+; 453  : 	mPPTechniques[2]  = mPPEffect->GetTechniqueByName( "PPShock" );
+; 454  : 	mPPTechniques[3]  = mPPEffect->GetTechniqueByName( "PPBoxBlur3" );
+; 455  : 	mPPTechniques[4]  = mPPEffect->GetTechniqueByName( "PPBoxBlur5" );
+; 456  : 	mPPTechniques[5]  = mPPEffect->GetTechniqueByName( "PPBoxBlurV" );
+; 457  : 	mPPTechniques[6]  = mPPEffect->GetTechniqueByName( "PPDoubleVision" );
+; 458  : 	mPPTechniques[7]  = mPPEffect->GetTechniqueByName( "PPEdge" );
+; 459  : 	mPPTechniques[8]  = mPPEffect->GetTechniqueByName( "PPContrast" );
+; 460  : 	mPPTechniques[9]  = mPPEffect->GetTechniqueByName( "PPBlood" );
+; 461  : 	mPPTechniques[10] = mPPEffect->GetTechniqueByName( "PPInvert" );
+; 462  : 	mPPTechniques[11] = mPPEffect->GetTechniqueByName( "PPSolariseA" );
+; 463  : 	mPPTechniques[12] = mPPEffect->GetTechniqueByName( "PPSolariseB" );
+; 464  : 	mPPTechniques[13] = mPPEffect->GetTechniqueByName( "PPCell" );
+; 465  : 	mPPTechniques[14] = mPPEffect->GetTechniqueByName( "PPGaussian" );
+; 466  : 
+; 467  : 	mInitialTextureVar = mPPEffect->GetVariableByName( "InitialTexture" )->AsShaderResource();
+; 468  : 	mPostProcessMapVar = mPPEffect->GetVariableByName( "BloodTexture" )->AsShaderResource();
+; 469  : 	mPPDepthMap        = mPPEffect->GetVariableByName( "DepthMap" )->AsShaderResource();
 ; 470  : 
-; 471  : 	if( KeyHit( Key_5 ) )
-; 472  : 	{
-; 473  : 		mControlObject = 4;
-; 474  : 	}
-; 475  : 
-; 476  : 	if( KeyHit( Key_6 ) )
-; 477  : 	{
-; 478  : 		mControlObject = 5;
-; 479  : 	}
-; 480  : 
-; 481  : 	if( KeyHit( Key_7 ) )
-; 482  : 	{
-; 483  : 		mControlObject = 6;
-; 484  : 	}
+; 471  : 	mdxPPTintColour = mPPEffect->GetVariableByName( "TintColour" )->AsVector();
+; 472  : 
+; 473  : 	mdxPPShock = mPPEffect->GetVariableByName( "Shock" )->AsScalar();
+; 474  : 
+; 475  : 	mPPEffect->GetVariableByName( "PixelX" )->AsScalar()->SetFloat(1.0f/mViewportWidth);
+; 476  : 	mPPEffect->GetVariableByName( "PixelY" )->AsScalar()->SetFloat(1.0f/mViewportHeight);
+; 477  : 
+; 478  : 	mdxBlurRadius = mPPEffect->GetVariableByName( "BlurRange" )->AsScalar();
+; 479  : 
+; 480  : 	mdxDoubleVisionRadius = mPPEffect->GetVariableByName( "DVRange" )->AsScalar();
+; 481  : 
+; 482  : 	mdxContrastFactor = mPPEffect->GetVariableByName( "Contrast" )->AsScalar();
+; 483  : 
+; 484  : 	mdxBlood = mPPEffect->GetVariableByName( "Blood" )->AsScalar();
 ; 485  : 
-; 486  : 	if( KeyHit( Key_8 ) )
-; 487  : 	{
-; 488  : 		mControlObject = 7;
-; 489  : 	}
-; 490  : 
-; 491  : 	if( KeyHit( Key_9 ) )
-; 492  : 	{
-; 493  : 		mControlObject = 8;
-; 494  : 	}
-; 495  : 
-; 496  : 	if( KeyHit( Key_0 ) )
-; 497  : 	{
-; 498  : 		mControlObject = 9;
-; 499  : 	}
-; 500  : 
-; 501  : 	if( KeyHit ( Key_Minus ) )
-; 502  : 	{
-; 503  : 		if ( mControlObject == 0 )
-; 504  : 		{
-; 505  : 			mControlObject = miNumObjects-1;
-; 506  : 		}
-; 507  : 		else
-; 508  : 		{
-; 509  : 			mControlObject--;
-; 510  : 		}
-; 511  : 	}
-; 512  : 
-; 513  : 	if( KeyHit ( Key_Plus ) )
-; 514  : 	{
-; 515  : 		if ( mControlObject == miNumObjects-1 )
-; 516  : 		{
-; 517  : 			mControlObject = 0;
-; 518  : 		}
-; 519  : 		else
-; 520  : 		{
-; 521  : 			mControlObject++;
-; 522  : 		}
-; 523  : 	}
-; 524  : }
-; 525  : 
-; 526  : //function to pass data to the shaders and render the object.
-; 527  : void CScene::DrawObject(int i, bool mirror)
-; 528  : {
-; 529  : 	//first the wiggle value
-; 530  : 	float wiggle =  mpObjects[i]->GetWiggle();
-; 531  : 	dxWiggle->SetRawValue( &wiggle, 0, 4);
-; 532  : 
-; 533  : 	//outline thickness
-; 534  : 	float thickness = mpObjects[i]->GetOutlineThickness();
-; 535  : 	dxOutlineThickness->SetRawValue( &thickness, 0, 4);
-; 536  : 
-; 537  : 	//pass the matrix
-; 538  : 	WorldMatrixVar->SetMatrix( (float*)mpObjects[i]->GetModel()->GetWorldMatrix() );
-; 539  : 	
-; 540  : 	//pass the textures and maps, if there are any. 
-; 541  : 	if( mpObjects[i]->GetTexture() != nullptr )
-; 542  : 	{
-; 543  : 		DiffuseMapVar->SetResource( mpObjects[i]->GetTexture() );
-; 544  : 	}
-; 545  : 	if( mpObjects[i]->GetNormalMap() != nullptr )
-; 546  : 	{
-; 547  : 		NormalMapVar->SetResource( mpObjects[i]->GetNormalMap() );
-; 548  : 	}
-; 549  : 
-; 550  : 	//pass the model colour - used for untextured models, texture colour change and outline colour in cell shading
-; 551  : 	ModelColourVar->SetRawValue( mpObjects[i]->GetColourV(), 0, 12 );
-; 552  : 	
-; 553  : 	//if the object is lit, pass over the 12 closest lights. 
-; 554  : 	if( mpObjects[i]->IsLit() )
-; 555  : 	{
-; 556  : 		SetLights( mpObjects[i]->GetModel()->GetPosition(), mpLights, miNumLights);
-; 557  : 	}
-; 558  : 
-; 559  : 	// choose how to render the model based on where we are rendering it. 
-; 560  : 	if( mirror )
-; 561  : 	{
-; 562  : 		mpObjects[i]->RenderMirror();
-; 563  : 	}
-; 564  : 	else
-; 565  : 	{
-; 566  : 		mpObjects[i]->Render();
-; 567  : 		
-; 568  : 	}
-; 569  : }
-; 570  : 
-; 571  : // function to render everything in the scene
-; 572  : void CScene::DrawAllObjects(bool mirror)
-; 573  : {
-; 574  : 	//
-; 575  : 	// Solid objects
-; 576  : 	//
-; 577  : 	//start rendering AFTER the mirror.
-; 578  : 	for(int i = 1; i < miNumObjects; i++)
-; 579  : 	{
-; 580  : 		if( !mpObjects[i]->IsTransparent() )
-; 581  : 		{
-; 582  : 			DrawObject(i, mirror);
-; 583  : 		}
-; 584  : 	}
+; 486  : 	mdxSolariseFloat = mPPEffect->GetVariableByName("SolariseThreshold")->AsScalar();
+; 487  : 
+; 488  : 	mdxBlurWeights = mPPEffect->GetVariableByName("GaussianFilter")->AsVector();
+; 489  : 
+; 490  : 	return true;
+; 491  : 
+; 492  : }
+; 493  : 
+; 494  : void CScene::UpdateGaussianDist(float sigma, int samples)
+; 495  : {
+; 496  : 	//p(x) = exp(-(x - mu) ^ 2 / (2 * sigma ^ 2)) / sqrt(2 * pi*sigma ^ 2)
+; 497  : 
+; 498  : 	for (int i = 0; i < MAX_BLUR_RADIUS; i++)
+; 499  : 	{
+; 500  : 		mBlurWeights[i] = 0.0f;
+; 501  : 	}
+; 502  : 
+; 503  : 	for (int i = 0; i < samples; i++)
+; 504  : 	{	
+; 505  : 		float r = (samples / 2) - i;
+; 506  : 		mBlurWeights[i] = mBlurMean * exp( -(r*r) / (2 * sigma * sigma) );
+; 507  : 		//mBlurWeights[i] /= (2 * sigma * sigma);
+; 508  : 	}
+; 509  : 
+; 510  : }
+; 511  : 
+; 512  : // Update the scene - move/rotate each model and the camera, then update their matrices
+; 513  : void CScene::UpdateScene( float frameTime )
+; 514  : {
+; 515  : 	//Show Framerate
+; 516  : 	char caption[100];
+; 517  : 	char buffer[6];
+; 518  : 	
+; 519  : 	//copy in base text
+; 520  : 	strcpy_s( caption,  "Post Processing - FPS ");
+; 521  : 	
+; 522  : 	//calculate FPS
+; 523  : 	int FPS = int ( 1.0f / frameTime );
+; 524  : 	
+; 525  : 	//convert to string in base 10 and add to caption
+; 526  : 	_itoa_s( FPS,buffer,10 );
+; 527  : 	strcat_s( caption, buffer );
+; 528  : 	
+; 529  : 	//add in object and light counts as above
+; 530  : 	strcat_s( caption, " O: " );
+; 531  : 	_itoa_s( miNumObjects, buffer, 10 );
+; 532  : 	strcat_s( caption, buffer );
+; 533  : 
+; 534  : 	strcat_s( caption, " L: " );
+; 535  : 	_itoa_s( miNumLights, buffer, 10 );
+; 536  : 	strcat_s( caption, buffer );
+; 537  : 
+; 538  : 	//pass the new caption to the window
+; 539  : 	SetWindowTextA( HWnd, caption );
+; 540  : 
+; 541  : 	// Control camera position and update its matrices (view matrix, projection matrix) each frame
+; 542  : 	// Don't be deceived into thinking that this is a new method to control models - the same code we used previously is in the camera class
+; 543  : 	Camera->Control( frameTime, Key_Up, Key_Down, Key_Left, Key_Right, Key_W, Key_S, Key_A, Key_D );
+; 544  : 	Camera->UpdateMatrices();
+; 545  : 	
+; 546  : 	// Control cube position and update its world matrix each frame
+; 547  : 	mpObjects[mControlObject]->GetModel()->Control( frameTime, Key_I, Key_K, Key_J, Key_L, Key_U, Key_O, Key_Period, Key_Comma );
+; 548  : 
+; 549  : 	if (impact)
+; 550  : 	{
+; 551  : 		UpdateImpact(frameTime);
+; 552  : 	}
+; 553  : 	else
+; 554  : 	{
+; 555  : 		mCumulativeFTime += frameTime;
+; 556  : 
+; 557  : 		//Tint colour cycle
+; 558  : 		float hue = fmodf(mCumulativeFTime, mTintCycleTime) / mTintCycleTime;
+; 559  : 		fHSLToRGB(hue, 0.5f, 0.5f, mTintColour.x, mTintColour.y, mTintColour.z);
+; 560  : 
+; 561  : 		//Shock update
+; 562  : 		if (mShockTime > 0)
+; 563  : 		{
+; 564  : 			mShockTime -= frameTime;
+; 565  : 			mShock = sin(mShockSpeed * mShockTime);
+; 566  : 			mShock -= 0.5f;
+; 567  : 			mShock *= mShockStrength;
+; 568  : 		}
+; 569  : 		else
+; 570  : 		{
+; 571  : 			mShock = 0;
+; 572  : 		}
+; 573  : 
+; 574  : 		//Calculate contrast factor
+; 575  : 		mContrastFactor = (259 * (mContrastChange + 255.0f)) / (255.0f * (259.0f - mContrastChange));
+; 576  : 
+; 577  : 		mSolariseFloat = mSolariseInt / 255.0f;
+; 578  : 
+; 579  : 		UpdateGaussianDist(mBlurStrength, mBlurRadius);
+; 580  : 
+; 581  : 
+; 582  : 	}//end if impact
+; 583  : 
+; 584  : 	ppDirection = true;
 ; 585  : 
-; 586  : 	//
-; 587  : 	// Light objects
-; 588  : 	//
-; 589  : 
-; 590  : 
-; 591  : 	for(int i = 0; i < miNumLights; i++)
-; 592  : 	{
-; 593  : 		WorldMatrixVar->SetMatrix( (float*)mpLights[i]->GetModel()->GetWorldMatrix() );
-; 594  : 		D3DXVECTOR3 mColour =  mpLights[i]->GetColourV();
-; 595  : 		ModelColourVar->SetRawValue(mColour, 0, 12 );
-; 596  : 		if( mirror )
-; 597  : 		{
-; 598  : 			mpLights[i]->GetModel()->Render( mTechniquesMirror[0] );
-; 599  : 		}
-; 600  : 		else
-; 601  : 		{
-; 602  : 			mpLights[i]->GetModel()->Render( mTechniques[0] );
-; 603  : 		}
-; 604  : 	}
-; 605  : 
-; 606  : 	//
-; 607  : 	// Transparent objects
-; 608  : 	//
-; 609  : 
-; 610  : 	for(int i = 1; i < miNumObjects; i++)
-; 611  : 	{
-; 612  : 		if( mpObjects[i]->IsTransparent() )
-; 613  : 		{
-; 614  : 			DrawObject(i, mirror);
-; 615  : 		}
-; 616  : 	}
-; 617  : }
-; 618  : 
-; 619  : // Render everything in the scene
-; 620  : void CScene::RenderScene()
-; 621  : {
-; 622  : 	//set render target to a texture for post processing
-; 623  : 	mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
-; 624  : 	mpd3dDevice->ClearRenderTargetView(mInitialRenderTarget, AmbientColour);
-; 625  : 	mpd3dDevice->ClearDepthStencilView(DepthStencilView, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0); // Clear the depth buffer too
-; 626  : 
-; 627  : 	mpd3dDevice->OMSetRenderTargets( 1, &mInitialRenderTarget, DepthStencilView);
-; 628  : 
-; 629  : 	// Clear the back buffer - before drawing the geometry clear the entire window to a fixed colour
-; 630  : 	//float ClearColor[4] = { 0.2f, 0.2f, 0.3f, 1.0f }; // Good idea to match background to ambient colour
-; 631  : 	mpd3dDevice->ClearRenderTargetView( mInitialRenderTarget, AmbientColour );
-; 632  : 	mpd3dDevice->ClearDepthStencilView( DepthStencilView, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL , 1.0f, 0 ); // Clear the depth buffer too
-; 633  : 
-; 634  : 	//---------------------------
-; 635  : 	// Common rendering settings
-; 636  : 
-; 637  : 	// Common features for all models, set these once only
-; 638  : 
-; 639  : 	// Pass the camera's matrices to the vertex shader
-; 640  : 	ViewMatrixVar->SetMatrix( (float*)&Camera->GetViewMatrix() );
-; 641  : 	ProjMatrixVar->SetMatrix( (float*)&Camera->GetProjectionMatrix() );
-; 642  : 
-; 643  : 	//pass the camera position
-; 644  : 	dxCameraPos->SetRawValue( D3DXVECTOR3( Camera->GetPosition()), 0, 12);
+; 586  : 	mChainLength = mPPSteps.size();
+; 587  : 
+; 588  : 	//update all the objects, including calculating the matrix
+; 589  : 	for(int i = 0; i < miNumObjects; i++)
+; 590  : 	{
+; 591  : 		mpObjects[i]->Update(frameTime);
+; 592  : 	}
+; 593  : 
+; 594  : 	//same for the lights
+; 595  : 	for(int i = 0; i < miNumLights; i++)
+; 596  : 	{
+; 597  : 		mpLights[i]->Update(frameTime);
+; 598  : 	}
+; 599  : 
+; 600  : 
+; 601  : 	// Allow user to quit with escape key
+; 602  : 	if (KeyHit( Key_Escape )) 
+; 603  : 	{
+; 604  : 		DestroyWindow( HWnd );
+; 605  : 	}
+; 606  : 
+; 607  : 	if( KeyHit( Key_F1  ) ) { mCurrentPP = 0; }
+; 608  : 	if( KeyHit( Key_F2  ) ) { mCurrentPP = 1; }
+; 609  : 	if( KeyHit( Key_F3  ) ) { mCurrentPP = 2;ResetShock();}
+; 610  : 	if( KeyHit( Key_F4  ) ) { mCurrentPP = 3; }
+; 611  : 	if( KeyHit( Key_F5  ) ) { mCurrentPP = 4; }
+; 612  : 	if( KeyHit( Key_F6  ) ) { mCurrentPP = 5; }
+; 613  : 	if( KeyHit( Key_F7  ) ) { mCurrentPP = 6; }
+; 614  : 	if( KeyHit( Key_F8  ) ) { mCurrentPP = 7; }
+; 615  : 	if( KeyHit( Key_F9  ) ) { mCurrentPP = 8; }
+; 616  : 	if( KeyHit( Key_F10 ) ) { mCurrentPP = 9; }
+; 617  : 	if( KeyHit( Key_F11 ) ) { mCurrentPP = 10; }
+; 618  : 	if( KeyHit( Key_F12 ) ) { mCurrentPP = 11; }
+; 619  : 
+; 620  : 	//change the controlled object
+; 621  : 	if( KeyHit( Key_1 ) )
+; 622  : 	{
+; 623  : 		mControlObject = 0;
+; 624  : 	}
+; 625  : 
+; 626  : 	if( KeyHit( Key_2 ) )
+; 627  : 	{
+; 628  : 		mControlObject = 1;
+; 629  : 	}
+; 630  : 
+; 631  : 	if( KeyHit( Key_3 ) )
+; 632  : 	{
+; 633  : 		mControlObject = 2;
+; 634  : 	}
+; 635  : 
+; 636  : 	if( KeyHit( Key_4 ) )
+; 637  : 	{
+; 638  : 		mControlObject = 3;
+; 639  : 	}
+; 640  : 
+; 641  : 	if( KeyHit( Key_5 ) )
+; 642  : 	{
+; 643  : 		mControlObject = 4;
+; 644  : 	}
 ; 645  : 
-; 646  : 	//pass the lighting colours
-; 647  : 	dxAmbientColour->SetRawValue( AmbientColour, 0, 12  );
-; 648  : 
-; 649  : 	//---------------------------
-; 650  : 	// Render each model
-; 651  : 	
-; 652  : 	RenderMirrors();
-; 653  : 	DrawAllObjects(false);
-; 654  : 
-; 655  : 	/////////////////////////////
-; 656  : 	// POST PROCESS PASS
-; 657  : 	/////////////////////////////
-; 658  : 	
-; 659  : 	//Pass the tint colour
-; 660  : 	mdxPPTintColour->SetRawValue( mTintColour, 0, 12 );
-; 661  : 
-; 662  : 	//Pass the shock value
-; 663  : 	mdxPPShock->SetRawValue( &mShock, 0, 4 );
-; 664  : 
-; 665  : 	//Pass the blur radius
-; 666  : 	mdxBlurRadius->SetRawValue( &mBlurRadius, 0, 4 );
-; 667  : 
-; 668  : 	//Pass the double vision radius
-; 669  : 	mdxDoubleVisionRadius->SetRawValue( &mDoubleVisionRadius, 0, 4 );
+; 646  : 	if( KeyHit( Key_6 ) )
+; 647  : 	{
+; 648  : 		mControlObject = 5;
+; 649  : 	}
+; 650  : 
+; 651  : 	if( KeyHit( Key_7 ) )
+; 652  : 	{
+; 653  : 		mControlObject = 6;
+; 654  : 	}
+; 655  : 
+; 656  : 	if( KeyHit( Key_8 ) )
+; 657  : 	{
+; 658  : 		mControlObject = 7;
+; 659  : 	}
+; 660  : 
+; 661  : 	if( KeyHit( Key_9 ) )
+; 662  : 	{
+; 663  : 		mControlObject = 8;
+; 664  : 	}
+; 665  : 
+; 666  : 	if( KeyHit( Key_0 ) )
+; 667  : 	{
+; 668  : 		mControlObject = 9;
+; 669  : 	}
 ; 670  : 
-; 671  : 	//Pass the contrast factor
-; 672  : 	mdxContrastFactor->SetRawValue(&mContrastFactor, 0, 4);
-; 673  : 
-; 674  : 	//Only one person would dare give me the raspberry....LONESTAR!!
-; 675  : 	mdxBlood->SetRawValue(&mBlood, 0, 4);
-; 676  : 	mPostProcessMapVar->SetResource(mpMaps[15]);
-; 677  : 
-; 678  : 	mdxSolariseFloat->SetRawValue(&mSolariseFloat, 0, 4);
-; 679  : 
-; 680  : 	if(mCurrentPP < 0) mCurrentPP = 0;
-; 681  : 	if(mCurrentPP > NumPostProcesses ) mCurrentPP = 0;
+; 671  : 	if( KeyHit ( Key_Minus ) )
+; 672  : 	{
+; 673  : 		if ( mControlObject == 0 )
+; 674  : 		{
+; 675  : 			mControlObject = miNumObjects-1;
+; 676  : 		}
+; 677  : 		else
+; 678  : 		{
+; 679  : 			mControlObject--;
+; 680  : 		}
+; 681  : 	}
 ; 682  : 
-; 683  : 	if (impact)
+; 683  : 	if( KeyHit ( Key_Plus ) )
 ; 684  : 	{
-; 685  : 		RenderImpact();
-; 686  : 	}
-; 687  : 	else
-; 688  : 	{
-; 689  : 		if (mbGaussian)
+; 685  : 		if ( mControlObject == miNumObjects-1 )
+; 686  : 		{
+; 687  : 			mControlObject = 0;
+; 688  : 		}
+; 689  : 		else
 ; 690  : 		{
-; 691  : 
+; 691  : 			mControlObject++;
 ; 692  : 		}
-; 693  : 
-; 694  : 		if (!multiprocess)
-; 695  : 		{
-; 696  : 			//Set render target back to output
-; 697  : 			mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
-; 698  : 			//send rendered scene to shader as a texture
-; 699  : 			mInitialTextureVar->SetResource(mInitialShaderResource);
-; 700  : 
-; 701  : 			//Apply Post Processing Effect
-; 702  : 			mpd3dDevice->IASetInputLayout(NULL);
-; 703  : 			mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-; 704  : 			mPPTechniques[mCurrentPP]->GetPassByIndex(0)->Apply(0);
-; 705  : 
-; 706  : 			mpd3dDevice->Draw(4, 0);
-; 707  : 
-; 708  : 			mInitialTextureVar->SetResource(0);
-; 709  : 			mPPTechniques[mCurrentPP]->GetPassByIndex(0)->Apply(0);
-; 710  : 		}
-; 711  : 		else
-; 712  : 		{
-; 713  : 
-; 714  : 			//Box Blur
-; 715  : 			mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
-; 716  : 			mInitialTextureVar->SetResource(mInitialShaderResource);
-; 717  : 			mpd3dDevice->IASetInputLayout(NULL);
-; 718  : 			mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-; 719  : 			mPPTechniques[5]->GetPassByIndex(0)->Apply(0);
-; 720  : 			mpd3dDevice->Draw(4, 0);
-; 721  : 			mInitialTextureVar->SetResource(0);
-; 722  : 			mPPTechniques[5]->GetPassByIndex(0)->Apply(0);
-; 723  : 
-; 724  : 			//Double Vision
-; 725  : 			mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
-; 726  : 			mInitialTextureVar->SetResource(mTextureOneShader);
-; 727  : 			mpd3dDevice->IASetInputLayout(NULL);
-; 728  : 			mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-; 729  : 			mPPTechniques[6]->GetPassByIndex(0)->Apply(0);
-; 730  : 			mpd3dDevice->Draw(4, 0);
-; 731  : 			mInitialTextureVar->SetResource(0);
-; 732  : 			mPPTechniques[6]->GetPassByIndex(0)->Apply(0);
-; 733  : 
-; 734  : 			//Copy to Output
-; 735  : 			/*mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
-; 736  : 			mInitialTextureVar->SetResource(mTextureTwoShader);
-; 737  : 			mpd3dDevice->IASetInputLayout(NULL);
-; 738  : 			mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-; 739  : 			mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
-; 740  : 			mpd3dDevice->Draw(4, 0);
-; 741  : 			mInitialTextureVar->SetResource(0);
-; 742  : 			mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
-; 743  : 			*/
-; 744  : 		}
-; 745  : 	}//end else impact
-; 746  : 	//---------------------------
-; 747  : 	// Display the Scene
-; 748  : 
-; 749  : 	// After we've finished drawing to the off-screen back buffer, we "present" it to the front buffer (the screen)
-; 750  : 	TwDraw();
-; 751  : 	SwapChain->Present( 0, 0 );
-; 752  : }
-; 753  : 
-; 754  : void CScene::StartImpact()
-; 755  : {
-; 756  : 	if (!impact)
+; 693  : 	}
+; 694  : }
+; 695  : 
+; 696  : //function to pass data to the shaders and render the object.
+; 697  : void CScene::DrawObject(int i, bool mirror)
+; 698  : {
+; 699  : 	//first the wiggle value
+; 700  : 	float wiggle =  mpObjects[i]->GetWiggle();
+; 701  : 	dxWiggle->SetRawValue( &wiggle, 0, 4);
+; 702  : 
+; 703  : 	//outline thickness
+; 704  : 	float thickness = mpObjects[i]->GetOutlineThickness();
+; 705  : 	dxOutlineThickness->SetRawValue( &thickness, 0, 4);
+; 706  : 
+; 707  : 	//pass the matrix
+; 708  : 	WorldMatrixVar->SetMatrix( (float*)mpObjects[i]->GetModel()->GetWorldMatrix() );
+; 709  : 	
+; 710  : 	//pass the textures and maps, if there are any. 
+; 711  : 	if( mpObjects[i]->GetTexture() != nullptr )
+; 712  : 	{
+; 713  : 		DiffuseMapVar->SetResource( mpObjects[i]->GetTexture() );
+; 714  : 	}
+; 715  : 	if( mpObjects[i]->GetNormalMap() != nullptr )
+; 716  : 	{
+; 717  : 		NormalMapVar->SetResource( mpObjects[i]->GetNormalMap() );
+; 718  : 	}
+; 719  : 
+; 720  : 	//pass the model colour - used for untextured models, texture colour change and outline colour in cell shading
+; 721  : 	ModelColourVar->SetRawValue( mpObjects[i]->GetColourV(), 0, 12 );
+; 722  : 	
+; 723  : 	//if the object is lit, pass over the 12 closest lights. 
+; 724  : 	if( mpObjects[i]->IsLit() )
+; 725  : 	{
+; 726  : 		SetLights( mpObjects[i]->GetModel()->GetPosition(), mpLights, miNumLights);
+; 727  : 	}
+; 728  : 
+; 729  : 	// choose how to render the model based on where we are rendering it. 
+; 730  : 	if( mirror )
+; 731  : 	{
+; 732  : 		mpObjects[i]->RenderMirror();
+; 733  : 	}
+; 734  : 	else
+; 735  : 	{
+; 736  : 		mpObjects[i]->Render();
+; 737  : 		
+; 738  : 	}
+; 739  : }
+; 740  : 
+; 741  : // function to render everything in the scene
+; 742  : void CScene::DrawAllObjects(bool mirror)
+; 743  : {
+; 744  : 	//
+; 745  : 	// Solid objects
+; 746  : 	//
+; 747  : 	//start rendering AFTER the mirror.
+; 748  : 	for(int i = 1; i < miNumObjects; i++)
+; 749  : 	{
+; 750  : 		if( !mpObjects[i]->IsTransparent() )
+; 751  : 		{
+; 752  : 			DrawObject(i, mirror);
+; 753  : 		}
+; 754  : 	}
+; 755  : 
+; 756  : 	//
+; 757  : 	// Light objects
+; 758  : 	//
+; 759  : 
+; 760  : 
+; 761  : 	for(int i = 0; i < miNumLights; i++)
+; 762  : 	{
+; 763  : 		WorldMatrixVar->SetMatrix( (float*)mpLights[i]->GetModel()->GetWorldMatrix() );
+; 764  : 		D3DXVECTOR3 mColour =  mpLights[i]->GetColourV();
+; 765  : 		ModelColourVar->SetRawValue(mColour, 0, 12 );
+; 766  : 		if( mirror )
+; 767  : 		{
+; 768  : 			mpLights[i]->GetModel()->Render( mTechniquesMirror[0] );
+; 769  : 		}
+; 770  : 		else
+; 771  : 		{
+; 772  : 			mpLights[i]->GetModel()->Render( mTechniques[0] );
+; 773  : 		}
+; 774  : 	}
+; 775  : 
+; 776  : 	//
+; 777  : 	// Transparent objects
+; 778  : 	//
+; 779  : 
+; 780  : 	for(int i = 1; i < miNumObjects; i++)
+; 781  : 	{
+; 782  : 		if( mpObjects[i]->IsTransparent() )
+; 783  : 		{
+; 784  : 			DrawObject(i, mirror);
+; 785  : 		}
+; 786  : 	}
+; 787  : }
+; 788  : 
+; 789  : // Render everything in the scene
+; 790  : void CScene::RenderScene()
+; 791  : {
+; 792  : 	//set render target to a texture for post processing
+; 793  : 	//mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
+; 794  : 	//mpd3dDevice->ClearRenderTargetView(mInitialRenderTarget, AmbientColour);
+; 795  : 	//mpd3dDevice->ClearDepthStencilView(DepthStencilView, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0); // Clear the depth buffer too
+; 796  : 
+; 797  : 	mpd3dDevice->OMSetRenderTargets( 1, &mInitialRenderTarget, DepthStencilView);
+; 798  : 
+; 799  : 	// Clear the back buffer - before drawing the geometry clear the entire window to a fixed colour
+; 800  : 	//float ClearColor[4] = { 0.2f, 0.2f, 0.3f, 1.0f }; // Good idea to match background to ambient colour
+; 801  : 	mpd3dDevice->ClearRenderTargetView( mInitialRenderTarget, AmbientColour );
+; 802  : 	mpd3dDevice->ClearDepthStencilView( DepthStencilView, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL , 1.0f, 0 ); // Clear the depth buffer too
+; 803  : 
+; 804  : 	//---------------------------
+; 805  : 	// Common rendering settings
+; 806  : 
+; 807  : 	// Common features for all models, set these once only
+; 808  : 
+; 809  : 	// Pass the camera's matrices to the vertex shader
+; 810  : 	ViewMatrixVar->SetMatrix( (float*)&Camera->GetViewMatrix() );
+; 811  : 	ProjMatrixVar->SetMatrix( (float*)&Camera->GetProjectionMatrix() );
+; 812  : 
+; 813  : 	//pass the camera position
+; 814  : 	dxCameraPos->SetRawValue( D3DXVECTOR3( Camera->GetPosition()), 0, 12);
+; 815  : 
+; 816  : 	//pass the lighting colours
+; 817  : 	dxAmbientColour->SetRawValue( AmbientColour, 0, 12  );
+; 818  : 
+; 819  : 	//---------------------------
+; 820  : 	// Render each model
+; 821  : 	
+; 822  : 	RenderMirrors();
+; 823  : 	DrawAllObjects(false);
+; 824  : 
+; 825  : 	/////////////////////////////
+; 826  : 	// POST PROCESS PASS
+; 827  : 	/////////////////////////////
+; 828  : 	
+; 829  : 	//Pass the tint colour
+; 830  : 	mdxPPTintColour->SetRawValue( mTintColour, 0, 12 );
+; 831  : 
+; 832  : 	//Pass the shock value
+; 833  : 	mdxPPShock->SetRawValue( &mShock, 0, 4 );
+; 834  : 
+; 835  : 	//Pass the blur radius
+; 836  : 	mdxBlurRadius->SetRawValue( &mBlurRadius, 0, 4 );
+; 837  : 	mdxBlurWeights->SetRawValue(&mBlurWeights, 0, MAX_BLUR_RADIUS * 4);
+; 838  : 
+; 839  : 	//Pass the double vision radius
+; 840  : 	mdxDoubleVisionRadius->SetRawValue( &mDoubleVisionRadius, 0, 4 );
+; 841  : 
+; 842  : 	//Pass the contrast factor
+; 843  : 	mdxContrastFactor->SetRawValue(&mContrastFactor, 0, 4);
+; 844  : 
+; 845  : 	//Only one person would dare give me the raspberry....LONESTAR!!
+; 846  : 	mdxBlood->SetRawValue(&mBlood, 0, 4);
+; 847  : 	mPostProcessMapVar->SetResource(mpMaps[15]);
+; 848  : 
+; 849  : 	mPPDepthMap->SetResource(mDepthShaderView);
+; 850  : 
+; 851  : 	mdxSolariseFloat->SetRawValue(&mSolariseFloat, 0, 4);
+; 852  : 
+; 853  : 	if(mCurrentPP < 0) mCurrentPP = 0;
+; 854  : 	if(mCurrentPP >= NumPostProcesses ) mCurrentPP = 0;
+; 855  : 
+; 856  : 	//Copy to Texture One - Not vital, but made the rest conceptually easier.
+; 857  : 	mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetOne, DepthStencilView);
+; 858  : 	mInitialTextureVar->SetResource(mInitialShaderResource);
+; 859  : 	mpd3dDevice->IASetInputLayout(NULL);
+; 860  : 	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+; 861  : 	mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
+; 862  : 	mpd3dDevice->Draw(4, 0);
+; 863  : 	mInitialTextureVar->SetResource(0);
+; 864  : 	mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
+; 865  : 	
+; 866  : 	if (impact)
+; 867  : 	{
+; 868  : 		RenderImpact();
+; 869  : 	}
+; 870  : 	else if (!multiprocess)
+; 871  : 	{
+; 872  : 		PostProcess(mCurrentPP);
+; 873  : 	}
+; 874  : 	else
+; 875  : 	{
+; 876  : 		auto it = mPPSteps.begin();
+; 877  : 		while (it != mPPSteps.end())
+; 878  : 		{
+; 879  : 			
+; 880  : 			PostProcess(*it);
+; 881  : 			it++;
+; 882  : 		}
+; 883  : 	}//end else impact
+; 884  : 
+; 885  : 	//copy to viewport
+; 886  : 	mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
+; 887  : 	if (ppDirection)
+; 888  : 	{
+; 889  : 		mInitialTextureVar->SetResource(mTextureOneShader);
+; 890  : 	}
+; 891  : 	else
+; 892  : 	{
+; 893  : 		mInitialTextureVar->SetResource(mTextureTwoShader);
+; 894  : 	}
+; 895  : 
+; 896  : 	mpd3dDevice->IASetInputLayout(NULL);
+; 897  : 	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+; 898  : 	mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
+; 899  : 	mpd3dDevice->Draw(4, 0);
+; 900  : 	mInitialTextureVar->SetResource(0);
+; 901  : 
+; 902  : 	
+; 903  : 	//---------------------------
+; 904  : 	// Display the Scene
+; 905  : 
+; 906  : 	// After we've finished drawing to the off-screen back buffer, we "present" it to the front buffer (the screen)
+; 907  : 	TwDraw();
+; 908  : 	SwapChain->Present( 0, 0 );
+; 909  : }
+; 910  : 
+; 911  : void CScene::PostProcess(int process)
+; 912  : {
+; 913  : 	D3D10_TECHNIQUE_DESC tDesc;
+; 914  : 	mPPTechniques[process]->GetDesc(&tDesc);
+; 915  : 
+; 916  : 	ID3D10ShaderResourceView *const pSRV[1] = { NULL };
+; 917  : 	mpd3dDevice->PSSetShaderResources(0, 1, pSRV);
+; 918  : 
+; 919  : 	for (unsigned int i = 0; i < tDesc.Passes; ++i)
+; 920  : 	{
+; 921  : 		//set render target and source
+; 922  : 		if (ppDirection) // rendering "forwards"
+; 923  : 		{
+; 924  : 			mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetTwo, DepthStencilView);
+; 925  : 			mInitialTextureVar->SetResource(mTextureOneShader);
+; 926  : 		}
+; 927  : 		else // rendering "backwards"
+; 928  : 		{
+; 929  : 			mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetOne, DepthStencilView);
+; 930  : 			mInitialTextureVar->SetResource(mTextureTwoShader);
+; 931  : 		}
+; 932  : 
+; 933  : 		//Apply Post Processing Effect
+; 934  : 		mpd3dDevice->IASetInputLayout(NULL);
+; 935  : 		mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+; 936  : 		mPPTechniques[process]->GetPassByIndex(i)->Apply(0);
+; 937  : 		mpd3dDevice->Draw(4, 0);
+; 938  : 		mInitialTextureVar->SetResource(0);
+; 939  : 		
+; 940  : 		ppDirection = !ppDirection;
+; 941  : 		//mPPTechniques[process]->GetPassByIndex(i)->Apply(0);
+; 942  : 	}
+; 943  : }
+; 944  : 
+; 945  : void CScene::StartImpact()
+; 946  : {
+; 947  : 	if (!impact)
 
 	mov	ecx, DWORD PTR _clientData$[ebp]
-	cmp	BYTE PTR [ecx+3084], 0
+	cmp	BYTE PTR [ecx+3360], 0
 	jne	SHORT $LN3@TWImpact
 
-; 757  : 	{
-; 758  : 		impact = true;
-; 759  : 		mShockTime = mShockLength;
+; 948  : 	{
+; 949  : 		impact = true;
+; 950  : 		mShockTime = mShockLength;
 
-	mov	eax, DWORD PTR [ecx+2976]
-	mov	BYTE PTR [ecx+3084], 1
-	mov	DWORD PTR [ecx+2968], eax
+	mov	eax, DWORD PTR [ecx+2984]
+	mov	BYTE PTR [ecx+3360], 1
+	mov	DWORD PTR [ecx+2976], eax
 $LN3@TWImpact:
 
-; 194  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 195  : 	temp->StartImpact();
-; 196  : }
+; 214  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 215  : 	temp->StartImpact();
+; 216  : }
 
 	pop	ebp
 	ret	4
@@ -5180,24 +6766,328 @@ _TEXT	SEGMENT
 _clientData$ = 8					; size = 4
 ?SetGauss@@YGXPAX@Z PROC				; SetGauss, COMDAT
 
-; 187  : {
+; 207  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 188  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 189  : 	temp->mbGaussian = !temp->mbGaussian;
+; 208  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 209  : 	temp->mbGaussian = !temp->mbGaussian;
 
 	mov	ecx, DWORD PTR _clientData$[ebp]
-	cmp	BYTE PTR [ecx+3185], 0
+	cmp	BYTE PTR [ecx+3557], 0
 	sete	al
-	mov	BYTE PTR [ecx+3185], al
+	mov	BYTE PTR [ecx+3557], al
 
-; 190  : }
+; 210  : }
 
 	pop	ebp
 	ret	4
 ?SetGauss@@YGXPAX@Z ENDP				; SetGauss
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+;	COMDAT ?SetPP14@@YGXPAX@Z
+_TEXT	SEGMENT
+_clientData$ = 8					; size = 4
+?SetPP14@@YGXPAX@Z PROC					; SetPP14, COMDAT
+
+; 201  : {
+
+	push	ebp
+	mov	ebp, esp
+
+; 205  : 
+; 206  : void TW_CALL SetGauss(void* clientData)
+; 207  : {
+; 208  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 209  : 	temp->mbGaussian = !temp->mbGaussian;
+; 210  : }
+; 211  : 
+; 212  : void TW_CALL TWImpact(void* clientData)
+; 213  : {
+; 214  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 215  : 	temp->StartImpact();
+; 216  : }
+; 217  : 
+; 218  : void TW_CALL AddPP00(void* clientData)
+; 219  : {
+; 220  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 221  : 	temp->mPPSteps.push_back(0);
+; 222  : }
+; 223  : 
+; 224  : void TW_CALL AddPP01(void* clientData)
+; 225  : {
+; 226  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 227  : 	temp->mPPSteps.push_back(1);
+; 228  : }
+; 229  : 
+; 230  : void TW_CALL AddPP02(void* clientData)
+; 231  : {
+; 232  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 233  : 	temp->mPPSteps.push_back(2);
+; 234  : }
+; 235  : 
+; 236  : void TW_CALL AddPP03(void* clientData)
+; 237  : {
+; 238  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 239  : 	temp->mPPSteps.push_back(3);
+; 240  : }
+; 241  : 
+; 242  : void TW_CALL AddPP04(void* clientData)
+; 243  : {
+; 244  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 245  : 	temp->mPPSteps.push_back(4);
+; 246  : }
+; 247  : 
+; 248  : void TW_CALL AddPP05(void* clientData)
+; 249  : {
+; 250  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 251  : 	temp->mPPSteps.push_back(5);
+; 252  : }
+; 253  : 
+; 254  : void TW_CALL AddPP06(void* clientData)
+; 255  : {
+; 256  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 257  : 	temp->mPPSteps.push_back(6);
+; 258  : }
+; 259  : 
+; 260  : void TW_CALL AddPP07(void* clientData)
+; 261  : {
+; 262  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 263  : 	temp->mPPSteps.push_back(7);
+; 264  : }
+; 265  : 
+; 266  : void TW_CALL AddPP08(void* clientData)
+; 267  : {
+; 268  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 269  : 	temp->mPPSteps.push_back(8);
+; 270  : }
+; 271  : 
+; 272  : void TW_CALL AddPP09(void* clientData)
+; 273  : {
+; 274  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 275  : 	temp->mPPSteps.push_back(9);
+; 276  : }
+; 277  : 
+; 278  : void TW_CALL AddPP10(void* clientData)
+; 279  : {
+; 280  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 281  : 	temp->mPPSteps.push_back(10);
+; 282  : }
+; 283  : 
+; 284  : void TW_CALL AddPP11(void* clientData)
+; 285  : {
+; 286  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 287  : 	temp->mPPSteps.push_back(11);
+; 288  : }
+; 289  : 
+; 290  : void TW_CALL AddPP12(void* clientData)
+; 291  : {
+; 292  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 293  : 	temp->mPPSteps.push_back(12);
+; 294  : }
+; 295  : 
+; 296  : void TW_CALL AddPP13(void* clientData)
+; 297  : {
+; 298  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 299  : 	temp->mPPSteps.push_back(13);
+; 300  : }
+; 301  : 
+; 302  : void TW_CALL AddPP14(void* clientData)
+; 303  : {
+; 304  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 305  : 	temp->mPPSteps.push_back(14);
+; 306  : }
+; 307  : 
+; 308  : void TW_CALL ClearChain(void* clientData)
+; 309  : {
+; 310  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 311  : 	temp->mPPSteps.clear();
+; 312  : 	temp->multiprocess = false;
+; 313  : }
+; 314  : 
+; 315  : void CScene::SetSinglePP(int index)
+; 316  : {
+; 317  : 	if(index < 0)
+; 318  : 	{
+; 319  : 		mCurrentPP = 0;
+; 320  : 		return;
+; 321  : 	}
+; 322  : 
+; 323  : 	if(index > NumPostProcesses)
+; 324  : 	{
+; 325  : 		mCurrentPP = 0;
+; 326  : 		return;
+; 327  : 	}
+; 328  : 
+; 329  : 	mCurrentPP = index;
+
+	mov	eax, DWORD PTR _clientData$[ebp]
+	mov	DWORD PTR [eax+3312], 14		; 0000000eH
+
+; 202  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 203  : 	temp->SetSinglePP(14);
+; 204  : }
+
+	pop	ebp
+	ret	4
+?SetPP14@@YGXPAX@Z ENDP					; SetPP14
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+;	COMDAT ?SetPP13@@YGXPAX@Z
+_TEXT	SEGMENT
+_clientData$ = 8					; size = 4
+?SetPP13@@YGXPAX@Z PROC					; SetPP13, COMDAT
+
+; 195  : {
+
+	push	ebp
+	mov	ebp, esp
+
+; 199  : 
+; 200  : void TW_CALL SetPP14(void* clientData)
+; 201  : {
+; 202  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 203  : 	temp->SetSinglePP(14);
+; 204  : }
+; 205  : 
+; 206  : void TW_CALL SetGauss(void* clientData)
+; 207  : {
+; 208  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 209  : 	temp->mbGaussian = !temp->mbGaussian;
+; 210  : }
+; 211  : 
+; 212  : void TW_CALL TWImpact(void* clientData)
+; 213  : {
+; 214  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 215  : 	temp->StartImpact();
+; 216  : }
+; 217  : 
+; 218  : void TW_CALL AddPP00(void* clientData)
+; 219  : {
+; 220  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 221  : 	temp->mPPSteps.push_back(0);
+; 222  : }
+; 223  : 
+; 224  : void TW_CALL AddPP01(void* clientData)
+; 225  : {
+; 226  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 227  : 	temp->mPPSteps.push_back(1);
+; 228  : }
+; 229  : 
+; 230  : void TW_CALL AddPP02(void* clientData)
+; 231  : {
+; 232  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 233  : 	temp->mPPSteps.push_back(2);
+; 234  : }
+; 235  : 
+; 236  : void TW_CALL AddPP03(void* clientData)
+; 237  : {
+; 238  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 239  : 	temp->mPPSteps.push_back(3);
+; 240  : }
+; 241  : 
+; 242  : void TW_CALL AddPP04(void* clientData)
+; 243  : {
+; 244  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 245  : 	temp->mPPSteps.push_back(4);
+; 246  : }
+; 247  : 
+; 248  : void TW_CALL AddPP05(void* clientData)
+; 249  : {
+; 250  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 251  : 	temp->mPPSteps.push_back(5);
+; 252  : }
+; 253  : 
+; 254  : void TW_CALL AddPP06(void* clientData)
+; 255  : {
+; 256  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 257  : 	temp->mPPSteps.push_back(6);
+; 258  : }
+; 259  : 
+; 260  : void TW_CALL AddPP07(void* clientData)
+; 261  : {
+; 262  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 263  : 	temp->mPPSteps.push_back(7);
+; 264  : }
+; 265  : 
+; 266  : void TW_CALL AddPP08(void* clientData)
+; 267  : {
+; 268  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 269  : 	temp->mPPSteps.push_back(8);
+; 270  : }
+; 271  : 
+; 272  : void TW_CALL AddPP09(void* clientData)
+; 273  : {
+; 274  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 275  : 	temp->mPPSteps.push_back(9);
+; 276  : }
+; 277  : 
+; 278  : void TW_CALL AddPP10(void* clientData)
+; 279  : {
+; 280  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 281  : 	temp->mPPSteps.push_back(10);
+; 282  : }
+; 283  : 
+; 284  : void TW_CALL AddPP11(void* clientData)
+; 285  : {
+; 286  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 287  : 	temp->mPPSteps.push_back(11);
+; 288  : }
+; 289  : 
+; 290  : void TW_CALL AddPP12(void* clientData)
+; 291  : {
+; 292  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 293  : 	temp->mPPSteps.push_back(12);
+; 294  : }
+; 295  : 
+; 296  : void TW_CALL AddPP13(void* clientData)
+; 297  : {
+; 298  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 299  : 	temp->mPPSteps.push_back(13);
+; 300  : }
+; 301  : 
+; 302  : void TW_CALL AddPP14(void* clientData)
+; 303  : {
+; 304  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 305  : 	temp->mPPSteps.push_back(14);
+; 306  : }
+; 307  : 
+; 308  : void TW_CALL ClearChain(void* clientData)
+; 309  : {
+; 310  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 311  : 	temp->mPPSteps.clear();
+; 312  : 	temp->multiprocess = false;
+; 313  : }
+; 314  : 
+; 315  : void CScene::SetSinglePP(int index)
+; 316  : {
+; 317  : 	if(index < 0)
+; 318  : 	{
+; 319  : 		mCurrentPP = 0;
+; 320  : 		return;
+; 321  : 	}
+; 322  : 
+; 323  : 	if(index > NumPostProcesses)
+; 324  : 	{
+; 325  : 		mCurrentPP = 0;
+; 326  : 		return;
+; 327  : 	}
+; 328  : 
+; 329  : 	mCurrentPP = index;
+
+	mov	eax, DWORD PTR _clientData$[ebp]
+	mov	DWORD PTR [eax+3312], 13		; 0000000dH
+
+; 196  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 197  : 	temp->SetSinglePP(13);
+; 198  : }
+
+	pop	ebp
+	ret	4
+?SetPP13@@YGXPAX@Z ENDP					; SetPP13
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
@@ -5206,46 +7096,155 @@ _TEXT	SEGMENT
 _clientData$ = 8					; size = 4
 ?SetPP12@@YGXPAX@Z PROC					; SetPP12, COMDAT
 
-; 181  : {
+; 189  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 185  : 
-; 186  : void TW_CALL SetGauss(void* clientData)
-; 187  : {
-; 188  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 189  : 	temp->mbGaussian = !temp->mbGaussian;
-; 190  : }
-; 191  : 
-; 192  : void TW_CALL TWImpact(void* clientData)
-; 193  : {
-; 194  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 195  : 	temp->StartImpact();
-; 196  : }
-; 197  : 
-; 198  : void CScene::SetSinglePP(int index)
-; 199  : {
-; 200  : 	if(index < 0)
-; 201  : 	{
-; 202  : 		mCurrentPP = 0;
-; 203  : 		return;
-; 204  : 	}
+; 193  : 
+; 194  : void TW_CALL SetPP13(void* clientData)
+; 195  : {
+; 196  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 197  : 	temp->SetSinglePP(13);
+; 198  : }
+; 199  : 
+; 200  : void TW_CALL SetPP14(void* clientData)
+; 201  : {
+; 202  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 203  : 	temp->SetSinglePP(14);
+; 204  : }
 ; 205  : 
-; 206  : 	if(index > NumPostProcesses)
-; 207  : 	{
-; 208  : 		mCurrentPP = 0;
-; 209  : 		return;
-; 210  : 	}
+; 206  : void TW_CALL SetGauss(void* clientData)
+; 207  : {
+; 208  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 209  : 	temp->mbGaussian = !temp->mbGaussian;
+; 210  : }
 ; 211  : 
-; 212  : 	mCurrentPP = index;
+; 212  : void TW_CALL TWImpact(void* clientData)
+; 213  : {
+; 214  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 215  : 	temp->StartImpact();
+; 216  : }
+; 217  : 
+; 218  : void TW_CALL AddPP00(void* clientData)
+; 219  : {
+; 220  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 221  : 	temp->mPPSteps.push_back(0);
+; 222  : }
+; 223  : 
+; 224  : void TW_CALL AddPP01(void* clientData)
+; 225  : {
+; 226  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 227  : 	temp->mPPSteps.push_back(1);
+; 228  : }
+; 229  : 
+; 230  : void TW_CALL AddPP02(void* clientData)
+; 231  : {
+; 232  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 233  : 	temp->mPPSteps.push_back(2);
+; 234  : }
+; 235  : 
+; 236  : void TW_CALL AddPP03(void* clientData)
+; 237  : {
+; 238  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 239  : 	temp->mPPSteps.push_back(3);
+; 240  : }
+; 241  : 
+; 242  : void TW_CALL AddPP04(void* clientData)
+; 243  : {
+; 244  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 245  : 	temp->mPPSteps.push_back(4);
+; 246  : }
+; 247  : 
+; 248  : void TW_CALL AddPP05(void* clientData)
+; 249  : {
+; 250  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 251  : 	temp->mPPSteps.push_back(5);
+; 252  : }
+; 253  : 
+; 254  : void TW_CALL AddPP06(void* clientData)
+; 255  : {
+; 256  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 257  : 	temp->mPPSteps.push_back(6);
+; 258  : }
+; 259  : 
+; 260  : void TW_CALL AddPP07(void* clientData)
+; 261  : {
+; 262  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 263  : 	temp->mPPSteps.push_back(7);
+; 264  : }
+; 265  : 
+; 266  : void TW_CALL AddPP08(void* clientData)
+; 267  : {
+; 268  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 269  : 	temp->mPPSteps.push_back(8);
+; 270  : }
+; 271  : 
+; 272  : void TW_CALL AddPP09(void* clientData)
+; 273  : {
+; 274  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 275  : 	temp->mPPSteps.push_back(9);
+; 276  : }
+; 277  : 
+; 278  : void TW_CALL AddPP10(void* clientData)
+; 279  : {
+; 280  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 281  : 	temp->mPPSteps.push_back(10);
+; 282  : }
+; 283  : 
+; 284  : void TW_CALL AddPP11(void* clientData)
+; 285  : {
+; 286  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 287  : 	temp->mPPSteps.push_back(11);
+; 288  : }
+; 289  : 
+; 290  : void TW_CALL AddPP12(void* clientData)
+; 291  : {
+; 292  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 293  : 	temp->mPPSteps.push_back(12);
+; 294  : }
+; 295  : 
+; 296  : void TW_CALL AddPP13(void* clientData)
+; 297  : {
+; 298  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 299  : 	temp->mPPSteps.push_back(13);
+; 300  : }
+; 301  : 
+; 302  : void TW_CALL AddPP14(void* clientData)
+; 303  : {
+; 304  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 305  : 	temp->mPPSteps.push_back(14);
+; 306  : }
+; 307  : 
+; 308  : void TW_CALL ClearChain(void* clientData)
+; 309  : {
+; 310  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 311  : 	temp->mPPSteps.clear();
+; 312  : 	temp->multiprocess = false;
+; 313  : }
+; 314  : 
+; 315  : void CScene::SetSinglePP(int index)
+; 316  : {
+; 317  : 	if(index < 0)
+; 318  : 	{
+; 319  : 		mCurrentPP = 0;
+; 320  : 		return;
+; 321  : 	}
+; 322  : 
+; 323  : 	if(index > NumPostProcesses)
+; 324  : 	{
+; 325  : 		mCurrentPP = 0;
+; 326  : 		return;
+; 327  : 	}
+; 328  : 
+; 329  : 	mCurrentPP = index;
 
 	mov	eax, DWORD PTR _clientData$[ebp]
-	mov	DWORD PTR [eax+3040], 12		; 0000000cH
+	mov	DWORD PTR [eax+3312], 12		; 0000000cH
 
-; 182  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 183  : 	temp->SetSinglePP( 12 );
-; 184  : }
+; 190  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 191  : 	temp->SetSinglePP( 12 );
+; 192  : }
 
 	pop	ebp
 	ret	4
@@ -5258,52 +7257,161 @@ _TEXT	SEGMENT
 _clientData$ = 8					; size = 4
 ?SetPP11@@YGXPAX@Z PROC					; SetPP11, COMDAT
 
-; 175  : {
+; 183  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 179  : 
-; 180  : void TW_CALL SetPP12(void* clientData)
-; 181  : {
-; 182  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 183  : 	temp->SetSinglePP( 12 );
-; 184  : }
-; 185  : 
-; 186  : void TW_CALL SetGauss(void* clientData)
-; 187  : {
-; 188  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 189  : 	temp->mbGaussian = !temp->mbGaussian;
-; 190  : }
-; 191  : 
-; 192  : void TW_CALL TWImpact(void* clientData)
-; 193  : {
-; 194  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 195  : 	temp->StartImpact();
-; 196  : }
-; 197  : 
-; 198  : void CScene::SetSinglePP(int index)
-; 199  : {
-; 200  : 	if(index < 0)
-; 201  : 	{
-; 202  : 		mCurrentPP = 0;
-; 203  : 		return;
-; 204  : 	}
+; 187  : 
+; 188  : void TW_CALL SetPP12(void* clientData)
+; 189  : {
+; 190  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 191  : 	temp->SetSinglePP( 12 );
+; 192  : }
+; 193  : 
+; 194  : void TW_CALL SetPP13(void* clientData)
+; 195  : {
+; 196  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 197  : 	temp->SetSinglePP(13);
+; 198  : }
+; 199  : 
+; 200  : void TW_CALL SetPP14(void* clientData)
+; 201  : {
+; 202  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 203  : 	temp->SetSinglePP(14);
+; 204  : }
 ; 205  : 
-; 206  : 	if(index > NumPostProcesses)
-; 207  : 	{
-; 208  : 		mCurrentPP = 0;
-; 209  : 		return;
-; 210  : 	}
+; 206  : void TW_CALL SetGauss(void* clientData)
+; 207  : {
+; 208  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 209  : 	temp->mbGaussian = !temp->mbGaussian;
+; 210  : }
 ; 211  : 
-; 212  : 	mCurrentPP = index;
+; 212  : void TW_CALL TWImpact(void* clientData)
+; 213  : {
+; 214  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 215  : 	temp->StartImpact();
+; 216  : }
+; 217  : 
+; 218  : void TW_CALL AddPP00(void* clientData)
+; 219  : {
+; 220  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 221  : 	temp->mPPSteps.push_back(0);
+; 222  : }
+; 223  : 
+; 224  : void TW_CALL AddPP01(void* clientData)
+; 225  : {
+; 226  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 227  : 	temp->mPPSteps.push_back(1);
+; 228  : }
+; 229  : 
+; 230  : void TW_CALL AddPP02(void* clientData)
+; 231  : {
+; 232  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 233  : 	temp->mPPSteps.push_back(2);
+; 234  : }
+; 235  : 
+; 236  : void TW_CALL AddPP03(void* clientData)
+; 237  : {
+; 238  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 239  : 	temp->mPPSteps.push_back(3);
+; 240  : }
+; 241  : 
+; 242  : void TW_CALL AddPP04(void* clientData)
+; 243  : {
+; 244  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 245  : 	temp->mPPSteps.push_back(4);
+; 246  : }
+; 247  : 
+; 248  : void TW_CALL AddPP05(void* clientData)
+; 249  : {
+; 250  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 251  : 	temp->mPPSteps.push_back(5);
+; 252  : }
+; 253  : 
+; 254  : void TW_CALL AddPP06(void* clientData)
+; 255  : {
+; 256  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 257  : 	temp->mPPSteps.push_back(6);
+; 258  : }
+; 259  : 
+; 260  : void TW_CALL AddPP07(void* clientData)
+; 261  : {
+; 262  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 263  : 	temp->mPPSteps.push_back(7);
+; 264  : }
+; 265  : 
+; 266  : void TW_CALL AddPP08(void* clientData)
+; 267  : {
+; 268  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 269  : 	temp->mPPSteps.push_back(8);
+; 270  : }
+; 271  : 
+; 272  : void TW_CALL AddPP09(void* clientData)
+; 273  : {
+; 274  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 275  : 	temp->mPPSteps.push_back(9);
+; 276  : }
+; 277  : 
+; 278  : void TW_CALL AddPP10(void* clientData)
+; 279  : {
+; 280  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 281  : 	temp->mPPSteps.push_back(10);
+; 282  : }
+; 283  : 
+; 284  : void TW_CALL AddPP11(void* clientData)
+; 285  : {
+; 286  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 287  : 	temp->mPPSteps.push_back(11);
+; 288  : }
+; 289  : 
+; 290  : void TW_CALL AddPP12(void* clientData)
+; 291  : {
+; 292  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 293  : 	temp->mPPSteps.push_back(12);
+; 294  : }
+; 295  : 
+; 296  : void TW_CALL AddPP13(void* clientData)
+; 297  : {
+; 298  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 299  : 	temp->mPPSteps.push_back(13);
+; 300  : }
+; 301  : 
+; 302  : void TW_CALL AddPP14(void* clientData)
+; 303  : {
+; 304  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 305  : 	temp->mPPSteps.push_back(14);
+; 306  : }
+; 307  : 
+; 308  : void TW_CALL ClearChain(void* clientData)
+; 309  : {
+; 310  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 311  : 	temp->mPPSteps.clear();
+; 312  : 	temp->multiprocess = false;
+; 313  : }
+; 314  : 
+; 315  : void CScene::SetSinglePP(int index)
+; 316  : {
+; 317  : 	if(index < 0)
+; 318  : 	{
+; 319  : 		mCurrentPP = 0;
+; 320  : 		return;
+; 321  : 	}
+; 322  : 
+; 323  : 	if(index > NumPostProcesses)
+; 324  : 	{
+; 325  : 		mCurrentPP = 0;
+; 326  : 		return;
+; 327  : 	}
+; 328  : 
+; 329  : 	mCurrentPP = index;
 
 	mov	eax, DWORD PTR _clientData$[ebp]
-	mov	DWORD PTR [eax+3040], 11		; 0000000bH
+	mov	DWORD PTR [eax+3312], 11		; 0000000bH
 
-; 176  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 177  : 	temp->SetSinglePP( 11 );
-; 178  : }
+; 184  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 185  : 	temp->SetSinglePP( 11 );
+; 186  : }
 
 	pop	ebp
 	ret	4
@@ -5316,58 +7424,167 @@ _TEXT	SEGMENT
 _clientData$ = 8					; size = 4
 ?SetPP10@@YGXPAX@Z PROC					; SetPP10, COMDAT
 
-; 169  : {
+; 177  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 173  : 
-; 174  : void TW_CALL SetPP11(void* clientData)
-; 175  : {
-; 176  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 177  : 	temp->SetSinglePP( 11 );
-; 178  : }
-; 179  : 
-; 180  : void TW_CALL SetPP12(void* clientData)
-; 181  : {
-; 182  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 183  : 	temp->SetSinglePP( 12 );
-; 184  : }
-; 185  : 
-; 186  : void TW_CALL SetGauss(void* clientData)
-; 187  : {
-; 188  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 189  : 	temp->mbGaussian = !temp->mbGaussian;
-; 190  : }
-; 191  : 
-; 192  : void TW_CALL TWImpact(void* clientData)
-; 193  : {
-; 194  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 195  : 	temp->StartImpact();
-; 196  : }
-; 197  : 
-; 198  : void CScene::SetSinglePP(int index)
-; 199  : {
-; 200  : 	if(index < 0)
-; 201  : 	{
-; 202  : 		mCurrentPP = 0;
-; 203  : 		return;
-; 204  : 	}
+; 181  : 
+; 182  : void TW_CALL SetPP11(void* clientData)
+; 183  : {
+; 184  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 185  : 	temp->SetSinglePP( 11 );
+; 186  : }
+; 187  : 
+; 188  : void TW_CALL SetPP12(void* clientData)
+; 189  : {
+; 190  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 191  : 	temp->SetSinglePP( 12 );
+; 192  : }
+; 193  : 
+; 194  : void TW_CALL SetPP13(void* clientData)
+; 195  : {
+; 196  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 197  : 	temp->SetSinglePP(13);
+; 198  : }
+; 199  : 
+; 200  : void TW_CALL SetPP14(void* clientData)
+; 201  : {
+; 202  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 203  : 	temp->SetSinglePP(14);
+; 204  : }
 ; 205  : 
-; 206  : 	if(index > NumPostProcesses)
-; 207  : 	{
-; 208  : 		mCurrentPP = 0;
-; 209  : 		return;
-; 210  : 	}
+; 206  : void TW_CALL SetGauss(void* clientData)
+; 207  : {
+; 208  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 209  : 	temp->mbGaussian = !temp->mbGaussian;
+; 210  : }
 ; 211  : 
-; 212  : 	mCurrentPP = index;
+; 212  : void TW_CALL TWImpact(void* clientData)
+; 213  : {
+; 214  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 215  : 	temp->StartImpact();
+; 216  : }
+; 217  : 
+; 218  : void TW_CALL AddPP00(void* clientData)
+; 219  : {
+; 220  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 221  : 	temp->mPPSteps.push_back(0);
+; 222  : }
+; 223  : 
+; 224  : void TW_CALL AddPP01(void* clientData)
+; 225  : {
+; 226  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 227  : 	temp->mPPSteps.push_back(1);
+; 228  : }
+; 229  : 
+; 230  : void TW_CALL AddPP02(void* clientData)
+; 231  : {
+; 232  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 233  : 	temp->mPPSteps.push_back(2);
+; 234  : }
+; 235  : 
+; 236  : void TW_CALL AddPP03(void* clientData)
+; 237  : {
+; 238  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 239  : 	temp->mPPSteps.push_back(3);
+; 240  : }
+; 241  : 
+; 242  : void TW_CALL AddPP04(void* clientData)
+; 243  : {
+; 244  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 245  : 	temp->mPPSteps.push_back(4);
+; 246  : }
+; 247  : 
+; 248  : void TW_CALL AddPP05(void* clientData)
+; 249  : {
+; 250  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 251  : 	temp->mPPSteps.push_back(5);
+; 252  : }
+; 253  : 
+; 254  : void TW_CALL AddPP06(void* clientData)
+; 255  : {
+; 256  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 257  : 	temp->mPPSteps.push_back(6);
+; 258  : }
+; 259  : 
+; 260  : void TW_CALL AddPP07(void* clientData)
+; 261  : {
+; 262  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 263  : 	temp->mPPSteps.push_back(7);
+; 264  : }
+; 265  : 
+; 266  : void TW_CALL AddPP08(void* clientData)
+; 267  : {
+; 268  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 269  : 	temp->mPPSteps.push_back(8);
+; 270  : }
+; 271  : 
+; 272  : void TW_CALL AddPP09(void* clientData)
+; 273  : {
+; 274  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 275  : 	temp->mPPSteps.push_back(9);
+; 276  : }
+; 277  : 
+; 278  : void TW_CALL AddPP10(void* clientData)
+; 279  : {
+; 280  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 281  : 	temp->mPPSteps.push_back(10);
+; 282  : }
+; 283  : 
+; 284  : void TW_CALL AddPP11(void* clientData)
+; 285  : {
+; 286  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 287  : 	temp->mPPSteps.push_back(11);
+; 288  : }
+; 289  : 
+; 290  : void TW_CALL AddPP12(void* clientData)
+; 291  : {
+; 292  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 293  : 	temp->mPPSteps.push_back(12);
+; 294  : }
+; 295  : 
+; 296  : void TW_CALL AddPP13(void* clientData)
+; 297  : {
+; 298  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 299  : 	temp->mPPSteps.push_back(13);
+; 300  : }
+; 301  : 
+; 302  : void TW_CALL AddPP14(void* clientData)
+; 303  : {
+; 304  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 305  : 	temp->mPPSteps.push_back(14);
+; 306  : }
+; 307  : 
+; 308  : void TW_CALL ClearChain(void* clientData)
+; 309  : {
+; 310  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 311  : 	temp->mPPSteps.clear();
+; 312  : 	temp->multiprocess = false;
+; 313  : }
+; 314  : 
+; 315  : void CScene::SetSinglePP(int index)
+; 316  : {
+; 317  : 	if(index < 0)
+; 318  : 	{
+; 319  : 		mCurrentPP = 0;
+; 320  : 		return;
+; 321  : 	}
+; 322  : 
+; 323  : 	if(index > NumPostProcesses)
+; 324  : 	{
+; 325  : 		mCurrentPP = 0;
+; 326  : 		return;
+; 327  : 	}
+; 328  : 
+; 329  : 	mCurrentPP = index;
 
 	mov	eax, DWORD PTR _clientData$[ebp]
-	mov	DWORD PTR [eax+3040], 10		; 0000000aH
+	mov	DWORD PTR [eax+3312], 10		; 0000000aH
 
-; 170  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 171  : 	temp->SetSinglePP( 10 );
-; 172  : }
+; 178  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 179  : 	temp->SetSinglePP( 10 );
+; 180  : }
 
 	pop	ebp
 	ret	4
@@ -5380,64 +7597,173 @@ _TEXT	SEGMENT
 _clientData$ = 8					; size = 4
 ?SetPP09@@YGXPAX@Z PROC					; SetPP09, COMDAT
 
-; 163  : {
+; 171  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 167  : 
-; 168  : void TW_CALL SetPP10(void* clientData)
-; 169  : {
-; 170  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 171  : 	temp->SetSinglePP( 10 );
-; 172  : }
-; 173  : 
-; 174  : void TW_CALL SetPP11(void* clientData)
-; 175  : {
-; 176  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 177  : 	temp->SetSinglePP( 11 );
-; 178  : }
-; 179  : 
-; 180  : void TW_CALL SetPP12(void* clientData)
-; 181  : {
-; 182  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 183  : 	temp->SetSinglePP( 12 );
-; 184  : }
-; 185  : 
-; 186  : void TW_CALL SetGauss(void* clientData)
-; 187  : {
-; 188  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 189  : 	temp->mbGaussian = !temp->mbGaussian;
-; 190  : }
-; 191  : 
-; 192  : void TW_CALL TWImpact(void* clientData)
-; 193  : {
-; 194  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 195  : 	temp->StartImpact();
-; 196  : }
-; 197  : 
-; 198  : void CScene::SetSinglePP(int index)
-; 199  : {
-; 200  : 	if(index < 0)
-; 201  : 	{
-; 202  : 		mCurrentPP = 0;
-; 203  : 		return;
-; 204  : 	}
+; 175  : 
+; 176  : void TW_CALL SetPP10(void* clientData)
+; 177  : {
+; 178  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 179  : 	temp->SetSinglePP( 10 );
+; 180  : }
+; 181  : 
+; 182  : void TW_CALL SetPP11(void* clientData)
+; 183  : {
+; 184  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 185  : 	temp->SetSinglePP( 11 );
+; 186  : }
+; 187  : 
+; 188  : void TW_CALL SetPP12(void* clientData)
+; 189  : {
+; 190  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 191  : 	temp->SetSinglePP( 12 );
+; 192  : }
+; 193  : 
+; 194  : void TW_CALL SetPP13(void* clientData)
+; 195  : {
+; 196  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 197  : 	temp->SetSinglePP(13);
+; 198  : }
+; 199  : 
+; 200  : void TW_CALL SetPP14(void* clientData)
+; 201  : {
+; 202  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 203  : 	temp->SetSinglePP(14);
+; 204  : }
 ; 205  : 
-; 206  : 	if(index > NumPostProcesses)
-; 207  : 	{
-; 208  : 		mCurrentPP = 0;
-; 209  : 		return;
-; 210  : 	}
+; 206  : void TW_CALL SetGauss(void* clientData)
+; 207  : {
+; 208  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 209  : 	temp->mbGaussian = !temp->mbGaussian;
+; 210  : }
 ; 211  : 
-; 212  : 	mCurrentPP = index;
+; 212  : void TW_CALL TWImpact(void* clientData)
+; 213  : {
+; 214  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 215  : 	temp->StartImpact();
+; 216  : }
+; 217  : 
+; 218  : void TW_CALL AddPP00(void* clientData)
+; 219  : {
+; 220  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 221  : 	temp->mPPSteps.push_back(0);
+; 222  : }
+; 223  : 
+; 224  : void TW_CALL AddPP01(void* clientData)
+; 225  : {
+; 226  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 227  : 	temp->mPPSteps.push_back(1);
+; 228  : }
+; 229  : 
+; 230  : void TW_CALL AddPP02(void* clientData)
+; 231  : {
+; 232  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 233  : 	temp->mPPSteps.push_back(2);
+; 234  : }
+; 235  : 
+; 236  : void TW_CALL AddPP03(void* clientData)
+; 237  : {
+; 238  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 239  : 	temp->mPPSteps.push_back(3);
+; 240  : }
+; 241  : 
+; 242  : void TW_CALL AddPP04(void* clientData)
+; 243  : {
+; 244  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 245  : 	temp->mPPSteps.push_back(4);
+; 246  : }
+; 247  : 
+; 248  : void TW_CALL AddPP05(void* clientData)
+; 249  : {
+; 250  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 251  : 	temp->mPPSteps.push_back(5);
+; 252  : }
+; 253  : 
+; 254  : void TW_CALL AddPP06(void* clientData)
+; 255  : {
+; 256  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 257  : 	temp->mPPSteps.push_back(6);
+; 258  : }
+; 259  : 
+; 260  : void TW_CALL AddPP07(void* clientData)
+; 261  : {
+; 262  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 263  : 	temp->mPPSteps.push_back(7);
+; 264  : }
+; 265  : 
+; 266  : void TW_CALL AddPP08(void* clientData)
+; 267  : {
+; 268  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 269  : 	temp->mPPSteps.push_back(8);
+; 270  : }
+; 271  : 
+; 272  : void TW_CALL AddPP09(void* clientData)
+; 273  : {
+; 274  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 275  : 	temp->mPPSteps.push_back(9);
+; 276  : }
+; 277  : 
+; 278  : void TW_CALL AddPP10(void* clientData)
+; 279  : {
+; 280  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 281  : 	temp->mPPSteps.push_back(10);
+; 282  : }
+; 283  : 
+; 284  : void TW_CALL AddPP11(void* clientData)
+; 285  : {
+; 286  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 287  : 	temp->mPPSteps.push_back(11);
+; 288  : }
+; 289  : 
+; 290  : void TW_CALL AddPP12(void* clientData)
+; 291  : {
+; 292  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 293  : 	temp->mPPSteps.push_back(12);
+; 294  : }
+; 295  : 
+; 296  : void TW_CALL AddPP13(void* clientData)
+; 297  : {
+; 298  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 299  : 	temp->mPPSteps.push_back(13);
+; 300  : }
+; 301  : 
+; 302  : void TW_CALL AddPP14(void* clientData)
+; 303  : {
+; 304  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 305  : 	temp->mPPSteps.push_back(14);
+; 306  : }
+; 307  : 
+; 308  : void TW_CALL ClearChain(void* clientData)
+; 309  : {
+; 310  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 311  : 	temp->mPPSteps.clear();
+; 312  : 	temp->multiprocess = false;
+; 313  : }
+; 314  : 
+; 315  : void CScene::SetSinglePP(int index)
+; 316  : {
+; 317  : 	if(index < 0)
+; 318  : 	{
+; 319  : 		mCurrentPP = 0;
+; 320  : 		return;
+; 321  : 	}
+; 322  : 
+; 323  : 	if(index > NumPostProcesses)
+; 324  : 	{
+; 325  : 		mCurrentPP = 0;
+; 326  : 		return;
+; 327  : 	}
+; 328  : 
+; 329  : 	mCurrentPP = index;
 
 	mov	eax, DWORD PTR _clientData$[ebp]
-	mov	DWORD PTR [eax+3040], 9
+	mov	DWORD PTR [eax+3312], 9
 
-; 164  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 165  : 	temp->SetSinglePP( 9 );
-; 166  : }
+; 172  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 173  : 	temp->SetSinglePP( 9 );
+; 174  : }
 
 	pop	ebp
 	ret	4
@@ -5450,70 +7776,179 @@ _TEXT	SEGMENT
 _clientData$ = 8					; size = 4
 ?SetPP08@@YGXPAX@Z PROC					; SetPP08, COMDAT
 
-; 157  : {
+; 165  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 161  : 
-; 162  : void TW_CALL SetPP09(void* clientData)
-; 163  : {
-; 164  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 165  : 	temp->SetSinglePP( 9 );
-; 166  : }
-; 167  : 
-; 168  : void TW_CALL SetPP10(void* clientData)
-; 169  : {
-; 170  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 171  : 	temp->SetSinglePP( 10 );
-; 172  : }
-; 173  : 
-; 174  : void TW_CALL SetPP11(void* clientData)
-; 175  : {
-; 176  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 177  : 	temp->SetSinglePP( 11 );
-; 178  : }
-; 179  : 
-; 180  : void TW_CALL SetPP12(void* clientData)
-; 181  : {
-; 182  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 183  : 	temp->SetSinglePP( 12 );
-; 184  : }
-; 185  : 
-; 186  : void TW_CALL SetGauss(void* clientData)
-; 187  : {
-; 188  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 189  : 	temp->mbGaussian = !temp->mbGaussian;
-; 190  : }
-; 191  : 
-; 192  : void TW_CALL TWImpact(void* clientData)
-; 193  : {
-; 194  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 195  : 	temp->StartImpact();
-; 196  : }
-; 197  : 
-; 198  : void CScene::SetSinglePP(int index)
-; 199  : {
-; 200  : 	if(index < 0)
-; 201  : 	{
-; 202  : 		mCurrentPP = 0;
-; 203  : 		return;
-; 204  : 	}
+; 169  : 
+; 170  : void TW_CALL SetPP09(void* clientData)
+; 171  : {
+; 172  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 173  : 	temp->SetSinglePP( 9 );
+; 174  : }
+; 175  : 
+; 176  : void TW_CALL SetPP10(void* clientData)
+; 177  : {
+; 178  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 179  : 	temp->SetSinglePP( 10 );
+; 180  : }
+; 181  : 
+; 182  : void TW_CALL SetPP11(void* clientData)
+; 183  : {
+; 184  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 185  : 	temp->SetSinglePP( 11 );
+; 186  : }
+; 187  : 
+; 188  : void TW_CALL SetPP12(void* clientData)
+; 189  : {
+; 190  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 191  : 	temp->SetSinglePP( 12 );
+; 192  : }
+; 193  : 
+; 194  : void TW_CALL SetPP13(void* clientData)
+; 195  : {
+; 196  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 197  : 	temp->SetSinglePP(13);
+; 198  : }
+; 199  : 
+; 200  : void TW_CALL SetPP14(void* clientData)
+; 201  : {
+; 202  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 203  : 	temp->SetSinglePP(14);
+; 204  : }
 ; 205  : 
-; 206  : 	if(index > NumPostProcesses)
-; 207  : 	{
-; 208  : 		mCurrentPP = 0;
-; 209  : 		return;
-; 210  : 	}
+; 206  : void TW_CALL SetGauss(void* clientData)
+; 207  : {
+; 208  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 209  : 	temp->mbGaussian = !temp->mbGaussian;
+; 210  : }
 ; 211  : 
-; 212  : 	mCurrentPP = index;
+; 212  : void TW_CALL TWImpact(void* clientData)
+; 213  : {
+; 214  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 215  : 	temp->StartImpact();
+; 216  : }
+; 217  : 
+; 218  : void TW_CALL AddPP00(void* clientData)
+; 219  : {
+; 220  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 221  : 	temp->mPPSteps.push_back(0);
+; 222  : }
+; 223  : 
+; 224  : void TW_CALL AddPP01(void* clientData)
+; 225  : {
+; 226  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 227  : 	temp->mPPSteps.push_back(1);
+; 228  : }
+; 229  : 
+; 230  : void TW_CALL AddPP02(void* clientData)
+; 231  : {
+; 232  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 233  : 	temp->mPPSteps.push_back(2);
+; 234  : }
+; 235  : 
+; 236  : void TW_CALL AddPP03(void* clientData)
+; 237  : {
+; 238  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 239  : 	temp->mPPSteps.push_back(3);
+; 240  : }
+; 241  : 
+; 242  : void TW_CALL AddPP04(void* clientData)
+; 243  : {
+; 244  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 245  : 	temp->mPPSteps.push_back(4);
+; 246  : }
+; 247  : 
+; 248  : void TW_CALL AddPP05(void* clientData)
+; 249  : {
+; 250  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 251  : 	temp->mPPSteps.push_back(5);
+; 252  : }
+; 253  : 
+; 254  : void TW_CALL AddPP06(void* clientData)
+; 255  : {
+; 256  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 257  : 	temp->mPPSteps.push_back(6);
+; 258  : }
+; 259  : 
+; 260  : void TW_CALL AddPP07(void* clientData)
+; 261  : {
+; 262  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 263  : 	temp->mPPSteps.push_back(7);
+; 264  : }
+; 265  : 
+; 266  : void TW_CALL AddPP08(void* clientData)
+; 267  : {
+; 268  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 269  : 	temp->mPPSteps.push_back(8);
+; 270  : }
+; 271  : 
+; 272  : void TW_CALL AddPP09(void* clientData)
+; 273  : {
+; 274  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 275  : 	temp->mPPSteps.push_back(9);
+; 276  : }
+; 277  : 
+; 278  : void TW_CALL AddPP10(void* clientData)
+; 279  : {
+; 280  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 281  : 	temp->mPPSteps.push_back(10);
+; 282  : }
+; 283  : 
+; 284  : void TW_CALL AddPP11(void* clientData)
+; 285  : {
+; 286  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 287  : 	temp->mPPSteps.push_back(11);
+; 288  : }
+; 289  : 
+; 290  : void TW_CALL AddPP12(void* clientData)
+; 291  : {
+; 292  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 293  : 	temp->mPPSteps.push_back(12);
+; 294  : }
+; 295  : 
+; 296  : void TW_CALL AddPP13(void* clientData)
+; 297  : {
+; 298  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 299  : 	temp->mPPSteps.push_back(13);
+; 300  : }
+; 301  : 
+; 302  : void TW_CALL AddPP14(void* clientData)
+; 303  : {
+; 304  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 305  : 	temp->mPPSteps.push_back(14);
+; 306  : }
+; 307  : 
+; 308  : void TW_CALL ClearChain(void* clientData)
+; 309  : {
+; 310  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 311  : 	temp->mPPSteps.clear();
+; 312  : 	temp->multiprocess = false;
+; 313  : }
+; 314  : 
+; 315  : void CScene::SetSinglePP(int index)
+; 316  : {
+; 317  : 	if(index < 0)
+; 318  : 	{
+; 319  : 		mCurrentPP = 0;
+; 320  : 		return;
+; 321  : 	}
+; 322  : 
+; 323  : 	if(index > NumPostProcesses)
+; 324  : 	{
+; 325  : 		mCurrentPP = 0;
+; 326  : 		return;
+; 327  : 	}
+; 328  : 
+; 329  : 	mCurrentPP = index;
 
 	mov	eax, DWORD PTR _clientData$[ebp]
-	mov	DWORD PTR [eax+3040], 8
+	mov	DWORD PTR [eax+3312], 8
 
-; 158  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 159  : 	temp->SetSinglePP( 8 );
-; 160  : }
+; 166  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 167  : 	temp->SetSinglePP( 8 );
+; 168  : }
 
 	pop	ebp
 	ret	4
@@ -5526,76 +7961,185 @@ _TEXT	SEGMENT
 _clientData$ = 8					; size = 4
 ?SetPP07@@YGXPAX@Z PROC					; SetPP07, COMDAT
 
-; 151  : {
+; 159  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 155  : 
-; 156  : void TW_CALL SetPP08(void* clientData)
-; 157  : {
-; 158  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 159  : 	temp->SetSinglePP( 8 );
-; 160  : }
-; 161  : 
-; 162  : void TW_CALL SetPP09(void* clientData)
-; 163  : {
-; 164  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 165  : 	temp->SetSinglePP( 9 );
-; 166  : }
-; 167  : 
-; 168  : void TW_CALL SetPP10(void* clientData)
-; 169  : {
-; 170  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 171  : 	temp->SetSinglePP( 10 );
-; 172  : }
-; 173  : 
-; 174  : void TW_CALL SetPP11(void* clientData)
-; 175  : {
-; 176  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 177  : 	temp->SetSinglePP( 11 );
-; 178  : }
-; 179  : 
-; 180  : void TW_CALL SetPP12(void* clientData)
-; 181  : {
-; 182  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 183  : 	temp->SetSinglePP( 12 );
-; 184  : }
-; 185  : 
-; 186  : void TW_CALL SetGauss(void* clientData)
-; 187  : {
-; 188  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 189  : 	temp->mbGaussian = !temp->mbGaussian;
-; 190  : }
-; 191  : 
-; 192  : void TW_CALL TWImpact(void* clientData)
-; 193  : {
-; 194  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 195  : 	temp->StartImpact();
-; 196  : }
-; 197  : 
-; 198  : void CScene::SetSinglePP(int index)
-; 199  : {
-; 200  : 	if(index < 0)
-; 201  : 	{
-; 202  : 		mCurrentPP = 0;
-; 203  : 		return;
-; 204  : 	}
+; 163  : 
+; 164  : void TW_CALL SetPP08(void* clientData)
+; 165  : {
+; 166  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 167  : 	temp->SetSinglePP( 8 );
+; 168  : }
+; 169  : 
+; 170  : void TW_CALL SetPP09(void* clientData)
+; 171  : {
+; 172  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 173  : 	temp->SetSinglePP( 9 );
+; 174  : }
+; 175  : 
+; 176  : void TW_CALL SetPP10(void* clientData)
+; 177  : {
+; 178  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 179  : 	temp->SetSinglePP( 10 );
+; 180  : }
+; 181  : 
+; 182  : void TW_CALL SetPP11(void* clientData)
+; 183  : {
+; 184  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 185  : 	temp->SetSinglePP( 11 );
+; 186  : }
+; 187  : 
+; 188  : void TW_CALL SetPP12(void* clientData)
+; 189  : {
+; 190  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 191  : 	temp->SetSinglePP( 12 );
+; 192  : }
+; 193  : 
+; 194  : void TW_CALL SetPP13(void* clientData)
+; 195  : {
+; 196  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 197  : 	temp->SetSinglePP(13);
+; 198  : }
+; 199  : 
+; 200  : void TW_CALL SetPP14(void* clientData)
+; 201  : {
+; 202  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 203  : 	temp->SetSinglePP(14);
+; 204  : }
 ; 205  : 
-; 206  : 	if(index > NumPostProcesses)
-; 207  : 	{
-; 208  : 		mCurrentPP = 0;
-; 209  : 		return;
-; 210  : 	}
+; 206  : void TW_CALL SetGauss(void* clientData)
+; 207  : {
+; 208  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 209  : 	temp->mbGaussian = !temp->mbGaussian;
+; 210  : }
 ; 211  : 
-; 212  : 	mCurrentPP = index;
+; 212  : void TW_CALL TWImpact(void* clientData)
+; 213  : {
+; 214  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 215  : 	temp->StartImpact();
+; 216  : }
+; 217  : 
+; 218  : void TW_CALL AddPP00(void* clientData)
+; 219  : {
+; 220  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 221  : 	temp->mPPSteps.push_back(0);
+; 222  : }
+; 223  : 
+; 224  : void TW_CALL AddPP01(void* clientData)
+; 225  : {
+; 226  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 227  : 	temp->mPPSteps.push_back(1);
+; 228  : }
+; 229  : 
+; 230  : void TW_CALL AddPP02(void* clientData)
+; 231  : {
+; 232  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 233  : 	temp->mPPSteps.push_back(2);
+; 234  : }
+; 235  : 
+; 236  : void TW_CALL AddPP03(void* clientData)
+; 237  : {
+; 238  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 239  : 	temp->mPPSteps.push_back(3);
+; 240  : }
+; 241  : 
+; 242  : void TW_CALL AddPP04(void* clientData)
+; 243  : {
+; 244  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 245  : 	temp->mPPSteps.push_back(4);
+; 246  : }
+; 247  : 
+; 248  : void TW_CALL AddPP05(void* clientData)
+; 249  : {
+; 250  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 251  : 	temp->mPPSteps.push_back(5);
+; 252  : }
+; 253  : 
+; 254  : void TW_CALL AddPP06(void* clientData)
+; 255  : {
+; 256  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 257  : 	temp->mPPSteps.push_back(6);
+; 258  : }
+; 259  : 
+; 260  : void TW_CALL AddPP07(void* clientData)
+; 261  : {
+; 262  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 263  : 	temp->mPPSteps.push_back(7);
+; 264  : }
+; 265  : 
+; 266  : void TW_CALL AddPP08(void* clientData)
+; 267  : {
+; 268  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 269  : 	temp->mPPSteps.push_back(8);
+; 270  : }
+; 271  : 
+; 272  : void TW_CALL AddPP09(void* clientData)
+; 273  : {
+; 274  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 275  : 	temp->mPPSteps.push_back(9);
+; 276  : }
+; 277  : 
+; 278  : void TW_CALL AddPP10(void* clientData)
+; 279  : {
+; 280  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 281  : 	temp->mPPSteps.push_back(10);
+; 282  : }
+; 283  : 
+; 284  : void TW_CALL AddPP11(void* clientData)
+; 285  : {
+; 286  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 287  : 	temp->mPPSteps.push_back(11);
+; 288  : }
+; 289  : 
+; 290  : void TW_CALL AddPP12(void* clientData)
+; 291  : {
+; 292  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 293  : 	temp->mPPSteps.push_back(12);
+; 294  : }
+; 295  : 
+; 296  : void TW_CALL AddPP13(void* clientData)
+; 297  : {
+; 298  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 299  : 	temp->mPPSteps.push_back(13);
+; 300  : }
+; 301  : 
+; 302  : void TW_CALL AddPP14(void* clientData)
+; 303  : {
+; 304  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 305  : 	temp->mPPSteps.push_back(14);
+; 306  : }
+; 307  : 
+; 308  : void TW_CALL ClearChain(void* clientData)
+; 309  : {
+; 310  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 311  : 	temp->mPPSteps.clear();
+; 312  : 	temp->multiprocess = false;
+; 313  : }
+; 314  : 
+; 315  : void CScene::SetSinglePP(int index)
+; 316  : {
+; 317  : 	if(index < 0)
+; 318  : 	{
+; 319  : 		mCurrentPP = 0;
+; 320  : 		return;
+; 321  : 	}
+; 322  : 
+; 323  : 	if(index > NumPostProcesses)
+; 324  : 	{
+; 325  : 		mCurrentPP = 0;
+; 326  : 		return;
+; 327  : 	}
+; 328  : 
+; 329  : 	mCurrentPP = index;
 
 	mov	eax, DWORD PTR _clientData$[ebp]
-	mov	DWORD PTR [eax+3040], 7
+	mov	DWORD PTR [eax+3312], 7
 
-; 152  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 153  : 	temp->SetSinglePP( 7 );
-; 154  : }
+; 160  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 161  : 	temp->SetSinglePP( 7 );
+; 162  : }
 
 	pop	ebp
 	ret	4
@@ -5608,82 +8152,191 @@ _TEXT	SEGMENT
 _clientData$ = 8					; size = 4
 ?SetPP06@@YGXPAX@Z PROC					; SetPP06, COMDAT
 
-; 145  : {
+; 153  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 149  : 
-; 150  : void TW_CALL SetPP07(void* clientData)
-; 151  : {
-; 152  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 153  : 	temp->SetSinglePP( 7 );
-; 154  : }
-; 155  : 
-; 156  : void TW_CALL SetPP08(void* clientData)
-; 157  : {
-; 158  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 159  : 	temp->SetSinglePP( 8 );
-; 160  : }
-; 161  : 
-; 162  : void TW_CALL SetPP09(void* clientData)
-; 163  : {
-; 164  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 165  : 	temp->SetSinglePP( 9 );
-; 166  : }
-; 167  : 
-; 168  : void TW_CALL SetPP10(void* clientData)
-; 169  : {
-; 170  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 171  : 	temp->SetSinglePP( 10 );
-; 172  : }
-; 173  : 
-; 174  : void TW_CALL SetPP11(void* clientData)
-; 175  : {
-; 176  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 177  : 	temp->SetSinglePP( 11 );
-; 178  : }
-; 179  : 
-; 180  : void TW_CALL SetPP12(void* clientData)
-; 181  : {
-; 182  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 183  : 	temp->SetSinglePP( 12 );
-; 184  : }
-; 185  : 
-; 186  : void TW_CALL SetGauss(void* clientData)
-; 187  : {
-; 188  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 189  : 	temp->mbGaussian = !temp->mbGaussian;
-; 190  : }
-; 191  : 
-; 192  : void TW_CALL TWImpact(void* clientData)
-; 193  : {
-; 194  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 195  : 	temp->StartImpact();
-; 196  : }
-; 197  : 
-; 198  : void CScene::SetSinglePP(int index)
-; 199  : {
-; 200  : 	if(index < 0)
-; 201  : 	{
-; 202  : 		mCurrentPP = 0;
-; 203  : 		return;
-; 204  : 	}
+; 157  : 
+; 158  : void TW_CALL SetPP07(void* clientData)
+; 159  : {
+; 160  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 161  : 	temp->SetSinglePP( 7 );
+; 162  : }
+; 163  : 
+; 164  : void TW_CALL SetPP08(void* clientData)
+; 165  : {
+; 166  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 167  : 	temp->SetSinglePP( 8 );
+; 168  : }
+; 169  : 
+; 170  : void TW_CALL SetPP09(void* clientData)
+; 171  : {
+; 172  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 173  : 	temp->SetSinglePP( 9 );
+; 174  : }
+; 175  : 
+; 176  : void TW_CALL SetPP10(void* clientData)
+; 177  : {
+; 178  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 179  : 	temp->SetSinglePP( 10 );
+; 180  : }
+; 181  : 
+; 182  : void TW_CALL SetPP11(void* clientData)
+; 183  : {
+; 184  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 185  : 	temp->SetSinglePP( 11 );
+; 186  : }
+; 187  : 
+; 188  : void TW_CALL SetPP12(void* clientData)
+; 189  : {
+; 190  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 191  : 	temp->SetSinglePP( 12 );
+; 192  : }
+; 193  : 
+; 194  : void TW_CALL SetPP13(void* clientData)
+; 195  : {
+; 196  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 197  : 	temp->SetSinglePP(13);
+; 198  : }
+; 199  : 
+; 200  : void TW_CALL SetPP14(void* clientData)
+; 201  : {
+; 202  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 203  : 	temp->SetSinglePP(14);
+; 204  : }
 ; 205  : 
-; 206  : 	if(index > NumPostProcesses)
-; 207  : 	{
-; 208  : 		mCurrentPP = 0;
-; 209  : 		return;
-; 210  : 	}
+; 206  : void TW_CALL SetGauss(void* clientData)
+; 207  : {
+; 208  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 209  : 	temp->mbGaussian = !temp->mbGaussian;
+; 210  : }
 ; 211  : 
-; 212  : 	mCurrentPP = index;
+; 212  : void TW_CALL TWImpact(void* clientData)
+; 213  : {
+; 214  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 215  : 	temp->StartImpact();
+; 216  : }
+; 217  : 
+; 218  : void TW_CALL AddPP00(void* clientData)
+; 219  : {
+; 220  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 221  : 	temp->mPPSteps.push_back(0);
+; 222  : }
+; 223  : 
+; 224  : void TW_CALL AddPP01(void* clientData)
+; 225  : {
+; 226  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 227  : 	temp->mPPSteps.push_back(1);
+; 228  : }
+; 229  : 
+; 230  : void TW_CALL AddPP02(void* clientData)
+; 231  : {
+; 232  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 233  : 	temp->mPPSteps.push_back(2);
+; 234  : }
+; 235  : 
+; 236  : void TW_CALL AddPP03(void* clientData)
+; 237  : {
+; 238  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 239  : 	temp->mPPSteps.push_back(3);
+; 240  : }
+; 241  : 
+; 242  : void TW_CALL AddPP04(void* clientData)
+; 243  : {
+; 244  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 245  : 	temp->mPPSteps.push_back(4);
+; 246  : }
+; 247  : 
+; 248  : void TW_CALL AddPP05(void* clientData)
+; 249  : {
+; 250  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 251  : 	temp->mPPSteps.push_back(5);
+; 252  : }
+; 253  : 
+; 254  : void TW_CALL AddPP06(void* clientData)
+; 255  : {
+; 256  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 257  : 	temp->mPPSteps.push_back(6);
+; 258  : }
+; 259  : 
+; 260  : void TW_CALL AddPP07(void* clientData)
+; 261  : {
+; 262  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 263  : 	temp->mPPSteps.push_back(7);
+; 264  : }
+; 265  : 
+; 266  : void TW_CALL AddPP08(void* clientData)
+; 267  : {
+; 268  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 269  : 	temp->mPPSteps.push_back(8);
+; 270  : }
+; 271  : 
+; 272  : void TW_CALL AddPP09(void* clientData)
+; 273  : {
+; 274  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 275  : 	temp->mPPSteps.push_back(9);
+; 276  : }
+; 277  : 
+; 278  : void TW_CALL AddPP10(void* clientData)
+; 279  : {
+; 280  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 281  : 	temp->mPPSteps.push_back(10);
+; 282  : }
+; 283  : 
+; 284  : void TW_CALL AddPP11(void* clientData)
+; 285  : {
+; 286  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 287  : 	temp->mPPSteps.push_back(11);
+; 288  : }
+; 289  : 
+; 290  : void TW_CALL AddPP12(void* clientData)
+; 291  : {
+; 292  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 293  : 	temp->mPPSteps.push_back(12);
+; 294  : }
+; 295  : 
+; 296  : void TW_CALL AddPP13(void* clientData)
+; 297  : {
+; 298  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 299  : 	temp->mPPSteps.push_back(13);
+; 300  : }
+; 301  : 
+; 302  : void TW_CALL AddPP14(void* clientData)
+; 303  : {
+; 304  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 305  : 	temp->mPPSteps.push_back(14);
+; 306  : }
+; 307  : 
+; 308  : void TW_CALL ClearChain(void* clientData)
+; 309  : {
+; 310  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 311  : 	temp->mPPSteps.clear();
+; 312  : 	temp->multiprocess = false;
+; 313  : }
+; 314  : 
+; 315  : void CScene::SetSinglePP(int index)
+; 316  : {
+; 317  : 	if(index < 0)
+; 318  : 	{
+; 319  : 		mCurrentPP = 0;
+; 320  : 		return;
+; 321  : 	}
+; 322  : 
+; 323  : 	if(index > NumPostProcesses)
+; 324  : 	{
+; 325  : 		mCurrentPP = 0;
+; 326  : 		return;
+; 327  : 	}
+; 328  : 
+; 329  : 	mCurrentPP = index;
 
 	mov	eax, DWORD PTR _clientData$[ebp]
-	mov	DWORD PTR [eax+3040], 6
+	mov	DWORD PTR [eax+3312], 6
 
-; 146  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 147  : 	temp->SetSinglePP( 6 );
-; 148  : }
+; 154  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 155  : 	temp->SetSinglePP( 6 );
+; 156  : }
 
 	pop	ebp
 	ret	4
@@ -5696,88 +8349,197 @@ _TEXT	SEGMENT
 _clientData$ = 8					; size = 4
 ?SetPP05@@YGXPAX@Z PROC					; SetPP05, COMDAT
 
-; 139  : {
+; 147  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 143  : 
-; 144  : void TW_CALL SetPP06(void* clientData)
-; 145  : {
-; 146  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 147  : 	temp->SetSinglePP( 6 );
-; 148  : }
-; 149  : 
-; 150  : void TW_CALL SetPP07(void* clientData)
-; 151  : {
-; 152  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 153  : 	temp->SetSinglePP( 7 );
-; 154  : }
-; 155  : 
-; 156  : void TW_CALL SetPP08(void* clientData)
-; 157  : {
-; 158  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 159  : 	temp->SetSinglePP( 8 );
-; 160  : }
-; 161  : 
-; 162  : void TW_CALL SetPP09(void* clientData)
-; 163  : {
-; 164  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 165  : 	temp->SetSinglePP( 9 );
-; 166  : }
-; 167  : 
-; 168  : void TW_CALL SetPP10(void* clientData)
-; 169  : {
-; 170  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 171  : 	temp->SetSinglePP( 10 );
-; 172  : }
-; 173  : 
-; 174  : void TW_CALL SetPP11(void* clientData)
-; 175  : {
-; 176  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 177  : 	temp->SetSinglePP( 11 );
-; 178  : }
-; 179  : 
-; 180  : void TW_CALL SetPP12(void* clientData)
-; 181  : {
-; 182  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 183  : 	temp->SetSinglePP( 12 );
-; 184  : }
-; 185  : 
-; 186  : void TW_CALL SetGauss(void* clientData)
-; 187  : {
-; 188  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 189  : 	temp->mbGaussian = !temp->mbGaussian;
-; 190  : }
-; 191  : 
-; 192  : void TW_CALL TWImpact(void* clientData)
-; 193  : {
-; 194  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 195  : 	temp->StartImpact();
-; 196  : }
-; 197  : 
-; 198  : void CScene::SetSinglePP(int index)
-; 199  : {
-; 200  : 	if(index < 0)
-; 201  : 	{
-; 202  : 		mCurrentPP = 0;
-; 203  : 		return;
-; 204  : 	}
+; 151  : 
+; 152  : void TW_CALL SetPP06(void* clientData)
+; 153  : {
+; 154  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 155  : 	temp->SetSinglePP( 6 );
+; 156  : }
+; 157  : 
+; 158  : void TW_CALL SetPP07(void* clientData)
+; 159  : {
+; 160  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 161  : 	temp->SetSinglePP( 7 );
+; 162  : }
+; 163  : 
+; 164  : void TW_CALL SetPP08(void* clientData)
+; 165  : {
+; 166  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 167  : 	temp->SetSinglePP( 8 );
+; 168  : }
+; 169  : 
+; 170  : void TW_CALL SetPP09(void* clientData)
+; 171  : {
+; 172  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 173  : 	temp->SetSinglePP( 9 );
+; 174  : }
+; 175  : 
+; 176  : void TW_CALL SetPP10(void* clientData)
+; 177  : {
+; 178  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 179  : 	temp->SetSinglePP( 10 );
+; 180  : }
+; 181  : 
+; 182  : void TW_CALL SetPP11(void* clientData)
+; 183  : {
+; 184  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 185  : 	temp->SetSinglePP( 11 );
+; 186  : }
+; 187  : 
+; 188  : void TW_CALL SetPP12(void* clientData)
+; 189  : {
+; 190  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 191  : 	temp->SetSinglePP( 12 );
+; 192  : }
+; 193  : 
+; 194  : void TW_CALL SetPP13(void* clientData)
+; 195  : {
+; 196  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 197  : 	temp->SetSinglePP(13);
+; 198  : }
+; 199  : 
+; 200  : void TW_CALL SetPP14(void* clientData)
+; 201  : {
+; 202  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 203  : 	temp->SetSinglePP(14);
+; 204  : }
 ; 205  : 
-; 206  : 	if(index > NumPostProcesses)
-; 207  : 	{
-; 208  : 		mCurrentPP = 0;
-; 209  : 		return;
-; 210  : 	}
+; 206  : void TW_CALL SetGauss(void* clientData)
+; 207  : {
+; 208  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 209  : 	temp->mbGaussian = !temp->mbGaussian;
+; 210  : }
 ; 211  : 
-; 212  : 	mCurrentPP = index;
+; 212  : void TW_CALL TWImpact(void* clientData)
+; 213  : {
+; 214  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 215  : 	temp->StartImpact();
+; 216  : }
+; 217  : 
+; 218  : void TW_CALL AddPP00(void* clientData)
+; 219  : {
+; 220  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 221  : 	temp->mPPSteps.push_back(0);
+; 222  : }
+; 223  : 
+; 224  : void TW_CALL AddPP01(void* clientData)
+; 225  : {
+; 226  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 227  : 	temp->mPPSteps.push_back(1);
+; 228  : }
+; 229  : 
+; 230  : void TW_CALL AddPP02(void* clientData)
+; 231  : {
+; 232  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 233  : 	temp->mPPSteps.push_back(2);
+; 234  : }
+; 235  : 
+; 236  : void TW_CALL AddPP03(void* clientData)
+; 237  : {
+; 238  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 239  : 	temp->mPPSteps.push_back(3);
+; 240  : }
+; 241  : 
+; 242  : void TW_CALL AddPP04(void* clientData)
+; 243  : {
+; 244  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 245  : 	temp->mPPSteps.push_back(4);
+; 246  : }
+; 247  : 
+; 248  : void TW_CALL AddPP05(void* clientData)
+; 249  : {
+; 250  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 251  : 	temp->mPPSteps.push_back(5);
+; 252  : }
+; 253  : 
+; 254  : void TW_CALL AddPP06(void* clientData)
+; 255  : {
+; 256  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 257  : 	temp->mPPSteps.push_back(6);
+; 258  : }
+; 259  : 
+; 260  : void TW_CALL AddPP07(void* clientData)
+; 261  : {
+; 262  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 263  : 	temp->mPPSteps.push_back(7);
+; 264  : }
+; 265  : 
+; 266  : void TW_CALL AddPP08(void* clientData)
+; 267  : {
+; 268  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 269  : 	temp->mPPSteps.push_back(8);
+; 270  : }
+; 271  : 
+; 272  : void TW_CALL AddPP09(void* clientData)
+; 273  : {
+; 274  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 275  : 	temp->mPPSteps.push_back(9);
+; 276  : }
+; 277  : 
+; 278  : void TW_CALL AddPP10(void* clientData)
+; 279  : {
+; 280  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 281  : 	temp->mPPSteps.push_back(10);
+; 282  : }
+; 283  : 
+; 284  : void TW_CALL AddPP11(void* clientData)
+; 285  : {
+; 286  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 287  : 	temp->mPPSteps.push_back(11);
+; 288  : }
+; 289  : 
+; 290  : void TW_CALL AddPP12(void* clientData)
+; 291  : {
+; 292  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 293  : 	temp->mPPSteps.push_back(12);
+; 294  : }
+; 295  : 
+; 296  : void TW_CALL AddPP13(void* clientData)
+; 297  : {
+; 298  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 299  : 	temp->mPPSteps.push_back(13);
+; 300  : }
+; 301  : 
+; 302  : void TW_CALL AddPP14(void* clientData)
+; 303  : {
+; 304  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 305  : 	temp->mPPSteps.push_back(14);
+; 306  : }
+; 307  : 
+; 308  : void TW_CALL ClearChain(void* clientData)
+; 309  : {
+; 310  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 311  : 	temp->mPPSteps.clear();
+; 312  : 	temp->multiprocess = false;
+; 313  : }
+; 314  : 
+; 315  : void CScene::SetSinglePP(int index)
+; 316  : {
+; 317  : 	if(index < 0)
+; 318  : 	{
+; 319  : 		mCurrentPP = 0;
+; 320  : 		return;
+; 321  : 	}
+; 322  : 
+; 323  : 	if(index > NumPostProcesses)
+; 324  : 	{
+; 325  : 		mCurrentPP = 0;
+; 326  : 		return;
+; 327  : 	}
+; 328  : 
+; 329  : 	mCurrentPP = index;
 
 	mov	eax, DWORD PTR _clientData$[ebp]
-	mov	DWORD PTR [eax+3040], 5
+	mov	DWORD PTR [eax+3312], 5
 
-; 140  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 141  : 	temp->SetSinglePP( 5 );
-; 142  : }
+; 148  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 149  : 	temp->SetSinglePP( 5 );
+; 150  : }
 
 	pop	ebp
 	ret	4
@@ -5790,94 +8552,203 @@ _TEXT	SEGMENT
 _clientData$ = 8					; size = 4
 ?SetPP04@@YGXPAX@Z PROC					; SetPP04, COMDAT
 
-; 133  : {
+; 141  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 137  : 
-; 138  : void TW_CALL SetPP05(void* clientData)
-; 139  : {
-; 140  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 141  : 	temp->SetSinglePP( 5 );
-; 142  : }
-; 143  : 
-; 144  : void TW_CALL SetPP06(void* clientData)
-; 145  : {
-; 146  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 147  : 	temp->SetSinglePP( 6 );
-; 148  : }
-; 149  : 
-; 150  : void TW_CALL SetPP07(void* clientData)
-; 151  : {
-; 152  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 153  : 	temp->SetSinglePP( 7 );
-; 154  : }
-; 155  : 
-; 156  : void TW_CALL SetPP08(void* clientData)
-; 157  : {
-; 158  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 159  : 	temp->SetSinglePP( 8 );
-; 160  : }
-; 161  : 
-; 162  : void TW_CALL SetPP09(void* clientData)
-; 163  : {
-; 164  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 165  : 	temp->SetSinglePP( 9 );
-; 166  : }
-; 167  : 
-; 168  : void TW_CALL SetPP10(void* clientData)
-; 169  : {
-; 170  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 171  : 	temp->SetSinglePP( 10 );
-; 172  : }
-; 173  : 
-; 174  : void TW_CALL SetPP11(void* clientData)
-; 175  : {
-; 176  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 177  : 	temp->SetSinglePP( 11 );
-; 178  : }
-; 179  : 
-; 180  : void TW_CALL SetPP12(void* clientData)
-; 181  : {
-; 182  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 183  : 	temp->SetSinglePP( 12 );
-; 184  : }
-; 185  : 
-; 186  : void TW_CALL SetGauss(void* clientData)
-; 187  : {
-; 188  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 189  : 	temp->mbGaussian = !temp->mbGaussian;
-; 190  : }
-; 191  : 
-; 192  : void TW_CALL TWImpact(void* clientData)
-; 193  : {
-; 194  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 195  : 	temp->StartImpact();
-; 196  : }
-; 197  : 
-; 198  : void CScene::SetSinglePP(int index)
-; 199  : {
-; 200  : 	if(index < 0)
-; 201  : 	{
-; 202  : 		mCurrentPP = 0;
-; 203  : 		return;
-; 204  : 	}
+; 145  : 
+; 146  : void TW_CALL SetPP05(void* clientData)
+; 147  : {
+; 148  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 149  : 	temp->SetSinglePP( 5 );
+; 150  : }
+; 151  : 
+; 152  : void TW_CALL SetPP06(void* clientData)
+; 153  : {
+; 154  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 155  : 	temp->SetSinglePP( 6 );
+; 156  : }
+; 157  : 
+; 158  : void TW_CALL SetPP07(void* clientData)
+; 159  : {
+; 160  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 161  : 	temp->SetSinglePP( 7 );
+; 162  : }
+; 163  : 
+; 164  : void TW_CALL SetPP08(void* clientData)
+; 165  : {
+; 166  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 167  : 	temp->SetSinglePP( 8 );
+; 168  : }
+; 169  : 
+; 170  : void TW_CALL SetPP09(void* clientData)
+; 171  : {
+; 172  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 173  : 	temp->SetSinglePP( 9 );
+; 174  : }
+; 175  : 
+; 176  : void TW_CALL SetPP10(void* clientData)
+; 177  : {
+; 178  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 179  : 	temp->SetSinglePP( 10 );
+; 180  : }
+; 181  : 
+; 182  : void TW_CALL SetPP11(void* clientData)
+; 183  : {
+; 184  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 185  : 	temp->SetSinglePP( 11 );
+; 186  : }
+; 187  : 
+; 188  : void TW_CALL SetPP12(void* clientData)
+; 189  : {
+; 190  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 191  : 	temp->SetSinglePP( 12 );
+; 192  : }
+; 193  : 
+; 194  : void TW_CALL SetPP13(void* clientData)
+; 195  : {
+; 196  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 197  : 	temp->SetSinglePP(13);
+; 198  : }
+; 199  : 
+; 200  : void TW_CALL SetPP14(void* clientData)
+; 201  : {
+; 202  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 203  : 	temp->SetSinglePP(14);
+; 204  : }
 ; 205  : 
-; 206  : 	if(index > NumPostProcesses)
-; 207  : 	{
-; 208  : 		mCurrentPP = 0;
-; 209  : 		return;
-; 210  : 	}
+; 206  : void TW_CALL SetGauss(void* clientData)
+; 207  : {
+; 208  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 209  : 	temp->mbGaussian = !temp->mbGaussian;
+; 210  : }
 ; 211  : 
-; 212  : 	mCurrentPP = index;
+; 212  : void TW_CALL TWImpact(void* clientData)
+; 213  : {
+; 214  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 215  : 	temp->StartImpact();
+; 216  : }
+; 217  : 
+; 218  : void TW_CALL AddPP00(void* clientData)
+; 219  : {
+; 220  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 221  : 	temp->mPPSteps.push_back(0);
+; 222  : }
+; 223  : 
+; 224  : void TW_CALL AddPP01(void* clientData)
+; 225  : {
+; 226  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 227  : 	temp->mPPSteps.push_back(1);
+; 228  : }
+; 229  : 
+; 230  : void TW_CALL AddPP02(void* clientData)
+; 231  : {
+; 232  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 233  : 	temp->mPPSteps.push_back(2);
+; 234  : }
+; 235  : 
+; 236  : void TW_CALL AddPP03(void* clientData)
+; 237  : {
+; 238  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 239  : 	temp->mPPSteps.push_back(3);
+; 240  : }
+; 241  : 
+; 242  : void TW_CALL AddPP04(void* clientData)
+; 243  : {
+; 244  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 245  : 	temp->mPPSteps.push_back(4);
+; 246  : }
+; 247  : 
+; 248  : void TW_CALL AddPP05(void* clientData)
+; 249  : {
+; 250  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 251  : 	temp->mPPSteps.push_back(5);
+; 252  : }
+; 253  : 
+; 254  : void TW_CALL AddPP06(void* clientData)
+; 255  : {
+; 256  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 257  : 	temp->mPPSteps.push_back(6);
+; 258  : }
+; 259  : 
+; 260  : void TW_CALL AddPP07(void* clientData)
+; 261  : {
+; 262  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 263  : 	temp->mPPSteps.push_back(7);
+; 264  : }
+; 265  : 
+; 266  : void TW_CALL AddPP08(void* clientData)
+; 267  : {
+; 268  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 269  : 	temp->mPPSteps.push_back(8);
+; 270  : }
+; 271  : 
+; 272  : void TW_CALL AddPP09(void* clientData)
+; 273  : {
+; 274  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 275  : 	temp->mPPSteps.push_back(9);
+; 276  : }
+; 277  : 
+; 278  : void TW_CALL AddPP10(void* clientData)
+; 279  : {
+; 280  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 281  : 	temp->mPPSteps.push_back(10);
+; 282  : }
+; 283  : 
+; 284  : void TW_CALL AddPP11(void* clientData)
+; 285  : {
+; 286  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 287  : 	temp->mPPSteps.push_back(11);
+; 288  : }
+; 289  : 
+; 290  : void TW_CALL AddPP12(void* clientData)
+; 291  : {
+; 292  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 293  : 	temp->mPPSteps.push_back(12);
+; 294  : }
+; 295  : 
+; 296  : void TW_CALL AddPP13(void* clientData)
+; 297  : {
+; 298  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 299  : 	temp->mPPSteps.push_back(13);
+; 300  : }
+; 301  : 
+; 302  : void TW_CALL AddPP14(void* clientData)
+; 303  : {
+; 304  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 305  : 	temp->mPPSteps.push_back(14);
+; 306  : }
+; 307  : 
+; 308  : void TW_CALL ClearChain(void* clientData)
+; 309  : {
+; 310  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 311  : 	temp->mPPSteps.clear();
+; 312  : 	temp->multiprocess = false;
+; 313  : }
+; 314  : 
+; 315  : void CScene::SetSinglePP(int index)
+; 316  : {
+; 317  : 	if(index < 0)
+; 318  : 	{
+; 319  : 		mCurrentPP = 0;
+; 320  : 		return;
+; 321  : 	}
+; 322  : 
+; 323  : 	if(index > NumPostProcesses)
+; 324  : 	{
+; 325  : 		mCurrentPP = 0;
+; 326  : 		return;
+; 327  : 	}
+; 328  : 
+; 329  : 	mCurrentPP = index;
 
 	mov	eax, DWORD PTR _clientData$[ebp]
-	mov	DWORD PTR [eax+3040], 4
+	mov	DWORD PTR [eax+3312], 4
 
-; 134  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 135  : 	temp->SetSinglePP( 4 );
-; 136  : }
+; 142  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 143  : 	temp->SetSinglePP( 4 );
+; 144  : }
 
 	pop	ebp
 	ret	4
@@ -5890,100 +8761,209 @@ _TEXT	SEGMENT
 _clientData$ = 8					; size = 4
 ?SetPP03@@YGXPAX@Z PROC					; SetPP03, COMDAT
 
-; 127  : {
+; 135  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 131  : 
-; 132  : void TW_CALL SetPP04(void* clientData)
-; 133  : {
-; 134  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 135  : 	temp->SetSinglePP( 4 );
-; 136  : }
-; 137  : 
-; 138  : void TW_CALL SetPP05(void* clientData)
-; 139  : {
-; 140  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 141  : 	temp->SetSinglePP( 5 );
-; 142  : }
-; 143  : 
-; 144  : void TW_CALL SetPP06(void* clientData)
-; 145  : {
-; 146  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 147  : 	temp->SetSinglePP( 6 );
-; 148  : }
-; 149  : 
-; 150  : void TW_CALL SetPP07(void* clientData)
-; 151  : {
-; 152  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 153  : 	temp->SetSinglePP( 7 );
-; 154  : }
-; 155  : 
-; 156  : void TW_CALL SetPP08(void* clientData)
-; 157  : {
-; 158  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 159  : 	temp->SetSinglePP( 8 );
-; 160  : }
-; 161  : 
-; 162  : void TW_CALL SetPP09(void* clientData)
-; 163  : {
-; 164  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 165  : 	temp->SetSinglePP( 9 );
-; 166  : }
-; 167  : 
-; 168  : void TW_CALL SetPP10(void* clientData)
-; 169  : {
-; 170  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 171  : 	temp->SetSinglePP( 10 );
-; 172  : }
-; 173  : 
-; 174  : void TW_CALL SetPP11(void* clientData)
-; 175  : {
-; 176  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 177  : 	temp->SetSinglePP( 11 );
-; 178  : }
-; 179  : 
-; 180  : void TW_CALL SetPP12(void* clientData)
-; 181  : {
-; 182  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 183  : 	temp->SetSinglePP( 12 );
-; 184  : }
-; 185  : 
-; 186  : void TW_CALL SetGauss(void* clientData)
-; 187  : {
-; 188  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 189  : 	temp->mbGaussian = !temp->mbGaussian;
-; 190  : }
-; 191  : 
-; 192  : void TW_CALL TWImpact(void* clientData)
-; 193  : {
-; 194  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 195  : 	temp->StartImpact();
-; 196  : }
-; 197  : 
-; 198  : void CScene::SetSinglePP(int index)
-; 199  : {
-; 200  : 	if(index < 0)
-; 201  : 	{
-; 202  : 		mCurrentPP = 0;
-; 203  : 		return;
-; 204  : 	}
+; 139  : 
+; 140  : void TW_CALL SetPP04(void* clientData)
+; 141  : {
+; 142  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 143  : 	temp->SetSinglePP( 4 );
+; 144  : }
+; 145  : 
+; 146  : void TW_CALL SetPP05(void* clientData)
+; 147  : {
+; 148  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 149  : 	temp->SetSinglePP( 5 );
+; 150  : }
+; 151  : 
+; 152  : void TW_CALL SetPP06(void* clientData)
+; 153  : {
+; 154  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 155  : 	temp->SetSinglePP( 6 );
+; 156  : }
+; 157  : 
+; 158  : void TW_CALL SetPP07(void* clientData)
+; 159  : {
+; 160  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 161  : 	temp->SetSinglePP( 7 );
+; 162  : }
+; 163  : 
+; 164  : void TW_CALL SetPP08(void* clientData)
+; 165  : {
+; 166  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 167  : 	temp->SetSinglePP( 8 );
+; 168  : }
+; 169  : 
+; 170  : void TW_CALL SetPP09(void* clientData)
+; 171  : {
+; 172  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 173  : 	temp->SetSinglePP( 9 );
+; 174  : }
+; 175  : 
+; 176  : void TW_CALL SetPP10(void* clientData)
+; 177  : {
+; 178  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 179  : 	temp->SetSinglePP( 10 );
+; 180  : }
+; 181  : 
+; 182  : void TW_CALL SetPP11(void* clientData)
+; 183  : {
+; 184  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 185  : 	temp->SetSinglePP( 11 );
+; 186  : }
+; 187  : 
+; 188  : void TW_CALL SetPP12(void* clientData)
+; 189  : {
+; 190  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 191  : 	temp->SetSinglePP( 12 );
+; 192  : }
+; 193  : 
+; 194  : void TW_CALL SetPP13(void* clientData)
+; 195  : {
+; 196  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 197  : 	temp->SetSinglePP(13);
+; 198  : }
+; 199  : 
+; 200  : void TW_CALL SetPP14(void* clientData)
+; 201  : {
+; 202  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 203  : 	temp->SetSinglePP(14);
+; 204  : }
 ; 205  : 
-; 206  : 	if(index > NumPostProcesses)
-; 207  : 	{
-; 208  : 		mCurrentPP = 0;
-; 209  : 		return;
-; 210  : 	}
+; 206  : void TW_CALL SetGauss(void* clientData)
+; 207  : {
+; 208  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 209  : 	temp->mbGaussian = !temp->mbGaussian;
+; 210  : }
 ; 211  : 
-; 212  : 	mCurrentPP = index;
+; 212  : void TW_CALL TWImpact(void* clientData)
+; 213  : {
+; 214  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 215  : 	temp->StartImpact();
+; 216  : }
+; 217  : 
+; 218  : void TW_CALL AddPP00(void* clientData)
+; 219  : {
+; 220  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 221  : 	temp->mPPSteps.push_back(0);
+; 222  : }
+; 223  : 
+; 224  : void TW_CALL AddPP01(void* clientData)
+; 225  : {
+; 226  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 227  : 	temp->mPPSteps.push_back(1);
+; 228  : }
+; 229  : 
+; 230  : void TW_CALL AddPP02(void* clientData)
+; 231  : {
+; 232  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 233  : 	temp->mPPSteps.push_back(2);
+; 234  : }
+; 235  : 
+; 236  : void TW_CALL AddPP03(void* clientData)
+; 237  : {
+; 238  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 239  : 	temp->mPPSteps.push_back(3);
+; 240  : }
+; 241  : 
+; 242  : void TW_CALL AddPP04(void* clientData)
+; 243  : {
+; 244  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 245  : 	temp->mPPSteps.push_back(4);
+; 246  : }
+; 247  : 
+; 248  : void TW_CALL AddPP05(void* clientData)
+; 249  : {
+; 250  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 251  : 	temp->mPPSteps.push_back(5);
+; 252  : }
+; 253  : 
+; 254  : void TW_CALL AddPP06(void* clientData)
+; 255  : {
+; 256  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 257  : 	temp->mPPSteps.push_back(6);
+; 258  : }
+; 259  : 
+; 260  : void TW_CALL AddPP07(void* clientData)
+; 261  : {
+; 262  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 263  : 	temp->mPPSteps.push_back(7);
+; 264  : }
+; 265  : 
+; 266  : void TW_CALL AddPP08(void* clientData)
+; 267  : {
+; 268  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 269  : 	temp->mPPSteps.push_back(8);
+; 270  : }
+; 271  : 
+; 272  : void TW_CALL AddPP09(void* clientData)
+; 273  : {
+; 274  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 275  : 	temp->mPPSteps.push_back(9);
+; 276  : }
+; 277  : 
+; 278  : void TW_CALL AddPP10(void* clientData)
+; 279  : {
+; 280  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 281  : 	temp->mPPSteps.push_back(10);
+; 282  : }
+; 283  : 
+; 284  : void TW_CALL AddPP11(void* clientData)
+; 285  : {
+; 286  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 287  : 	temp->mPPSteps.push_back(11);
+; 288  : }
+; 289  : 
+; 290  : void TW_CALL AddPP12(void* clientData)
+; 291  : {
+; 292  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 293  : 	temp->mPPSteps.push_back(12);
+; 294  : }
+; 295  : 
+; 296  : void TW_CALL AddPP13(void* clientData)
+; 297  : {
+; 298  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 299  : 	temp->mPPSteps.push_back(13);
+; 300  : }
+; 301  : 
+; 302  : void TW_CALL AddPP14(void* clientData)
+; 303  : {
+; 304  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 305  : 	temp->mPPSteps.push_back(14);
+; 306  : }
+; 307  : 
+; 308  : void TW_CALL ClearChain(void* clientData)
+; 309  : {
+; 310  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 311  : 	temp->mPPSteps.clear();
+; 312  : 	temp->multiprocess = false;
+; 313  : }
+; 314  : 
+; 315  : void CScene::SetSinglePP(int index)
+; 316  : {
+; 317  : 	if(index < 0)
+; 318  : 	{
+; 319  : 		mCurrentPP = 0;
+; 320  : 		return;
+; 321  : 	}
+; 322  : 
+; 323  : 	if(index > NumPostProcesses)
+; 324  : 	{
+; 325  : 		mCurrentPP = 0;
+; 326  : 		return;
+; 327  : 	}
+; 328  : 
+; 329  : 	mCurrentPP = index;
 
 	mov	eax, DWORD PTR _clientData$[ebp]
-	mov	DWORD PTR [eax+3040], 3
+	mov	DWORD PTR [eax+3312], 3
 
-; 128  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 129  : 	temp->SetSinglePP( 3 );
-; 130  : }
+; 136  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 137  : 	temp->SetSinglePP( 3 );
+; 138  : }
 
 	pop	ebp
 	ret	4
@@ -5996,213 +8976,431 @@ _TEXT	SEGMENT
 _clientData$ = 8					; size = 4
 ?SetPP02@@YGXPAX@Z PROC					; SetPP02, COMDAT
 
-; 120  : {
+; 128  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 125  : 
-; 126  : void TW_CALL SetPP03(void* clientData)
-; 127  : {
-; 128  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 129  : 	temp->SetSinglePP( 3 );
-; 130  : }
-; 131  : 
-; 132  : void TW_CALL SetPP04(void* clientData)
-; 133  : {
-; 134  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 135  : 	temp->SetSinglePP( 4 );
-; 136  : }
-; 137  : 
-; 138  : void TW_CALL SetPP05(void* clientData)
-; 139  : {
-; 140  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 141  : 	temp->SetSinglePP( 5 );
-; 142  : }
-; 143  : 
-; 144  : void TW_CALL SetPP06(void* clientData)
-; 145  : {
-; 146  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 147  : 	temp->SetSinglePP( 6 );
-; 148  : }
-; 149  : 
-; 150  : void TW_CALL SetPP07(void* clientData)
-; 151  : {
-; 152  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 153  : 	temp->SetSinglePP( 7 );
-; 154  : }
-; 155  : 
-; 156  : void TW_CALL SetPP08(void* clientData)
-; 157  : {
-; 158  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 159  : 	temp->SetSinglePP( 8 );
-; 160  : }
-; 161  : 
-; 162  : void TW_CALL SetPP09(void* clientData)
-; 163  : {
-; 164  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 165  : 	temp->SetSinglePP( 9 );
-; 166  : }
-; 167  : 
-; 168  : void TW_CALL SetPP10(void* clientData)
-; 169  : {
-; 170  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 171  : 	temp->SetSinglePP( 10 );
-; 172  : }
-; 173  : 
-; 174  : void TW_CALL SetPP11(void* clientData)
-; 175  : {
-; 176  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 177  : 	temp->SetSinglePP( 11 );
-; 178  : }
-; 179  : 
-; 180  : void TW_CALL SetPP12(void* clientData)
-; 181  : {
-; 182  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 183  : 	temp->SetSinglePP( 12 );
-; 184  : }
-; 185  : 
-; 186  : void TW_CALL SetGauss(void* clientData)
-; 187  : {
-; 188  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 189  : 	temp->mbGaussian = !temp->mbGaussian;
-; 190  : }
-; 191  : 
-; 192  : void TW_CALL TWImpact(void* clientData)
-; 193  : {
-; 194  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 195  : 	temp->StartImpact();
-; 196  : }
-; 197  : 
-; 198  : void CScene::SetSinglePP(int index)
-; 199  : {
-; 200  : 	if(index < 0)
-; 201  : 	{
-; 202  : 		mCurrentPP = 0;
-; 203  : 		return;
-; 204  : 	}
+; 133  : 
+; 134  : void TW_CALL SetPP03(void* clientData)
+; 135  : {
+; 136  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 137  : 	temp->SetSinglePP( 3 );
+; 138  : }
+; 139  : 
+; 140  : void TW_CALL SetPP04(void* clientData)
+; 141  : {
+; 142  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 143  : 	temp->SetSinglePP( 4 );
+; 144  : }
+; 145  : 
+; 146  : void TW_CALL SetPP05(void* clientData)
+; 147  : {
+; 148  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 149  : 	temp->SetSinglePP( 5 );
+; 150  : }
+; 151  : 
+; 152  : void TW_CALL SetPP06(void* clientData)
+; 153  : {
+; 154  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 155  : 	temp->SetSinglePP( 6 );
+; 156  : }
+; 157  : 
+; 158  : void TW_CALL SetPP07(void* clientData)
+; 159  : {
+; 160  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 161  : 	temp->SetSinglePP( 7 );
+; 162  : }
+; 163  : 
+; 164  : void TW_CALL SetPP08(void* clientData)
+; 165  : {
+; 166  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 167  : 	temp->SetSinglePP( 8 );
+; 168  : }
+; 169  : 
+; 170  : void TW_CALL SetPP09(void* clientData)
+; 171  : {
+; 172  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 173  : 	temp->SetSinglePP( 9 );
+; 174  : }
+; 175  : 
+; 176  : void TW_CALL SetPP10(void* clientData)
+; 177  : {
+; 178  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 179  : 	temp->SetSinglePP( 10 );
+; 180  : }
+; 181  : 
+; 182  : void TW_CALL SetPP11(void* clientData)
+; 183  : {
+; 184  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 185  : 	temp->SetSinglePP( 11 );
+; 186  : }
+; 187  : 
+; 188  : void TW_CALL SetPP12(void* clientData)
+; 189  : {
+; 190  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 191  : 	temp->SetSinglePP( 12 );
+; 192  : }
+; 193  : 
+; 194  : void TW_CALL SetPP13(void* clientData)
+; 195  : {
+; 196  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 197  : 	temp->SetSinglePP(13);
+; 198  : }
+; 199  : 
+; 200  : void TW_CALL SetPP14(void* clientData)
+; 201  : {
+; 202  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 203  : 	temp->SetSinglePP(14);
+; 204  : }
 ; 205  : 
-; 206  : 	if(index > NumPostProcesses)
-; 207  : 	{
-; 208  : 		mCurrentPP = 0;
-; 209  : 		return;
-; 210  : 	}
+; 206  : void TW_CALL SetGauss(void* clientData)
+; 207  : {
+; 208  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 209  : 	temp->mbGaussian = !temp->mbGaussian;
+; 210  : }
 ; 211  : 
-; 212  : 	mCurrentPP = index;
+; 212  : void TW_CALL TWImpact(void* clientData)
+; 213  : {
+; 214  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 215  : 	temp->StartImpact();
+; 216  : }
+; 217  : 
+; 218  : void TW_CALL AddPP00(void* clientData)
+; 219  : {
+; 220  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 221  : 	temp->mPPSteps.push_back(0);
+; 222  : }
+; 223  : 
+; 224  : void TW_CALL AddPP01(void* clientData)
+; 225  : {
+; 226  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 227  : 	temp->mPPSteps.push_back(1);
+; 228  : }
+; 229  : 
+; 230  : void TW_CALL AddPP02(void* clientData)
+; 231  : {
+; 232  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 233  : 	temp->mPPSteps.push_back(2);
+; 234  : }
+; 235  : 
+; 236  : void TW_CALL AddPP03(void* clientData)
+; 237  : {
+; 238  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 239  : 	temp->mPPSteps.push_back(3);
+; 240  : }
+; 241  : 
+; 242  : void TW_CALL AddPP04(void* clientData)
+; 243  : {
+; 244  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 245  : 	temp->mPPSteps.push_back(4);
+; 246  : }
+; 247  : 
+; 248  : void TW_CALL AddPP05(void* clientData)
+; 249  : {
+; 250  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 251  : 	temp->mPPSteps.push_back(5);
+; 252  : }
+; 253  : 
+; 254  : void TW_CALL AddPP06(void* clientData)
+; 255  : {
+; 256  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 257  : 	temp->mPPSteps.push_back(6);
+; 258  : }
+; 259  : 
+; 260  : void TW_CALL AddPP07(void* clientData)
+; 261  : {
+; 262  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 263  : 	temp->mPPSteps.push_back(7);
+; 264  : }
+; 265  : 
+; 266  : void TW_CALL AddPP08(void* clientData)
+; 267  : {
+; 268  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 269  : 	temp->mPPSteps.push_back(8);
+; 270  : }
+; 271  : 
+; 272  : void TW_CALL AddPP09(void* clientData)
+; 273  : {
+; 274  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 275  : 	temp->mPPSteps.push_back(9);
+; 276  : }
+; 277  : 
+; 278  : void TW_CALL AddPP10(void* clientData)
+; 279  : {
+; 280  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 281  : 	temp->mPPSteps.push_back(10);
+; 282  : }
+; 283  : 
+; 284  : void TW_CALL AddPP11(void* clientData)
+; 285  : {
+; 286  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 287  : 	temp->mPPSteps.push_back(11);
+; 288  : }
+; 289  : 
+; 290  : void TW_CALL AddPP12(void* clientData)
+; 291  : {
+; 292  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 293  : 	temp->mPPSteps.push_back(12);
+; 294  : }
+; 295  : 
+; 296  : void TW_CALL AddPP13(void* clientData)
+; 297  : {
+; 298  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 299  : 	temp->mPPSteps.push_back(13);
+; 300  : }
+; 301  : 
+; 302  : void TW_CALL AddPP14(void* clientData)
+; 303  : {
+; 304  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 305  : 	temp->mPPSteps.push_back(14);
+; 306  : }
+; 307  : 
+; 308  : void TW_CALL ClearChain(void* clientData)
+; 309  : {
+; 310  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 311  : 	temp->mPPSteps.clear();
+; 312  : 	temp->multiprocess = false;
+; 313  : }
+; 314  : 
+; 315  : void CScene::SetSinglePP(int index)
+; 316  : {
+; 317  : 	if(index < 0)
+; 318  : 	{
+; 319  : 		mCurrentPP = 0;
+; 320  : 		return;
+; 321  : 	}
+; 322  : 
+; 323  : 	if(index > NumPostProcesses)
+; 324  : 	{
+; 325  : 		mCurrentPP = 0;
+; 326  : 		return;
+; 327  : 	}
+; 328  : 
+; 329  : 	mCurrentPP = index;
 
 	mov	ecx, DWORD PTR _clientData$[ebp]
 
-; 213  : }
-; 214  : 
-; 215  : void CScene::ResetShock()
-; 216  : {
-; 217  : 	mShockTime = mShockLength;	
+; 330  : }
+; 331  : 
+; 332  : void CScene::ResetShock()
+; 333  : {
+; 334  : 	mShockTime = mShockLength;	
 
-	mov	eax, DWORD PTR [ecx+2976]
+	mov	eax, DWORD PTR [ecx+2984]
 
-; 125  : 
-; 126  : void TW_CALL SetPP03(void* clientData)
-; 127  : {
-; 128  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 129  : 	temp->SetSinglePP( 3 );
-; 130  : }
-; 131  : 
-; 132  : void TW_CALL SetPP04(void* clientData)
-; 133  : {
-; 134  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 135  : 	temp->SetSinglePP( 4 );
-; 136  : }
-; 137  : 
-; 138  : void TW_CALL SetPP05(void* clientData)
-; 139  : {
-; 140  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 141  : 	temp->SetSinglePP( 5 );
-; 142  : }
-; 143  : 
-; 144  : void TW_CALL SetPP06(void* clientData)
-; 145  : {
-; 146  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 147  : 	temp->SetSinglePP( 6 );
-; 148  : }
-; 149  : 
-; 150  : void TW_CALL SetPP07(void* clientData)
-; 151  : {
-; 152  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 153  : 	temp->SetSinglePP( 7 );
-; 154  : }
-; 155  : 
-; 156  : void TW_CALL SetPP08(void* clientData)
-; 157  : {
-; 158  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 159  : 	temp->SetSinglePP( 8 );
-; 160  : }
-; 161  : 
-; 162  : void TW_CALL SetPP09(void* clientData)
-; 163  : {
-; 164  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 165  : 	temp->SetSinglePP( 9 );
-; 166  : }
-; 167  : 
-; 168  : void TW_CALL SetPP10(void* clientData)
-; 169  : {
-; 170  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 171  : 	temp->SetSinglePP( 10 );
-; 172  : }
-; 173  : 
-; 174  : void TW_CALL SetPP11(void* clientData)
-; 175  : {
-; 176  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 177  : 	temp->SetSinglePP( 11 );
-; 178  : }
-; 179  : 
-; 180  : void TW_CALL SetPP12(void* clientData)
-; 181  : {
-; 182  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 183  : 	temp->SetSinglePP( 12 );
-; 184  : }
-; 185  : 
-; 186  : void TW_CALL SetGauss(void* clientData)
-; 187  : {
-; 188  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 189  : 	temp->mbGaussian = !temp->mbGaussian;
-; 190  : }
-; 191  : 
-; 192  : void TW_CALL TWImpact(void* clientData)
-; 193  : {
-; 194  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 195  : 	temp->StartImpact();
-; 196  : }
-; 197  : 
-; 198  : void CScene::SetSinglePP(int index)
-; 199  : {
-; 200  : 	if(index < 0)
-; 201  : 	{
-; 202  : 		mCurrentPP = 0;
-; 203  : 		return;
-; 204  : 	}
+; 133  : 
+; 134  : void TW_CALL SetPP03(void* clientData)
+; 135  : {
+; 136  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 137  : 	temp->SetSinglePP( 3 );
+; 138  : }
+; 139  : 
+; 140  : void TW_CALL SetPP04(void* clientData)
+; 141  : {
+; 142  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 143  : 	temp->SetSinglePP( 4 );
+; 144  : }
+; 145  : 
+; 146  : void TW_CALL SetPP05(void* clientData)
+; 147  : {
+; 148  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 149  : 	temp->SetSinglePP( 5 );
+; 150  : }
+; 151  : 
+; 152  : void TW_CALL SetPP06(void* clientData)
+; 153  : {
+; 154  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 155  : 	temp->SetSinglePP( 6 );
+; 156  : }
+; 157  : 
+; 158  : void TW_CALL SetPP07(void* clientData)
+; 159  : {
+; 160  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 161  : 	temp->SetSinglePP( 7 );
+; 162  : }
+; 163  : 
+; 164  : void TW_CALL SetPP08(void* clientData)
+; 165  : {
+; 166  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 167  : 	temp->SetSinglePP( 8 );
+; 168  : }
+; 169  : 
+; 170  : void TW_CALL SetPP09(void* clientData)
+; 171  : {
+; 172  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 173  : 	temp->SetSinglePP( 9 );
+; 174  : }
+; 175  : 
+; 176  : void TW_CALL SetPP10(void* clientData)
+; 177  : {
+; 178  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 179  : 	temp->SetSinglePP( 10 );
+; 180  : }
+; 181  : 
+; 182  : void TW_CALL SetPP11(void* clientData)
+; 183  : {
+; 184  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 185  : 	temp->SetSinglePP( 11 );
+; 186  : }
+; 187  : 
+; 188  : void TW_CALL SetPP12(void* clientData)
+; 189  : {
+; 190  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 191  : 	temp->SetSinglePP( 12 );
+; 192  : }
+; 193  : 
+; 194  : void TW_CALL SetPP13(void* clientData)
+; 195  : {
+; 196  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 197  : 	temp->SetSinglePP(13);
+; 198  : }
+; 199  : 
+; 200  : void TW_CALL SetPP14(void* clientData)
+; 201  : {
+; 202  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 203  : 	temp->SetSinglePP(14);
+; 204  : }
 ; 205  : 
-; 206  : 	if(index > NumPostProcesses)
-; 207  : 	{
-; 208  : 		mCurrentPP = 0;
-; 209  : 		return;
-; 210  : 	}
+; 206  : void TW_CALL SetGauss(void* clientData)
+; 207  : {
+; 208  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 209  : 	temp->mbGaussian = !temp->mbGaussian;
+; 210  : }
 ; 211  : 
-; 212  : 	mCurrentPP = index;
+; 212  : void TW_CALL TWImpact(void* clientData)
+; 213  : {
+; 214  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 215  : 	temp->StartImpact();
+; 216  : }
+; 217  : 
+; 218  : void TW_CALL AddPP00(void* clientData)
+; 219  : {
+; 220  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 221  : 	temp->mPPSteps.push_back(0);
+; 222  : }
+; 223  : 
+; 224  : void TW_CALL AddPP01(void* clientData)
+; 225  : {
+; 226  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 227  : 	temp->mPPSteps.push_back(1);
+; 228  : }
+; 229  : 
+; 230  : void TW_CALL AddPP02(void* clientData)
+; 231  : {
+; 232  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 233  : 	temp->mPPSteps.push_back(2);
+; 234  : }
+; 235  : 
+; 236  : void TW_CALL AddPP03(void* clientData)
+; 237  : {
+; 238  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 239  : 	temp->mPPSteps.push_back(3);
+; 240  : }
+; 241  : 
+; 242  : void TW_CALL AddPP04(void* clientData)
+; 243  : {
+; 244  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 245  : 	temp->mPPSteps.push_back(4);
+; 246  : }
+; 247  : 
+; 248  : void TW_CALL AddPP05(void* clientData)
+; 249  : {
+; 250  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 251  : 	temp->mPPSteps.push_back(5);
+; 252  : }
+; 253  : 
+; 254  : void TW_CALL AddPP06(void* clientData)
+; 255  : {
+; 256  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 257  : 	temp->mPPSteps.push_back(6);
+; 258  : }
+; 259  : 
+; 260  : void TW_CALL AddPP07(void* clientData)
+; 261  : {
+; 262  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 263  : 	temp->mPPSteps.push_back(7);
+; 264  : }
+; 265  : 
+; 266  : void TW_CALL AddPP08(void* clientData)
+; 267  : {
+; 268  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 269  : 	temp->mPPSteps.push_back(8);
+; 270  : }
+; 271  : 
+; 272  : void TW_CALL AddPP09(void* clientData)
+; 273  : {
+; 274  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 275  : 	temp->mPPSteps.push_back(9);
+; 276  : }
+; 277  : 
+; 278  : void TW_CALL AddPP10(void* clientData)
+; 279  : {
+; 280  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 281  : 	temp->mPPSteps.push_back(10);
+; 282  : }
+; 283  : 
+; 284  : void TW_CALL AddPP11(void* clientData)
+; 285  : {
+; 286  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 287  : 	temp->mPPSteps.push_back(11);
+; 288  : }
+; 289  : 
+; 290  : void TW_CALL AddPP12(void* clientData)
+; 291  : {
+; 292  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 293  : 	temp->mPPSteps.push_back(12);
+; 294  : }
+; 295  : 
+; 296  : void TW_CALL AddPP13(void* clientData)
+; 297  : {
+; 298  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 299  : 	temp->mPPSteps.push_back(13);
+; 300  : }
+; 301  : 
+; 302  : void TW_CALL AddPP14(void* clientData)
+; 303  : {
+; 304  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 305  : 	temp->mPPSteps.push_back(14);
+; 306  : }
+; 307  : 
+; 308  : void TW_CALL ClearChain(void* clientData)
+; 309  : {
+; 310  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 311  : 	temp->mPPSteps.clear();
+; 312  : 	temp->multiprocess = false;
+; 313  : }
+; 314  : 
+; 315  : void CScene::SetSinglePP(int index)
+; 316  : {
+; 317  : 	if(index < 0)
+; 318  : 	{
+; 319  : 		mCurrentPP = 0;
+; 320  : 		return;
+; 321  : 	}
+; 322  : 
+; 323  : 	if(index > NumPostProcesses)
+; 324  : 	{
+; 325  : 		mCurrentPP = 0;
+; 326  : 		return;
+; 327  : 	}
+; 328  : 
+; 329  : 	mCurrentPP = index;
 
-	mov	DWORD PTR [ecx+3040], 2
+	mov	DWORD PTR [ecx+3312], 2
 
-; 213  : }
-; 214  : 
-; 215  : void CScene::ResetShock()
-; 216  : {
-; 217  : 	mShockTime = mShockLength;	
+; 330  : }
+; 331  : 
+; 332  : void CScene::ResetShock()
+; 333  : {
+; 334  : 	mShockTime = mShockLength;	
 
-	mov	DWORD PTR [ecx+2968], eax
+	mov	DWORD PTR [ecx+2976], eax
 
-; 121  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 122  : 	temp->SetSinglePP( 2 );
-; 123  : 	temp->ResetShock();
-; 124  : }
+; 129  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 130  : 	temp->SetSinglePP( 2 );
+; 131  : 	temp->ResetShock();
+; 132  : }
 
 	pop	ebp
 	ret	4
@@ -6215,113 +9413,222 @@ _TEXT	SEGMENT
 _clientData$ = 8					; size = 4
 ?SetPP01@@YGXPAX@Z PROC					; SetPP01, COMDAT
 
-; 114  : {
+; 122  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 118  : 
-; 119  : void TW_CALL SetPP02(void* clientData)
-; 120  : {
-; 121  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 122  : 	temp->SetSinglePP( 2 );
-; 123  : 	temp->ResetShock();
-; 124  : }
-; 125  : 
-; 126  : void TW_CALL SetPP03(void* clientData)
-; 127  : {
-; 128  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 129  : 	temp->SetSinglePP( 3 );
-; 130  : }
-; 131  : 
-; 132  : void TW_CALL SetPP04(void* clientData)
-; 133  : {
-; 134  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 135  : 	temp->SetSinglePP( 4 );
-; 136  : }
-; 137  : 
-; 138  : void TW_CALL SetPP05(void* clientData)
-; 139  : {
-; 140  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 141  : 	temp->SetSinglePP( 5 );
-; 142  : }
-; 143  : 
-; 144  : void TW_CALL SetPP06(void* clientData)
-; 145  : {
-; 146  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 147  : 	temp->SetSinglePP( 6 );
-; 148  : }
-; 149  : 
-; 150  : void TW_CALL SetPP07(void* clientData)
-; 151  : {
-; 152  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 153  : 	temp->SetSinglePP( 7 );
-; 154  : }
-; 155  : 
-; 156  : void TW_CALL SetPP08(void* clientData)
-; 157  : {
-; 158  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 159  : 	temp->SetSinglePP( 8 );
-; 160  : }
-; 161  : 
-; 162  : void TW_CALL SetPP09(void* clientData)
-; 163  : {
-; 164  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 165  : 	temp->SetSinglePP( 9 );
-; 166  : }
-; 167  : 
-; 168  : void TW_CALL SetPP10(void* clientData)
-; 169  : {
-; 170  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 171  : 	temp->SetSinglePP( 10 );
-; 172  : }
-; 173  : 
-; 174  : void TW_CALL SetPP11(void* clientData)
-; 175  : {
-; 176  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 177  : 	temp->SetSinglePP( 11 );
-; 178  : }
-; 179  : 
-; 180  : void TW_CALL SetPP12(void* clientData)
-; 181  : {
-; 182  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 183  : 	temp->SetSinglePP( 12 );
-; 184  : }
-; 185  : 
-; 186  : void TW_CALL SetGauss(void* clientData)
-; 187  : {
-; 188  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 189  : 	temp->mbGaussian = !temp->mbGaussian;
-; 190  : }
-; 191  : 
-; 192  : void TW_CALL TWImpact(void* clientData)
-; 193  : {
-; 194  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 195  : 	temp->StartImpact();
-; 196  : }
-; 197  : 
-; 198  : void CScene::SetSinglePP(int index)
-; 199  : {
-; 200  : 	if(index < 0)
-; 201  : 	{
-; 202  : 		mCurrentPP = 0;
-; 203  : 		return;
-; 204  : 	}
+; 126  : 
+; 127  : void TW_CALL SetPP02(void* clientData)
+; 128  : {
+; 129  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 130  : 	temp->SetSinglePP( 2 );
+; 131  : 	temp->ResetShock();
+; 132  : }
+; 133  : 
+; 134  : void TW_CALL SetPP03(void* clientData)
+; 135  : {
+; 136  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 137  : 	temp->SetSinglePP( 3 );
+; 138  : }
+; 139  : 
+; 140  : void TW_CALL SetPP04(void* clientData)
+; 141  : {
+; 142  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 143  : 	temp->SetSinglePP( 4 );
+; 144  : }
+; 145  : 
+; 146  : void TW_CALL SetPP05(void* clientData)
+; 147  : {
+; 148  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 149  : 	temp->SetSinglePP( 5 );
+; 150  : }
+; 151  : 
+; 152  : void TW_CALL SetPP06(void* clientData)
+; 153  : {
+; 154  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 155  : 	temp->SetSinglePP( 6 );
+; 156  : }
+; 157  : 
+; 158  : void TW_CALL SetPP07(void* clientData)
+; 159  : {
+; 160  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 161  : 	temp->SetSinglePP( 7 );
+; 162  : }
+; 163  : 
+; 164  : void TW_CALL SetPP08(void* clientData)
+; 165  : {
+; 166  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 167  : 	temp->SetSinglePP( 8 );
+; 168  : }
+; 169  : 
+; 170  : void TW_CALL SetPP09(void* clientData)
+; 171  : {
+; 172  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 173  : 	temp->SetSinglePP( 9 );
+; 174  : }
+; 175  : 
+; 176  : void TW_CALL SetPP10(void* clientData)
+; 177  : {
+; 178  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 179  : 	temp->SetSinglePP( 10 );
+; 180  : }
+; 181  : 
+; 182  : void TW_CALL SetPP11(void* clientData)
+; 183  : {
+; 184  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 185  : 	temp->SetSinglePP( 11 );
+; 186  : }
+; 187  : 
+; 188  : void TW_CALL SetPP12(void* clientData)
+; 189  : {
+; 190  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 191  : 	temp->SetSinglePP( 12 );
+; 192  : }
+; 193  : 
+; 194  : void TW_CALL SetPP13(void* clientData)
+; 195  : {
+; 196  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 197  : 	temp->SetSinglePP(13);
+; 198  : }
+; 199  : 
+; 200  : void TW_CALL SetPP14(void* clientData)
+; 201  : {
+; 202  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 203  : 	temp->SetSinglePP(14);
+; 204  : }
 ; 205  : 
-; 206  : 	if(index > NumPostProcesses)
-; 207  : 	{
-; 208  : 		mCurrentPP = 0;
-; 209  : 		return;
-; 210  : 	}
+; 206  : void TW_CALL SetGauss(void* clientData)
+; 207  : {
+; 208  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 209  : 	temp->mbGaussian = !temp->mbGaussian;
+; 210  : }
 ; 211  : 
-; 212  : 	mCurrentPP = index;
+; 212  : void TW_CALL TWImpact(void* clientData)
+; 213  : {
+; 214  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 215  : 	temp->StartImpact();
+; 216  : }
+; 217  : 
+; 218  : void TW_CALL AddPP00(void* clientData)
+; 219  : {
+; 220  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 221  : 	temp->mPPSteps.push_back(0);
+; 222  : }
+; 223  : 
+; 224  : void TW_CALL AddPP01(void* clientData)
+; 225  : {
+; 226  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 227  : 	temp->mPPSteps.push_back(1);
+; 228  : }
+; 229  : 
+; 230  : void TW_CALL AddPP02(void* clientData)
+; 231  : {
+; 232  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 233  : 	temp->mPPSteps.push_back(2);
+; 234  : }
+; 235  : 
+; 236  : void TW_CALL AddPP03(void* clientData)
+; 237  : {
+; 238  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 239  : 	temp->mPPSteps.push_back(3);
+; 240  : }
+; 241  : 
+; 242  : void TW_CALL AddPP04(void* clientData)
+; 243  : {
+; 244  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 245  : 	temp->mPPSteps.push_back(4);
+; 246  : }
+; 247  : 
+; 248  : void TW_CALL AddPP05(void* clientData)
+; 249  : {
+; 250  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 251  : 	temp->mPPSteps.push_back(5);
+; 252  : }
+; 253  : 
+; 254  : void TW_CALL AddPP06(void* clientData)
+; 255  : {
+; 256  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 257  : 	temp->mPPSteps.push_back(6);
+; 258  : }
+; 259  : 
+; 260  : void TW_CALL AddPP07(void* clientData)
+; 261  : {
+; 262  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 263  : 	temp->mPPSteps.push_back(7);
+; 264  : }
+; 265  : 
+; 266  : void TW_CALL AddPP08(void* clientData)
+; 267  : {
+; 268  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 269  : 	temp->mPPSteps.push_back(8);
+; 270  : }
+; 271  : 
+; 272  : void TW_CALL AddPP09(void* clientData)
+; 273  : {
+; 274  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 275  : 	temp->mPPSteps.push_back(9);
+; 276  : }
+; 277  : 
+; 278  : void TW_CALL AddPP10(void* clientData)
+; 279  : {
+; 280  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 281  : 	temp->mPPSteps.push_back(10);
+; 282  : }
+; 283  : 
+; 284  : void TW_CALL AddPP11(void* clientData)
+; 285  : {
+; 286  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 287  : 	temp->mPPSteps.push_back(11);
+; 288  : }
+; 289  : 
+; 290  : void TW_CALL AddPP12(void* clientData)
+; 291  : {
+; 292  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 293  : 	temp->mPPSteps.push_back(12);
+; 294  : }
+; 295  : 
+; 296  : void TW_CALL AddPP13(void* clientData)
+; 297  : {
+; 298  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 299  : 	temp->mPPSteps.push_back(13);
+; 300  : }
+; 301  : 
+; 302  : void TW_CALL AddPP14(void* clientData)
+; 303  : {
+; 304  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 305  : 	temp->mPPSteps.push_back(14);
+; 306  : }
+; 307  : 
+; 308  : void TW_CALL ClearChain(void* clientData)
+; 309  : {
+; 310  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 311  : 	temp->mPPSteps.clear();
+; 312  : 	temp->multiprocess = false;
+; 313  : }
+; 314  : 
+; 315  : void CScene::SetSinglePP(int index)
+; 316  : {
+; 317  : 	if(index < 0)
+; 318  : 	{
+; 319  : 		mCurrentPP = 0;
+; 320  : 		return;
+; 321  : 	}
+; 322  : 
+; 323  : 	if(index > NumPostProcesses)
+; 324  : 	{
+; 325  : 		mCurrentPP = 0;
+; 326  : 		return;
+; 327  : 	}
+; 328  : 
+; 329  : 	mCurrentPP = index;
 
 	mov	eax, DWORD PTR _clientData$[ebp]
-	mov	DWORD PTR [eax+3040], 1
+	mov	DWORD PTR [eax+3312], 1
 
-; 115  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 116  : 	temp->SetSinglePP( 1 );
-; 117  : }
+; 123  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 124  : 	temp->SetSinglePP( 1 );
+; 125  : }
 
 	pop	ebp
 	ret	4
@@ -6334,119 +9641,228 @@ _TEXT	SEGMENT
 _clientData$ = 8					; size = 4
 ?SetPP00@@YGXPAX@Z PROC					; SetPP00, COMDAT
 
-; 108  : {
+; 116  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 112  : 
-; 113  : void TW_CALL SetPP01(void* clientData)
-; 114  : {
-; 115  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 116  : 	temp->SetSinglePP( 1 );
-; 117  : }
-; 118  : 
-; 119  : void TW_CALL SetPP02(void* clientData)
-; 120  : {
-; 121  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 122  : 	temp->SetSinglePP( 2 );
-; 123  : 	temp->ResetShock();
-; 124  : }
-; 125  : 
-; 126  : void TW_CALL SetPP03(void* clientData)
-; 127  : {
-; 128  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 129  : 	temp->SetSinglePP( 3 );
-; 130  : }
-; 131  : 
-; 132  : void TW_CALL SetPP04(void* clientData)
-; 133  : {
-; 134  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 135  : 	temp->SetSinglePP( 4 );
-; 136  : }
-; 137  : 
-; 138  : void TW_CALL SetPP05(void* clientData)
-; 139  : {
-; 140  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 141  : 	temp->SetSinglePP( 5 );
-; 142  : }
-; 143  : 
-; 144  : void TW_CALL SetPP06(void* clientData)
-; 145  : {
-; 146  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 147  : 	temp->SetSinglePP( 6 );
-; 148  : }
-; 149  : 
-; 150  : void TW_CALL SetPP07(void* clientData)
-; 151  : {
-; 152  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 153  : 	temp->SetSinglePP( 7 );
-; 154  : }
-; 155  : 
-; 156  : void TW_CALL SetPP08(void* clientData)
-; 157  : {
-; 158  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 159  : 	temp->SetSinglePP( 8 );
-; 160  : }
-; 161  : 
-; 162  : void TW_CALL SetPP09(void* clientData)
-; 163  : {
-; 164  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 165  : 	temp->SetSinglePP( 9 );
-; 166  : }
-; 167  : 
-; 168  : void TW_CALL SetPP10(void* clientData)
-; 169  : {
-; 170  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 171  : 	temp->SetSinglePP( 10 );
-; 172  : }
-; 173  : 
-; 174  : void TW_CALL SetPP11(void* clientData)
-; 175  : {
-; 176  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 177  : 	temp->SetSinglePP( 11 );
-; 178  : }
-; 179  : 
-; 180  : void TW_CALL SetPP12(void* clientData)
-; 181  : {
-; 182  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 183  : 	temp->SetSinglePP( 12 );
-; 184  : }
-; 185  : 
-; 186  : void TW_CALL SetGauss(void* clientData)
-; 187  : {
-; 188  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 189  : 	temp->mbGaussian = !temp->mbGaussian;
-; 190  : }
-; 191  : 
-; 192  : void TW_CALL TWImpact(void* clientData)
-; 193  : {
-; 194  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 195  : 	temp->StartImpact();
-; 196  : }
-; 197  : 
-; 198  : void CScene::SetSinglePP(int index)
-; 199  : {
-; 200  : 	if(index < 0)
-; 201  : 	{
-; 202  : 		mCurrentPP = 0;
-; 203  : 		return;
-; 204  : 	}
+; 120  : 
+; 121  : void TW_CALL SetPP01(void* clientData)
+; 122  : {
+; 123  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 124  : 	temp->SetSinglePP( 1 );
+; 125  : }
+; 126  : 
+; 127  : void TW_CALL SetPP02(void* clientData)
+; 128  : {
+; 129  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 130  : 	temp->SetSinglePP( 2 );
+; 131  : 	temp->ResetShock();
+; 132  : }
+; 133  : 
+; 134  : void TW_CALL SetPP03(void* clientData)
+; 135  : {
+; 136  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 137  : 	temp->SetSinglePP( 3 );
+; 138  : }
+; 139  : 
+; 140  : void TW_CALL SetPP04(void* clientData)
+; 141  : {
+; 142  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 143  : 	temp->SetSinglePP( 4 );
+; 144  : }
+; 145  : 
+; 146  : void TW_CALL SetPP05(void* clientData)
+; 147  : {
+; 148  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 149  : 	temp->SetSinglePP( 5 );
+; 150  : }
+; 151  : 
+; 152  : void TW_CALL SetPP06(void* clientData)
+; 153  : {
+; 154  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 155  : 	temp->SetSinglePP( 6 );
+; 156  : }
+; 157  : 
+; 158  : void TW_CALL SetPP07(void* clientData)
+; 159  : {
+; 160  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 161  : 	temp->SetSinglePP( 7 );
+; 162  : }
+; 163  : 
+; 164  : void TW_CALL SetPP08(void* clientData)
+; 165  : {
+; 166  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 167  : 	temp->SetSinglePP( 8 );
+; 168  : }
+; 169  : 
+; 170  : void TW_CALL SetPP09(void* clientData)
+; 171  : {
+; 172  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 173  : 	temp->SetSinglePP( 9 );
+; 174  : }
+; 175  : 
+; 176  : void TW_CALL SetPP10(void* clientData)
+; 177  : {
+; 178  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 179  : 	temp->SetSinglePP( 10 );
+; 180  : }
+; 181  : 
+; 182  : void TW_CALL SetPP11(void* clientData)
+; 183  : {
+; 184  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 185  : 	temp->SetSinglePP( 11 );
+; 186  : }
+; 187  : 
+; 188  : void TW_CALL SetPP12(void* clientData)
+; 189  : {
+; 190  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 191  : 	temp->SetSinglePP( 12 );
+; 192  : }
+; 193  : 
+; 194  : void TW_CALL SetPP13(void* clientData)
+; 195  : {
+; 196  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 197  : 	temp->SetSinglePP(13);
+; 198  : }
+; 199  : 
+; 200  : void TW_CALL SetPP14(void* clientData)
+; 201  : {
+; 202  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 203  : 	temp->SetSinglePP(14);
+; 204  : }
 ; 205  : 
-; 206  : 	if(index > NumPostProcesses)
-; 207  : 	{
-; 208  : 		mCurrentPP = 0;
-; 209  : 		return;
-; 210  : 	}
+; 206  : void TW_CALL SetGauss(void* clientData)
+; 207  : {
+; 208  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 209  : 	temp->mbGaussian = !temp->mbGaussian;
+; 210  : }
 ; 211  : 
-; 212  : 	mCurrentPP = index;
+; 212  : void TW_CALL TWImpact(void* clientData)
+; 213  : {
+; 214  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 215  : 	temp->StartImpact();
+; 216  : }
+; 217  : 
+; 218  : void TW_CALL AddPP00(void* clientData)
+; 219  : {
+; 220  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 221  : 	temp->mPPSteps.push_back(0);
+; 222  : }
+; 223  : 
+; 224  : void TW_CALL AddPP01(void* clientData)
+; 225  : {
+; 226  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 227  : 	temp->mPPSteps.push_back(1);
+; 228  : }
+; 229  : 
+; 230  : void TW_CALL AddPP02(void* clientData)
+; 231  : {
+; 232  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 233  : 	temp->mPPSteps.push_back(2);
+; 234  : }
+; 235  : 
+; 236  : void TW_CALL AddPP03(void* clientData)
+; 237  : {
+; 238  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 239  : 	temp->mPPSteps.push_back(3);
+; 240  : }
+; 241  : 
+; 242  : void TW_CALL AddPP04(void* clientData)
+; 243  : {
+; 244  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 245  : 	temp->mPPSteps.push_back(4);
+; 246  : }
+; 247  : 
+; 248  : void TW_CALL AddPP05(void* clientData)
+; 249  : {
+; 250  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 251  : 	temp->mPPSteps.push_back(5);
+; 252  : }
+; 253  : 
+; 254  : void TW_CALL AddPP06(void* clientData)
+; 255  : {
+; 256  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 257  : 	temp->mPPSteps.push_back(6);
+; 258  : }
+; 259  : 
+; 260  : void TW_CALL AddPP07(void* clientData)
+; 261  : {
+; 262  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 263  : 	temp->mPPSteps.push_back(7);
+; 264  : }
+; 265  : 
+; 266  : void TW_CALL AddPP08(void* clientData)
+; 267  : {
+; 268  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 269  : 	temp->mPPSteps.push_back(8);
+; 270  : }
+; 271  : 
+; 272  : void TW_CALL AddPP09(void* clientData)
+; 273  : {
+; 274  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 275  : 	temp->mPPSteps.push_back(9);
+; 276  : }
+; 277  : 
+; 278  : void TW_CALL AddPP10(void* clientData)
+; 279  : {
+; 280  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 281  : 	temp->mPPSteps.push_back(10);
+; 282  : }
+; 283  : 
+; 284  : void TW_CALL AddPP11(void* clientData)
+; 285  : {
+; 286  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 287  : 	temp->mPPSteps.push_back(11);
+; 288  : }
+; 289  : 
+; 290  : void TW_CALL AddPP12(void* clientData)
+; 291  : {
+; 292  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 293  : 	temp->mPPSteps.push_back(12);
+; 294  : }
+; 295  : 
+; 296  : void TW_CALL AddPP13(void* clientData)
+; 297  : {
+; 298  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 299  : 	temp->mPPSteps.push_back(13);
+; 300  : }
+; 301  : 
+; 302  : void TW_CALL AddPP14(void* clientData)
+; 303  : {
+; 304  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 305  : 	temp->mPPSteps.push_back(14);
+; 306  : }
+; 307  : 
+; 308  : void TW_CALL ClearChain(void* clientData)
+; 309  : {
+; 310  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 311  : 	temp->mPPSteps.clear();
+; 312  : 	temp->multiprocess = false;
+; 313  : }
+; 314  : 
+; 315  : void CScene::SetSinglePP(int index)
+; 316  : {
+; 317  : 	if(index < 0)
+; 318  : 	{
+; 319  : 		mCurrentPP = 0;
+; 320  : 		return;
+; 321  : 	}
+; 322  : 
+; 323  : 	if(index > NumPostProcesses)
+; 324  : 	{
+; 325  : 		mCurrentPP = 0;
+; 326  : 		return;
+; 327  : 	}
+; 328  : 
+; 329  : 	mCurrentPP = index;
 
 	mov	eax, DWORD PTR _clientData$[ebp]
-	mov	DWORD PTR [eax+3040], 0
+	mov	DWORD PTR [eax+3312], 0
 
-; 109  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 110  : 	temp->SetSinglePP( 0 );
-; 111  : }
+; 117  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 118  : 	temp->SetSinglePP( 0 );
+; 119  : }
 
 	pop	ebp
 	ret	4
@@ -6459,20 +9875,20 @@ _TEXT	SEGMENT
 _clientData$ = 8					; size = 4
 ?ToggleSingle@@YGXPAX@Z PROC				; ToggleSingle, COMDAT
 
-; 102  : {
+; 110  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 103  : 	CScene* temp = static_cast<CScene*>(clientData);
-; 104  : 	temp->multiprocess = !temp->multiprocess;
+; 111  : 	CScene* temp = static_cast<CScene*>(clientData);
+; 112  : 	temp->multiprocess = !temp->multiprocess;
 
 	mov	ecx, DWORD PTR _clientData$[ebp]
-	cmp	BYTE PTR [ecx+3184], 0
+	cmp	BYTE PTR [ecx+3556], 0
 	sete	al
-	mov	BYTE PTR [ecx+3184], al
+	mov	BYTE PTR [ecx+3556], al
 
-; 105  : }
+; 113  : }
 
 	pop	ebp
 	ret	4
@@ -6490,7 +9906,7 @@ _nCmdShow$ = 12						; size = 4
 ?InitWindow@CScene@@QAE_NPAUHINSTANCE__@@H@Z PROC	; CScene::InitWindow, COMDAT
 ; _this$ = ecx
 
-; 922  : {
+; 1115 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6503,15 +9919,15 @@ _nCmdShow$ = 12						; size = 4
 	mov	edi, DWORD PTR _hInstance$[ebp]
 	mov	ebx, ecx
 
-; 923  : 	// Register class
-; 924  : 	WNDCLASSEX wcex;
-; 925  : 	wcex.cbSize = sizeof( WNDCLASSEX );
-; 926  : 	wcex.style = CS_HREDRAW | CS_VREDRAW;
-; 927  : 	wcex.lpfnWndProc = CScene::WndProc;
-; 928  : 	wcex.cbClsExtra = 0;
-; 929  : 	wcex.cbWndExtra = 0;
-; 930  : 	wcex.hInstance = hInstance;
-; 931  : 	wcex.hIcon = LoadIcon( hInstance, ( LPCTSTR )IDI_TUTORIAL1 );
+; 1116 : 	// Register class
+; 1117 : 	WNDCLASSEX wcex;
+; 1118 : 	wcex.cbSize = sizeof( WNDCLASSEX );
+; 1119 : 	wcex.style = CS_HREDRAW | CS_VREDRAW;
+; 1120 : 	wcex.lpfnWndProc = CScene::WndProc;
+; 1121 : 	wcex.cbClsExtra = 0;
+; 1122 : 	wcex.cbWndExtra = 0;
+; 1123 : 	wcex.hInstance = hInstance;
+; 1124 : 	wcex.hIcon = LoadIcon( hInstance, ( LPCTSTR )IDI_TUTORIAL1 );
 
 	push	107					; 0000006bH
 	push	edi
@@ -6523,17 +9939,17 @@ _nCmdShow$ = 12						; size = 4
 	mov	DWORD PTR _wcex$[ebp+20], edi
 	call	DWORD PTR __imp__LoadIconW@8
 
-; 932  : 	wcex.hCursor = LoadCursor( NULL, IDC_ARROW );
+; 1125 : 	wcex.hCursor = LoadCursor( NULL, IDC_ARROW );
 
 	push	32512					; 00007f00H
 	push	0
 	mov	DWORD PTR _wcex$[ebp+24], eax
 	call	DWORD PTR __imp__LoadCursorW@8
 
-; 933  : 	wcex.hbrBackground = ( HBRUSH )( COLOR_WINDOW + 1 );
-; 934  : 	wcex.lpszMenuName = NULL;
-; 935  : 	wcex.lpszClassName = L"TutorialWindowClass";
-; 936  : 	wcex.hIconSm = LoadIcon( wcex.hInstance, ( LPCTSTR )IDI_TUTORIAL1 );
+; 1126 : 	wcex.hbrBackground = ( HBRUSH )( COLOR_WINDOW + 1 );
+; 1127 : 	wcex.lpszMenuName = NULL;
+; 1128 : 	wcex.lpszClassName = L"TutorialWindowClass";
+; 1129 : 	wcex.hIconSm = LoadIcon( wcex.hInstance, ( LPCTSTR )IDI_TUTORIAL1 );
 
 	push	107					; 0000006bH
 	push	DWORD PTR _wcex$[ebp+20]
@@ -6544,7 +9960,7 @@ _nCmdShow$ = 12						; size = 4
 	call	DWORD PTR __imp__LoadIconW@8
 	mov	DWORD PTR _wcex$[ebp+44], eax
 
-; 937  : 	if( !RegisterClassEx( &wcex ) )	return false;
+; 1130 : 	if( !RegisterClassEx( &wcex ) )	return false;
 
 	lea	eax, DWORD PTR _wcex$[ebp]
 	push	eax
@@ -6556,9 +9972,9 @@ $LN5@InitWindow:
 	xor	al, al
 	pop	ebx
 
-; 948  : 
-; 949  : 	return true;
-; 950  : }
+; 1141 : 
+; 1142 : 	return true;
+; 1143 : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	xor	ecx, ebp
@@ -6569,22 +9985,22 @@ $LN5@InitWindow:
 $LN2@InitWindow:
 	movdqa	xmm0, XMMWORD PTR __xmm@000003c0000007800000000000000000
 
-; 938  : 
-; 939  : 	// Create window
-; 940  : 	HInst = hInstance;
-; 941  : 	RECT rc = { 0, 0, 1920, 960 };
-; 942  : 	AdjustWindowRect( &rc, WS_OVERLAPPEDWINDOW, FALSE );
+; 1131 : 
+; 1132 : 	// Create window
+; 1133 : 	HInst = hInstance;
+; 1134 : 	RECT rc = { 0, 0, 1920, 960 };
+; 1135 : 	AdjustWindowRect( &rc, WS_OVERLAPPEDWINDOW, FALSE );
 
 	lea	eax, DWORD PTR _rc$[ebp]
 	push	0
 	push	13565952				; 00cf0000H
 	push	eax
-	mov	DWORD PTR [ebx+3164], edi
+	mov	DWORD PTR [ebx+3536], edi
 	movdqu	XMMWORD PTR _rc$[ebp], xmm0
 	call	DWORD PTR __imp__AdjustWindowRect@12
 
-; 943  : 	HWnd = CreateWindow( L"TutorialWindowClass", L"CO2409 - Graphics Assignment - Shaders", WS_OVERLAPPEDWINDOW,
-; 944  : 	                     CW_USEDEFAULT, CW_USEDEFAULT, rc.right - rc.left, rc.bottom - rc.top, NULL, NULL, hInstance, NULL );
+; 1136 : 	HWnd = CreateWindow( L"TutorialWindowClass", L"CO2409 - Graphics Assignment - Shaders", WS_OVERLAPPEDWINDOW,
+; 1137 : 	                     CW_USEDEFAULT, CW_USEDEFAULT, rc.right - rc.left, rc.bottom - rc.top, NULL, NULL, hInstance, NULL );
 
 	mov	eax, DWORD PTR _rc$[ebp+12]
 	sub	eax, DWORD PTR _rc$[ebp+4]
@@ -6603,23 +10019,23 @@ $LN2@InitWindow:
 	push	OFFSET ??_C@_1CI@OKMLABGO@?$AAT?$AAu?$AAt?$AAo?$AAr?$AAi?$AAa?$AAl?$AAW?$AAi?$AAn?$AAd?$AAo?$AAw?$AAC?$AAl?$AAa?$AAs?$AAs?$AA?$AA@
 	push	0
 	call	DWORD PTR __imp__CreateWindowExW@48
-	mov	DWORD PTR [ebx+3168], eax
+	mov	DWORD PTR [ebx+3540], eax
 
-; 945  : 	if( !HWnd )	return false;
+; 1138 : 	if( !HWnd )	return false;
 
 	test	eax, eax
 	je	SHORT $LN5@InitWindow
 
-; 946  : 
-; 947  : 	ShowWindow( HWnd, nCmdShow );
+; 1139 : 
+; 1140 : 	ShowWindow( HWnd, nCmdShow );
 
 	push	DWORD PTR _nCmdShow$[ebp]
 	push	eax
 	call	DWORD PTR __imp__ShowWindow@8
 
-; 948  : 
-; 949  : 	return true;
-; 950  : }
+; 1141 : 
+; 1142 : 	return true;
+; 1143 : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	mov	al, 1
@@ -6708,7 +10124,7 @@ __$ArrayPad$ = -4					; size = 4
 ?RenderMirrors@CScene@@QAEXXZ PROC			; CScene::RenderMirrors, COMDAT
 ; _this$ = ecx
 
-; 857  : {
+; 1050 : {
 
 	push	ebx
 	mov	ebx, esp
@@ -6726,7 +10142,7 @@ __$ArrayPad$ = -4					; size = 4
 	push	esi
 	mov	esi, ecx
 
-; 864  : 	WorldMatrixVar->SetMatrix( (float*)mirrorMatrix );
+; 1057 : 	WorldMatrixVar->SetMatrix( (float*)mirrorMatrix );
 
 	lea	edx, DWORD PTR _mirrorMatrix$[ebp]
 	push	edx
@@ -6749,9 +10165,9 @@ __$ArrayPad$ = -4					; size = 4
 	movdqu	xmm0, XMMWORD PTR [eax+96]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 864  : 	WorldMatrixVar->SetMatrix( (float*)mirrorMatrix );
+; 1057 : 	WorldMatrixVar->SetMatrix( (float*)mirrorMatrix );
 
-	mov	eax, DWORD PTR [esi+3088]
+	mov	eax, DWORD PTR [esi+3460]
 	push	eax
 ; File c:\users\simon\documents\github\post-processing\model.h
 
@@ -6760,12 +10176,12 @@ __$ArrayPad$ = -4					; size = 4
 	movdqu	XMMWORD PTR _mirrorMatrix$[ebp+48], xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 864  : 	WorldMatrixVar->SetMatrix( (float*)mirrorMatrix );
+; 1057 : 	WorldMatrixVar->SetMatrix( (float*)mirrorMatrix );
 
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+100]
 
-; 865  : 	ModelColourVar->SetRawValue( mpObjects[0]->GetColourV(), 0, 12 );
+; 1058 : 	ModelColourVar->SetRawValue( mpObjects[0]->GetColourV(), 0, 12 );
 
 	mov	eax, DWORD PTR [esi+8]
 	lea	edx, DWORD PTR $T7[ebp]
@@ -6785,9 +10201,9 @@ __$ArrayPad$ = -4					; size = 4
 	movss	xmm0, DWORD PTR [eax+4]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 865  : 	ModelColourVar->SetRawValue( mpObjects[0]->GetColourV(), 0, 12 );
+; 1058 : 	ModelColourVar->SetRawValue( mpObjects[0]->GetColourV(), 0, 12 );
 
-	mov	eax, DWORD PTR [esi+3112]
+	mov	eax, DWORD PTR [esi+3484]
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
 
 ; 321  :     x = fx;
@@ -6803,13 +10219,13 @@ __$ArrayPad$ = -4					; size = 4
 	movss	DWORD PTR $T7[ebp+8], xmm2
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 865  : 	ModelColourVar->SetRawValue( mpObjects[0]->GetColourV(), 0, 12 );
+; 1058 : 	ModelColourVar->SetRawValue( mpObjects[0]->GetColourV(), 0, 12 );
 
 	mov	ecx, DWORD PTR [eax]
 	push	eax
 	call	DWORD PTR [ecx+92]
 
-; 866  : 	mpObjects[0]->Render();
+; 1059 : 	mpObjects[0]->Render();
 
 	mov	ecx, DWORD PTR [esi+8]
 ; File c:\users\simon\documents\github\post-processing\renderobject.h
@@ -6826,7 +10242,7 @@ __$ArrayPad$ = -4					; size = 4
 	movss	xmm0, DWORD PTR _mirrorMatrix$[ebp+48]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 877  : 	D3DXPlaneFromPointNormal( &mirrorPlane, &mirrorPoint, &mirrorNormal );
+; 1070 : 	D3DXPlaneFromPointNormal( &mirrorPlane, &mirrorPoint, &mirrorNormal );
 
 	lea	eax, DWORD PTR _mirrorNormal$[ebp]
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -6850,7 +10266,7 @@ __$ArrayPad$ = -4					; size = 4
 	movss	xmm0, DWORD PTR _mirrorMatrix$[ebp+32]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 877  : 	D3DXPlaneFromPointNormal( &mirrorPlane, &mirrorPoint, &mirrorNormal );
+; 1070 : 	D3DXPlaneFromPointNormal( &mirrorPlane, &mirrorPoint, &mirrorNormal );
 
 	push	eax
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -6860,7 +10276,7 @@ __$ArrayPad$ = -4					; size = 4
 	movss	DWORD PTR _mirrorNormal$[ebp], xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 877  : 	D3DXPlaneFromPointNormal( &mirrorPlane, &mirrorPoint, &mirrorNormal );
+; 1070 : 	D3DXPlaneFromPointNormal( &mirrorPlane, &mirrorPoint, &mirrorNormal );
 
 	lea	eax, DWORD PTR _mirrorPoint$[ebp]
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -6870,7 +10286,7 @@ __$ArrayPad$ = -4					; size = 4
 	movss	xmm0, DWORD PTR _mirrorMatrix$[ebp+36]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 877  : 	D3DXPlaneFromPointNormal( &mirrorPlane, &mirrorPoint, &mirrorNormal );
+; 1070 : 	D3DXPlaneFromPointNormal( &mirrorPlane, &mirrorPoint, &mirrorNormal );
 
 	push	eax
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -6880,7 +10296,7 @@ __$ArrayPad$ = -4					; size = 4
 	movss	DWORD PTR _mirrorNormal$[ebp+4], xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 877  : 	D3DXPlaneFromPointNormal( &mirrorPlane, &mirrorPoint, &mirrorNormal );
+; 1070 : 	D3DXPlaneFromPointNormal( &mirrorPlane, &mirrorPoint, &mirrorNormal );
 
 	lea	eax, DWORD PTR _mirrorPlane$[ebp]
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -6890,7 +10306,7 @@ __$ArrayPad$ = -4					; size = 4
 	movss	xmm0, DWORD PTR _mirrorMatrix$[ebp+40]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 877  : 	D3DXPlaneFromPointNormal( &mirrorPlane, &mirrorPoint, &mirrorNormal );
+; 1070 : 	D3DXPlaneFromPointNormal( &mirrorPlane, &mirrorPoint, &mirrorNormal );
 
 	push	eax
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -6900,14 +10316,14 @@ __$ArrayPad$ = -4					; size = 4
 	movss	DWORD PTR _mirrorNormal$[ebp+8], xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 877  : 	D3DXPlaneFromPointNormal( &mirrorPlane, &mirrorPoint, &mirrorNormal );
+; 1070 : 	D3DXPlaneFromPointNormal( &mirrorPlane, &mirrorPoint, &mirrorNormal );
 
 	call	_D3DXPlaneFromPointNormal@12
 
-; 878  : 	
-; 879  : 	// Reflect the camera's view matrix in the mirror plane
-; 880  : 	D3DXMATRIXA16 reflectMatrix;
-; 881  : 	D3DXMatrixReflect( &reflectMatrix, &mirrorPlane );
+; 1071 : 	
+; 1072 : 	// Reflect the camera's view matrix in the mirror plane
+; 1073 : 	D3DXMATRIXA16 reflectMatrix;
+; 1074 : 	D3DXMatrixReflect( &reflectMatrix, &mirrorPlane );
 
 	lea	eax, DWORD PTR _mirrorPlane$[ebp]
 	push	eax
@@ -6915,7 +10331,7 @@ __$ArrayPad$ = -4					; size = 4
 	push	eax
 	call	_D3DXMatrixReflect@8
 
-; 882  : 	D3DXMATRIXA16 reflectViewMatrix = reflectMatrix * Camera->GetViewMatrix();
+; 1075 : 	D3DXMATRIXA16 reflectViewMatrix = reflectMatrix * Camera->GetViewMatrix();
 
 	mov	eax, DWORD PTR [esi+4]
 ; File c:\users\simon\documents\github\post-processing\camera.h
@@ -6959,7 +10375,7 @@ __$ArrayPad$ = -4					; size = 4
 	movdqa	xmm0, XMMWORD PTR $T4[ebp+32]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 885  : 	D3DXVECTOR3 cameraPos = Camera->GetPosition();
+; 1078 : 	D3DXVECTOR3 cameraPos = Camera->GetPosition();
 
 	mov	eax, DWORD PTR [esi+4]
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -6979,7 +10395,7 @@ __$ArrayPad$ = -4					; size = 4
 	mov	DWORD PTR _cameraPos$[ebp+8], eax
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 887  : 	D3DXVec3Transform( &reflectCameraPos4, &cameraPos, &reflectMatrix );
+; 1080 : 	D3DXVec3Transform( &reflectCameraPos4, &cameraPos, &reflectMatrix );
 
 	lea	eax, DWORD PTR _reflectMatrix$[ebp]
 	push	eax
@@ -6995,10 +10411,10 @@ __$ArrayPad$ = -4					; size = 4
 	movss	xmm0, DWORD PTR _reflectCameraPos4$[ebp]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 895  : 	ViewMatrixVar->SetMatrix( (float*)&reflectViewMatrix );
+; 1088 : 	ViewMatrixVar->SetMatrix( (float*)&reflectViewMatrix );
 
 	lea	edx, DWORD PTR _reflectViewMatrix$[ebp]
-	mov	eax, DWORD PTR [esi+3092]
+	mov	eax, DWORD PTR [esi+3464]
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
 
 ; 294  :     x = pf[0];
@@ -7016,16 +10432,16 @@ __$ArrayPad$ = -4					; size = 4
 	movss	DWORD PTR _reflectCameraPos$[ebp+8], xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 895  : 	ViewMatrixVar->SetMatrix( (float*)&reflectViewMatrix );
+; 1088 : 	ViewMatrixVar->SetMatrix( (float*)&reflectViewMatrix );
 
 	mov	ecx, DWORD PTR [eax]
 	push	edx
 	push	eax
 	call	DWORD PTR [ecx+100]
 
-; 896  : 	dxCameraPos->SetRawValue( reflectCameraPos, 0, 12 );
+; 1089 : 	dxCameraPos->SetRawValue( reflectCameraPos, 0, 12 );
 
-	mov	eax, DWORD PTR [esi+3120]
+	mov	eax, DWORD PTR [esi+3492]
 	lea	edx, DWORD PTR _reflectCameraPos$[ebp]
 	push	12					; 0000000cH
 	push	0
@@ -7034,9 +10450,9 @@ __$ArrayPad$ = -4					; size = 4
 	push	eax
 	call	DWORD PTR [ecx+92]
 
-; 897  : 	ClipPlaneVar->SetRawValue( mirrorPlane, 0, 16 );
+; 1090 : 	ClipPlaneVar->SetRawValue( mirrorPlane, 0, 16 );
 
-	mov	eax, DWORD PTR [esi+3144]
+	mov	eax, DWORD PTR [esi+3516]
 	lea	edx, DWORD PTR _mirrorPlane$[ebp]
 	push	16					; 00000010H
 	push	0
@@ -7045,16 +10461,16 @@ __$ArrayPad$ = -4					; size = 4
 	push	eax
 	call	DWORD PTR [ecx+92]
 
-; 898  : 
-; 899  : 	// Need to use slightly different techniques to avoid mirror rendering being "inside out"
-; 900  : 	
-; 901  : 	DrawAllObjects(true);
+; 1091 : 
+; 1092 : 	// Need to use slightly different techniques to avoid mirror rendering being "inside out"
+; 1093 : 	
+; 1094 : 	DrawAllObjects(true);
 
 	push	1
 	mov	ecx, esi
 	call	?DrawAllObjects@CScene@@AAEX_N@Z	; CScene::DrawAllObjects
 
-; 904  : 	ViewMatrixVar->SetMatrix( (float*)&Camera->GetViewMatrix() );
+; 1097 : 	ViewMatrixVar->SetMatrix( (float*)&Camera->GetViewMatrix() );
 
 	mov	eax, DWORD PTR [esi+4]
 	lea	edx, DWORD PTR $T3[ebp]
@@ -7072,9 +10488,9 @@ __$ArrayPad$ = -4					; size = 4
 	movdqu	xmm0, XMMWORD PTR [eax+160]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 904  : 	ViewMatrixVar->SetMatrix( (float*)&Camera->GetViewMatrix() );
+; 1097 : 	ViewMatrixVar->SetMatrix( (float*)&Camera->GetViewMatrix() );
 
-	mov	eax, DWORD PTR [esi+3092]
+	mov	eax, DWORD PTR [esi+3464]
 	push	eax
 ; File c:\users\simon\documents\github\post-processing\camera.h
 
@@ -7083,12 +10499,12 @@ __$ArrayPad$ = -4					; size = 4
 	movdqu	XMMWORD PTR $T3[ebp+48], xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 904  : 	ViewMatrixVar->SetMatrix( (float*)&Camera->GetViewMatrix() );
+; 1097 : 	ViewMatrixVar->SetMatrix( (float*)&Camera->GetViewMatrix() );
 
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+100]
 
-; 905  : 	dxCameraPos->SetRawValue( Camera->GetPosition(), 0, 12 );
+; 1098 : 	dxCameraPos->SetRawValue( Camera->GetPosition(), 0, 12 );
 
 	mov	eax, DWORD PTR [esi+4]
 	lea	edx, DWORD PTR $T6[ebp]
@@ -7105,16 +10521,16 @@ __$ArrayPad$ = -4					; size = 4
 	mov	DWORD PTR $T6[ebp+8], eax
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 905  : 	dxCameraPos->SetRawValue( Camera->GetPosition(), 0, 12 );
+; 1098 : 	dxCameraPos->SetRawValue( Camera->GetPosition(), 0, 12 );
 
-	mov	eax, DWORD PTR [esi+3120]
+	mov	eax, DWORD PTR [esi+3492]
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+92]
 
-; 906  : 	ClipPlaneVar->SetRawValue( D3DXVECTOR4(0,0,0,0), 0, 16 );
+; 1099 : 	ClipPlaneVar->SetRawValue( D3DXVECTOR4(0,0,0,0), 0, 16 );
 
-	mov	eax, DWORD PTR [esi+3144]
+	mov	eax, DWORD PTR [esi+3516]
 	xorps	xmm0, xmm0
 	push	16					; 00000010H
 	movups	XMMWORD PTR $T5[ebp], xmm0
@@ -7131,7 +10547,7 @@ __$ArrayPad$ = -4					; size = 4
 	mov	eax, DWORD PTR [esi+8]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 913  : 	WorldMatrixVar->SetMatrix( (float*)mpObjects[0]->GetModel()->GetWorldMatrix() );
+; 1106 : 	WorldMatrixVar->SetMatrix( (float*)mpObjects[0]->GetModel()->GetWorldMatrix() );
 
 	lea	edx, DWORD PTR $T2[ebp]
 	push	edx
@@ -7153,9 +10569,9 @@ __$ArrayPad$ = -4					; size = 4
 	movdqu	xmm0, XMMWORD PTR [eax+96]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 913  : 	WorldMatrixVar->SetMatrix( (float*)mpObjects[0]->GetModel()->GetWorldMatrix() );
+; 1106 : 	WorldMatrixVar->SetMatrix( (float*)mpObjects[0]->GetModel()->GetWorldMatrix() );
 
-	mov	eax, DWORD PTR [esi+3088]
+	mov	eax, DWORD PTR [esi+3460]
 	push	eax
 ; File c:\users\simon\documents\github\post-processing\model.h
 
@@ -7164,12 +10580,12 @@ __$ArrayPad$ = -4					; size = 4
 	movdqu	XMMWORD PTR $T2[ebp+48], xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 913  : 	WorldMatrixVar->SetMatrix( (float*)mpObjects[0]->GetModel()->GetWorldMatrix() );
+; 1106 : 	WorldMatrixVar->SetMatrix( (float*)mpObjects[0]->GetModel()->GetWorldMatrix() );
 
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+100]
 
-; 914  : 	mpObjects[0]->RenderMirror();
+; 1107 : 	mpObjects[0]->RenderMirror();
 
 	mov	ecx, DWORD PTR [esi+8]
 ; File c:\users\simon\documents\github\post-processing\renderobject.h
@@ -7181,7 +10597,7 @@ __$ArrayPad$ = -4					; size = 4
 	call	?Render@CModel@@QAEXPAUID3D10EffectTechnique@@@Z ; CModel::Render
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 915  : }
+; 1108 : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	xor	ecx, ebp
@@ -7206,6 +10622,10 @@ _TEXT	ENDS
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 ; File c:\users\simon\documents\github\post-processing\camera.h
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+; File c:\users\simon\documents\github\post-processing\scene.cpp
 ;	COMDAT ?RenderScene@CScene@@QAEXXZ
 _TEXT	SEGMENT
 $T1 = -80						; size = 64
@@ -7215,7 +10635,7 @@ __$ArrayPad$ = -4					; size = 4
 ?RenderScene@CScene@@QAEXXZ PROC			; CScene::RenderScene, COMDAT
 ; _this$ = ecx
 
-; 621  : {
+; 791  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -7228,30 +10648,36 @@ __$ArrayPad$ = -4					; size = 4
 	mov	ebx, ecx
 	push	edi
 
-; 622  : 	//set render target to a texture for post processing
-; 623  : 	mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
+; 792  : 	//set render target to a texture for post processing
+; 793  : 	//mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
+; 794  : 	//mpd3dDevice->ClearRenderTargetView(mInitialRenderTarget, AmbientColour);
+; 795  : 	//mpd3dDevice->ClearDepthStencilView(DepthStencilView, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0); // Clear the depth buffer too
+; 796  : 
+; 797  : 	mpd3dDevice->OMSetRenderTargets( 1, &mInitialRenderTarget, DepthStencilView);
 
 	mov	edx, DWORD PTR [ebx]
-	lea	ecx, DWORD PTR [ebx+3160]
-	push	DWORD PTR [ebx+3156]
-	push	ecx
+	lea	esi, DWORD PTR [ebx+2916]
+	push	DWORD PTR [ebx+3528]
+	push	esi
 	mov	eax, DWORD PTR [edx]
 	push	1
 	push	edx
 	call	DWORD PTR [eax+96]
 
-; 624  : 	mpd3dDevice->ClearRenderTargetView(mInitialRenderTarget, AmbientColour);
+; 798  : 
+; 799  : 	// Clear the back buffer - before drawing the geometry clear the entire window to a fixed colour
+; 800  : 	//float ClearColor[4] = { 0.2f, 0.2f, 0.3f, 1.0f }; // Good idea to match background to ambient colour
+; 801  : 	mpd3dDevice->ClearRenderTargetView( mInitialRenderTarget, AmbientColour );
 
 	mov	ecx, DWORD PTR [ebx]
 	lea	edi, DWORD PTR [ebx+2540]
 	push	edi
-	push	DWORD PTR [ebx+2908]
-	lea	esi, DWORD PTR [ebx+2908]
+	push	DWORD PTR [esi]
 	mov	eax, DWORD PTR [ecx]
 	push	ecx
 	call	DWORD PTR [eax+140]
 
-; 625  : 	mpd3dDevice->ClearDepthStencilView(DepthStencilView, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL, 1.0f, 0); // Clear the depth buffer too
+; 802  : 	mpd3dDevice->ClearDepthStencilView( DepthStencilView, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL , 1.0f, 0 ); // Clear the depth buffer too
 
 	mov	eax, DWORD PTR [ebx]
 	push	0
@@ -7259,46 +10685,11 @@ __$ArrayPad$ = -4					; size = 4
 	push	ecx
 	mov	DWORD PTR [esp], 1065353216		; 3f800000H
 	push	3
-	push	DWORD PTR [ebx+3156]
+	push	DWORD PTR [ebx+3528]
 	push	eax
 	call	DWORD PTR [ecx+144]
 
-; 626  : 
-; 627  : 	mpd3dDevice->OMSetRenderTargets( 1, &mInitialRenderTarget, DepthStencilView);
-
-	mov	eax, DWORD PTR [ebx]
-	push	DWORD PTR [ebx+3156]
-	push	esi
-	mov	ecx, DWORD PTR [eax]
-	push	1
-	push	eax
-	call	DWORD PTR [ecx+96]
-
-; 628  : 
-; 629  : 	// Clear the back buffer - before drawing the geometry clear the entire window to a fixed colour
-; 630  : 	//float ClearColor[4] = { 0.2f, 0.2f, 0.3f, 1.0f }; // Good idea to match background to ambient colour
-; 631  : 	mpd3dDevice->ClearRenderTargetView( mInitialRenderTarget, AmbientColour );
-
-	mov	eax, DWORD PTR [ebx]
-	push	edi
-	push	DWORD PTR [esi]
-	mov	ecx, DWORD PTR [eax]
-	push	eax
-	call	DWORD PTR [ecx+140]
-
-; 632  : 	mpd3dDevice->ClearDepthStencilView( DepthStencilView, D3D10_CLEAR_DEPTH | D3D10_CLEAR_STENCIL , 1.0f, 0 ); // Clear the depth buffer too
-
-	mov	eax, DWORD PTR [ebx]
-	push	0
-	mov	ecx, DWORD PTR [eax]
-	push	ecx
-	mov	DWORD PTR [esp], 1065353216		; 3f800000H
-	push	3
-	push	DWORD PTR [ebx+3156]
-	push	eax
-	call	DWORD PTR [ecx+144]
-
-; 640  : 	ViewMatrixVar->SetMatrix( (float*)&Camera->GetViewMatrix() );
+; 810  : 	ViewMatrixVar->SetMatrix( (float*)&Camera->GetViewMatrix() );
 
 	mov	eax, DWORD PTR [ebx+4]
 	lea	edx, DWORD PTR $T2[ebp]
@@ -7316,9 +10707,9 @@ __$ArrayPad$ = -4					; size = 4
 	movdqu	xmm0, XMMWORD PTR [eax+160]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 640  : 	ViewMatrixVar->SetMatrix( (float*)&Camera->GetViewMatrix() );
+; 810  : 	ViewMatrixVar->SetMatrix( (float*)&Camera->GetViewMatrix() );
 
-	mov	eax, DWORD PTR [ebx+3092]
+	mov	eax, DWORD PTR [ebx+3464]
 	push	eax
 ; File c:\users\simon\documents\github\post-processing\camera.h
 
@@ -7327,12 +10718,12 @@ __$ArrayPad$ = -4					; size = 4
 	movdqu	XMMWORD PTR $T2[ebp+48], xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 640  : 	ViewMatrixVar->SetMatrix( (float*)&Camera->GetViewMatrix() );
+; 810  : 	ViewMatrixVar->SetMatrix( (float*)&Camera->GetViewMatrix() );
 
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+100]
 
-; 641  : 	ProjMatrixVar->SetMatrix( (float*)&Camera->GetProjectionMatrix() );
+; 811  : 	ProjMatrixVar->SetMatrix( (float*)&Camera->GetProjectionMatrix() );
 
 	mov	eax, DWORD PTR [ebx+4]
 	lea	edx, DWORD PTR $T1[ebp]
@@ -7350,9 +10741,9 @@ __$ArrayPad$ = -4					; size = 4
 	movdqu	xmm0, XMMWORD PTR [eax+224]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 641  : 	ProjMatrixVar->SetMatrix( (float*)&Camera->GetProjectionMatrix() );
+; 811  : 	ProjMatrixVar->SetMatrix( (float*)&Camera->GetProjectionMatrix() );
 
-	mov	eax, DWORD PTR [ebx+3096]
+	mov	eax, DWORD PTR [ebx+3468]
 	push	eax
 ; File c:\users\simon\documents\github\post-processing\camera.h
 
@@ -7361,12 +10752,12 @@ __$ArrayPad$ = -4					; size = 4
 	movdqu	XMMWORD PTR $T1[ebp+48], xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 641  : 	ProjMatrixVar->SetMatrix( (float*)&Camera->GetProjectionMatrix() );
+; 811  : 	ProjMatrixVar->SetMatrix( (float*)&Camera->GetProjectionMatrix() );
 
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+100]
 
-; 644  : 	dxCameraPos->SetRawValue( D3DXVECTOR3( Camera->GetPosition()), 0, 12);
+; 814  : 	dxCameraPos->SetRawValue( D3DXVECTOR3( Camera->GetPosition()), 0, 12);
 
 	mov	eax, DWORD PTR [ebx+4]
 	lea	edx, DWORD PTR $T3[ebp]
@@ -7383,18 +10774,18 @@ __$ArrayPad$ = -4					; size = 4
 	mov	DWORD PTR $T3[ebp+8], eax
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 644  : 	dxCameraPos->SetRawValue( D3DXVECTOR3( Camera->GetPosition()), 0, 12);
+; 814  : 	dxCameraPos->SetRawValue( D3DXVECTOR3( Camera->GetPosition()), 0, 12);
 
-	mov	eax, DWORD PTR [ebx+3120]
+	mov	eax, DWORD PTR [ebx+3492]
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+92]
 
-; 645  : 
-; 646  : 	//pass the lighting colours
-; 647  : 	dxAmbientColour->SetRawValue( AmbientColour, 0, 12  );
+; 815  : 
+; 816  : 	//pass the lighting colours
+; 817  : 	dxAmbientColour->SetRawValue( AmbientColour, 0, 12  );
 
-	mov	eax, DWORD PTR [ebx+3128]
+	mov	eax, DWORD PTR [ebx+3500]
 	push	12					; 0000000cH
 	push	0
 	push	edi
@@ -7402,31 +10793,31 @@ __$ArrayPad$ = -4					; size = 4
 	push	eax
 	call	DWORD PTR [ecx+92]
 
-; 648  : 
-; 649  : 	//---------------------------
-; 650  : 	// Render each model
-; 651  : 	
-; 652  : 	RenderMirrors();
+; 818  : 
+; 819  : 	//---------------------------
+; 820  : 	// Render each model
+; 821  : 	
+; 822  : 	RenderMirrors();
 
 	mov	ecx, ebx
 	call	?RenderMirrors@CScene@@QAEXXZ		; CScene::RenderMirrors
 
-; 653  : 	DrawAllObjects(false);
+; 823  : 	DrawAllObjects(false);
 
 	push	0
 	mov	ecx, ebx
 	call	?DrawAllObjects@CScene@@AAEX_N@Z	; CScene::DrawAllObjects
 
-; 654  : 
-; 655  : 	/////////////////////////////
-; 656  : 	// POST PROCESS PASS
-; 657  : 	/////////////////////////////
-; 658  : 	
-; 659  : 	//Pass the tint colour
-; 660  : 	mdxPPTintColour->SetRawValue( mTintColour, 0, 12 );
+; 824  : 
+; 825  : 	/////////////////////////////
+; 826  : 	// POST PROCESS PASS
+; 827  : 	/////////////////////////////
+; 828  : 	
+; 829  : 	//Pass the tint colour
+; 830  : 	mdxPPTintColour->SetRawValue( mTintColour, 0, 12 );
 
-	mov	ecx, DWORD PTR [ebx+2988]
-	lea	eax, DWORD PTR [ebx+2992]
+	mov	ecx, DWORD PTR [ebx+2996]
+	lea	eax, DWORD PTR [ebx+3000]
 	push	12					; 0000000cH
 	push	0
 	push	eax
@@ -7434,12 +10825,12 @@ __$ArrayPad$ = -4					; size = 4
 	push	ecx
 	call	DWORD PTR [edx+92]
 
-; 661  : 
-; 662  : 	//Pass the shock value
-; 663  : 	mdxPPShock->SetRawValue( &mShock, 0, 4 );
+; 831  : 
+; 832  : 	//Pass the shock value
+; 833  : 	mdxPPShock->SetRawValue( &mShock, 0, 4 );
 
-	mov	ecx, DWORD PTR [ebx+2980]
-	lea	eax, DWORD PTR [ebx+2960]
+	mov	ecx, DWORD PTR [ebx+2988]
+	lea	eax, DWORD PTR [ebx+2968]
 	push	4
 	push	0
 	push	eax
@@ -7447,12 +10838,12 @@ __$ArrayPad$ = -4					; size = 4
 	push	ecx
 	call	DWORD PTR [edx+92]
 
-; 664  : 
-; 665  : 	//Pass the blur radius
-; 666  : 	mdxBlurRadius->SetRawValue( &mBlurRadius, 0, 4 );
+; 834  : 
+; 835  : 	//Pass the blur radius
+; 836  : 	mdxBlurRadius->SetRawValue( &mBlurRadius, 0, 4 );
 
-	mov	ecx, DWORD PTR [ebx+3016]
-	lea	eax, DWORD PTR [ebx+3008]
+	mov	ecx, DWORD PTR [ebx+3028]
+	lea	eax, DWORD PTR [ebx+3016]
 	push	4
 	push	0
 	push	eax
@@ -7460,12 +10851,23 @@ __$ArrayPad$ = -4					; size = 4
 	push	ecx
 	call	DWORD PTR [edx+92]
 
-; 667  : 
-; 668  : 	//Pass the double vision radius
-; 669  : 	mdxDoubleVisionRadius->SetRawValue( &mDoubleVisionRadius, 0, 4 );
+; 837  : 	mdxBlurWeights->SetRawValue(&mBlurWeights, 0, MAX_BLUR_RADIUS * 4);
 
-	mov	ecx, DWORD PTR [ebx+3024]
-	lea	eax, DWORD PTR [ebx+3020]
+	mov	ecx, DWORD PTR [ebx+3032]
+	lea	eax, DWORD PTR [ebx+3036]
+	push	256					; 00000100H
+	push	0
+	push	eax
+	mov	edx, DWORD PTR [ecx]
+	push	ecx
+	call	DWORD PTR [edx+92]
+
+; 838  : 
+; 839  : 	//Pass the double vision radius
+; 840  : 	mdxDoubleVisionRadius->SetRawValue( &mDoubleVisionRadius, 0, 4 );
+
+	mov	ecx, DWORD PTR [ebx+3296]
+	lea	eax, DWORD PTR [ebx+3292]
 	push	4
 	push	0
 	push	eax
@@ -7473,12 +10875,12 @@ __$ArrayPad$ = -4					; size = 4
 	push	ecx
 	call	DWORD PTR [edx+92]
 
-; 670  : 
-; 671  : 	//Pass the contrast factor
-; 672  : 	mdxContrastFactor->SetRawValue(&mContrastFactor, 0, 4);
+; 841  : 
+; 842  : 	//Pass the contrast factor
+; 843  : 	mdxContrastFactor->SetRawValue(&mContrastFactor, 0, 4);
 
-	mov	ecx, DWORD PTR [ebx+3036]
-	lea	eax, DWORD PTR [ebx+3032]
+	mov	ecx, DWORD PTR [ebx+3308]
+	lea	eax, DWORD PTR [ebx+3304]
 	push	4
 	push	0
 	push	eax
@@ -7486,12 +10888,12 @@ __$ArrayPad$ = -4					; size = 4
 	push	ecx
 	call	DWORD PTR [edx+92]
 
-; 673  : 
-; 674  : 	//Only one person would dare give me the raspberry....LONESTAR!!
-; 675  : 	mdxBlood->SetRawValue(&mBlood, 0, 4);
+; 844  : 
+; 845  : 	//Only one person would dare give me the raspberry....LONESTAR!!
+; 846  : 	mdxBlood->SetRawValue(&mBlood, 0, 4);
 
-	mov	ecx, DWORD PTR [ebx+2948]
-	lea	eax, DWORD PTR [ebx+2944]
+	mov	ecx, DWORD PTR [ebx+2956]
+	lea	eax, DWORD PTR [ebx+2952]
 	push	4
 	push	0
 	push	eax
@@ -7499,169 +10901,428 @@ __$ArrayPad$ = -4					; size = 4
 	push	ecx
 	call	DWORD PTR [edx+92]
 
-; 676  : 	mPostProcessMapVar->SetResource(mpMaps[15]);
+; 847  : 	mPostProcessMapVar->SetResource(mpMaps[15]);
 
-	mov	eax, DWORD PTR [ebx+2956]
+	mov	eax, DWORD PTR [ebx+2964]
 	push	DWORD PTR [ebx+996]
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+100]
 
-; 677  : 
-; 678  : 	mdxSolariseFloat->SetRawValue(&mSolariseFloat, 0, 4);
+; 848  : 
+; 849  : 	mPPDepthMap->SetResource(mDepthShaderView);
 
-	mov	ecx, DWORD PTR [ebx+3080]
-	push	4
-	mov	edx, DWORD PTR [ecx]
-	push	0
-	lea	eax, DWORD PTR [ebx+3076]
+	mov	eax, DWORD PTR [ebx+3456]
+	push	DWORD PTR [ebx+3364]
 	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+100]
+
+; 850  : 
+; 851  : 	mdxSolariseFloat->SetRawValue(&mSolariseFloat, 0, 4);
+
+	mov	ecx, DWORD PTR [ebx+3356]
+	lea	eax, DWORD PTR [ebx+3352]
+	push	4
+	push	0
+	push	eax
+	mov	edx, DWORD PTR [ecx]
 	push	ecx
 	call	DWORD PTR [edx+92]
 
-; 679  : 
-; 680  : 	if(mCurrentPP < 0) mCurrentPP = 0;
+; 852  : 
+; 853  : 	if(mCurrentPP < 0) mCurrentPP = 0;
 
-	cmp	DWORD PTR [ebx+3040], 0
-	jge	SHORT $LN7@RenderScen
-	mov	DWORD PTR [ebx+3040], 0
-$LN7@RenderScen:
+	cmp	DWORD PTR [ebx+3312], 0
+	jge	SHORT $LN10@RenderScen
+	mov	DWORD PTR [ebx+3312], 0
+$LN10@RenderScen:
 
-; 681  : 	if(mCurrentPP > NumPostProcesses ) mCurrentPP = 0;
+; 854  : 	if(mCurrentPP >= NumPostProcesses ) mCurrentPP = 0;
 
-	cmp	DWORD PTR [ebx+3040], 13		; 0000000dH
-	jle	SHORT $LN6@RenderScen
-	mov	DWORD PTR [ebx+3040], 0
-$LN6@RenderScen:
+	cmp	DWORD PTR [ebx+3312], 15		; 0000000fH
+	jl	SHORT $LN9@RenderScen
+	mov	DWORD PTR [ebx+3312], 0
+$LN9@RenderScen:
 
-; 682  : 
-; 683  : 	if (impact)
+; 855  : 
+; 856  : 	//Copy to Texture One - Not vital, but made the rest conceptually easier.
+; 857  : 	mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetOne, DepthStencilView);
 
-	cmp	BYTE PTR [ebx+3084], 0
-	je	SHORT $LN5@RenderScen
+	mov	ecx, DWORD PTR [ebx]
+	lea	eax, DWORD PTR [ebx+3328]
+	push	DWORD PTR [ebx+3528]
+	push	eax
+	mov	edx, DWORD PTR [ecx]
+	push	1
+	push	ecx
+	call	DWORD PTR [edx+96]
 
-; 684  : 	{
-; 685  : 		RenderImpact();
+; 858  : 	mInitialTextureVar->SetResource(mInitialShaderResource);
+
+	mov	eax, DWORD PTR [ebx+2948]
+	push	DWORD PTR [ebx+2920]
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+100]
+
+; 859  : 	mpd3dDevice->IASetInputLayout(NULL);
+
+	mov	eax, DWORD PTR [ebx]
+	push	0
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+44]
+
+; 860  : 	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+
+	mov	eax, DWORD PTR [ebx]
+	push	5
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+72]
+
+; 861  : 	mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
+
+	mov	eax, DWORD PTR [ebx+2564]
+	push	0
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+16]
+	push	0
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+28]
+
+; 862  : 	mpd3dDevice->Draw(4, 0);
+
+	mov	eax, DWORD PTR [ebx]
+	push	0
+	push	4
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+36]
+
+; 863  : 	mInitialTextureVar->SetResource(0);
+
+	mov	eax, DWORD PTR [ebx+2948]
+	push	0
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+100]
+
+; 864  : 	mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
+
+	mov	eax, DWORD PTR [ebx+2564]
+	push	0
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+16]
+	push	0
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+28]
+
+; 865  : 	
+; 866  : 	if (impact)
+
+	cmp	BYTE PTR [ebx+3360], 0
+	je	SHORT $LN8@RenderScen
+
+; 867  : 	{
+; 868  : 		RenderImpact();
 
 	mov	ecx, ebx
 	call	?RenderImpact@CScene@@AAEXXZ		; CScene::RenderImpact
+	jmp	SHORT $LN3@RenderScen
+$LN8@RenderScen:
 
-; 686  : 	}
-; 687  : 	else
+; 869  : 	}
+; 870  : 	else if (!multiprocess)
 
-	jmp	$LN1@RenderScen
-$LN5@RenderScen:
+	cmp	BYTE PTR [ebx+3556], 0
+	jne	SHORT $LN6@RenderScen
 
-; 688  : 	{
-; 689  : 		if (mbGaussian)
-; 690  : 		{
-; 691  : 
-; 692  : 		}
-; 693  : 
-; 694  : 		if (!multiprocess)
+; 871  : 	{
+; 872  : 		PostProcess(mCurrentPP);
 
-	cmp	BYTE PTR [ebx+3184], 0
+	push	DWORD PTR [ebx+3312]
+	mov	ecx, ebx
+	call	?PostProcess@CScene@@AAEXH@Z		; CScene::PostProcess
 
-; 695  : 		{
-; 696  : 			//Set render target back to output
-; 697  : 			mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
+; 873  : 	}
+; 874  : 	else
 
-	lea	esi, DWORD PTR [ebx+3160]
-	push	DWORD PTR [ebx+3156]
-	mov	eax, DWORD PTR [ebx]
-	push	esi
+	jmp	SHORT $LN3@RenderScen
+$LN6@RenderScen:
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+
+; 47   : 		{	// construct with pointer _Parg
+
+	mov	esi, DWORD PTR [ebx+3560]
+
+; 113  : 		return (*this);
+; 114  : 		}
+; 115  : 
+; 116  : 	_Myiter operator++(int)
+; 117  : 		{	// postincrement
+; 118  : 		_Myiter _Tmp = *this;
+; 119  : 		++*this;
+; 120  : 		return (_Tmp);
+; 121  : 		}
+; 122  : 
+; 123  : 	_Myiter& operator--()
+; 124  : 		{	// predecrement
+; 125  :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 126  : 		if (this->_Getcont() == 0
+; 127  : 			|| this->_Ptr == 0
+; 128  : 			|| this->_Ptr <= ((_Myvec *)this->_Getcont())->_Myfirst)
+; 129  : 			{	// report error
+; 130  : 			_DEBUG_ERROR("vector iterator not decrementable");
+; 131  : 			_SCL_SECURE_OUT_OF_RANGE;
+; 132  : 			}
+; 133  : 
+; 134  :  #elif _ITERATOR_DEBUG_LEVEL == 1
+; 135  : 		_SCL_SECURE_VALIDATE(this->_Getcont() != 0);
+; 136  : 		_SCL_SECURE_VALIDATE_RANGE(
+; 137  : 			this->_Ptr != _Tptr()
+; 138  : 			&& ((_Myvec *)this->_Getcont())->_Myfirst < this->_Ptr);
+; 139  :  #endif /* _ITERATOR_DEBUG_LEVEL */
+; 140  : 
+; 141  : 		--this->_Ptr;
+; 142  : 		return (*this);
+; 143  : 		}
+; 144  : 
+; 145  : 	_Myiter operator--(int)
+; 146  : 		{	// postdecrement
+; 147  : 		_Myiter _Tmp = *this;
+; 148  : 		--*this;
+; 149  : 		return (_Tmp);
+; 150  : 		}
+; 151  : 
+; 152  : 	_Myiter& operator+=(difference_type _Off)
+; 153  : 		{	// increment by integer
+; 154  :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 155  : 		if (this->_Getcont() == 0
+; 156  : 			|| this->_Ptr + _Off < ((_Myvec *)this->_Getcont())->_Myfirst
+; 157  : 			|| ((_Myvec *)this->_Getcont())->_Mylast < this->_Ptr + _Off)
+; 158  : 			{	// report error
+; 159  : 			_DEBUG_ERROR("vector iterator + offset out of range");
+; 160  : 			_SCL_SECURE_OUT_OF_RANGE;
+; 161  : 			}
+; 162  : 
+; 163  :  #elif _ITERATOR_DEBUG_LEVEL == 1
+; 164  : 		_SCL_SECURE_VALIDATE(this->_Getcont() != 0);
+; 165  : 		_SCL_SECURE_VALIDATE_RANGE(
+; 166  : 			((_Myvec *)this->_Getcont())->_Myfirst <= this->_Ptr + _Off
+; 167  : 			&& this->_Ptr + _Off <= ((_Myvec *)this->_Getcont())->_Mylast);
+; 168  :  #endif /* _ITERATOR_DEBUG_LEVEL */
+; 169  : 
+; 170  : 		_Ptr += _Off;
+; 171  : 		return (*this);
+; 172  : 		}
+; 173  : 
+; 174  : 	_Myiter operator+(difference_type _Off) const
+; 175  : 		{	// return this + integer
+; 176  : 		_Myiter _Tmp = *this;
+; 177  : 		return (_Tmp += _Off);
+; 178  : 		}
+; 179  : 
+; 180  : 	_Myiter& operator-=(difference_type _Off)
+; 181  : 		{	// decrement by integer
+; 182  : 		return (*this += -_Off);
+; 183  : 		}
+; 184  : 
+; 185  : 	_Myiter operator-(difference_type _Off) const
+; 186  : 		{	// return this - integer
+; 187  : 		_Myiter _Tmp = *this;
+; 188  : 		return (_Tmp -= _Off);
+; 189  : 		}
+; 190  : 
+; 191  : 	difference_type operator-(const _Myiter& _Right) const
+; 192  : 		{	// return difference of iterators
+; 193  : 		_Compat(_Right);
+; 194  : 		return (this->_Ptr - _Right._Ptr);
+; 195  : 		}
+; 196  : 
+; 197  : 	reference operator[](difference_type _Off) const
+; 198  : 		{	// subscript
+; 199  : 		return (*(*this + _Off));
+; 200  : 		}
+; 201  : 
+; 202  : 	bool operator==(const _Myiter& _Right) const
+; 203  : 		{	// test for iterator equality
+; 204  : 		_Compat(_Right);
+; 205  : 		return (this->_Ptr == _Right._Ptr);
+
+	cmp	esi, DWORD PTR [ebx+3564]
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+
+; 877  : 		while (it != mPPSteps.end())
+
+	je	SHORT $LN3@RenderScen
+$LL4@RenderScen:
+
+; 878  : 		{
+; 879  : 			
+; 880  : 			PostProcess(*it);
+
+	push	DWORD PTR [esi]
+	mov	ecx, ebx
+	call	?PostProcess@CScene@@AAEXH@Z		; CScene::PostProcess
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+
+; 112  : 		++this->_Ptr;
+
+	add	esi, 4
+
+; 113  : 		return (*this);
+; 114  : 		}
+; 115  : 
+; 116  : 	_Myiter operator++(int)
+; 117  : 		{	// postincrement
+; 118  : 		_Myiter _Tmp = *this;
+; 119  : 		++*this;
+; 120  : 		return (_Tmp);
+; 121  : 		}
+; 122  : 
+; 123  : 	_Myiter& operator--()
+; 124  : 		{	// predecrement
+; 125  :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 126  : 		if (this->_Getcont() == 0
+; 127  : 			|| this->_Ptr == 0
+; 128  : 			|| this->_Ptr <= ((_Myvec *)this->_Getcont())->_Myfirst)
+; 129  : 			{	// report error
+; 130  : 			_DEBUG_ERROR("vector iterator not decrementable");
+; 131  : 			_SCL_SECURE_OUT_OF_RANGE;
+; 132  : 			}
+; 133  : 
+; 134  :  #elif _ITERATOR_DEBUG_LEVEL == 1
+; 135  : 		_SCL_SECURE_VALIDATE(this->_Getcont() != 0);
+; 136  : 		_SCL_SECURE_VALIDATE_RANGE(
+; 137  : 			this->_Ptr != _Tptr()
+; 138  : 			&& ((_Myvec *)this->_Getcont())->_Myfirst < this->_Ptr);
+; 139  :  #endif /* _ITERATOR_DEBUG_LEVEL */
+; 140  : 
+; 141  : 		--this->_Ptr;
+; 142  : 		return (*this);
+; 143  : 		}
+; 144  : 
+; 145  : 	_Myiter operator--(int)
+; 146  : 		{	// postdecrement
+; 147  : 		_Myiter _Tmp = *this;
+; 148  : 		--*this;
+; 149  : 		return (_Tmp);
+; 150  : 		}
+; 151  : 
+; 152  : 	_Myiter& operator+=(difference_type _Off)
+; 153  : 		{	// increment by integer
+; 154  :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 155  : 		if (this->_Getcont() == 0
+; 156  : 			|| this->_Ptr + _Off < ((_Myvec *)this->_Getcont())->_Myfirst
+; 157  : 			|| ((_Myvec *)this->_Getcont())->_Mylast < this->_Ptr + _Off)
+; 158  : 			{	// report error
+; 159  : 			_DEBUG_ERROR("vector iterator + offset out of range");
+; 160  : 			_SCL_SECURE_OUT_OF_RANGE;
+; 161  : 			}
+; 162  : 
+; 163  :  #elif _ITERATOR_DEBUG_LEVEL == 1
+; 164  : 		_SCL_SECURE_VALIDATE(this->_Getcont() != 0);
+; 165  : 		_SCL_SECURE_VALIDATE_RANGE(
+; 166  : 			((_Myvec *)this->_Getcont())->_Myfirst <= this->_Ptr + _Off
+; 167  : 			&& this->_Ptr + _Off <= ((_Myvec *)this->_Getcont())->_Mylast);
+; 168  :  #endif /* _ITERATOR_DEBUG_LEVEL */
+; 169  : 
+; 170  : 		_Ptr += _Off;
+; 171  : 		return (*this);
+; 172  : 		}
+; 173  : 
+; 174  : 	_Myiter operator+(difference_type _Off) const
+; 175  : 		{	// return this + integer
+; 176  : 		_Myiter _Tmp = *this;
+; 177  : 		return (_Tmp += _Off);
+; 178  : 		}
+; 179  : 
+; 180  : 	_Myiter& operator-=(difference_type _Off)
+; 181  : 		{	// decrement by integer
+; 182  : 		return (*this += -_Off);
+; 183  : 		}
+; 184  : 
+; 185  : 	_Myiter operator-(difference_type _Off) const
+; 186  : 		{	// return this - integer
+; 187  : 		_Myiter _Tmp = *this;
+; 188  : 		return (_Tmp -= _Off);
+; 189  : 		}
+; 190  : 
+; 191  : 	difference_type operator-(const _Myiter& _Right) const
+; 192  : 		{	// return difference of iterators
+; 193  : 		_Compat(_Right);
+; 194  : 		return (this->_Ptr - _Right._Ptr);
+; 195  : 		}
+; 196  : 
+; 197  : 	reference operator[](difference_type _Off) const
+; 198  : 		{	// subscript
+; 199  : 		return (*(*this + _Off));
+; 200  : 		}
+; 201  : 
+; 202  : 	bool operator==(const _Myiter& _Right) const
+; 203  : 		{	// test for iterator equality
+; 204  : 		_Compat(_Right);
+; 205  : 		return (this->_Ptr == _Right._Ptr);
+
+	cmp	esi, DWORD PTR [ebx+3564]
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+
+; 877  : 		while (it != mPPSteps.end())
+
+	jne	SHORT $LL4@RenderScen
+$LN3@RenderScen:
+
+; 881  : 			it++;
+; 882  : 		}
+; 883  : 	}//end else impact
+; 884  : 
+; 885  : 	//copy to viewport
+; 886  : 	mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
+
+	mov	ecx, DWORD PTR [ebx]
+	lea	eax, DWORD PTR [ebx+3532]
+	push	DWORD PTR [ebx+3528]
+	push	eax
+	mov	edx, DWORD PTR [ecx]
 	push	1
-	push	eax
+	push	ecx
+	call	DWORD PTR [edx+96]
+
+; 887  : 	if (ppDirection)
+
+	cmp	BYTE PTR [ebx+3344], 0
+
+; 888  : 	{
+; 889  : 		mInitialTextureVar->SetResource(mTextureOneShader);
+
+	mov	eax, DWORD PTR [ebx+2948]
 	mov	ecx, DWORD PTR [eax]
-	jne	SHORT $LN2@RenderScen
-	call	DWORD PTR [ecx+96]
+	je	SHORT $LN2@RenderScen
+	push	DWORD PTR [ebx+3336]
 
-; 698  : 			//send rendered scene to shader as a texture
-; 699  : 			mInitialTextureVar->SetResource(mInitialShaderResource);
+; 890  : 	}
+; 891  : 	else
 
-	mov	eax, DWORD PTR [ebx+2940]
-	push	DWORD PTR [ebx+2912]
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+100]
-
-; 700  : 
-; 701  : 			//Apply Post Processing Effect
-; 702  : 			mpd3dDevice->IASetInputLayout(NULL);
-
-	mov	eax, DWORD PTR [ebx]
-	push	0
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+44]
-
-; 703  : 			mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-
-	mov	eax, DWORD PTR [ebx]
-	push	5
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+72]
-
-; 704  : 			mPPTechniques[mCurrentPP]->GetPassByIndex(0)->Apply(0);
-
-	mov	eax, DWORD PTR [ebx+3040]
-	push	0
-	mov	eax, DWORD PTR [ebx+eax*4+2564]
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+16]
-	push	0
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+28]
-
-; 705  : 
-; 706  : 			mpd3dDevice->Draw(4, 0);
-
-	mov	eax, DWORD PTR [ebx]
-	push	0
-	push	4
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+36]
-
-; 707  : 
-; 708  : 			mInitialTextureVar->SetResource(0);
-
-	mov	eax, DWORD PTR [ebx+2940]
-	push	0
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+100]
-
-; 709  : 			mPPTechniques[mCurrentPP]->GetPassByIndex(0)->Apply(0);
-
-	mov	eax, DWORD PTR [ebx+3040]
-	mov	eax, DWORD PTR [ebx+eax*4+2564]
-
-; 710  : 		}
-; 711  : 		else
-
-	jmp	$LN26@RenderScen
+	jmp	SHORT $LN63@RenderScen
 $LN2@RenderScen:
 
-; 712  : 		{
-; 713  : 
-; 714  : 			//Box Blur
-; 715  : 			mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
+; 892  : 	{
+; 893  : 		mInitialTextureVar->SetResource(mTextureTwoShader);
 
-	call	DWORD PTR [ecx+96]
-
-; 716  : 			mInitialTextureVar->SetResource(mInitialShaderResource);
-
-	mov	eax, DWORD PTR [ebx+2940]
-	push	DWORD PTR [ebx+2912]
+	push	DWORD PTR [ebx+3340]
+$LN63@RenderScen:
 	push	eax
-	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+100]
 
-; 717  : 			mpd3dDevice->IASetInputLayout(NULL);
+; 894  : 	}
+; 895  : 
+; 896  : 	mpd3dDevice->IASetInputLayout(NULL);
 
 	mov	eax, DWORD PTR [ebx]
 	push	0
@@ -7669,7 +11330,7 @@ $LN2@RenderScen:
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+44]
 
-; 718  : 			mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+; 897  : 	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
 
 	mov	eax, DWORD PTR [ebx]
 	push	5
@@ -7677,9 +11338,9 @@ $LN2@RenderScen:
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+72]
 
-; 719  : 			mPPTechniques[5]->GetPassByIndex(0)->Apply(0);
+; 898  : 	mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
 
-	mov	eax, DWORD PTR [ebx+2584]
+	mov	eax, DWORD PTR [ebx+2564]
 	push	0
 	push	eax
 	mov	ecx, DWORD PTR [eax]
@@ -7689,7 +11350,7 @@ $LN2@RenderScen:
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+28]
 
-; 720  : 			mpd3dDevice->Draw(4, 0);
+; 899  : 	mpd3dDevice->Draw(4, 0);
 
 	mov	eax, DWORD PTR [ebx]
 	push	0
@@ -7698,136 +11359,34 @@ $LN2@RenderScen:
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+36]
 
-; 721  : 			mInitialTextureVar->SetResource(0);
+; 900  : 	mInitialTextureVar->SetResource(0);
 
-	mov	eax, DWORD PTR [ebx+2940]
+	mov	eax, DWORD PTR [ebx+2948]
 	push	0
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+100]
 
-; 722  : 			mPPTechniques[5]->GetPassByIndex(0)->Apply(0);
-
-	mov	eax, DWORD PTR [ebx+2584]
-	push	0
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+16]
-	push	0
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+28]
-
-; 723  : 
-; 724  : 			//Double Vision
-; 725  : 			mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
-
-	mov	eax, DWORD PTR [ebx]
-	push	DWORD PTR [ebx+3156]
-	push	esi
-	mov	ecx, DWORD PTR [eax]
-	push	1
-	push	eax
-	call	DWORD PTR [ecx+96]
-
-; 726  : 			mInitialTextureVar->SetResource(mTextureOneShader);
-
-	mov	eax, DWORD PTR [ebx+2940]
-	push	DWORD PTR [ebx+3060]
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+100]
-
-; 727  : 			mpd3dDevice->IASetInputLayout(NULL);
-
-	mov	eax, DWORD PTR [ebx]
-	push	0
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+44]
-
-; 728  : 			mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-
-	mov	eax, DWORD PTR [ebx]
-	push	5
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+72]
-
-; 729  : 			mPPTechniques[6]->GetPassByIndex(0)->Apply(0);
-
-	mov	eax, DWORD PTR [ebx+2588]
-	push	0
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+16]
-	push	0
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+28]
-
-; 730  : 			mpd3dDevice->Draw(4, 0);
-
-	mov	eax, DWORD PTR [ebx]
-	push	0
-	push	4
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+36]
-
-; 731  : 			mInitialTextureVar->SetResource(0);
-
-	mov	eax, DWORD PTR [ebx+2940]
-	push	0
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+100]
-
-; 732  : 			mPPTechniques[6]->GetPassByIndex(0)->Apply(0);
-
-	mov	eax, DWORD PTR [ebx+2588]
-$LN26@RenderScen:
-	mov	ecx, DWORD PTR [eax]
-	push	0
-	push	eax
-	call	DWORD PTR [ecx+16]
-	push	0
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+28]
-$LN1@RenderScen:
-
-; 733  : 
-; 734  : 			//Copy to Output
-; 735  : 			/*mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
-; 736  : 			mInitialTextureVar->SetResource(mTextureTwoShader);
-; 737  : 			mpd3dDevice->IASetInputLayout(NULL);
-; 738  : 			mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-; 739  : 			mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
-; 740  : 			mpd3dDevice->Draw(4, 0);
-; 741  : 			mInitialTextureVar->SetResource(0);
-; 742  : 			mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
-; 743  : 			*/
-; 744  : 		}
-; 745  : 	}//end else impact
-; 746  : 	//---------------------------
-; 747  : 	// Display the Scene
-; 748  : 
-; 749  : 	// After we've finished drawing to the off-screen back buffer, we "present" it to the front buffer (the screen)
-; 750  : 	TwDraw();
+; 901  : 
+; 902  : 	
+; 903  : 	//---------------------------
+; 904  : 	// Display the Scene
+; 905  : 
+; 906  : 	// After we've finished drawing to the off-screen back buffer, we "present" it to the front buffer (the screen)
+; 907  : 	TwDraw();
 
 	call	DWORD PTR __imp__TwDraw@0
 
-; 751  : 	SwapChain->Present( 0, 0 );
+; 908  : 	SwapChain->Present( 0, 0 );
 
-	mov	eax, DWORD PTR [ebx+3148]
+	mov	eax, DWORD PTR [ebx+3520]
 	push	0
 	push	0
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+32]
 
-; 752  : }
+; 909  : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	pop	edi
@@ -7869,11 +11428,13 @@ _TEXT	ENDS
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 ; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\math.h
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+; File c:\users\simon\documents\github\post-processing\scene.cpp
 ;	COMDAT ?UpdateScene@CScene@@QAEXM@Z
 _TEXT	SEGMENT
-tv695 = -120						; size = 8
-tv692 = -120						; size = 8
-tv686 = -120						; size = 8
+tv717 = -120						; size = 8
+tv714 = -120						; size = 8
+tv708 = -120						; size = 8
 _caption$ = -112					; size = 100
 _buffer$ = -12						; size = 6
 __$ArrayPad$ = -4					; size = 4
@@ -7881,7 +11442,7 @@ _frameTime$ = 8						; size = 4
 ?UpdateScene@CScene@@QAEXM@Z PROC			; CScene::UpdateScene, COMDAT
 ; _this$ = ecx
 
-; 351  : {
+; 514  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -7898,7 +11459,7 @@ _frameTime$ = 8						; size = 4
 	lea	eax, DWORD PTR _caption$[ebp]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 351  : {
+; 514  : {
 
 	mov	esi, ecx
 ; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h
@@ -7910,7 +11471,7 @@ _frameTime$ = 8						; size = 4
 	call	_strcpy_s
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 360  : 	int FPS = int ( 1.0f / frameTime );
+; 523  : 	int FPS = int ( 1.0f / frameTime );
 
 	movss	xmm0, DWORD PTR __real@3f800000
 ; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdlib.h
@@ -7920,7 +11481,7 @@ _frameTime$ = 8						; size = 4
 	lea	eax, DWORD PTR _buffer$[ebp]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 360  : 	int FPS = int ( 1.0f / frameTime );
+; 523  : 	int FPS = int ( 1.0f / frameTime );
 
 	divss	xmm0, DWORD PTR _frameTime$[ebp]
 ; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdlib.h
@@ -7932,7 +11493,7 @@ _frameTime$ = 8						; size = 4
 	push	eax
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 360  : 	int FPS = int ( 1.0f / frameTime );
+; 523  : 	int FPS = int ( 1.0f / frameTime );
 
 	cvttss2si eax, xmm0
 ; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdlib.h
@@ -8005,17 +11566,17 @@ _frameTime$ = 8						; size = 4
 	add	esp, 52					; 00000034H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 376  : 	SetWindowTextA( HWnd, caption );
+; 539  : 	SetWindowTextA( HWnd, caption );
 
 	lea	eax, DWORD PTR _caption$[ebp]
 	push	eax
-	push	DWORD PTR [esi+3168]
+	push	DWORD PTR [esi+3540]
 	call	DWORD PTR __imp__SetWindowTextA@8
 
-; 377  : 
-; 378  : 	// Control camera position and update its matrices (view matrix, projection matrix) each frame
-; 379  : 	// Don't be deceived into thinking that this is a new method to control models - the same code we used previously is in the camera class
-; 380  : 	Camera->Control( frameTime, Key_Up, Key_Down, Key_Left, Key_Right, Key_W, Key_S, Key_A, Key_D );
+; 540  : 
+; 541  : 	// Control camera position and update its matrices (view matrix, projection matrix) each frame
+; 542  : 	// Don't be deceived into thinking that this is a new method to control models - the same code we used previously is in the camera class
+; 543  : 	Camera->Control( frameTime, Key_Up, Key_Down, Key_Left, Key_Right, Key_W, Key_S, Key_A, Key_D );
 
 	movss	xmm0, DWORD PTR _frameTime$[ebp]
 	push	68					; 00000044H
@@ -8031,12 +11592,12 @@ _frameTime$ = 8						; size = 4
 	movss	DWORD PTR [esp], xmm0
 	call	?Control@CCamera@@QAEXMW4EKeyCode@@0000000@Z ; CCamera::Control
 
-; 381  : 	Camera->UpdateMatrices();
+; 544  : 	Camera->UpdateMatrices();
 
 	mov	ecx, DWORD PTR [esi+4]
 	call	?UpdateMatrices@CCamera@@QAEXXZ		; CCamera::UpdateMatrices
 
-; 384  : 	mpObjects[mControlObject]->GetModel()->Control( frameTime, Key_I, Key_K, Key_J, Key_L, Key_U, Key_O, Key_Period, Key_Comma );
+; 547  : 	mpObjects[mControlObject]->GetModel()->Control( frameTime, Key_I, Key_K, Key_J, Key_L, Key_U, Key_O, Key_Period, Key_Comma );
 
 	push	188					; 000000bcH
 	push	190					; 000000beH
@@ -8049,7 +11610,7 @@ _frameTime$ = 8						; size = 4
 	mov	eax, DWORD PTR [esi+2552]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 384  : 	mpObjects[mControlObject]->GetModel()->Control( frameTime, Key_I, Key_K, Key_J, Key_L, Key_U, Key_O, Key_Period, Key_Comma );
+; 547  : 	mpObjects[mControlObject]->GetModel()->Control( frameTime, Key_I, Key_K, Key_J, Key_L, Key_U, Key_O, Key_Period, Key_Comma );
 
 	movss	xmm0, DWORD PTR _frameTime$[ebp]
 	push	76					; 0000004cH
@@ -8064,19 +11625,19 @@ _frameTime$ = 8						; size = 4
 	mov	ecx, DWORD PTR [esi+eax*4+8]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 384  : 	mpObjects[mControlObject]->GetModel()->Control( frameTime, Key_I, Key_K, Key_J, Key_L, Key_U, Key_O, Key_Period, Key_Comma );
+; 547  : 	mpObjects[mControlObject]->GetModel()->Control( frameTime, Key_I, Key_K, Key_J, Key_L, Key_U, Key_O, Key_Period, Key_Comma );
 
 	movss	DWORD PTR [esp], xmm0
 	mov	ecx, DWORD PTR [ecx]
 	call	?Control@CModel@@QAEXMW4EKeyCode@@0000000@Z ; CModel::Control
 
-; 385  : 
-; 386  : 	if (impact)
+; 548  : 
+; 549  : 	if (impact)
 
-	cmp	BYTE PTR [esi+3084], 0
+	cmp	BYTE PTR [esi+3360], 0
 
-; 387  : 	{
-; 388  : 		UpdateImpact(frameTime);
+; 550  : 	{
+; 551  : 		UpdateImpact(frameTime);
 
 	movss	xmm0, DWORD PTR _frameTime$[ebp]
 	je	SHORT $LN39@UpdateScen
@@ -8085,25 +11646,25 @@ _frameTime$ = 8						; size = 4
 	movss	DWORD PTR [esp], xmm0
 	call	?UpdateImpact@CScene@@AAEXM@Z		; CScene::UpdateImpact
 
-; 389  : 	}
-; 390  : 	else
+; 552  : 	}
+; 553  : 	else
 
 	jmp	$LN38@UpdateScen
 $LN39@UpdateScen:
 
-; 391  : 	{
-; 392  : 		mCumulativeFTime += frameTime;
+; 554  : 	{
+; 555  : 		mCumulativeFTime += frameTime;
 
-	addss	xmm0, DWORD PTR [esi+2984]
+	addss	xmm0, DWORD PTR [esi+2992]
 
-; 396  : 		fHSLToRGB(hue, 0.5f, 0.5f, mTintColour.x, mTintColour.y, mTintColour.z);
+; 559  : 		fHSLToRGB(hue, 0.5f, 0.5f, mTintColour.x, mTintColour.y, mTintColour.z);
 
+	lea	eax, DWORD PTR [esi+3008]
+	push	eax
+	lea	eax, DWORD PTR [esi+3004]
+	push	eax
+	movss	DWORD PTR [esi+2992], xmm0
 	lea	eax, DWORD PTR [esi+3000]
-	push	eax
-	lea	eax, DWORD PTR [esi+2996]
-	push	eax
-	movss	DWORD PTR [esi+2984], xmm0
-	lea	eax, DWORD PTR [esi+2992]
 ; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\math.h
 
 ; 706  :     return (float)fmod(_X, _Y);
@@ -8111,7 +11672,7 @@ $LN39@UpdateScen:
 	cvtps2pd xmm0, xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 396  : 		fHSLToRGB(hue, 0.5f, 0.5f, mTintColour.x, mTintColour.y, mTintColour.z);
+; 559  : 		fHSLToRGB(hue, 0.5f, 0.5f, mTintColour.x, mTintColour.y, mTintColour.z);
 
 	push	eax
 	sub	esp, 8
@@ -8120,54 +11681,54 @@ $LN39@UpdateScen:
 
 ; 706  :     return (float)fmod(_X, _Y);
 
-	movsd	QWORD PTR tv695[ebp], xmm0
-	movss	xmm0, DWORD PTR [esi+3004]
-	fld	QWORD PTR tv695[ebp]
+	movsd	QWORD PTR tv717[ebp], xmm0
+	movss	xmm0, DWORD PTR [esi+3012]
+	fld	QWORD PTR tv717[ebp]
 	cvtps2pd xmm0, xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 396  : 		fHSLToRGB(hue, 0.5f, 0.5f, mTintColour.x, mTintColour.y, mTintColour.z);
+; 559  : 		fHSLToRGB(hue, 0.5f, 0.5f, mTintColour.x, mTintColour.y, mTintColour.z);
 
 	mov	DWORD PTR [esp], 1056964608		; 3f000000H
 ; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\math.h
 
 ; 706  :     return (float)fmod(_X, _Y);
 
-	movsd	QWORD PTR tv692[ebp], xmm0
-	fld	QWORD PTR tv692[ebp]
+	movsd	QWORD PTR tv714[ebp], xmm0
+	fld	QWORD PTR tv714[ebp]
 	call	__CIfmod
-	fstp	QWORD PTR tv686[ebp]
-	movsd	xmm0, QWORD PTR tv686[ebp]
+	fstp	QWORD PTR tv708[ebp]
+	movsd	xmm0, QWORD PTR tv708[ebp]
 	cvtpd2ps xmm0, xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 396  : 		fHSLToRGB(hue, 0.5f, 0.5f, mTintColour.x, mTintColour.y, mTintColour.z);
+; 559  : 		fHSLToRGB(hue, 0.5f, 0.5f, mTintColour.x, mTintColour.y, mTintColour.z);
 
 	push	ecx
-	divss	xmm0, DWORD PTR [esi+3004]
+	divss	xmm0, DWORD PTR [esi+3012]
 	movss	DWORD PTR [esp], xmm0
 	call	?fHSLToRGB@@YAXMMMAAM00@Z		; fHSLToRGB
 
-; 397  : 
-; 398  : 		//Shock update
-; 399  : 		if (mShockTime > 0)
+; 560  : 
+; 561  : 		//Shock update
+; 562  : 		if (mShockTime > 0)
 
-	movss	xmm1, DWORD PTR [esi+2968]
+	movss	xmm1, DWORD PTR [esi+2976]
 	xorps	xmm0, xmm0
 	add	esp, 24					; 00000018H
 	comiss	xmm1, xmm0
 	jbe	SHORT $LN37@UpdateScen
 
-; 400  : 		{
-; 401  : 			mShockTime -= frameTime;
+; 563  : 		{
+; 564  : 			mShockTime -= frameTime;
 
 	subss	xmm1, DWORD PTR _frameTime$[ebp]
 
-; 402  : 			mShock = sin(mShockSpeed * mShockTime);
+; 565  : 			mShock = sin(mShockSpeed * mShockTime);
 
-	movss	xmm0, DWORD PTR [esi+2972]
+	movss	xmm0, DWORD PTR [esi+2980]
 	mulss	xmm0, xmm1
-	movss	DWORD PTR [esi+2968], xmm1
+	movss	DWORD PTR [esi+2976], xmm1
 ; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\math.h
 
 ; 765  :     return (float)sin(_X);
@@ -8177,95 +11738,122 @@ $LN39@UpdateScen:
 	cvtsd2ss xmm0, xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 403  : 			mShock -= 0.5f;
+; 566  : 			mShock -= 0.5f;
 
 	subss	xmm0, DWORD PTR __real@3f000000
 
-; 404  : 			mShock *= mShockStrength;
+; 567  : 			mShock *= mShockStrength;
 
-	mulss	xmm0, DWORD PTR [esi+2964]
-	movss	DWORD PTR [esi+2960], xmm0
+	mulss	xmm0, DWORD PTR [esi+2972]
+	movss	DWORD PTR [esi+2968], xmm0
 
-; 405  : 		}
-; 406  : 		else
+; 568  : 		}
+; 569  : 		else
 
 	jmp	SHORT $LN36@UpdateScen
 $LN37@UpdateScen:
 
-; 407  : 		{
-; 408  : 			mShock = 0;
+; 570  : 		{
+; 571  : 			mShock = 0;
 
-	mov	DWORD PTR [esi+2960], 0
+	mov	DWORD PTR [esi+2968], 0
 $LN36@UpdateScen:
 
-; 409  : 		}
-; 410  : 
-; 411  : 		//Calculate contrast factor
-; 412  : 		mContrastFactor = (259 * (mContrastChange + 255.0f)) / (255.0f * (259.0f - mContrastChange));
+; 572  : 		}
+; 573  : 
+; 574  : 		//Calculate contrast factor
+; 575  : 		mContrastFactor = (259 * (mContrastChange + 255.0f)) / (255.0f * (259.0f - mContrastChange));
 
-	movss	xmm1, DWORD PTR [esi+3028]
+	movss	xmm1, DWORD PTR [esi+3300]
 	movss	xmm3, DWORD PTR __real@437f0000
 	movaps	xmm2, xmm1
 	movss	xmm0, DWORD PTR __real@43818000
 	addss	xmm2, xmm3
+
+; 576  : 
+; 577  : 		mSolariseFloat = mSolariseInt / 255.0f;
+; 578  : 
+; 579  : 		UpdateGaussianDist(mBlurStrength, mBlurRadius);
+
+	push	DWORD PTR [esi+3016]
+	push	ecx
+	mov	ecx, esi
 	mulss	xmm2, xmm0
 	subss	xmm0, xmm1
 	mulss	xmm0, xmm3
 	divss	xmm2, xmm0
-	movd	xmm0, DWORD PTR [esi+3072]
-
-; 413  : 
-; 414  : 		mSolariseFloat = mSolariseInt / 255.0f;
-
+	movd	xmm0, DWORD PTR [esi+3348]
 	cvtdq2ps xmm0, xmm0
-	movss	DWORD PTR [esi+3032], xmm2
+	movss	DWORD PTR [esi+3304], xmm2
 	divss	xmm0, xmm3
-	movss	DWORD PTR [esi+3076], xmm0
+	movss	DWORD PTR [esi+3352], xmm0
+	movss	xmm0, DWORD PTR [esi+3020]
+	movss	DWORD PTR [esp], xmm0
+	call	?UpdateGaussianDist@CScene@@AAEXMH@Z	; CScene::UpdateGaussianDist
 $LN38@UpdateScen:
 
-; 415  : 
-; 416  : 	}//end if impact
-; 417  : 
-; 418  : 	//update all the objects, including calculating the matrix
-; 419  : 	for(int i = 0; i < miNumObjects; i++)
+; 580  : 
+; 581  : 
+; 582  : 	}//end if impact
+; 583  : 
+; 584  : 	ppDirection = true;
 
+	mov	BYTE PTR [esi+3344], 1
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+
+; 1148 : 		return (this->_Mylast - this->_Myfirst);
+
+	mov	eax, DWORD PTR [esi+3564]
+	sub	eax, DWORD PTR [esi+3560]
 	push	ebx
+	sar	eax, 2
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+
+; 589  : 	for(int i = 0; i < miNumObjects; i++)
+
+	xor	ebx, ebx
 	push	edi
-	xor	edi, edi
-	cmp	DWORD PTR [esi+808], edi
+	mov	DWORD PTR [esi+3316], eax
+	cmp	DWORD PTR [esi+808], ebx
 	jle	SHORT $LN33@UpdateScen
-	lea	ebx, DWORD PTR [esi+8]
-	npad	6
+
+; 580  : 
+; 581  : 
+; 582  : 	}//end if impact
+; 583  : 
+; 584  : 	ppDirection = true;
+
+	lea	edi, DWORD PTR [esi+8]
 $LL35@UpdateScen:
 
-; 420  : 	{
-; 421  : 		mpObjects[i]->Update(frameTime);
+; 590  : 	{
+; 591  : 		mpObjects[i]->Update(frameTime);
 
 	movss	xmm0, DWORD PTR _frameTime$[ebp]
 	push	ecx
-	mov	ecx, DWORD PTR [ebx]
+	mov	ecx, DWORD PTR [edi]
 	movss	DWORD PTR [esp], xmm0
 	call	?Update@CRenderObject@@QAEXM@Z		; CRenderObject::Update
-	inc	edi
-	lea	ebx, DWORD PTR [ebx+4]
-	cmp	edi, DWORD PTR [esi+808]
+	inc	ebx
+	lea	edi, DWORD PTR [edi+4]
+	cmp	ebx, DWORD PTR [esi+808]
 	jl	SHORT $LL35@UpdateScen
 $LN33@UpdateScen:
 
-; 422  : 	}
-; 423  : 
-; 424  : 	//same for the lights
-; 425  : 	for(int i = 0; i < miNumLights; i++)
+; 592  : 	}
+; 593  : 
+; 594  : 	//same for the lights
+; 595  : 	for(int i = 0; i < miNumLights; i++)
 
 	xor	edi, edi
 	cmp	DWORD PTR [esi+932], edi
 	jle	SHORT $LN30@UpdateScen
 	lea	ebx, DWORD PTR [esi+812]
-	npad	2
+	npad	1
 $LL32@UpdateScen:
 
-; 426  : 	{
-; 427  : 		mpLights[i]->Update(frameTime);
+; 596  : 	{
+; 597  : 		mpLights[i]->Update(frameTime);
 
 	movss	xmm0, DWORD PTR _frameTime$[ebp]
 	push	ecx
@@ -8278,11 +11866,11 @@ $LL32@UpdateScen:
 	jl	SHORT $LL32@UpdateScen
 $LN30@UpdateScen:
 
-; 428  : 	}
-; 429  : 
-; 430  : 
-; 431  : 	// Allow user to quit with escape key
-; 432  : 	if (KeyHit( Key_Escape )) 
+; 598  : 	}
+; 599  : 
+; 600  : 
+; 601  : 	// Allow user to quit with escape key
+; 602  : 	if (KeyHit( Key_Escape )) 
 
 	push	27					; 0000001bH
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
@@ -8292,149 +11880,149 @@ $LN30@UpdateScen:
 	test	al, al
 	je	SHORT $LN29@UpdateScen
 
-; 433  : 	{
-; 434  : 		DestroyWindow( HWnd );
+; 603  : 	{
+; 604  : 		DestroyWindow( HWnd );
 
-	push	DWORD PTR [esi+3168]
+	push	DWORD PTR [esi+3540]
 	call	DWORD PTR __imp__DestroyWindow@4
 $LN29@UpdateScen:
 
-; 435  : 	}
-; 436  : 
-; 437  : 	if( KeyHit( Key_F1  ) ) { mCurrentPP = 0; }
+; 605  : 	}
+; 606  : 
+; 607  : 	if( KeyHit( Key_F1  ) ) { mCurrentPP = 0; }
 
 	push	112					; 00000070H
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
 	add	esp, 4
 	test	al, al
 	je	SHORT $LN28@UpdateScen
-	mov	DWORD PTR [esi+3040], 0
+	mov	DWORD PTR [esi+3312], 0
 $LN28@UpdateScen:
 
-; 438  : 	if( KeyHit( Key_F2  ) ) { mCurrentPP = 1; }
+; 608  : 	if( KeyHit( Key_F2  ) ) { mCurrentPP = 1; }
 
 	push	113					; 00000071H
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
 	add	esp, 4
 	test	al, al
 	je	SHORT $LN27@UpdateScen
-	mov	DWORD PTR [esi+3040], 1
+	mov	DWORD PTR [esi+3312], 1
 $LN27@UpdateScen:
 
-; 439  : 	if( KeyHit( Key_F3  ) ) { mCurrentPP = 2;ResetShock();}
+; 609  : 	if( KeyHit( Key_F3  ) ) { mCurrentPP = 2;ResetShock();}
 
 	push	114					; 00000072H
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
 	add	esp, 4
 	test	al, al
-	je	SHORT $LN68@UpdateScen
+	je	SHORT $LN70@UpdateScen
 
-; 217  : 	mShockTime = mShockLength;	
+; 334  : 	mShockTime = mShockLength;	
 
-	mov	eax, DWORD PTR [esi+2976]
+	mov	eax, DWORD PTR [esi+2984]
 
-; 439  : 	if( KeyHit( Key_F3  ) ) { mCurrentPP = 2;ResetShock();}
+; 609  : 	if( KeyHit( Key_F3  ) ) { mCurrentPP = 2;ResetShock();}
 
-	mov	DWORD PTR [esi+3040], 2
+	mov	DWORD PTR [esi+3312], 2
 
-; 217  : 	mShockTime = mShockLength;	
+; 334  : 	mShockTime = mShockLength;	
 
-	mov	DWORD PTR [esi+2968], eax
-$LN68@UpdateScen:
+	mov	DWORD PTR [esi+2976], eax
+$LN70@UpdateScen:
 
-; 440  : 	if( KeyHit( Key_F4  ) ) { mCurrentPP = 3; }
+; 610  : 	if( KeyHit( Key_F4  ) ) { mCurrentPP = 3; }
 
 	push	115					; 00000073H
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
 	add	esp, 4
 	test	al, al
 	je	SHORT $LN25@UpdateScen
-	mov	DWORD PTR [esi+3040], 3
+	mov	DWORD PTR [esi+3312], 3
 $LN25@UpdateScen:
 
-; 441  : 	if( KeyHit( Key_F5  ) ) { mCurrentPP = 4; }
+; 611  : 	if( KeyHit( Key_F5  ) ) { mCurrentPP = 4; }
 
 	push	116					; 00000074H
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
 	add	esp, 4
 	test	al, al
 	je	SHORT $LN24@UpdateScen
-	mov	DWORD PTR [esi+3040], 4
+	mov	DWORD PTR [esi+3312], 4
 $LN24@UpdateScen:
 
-; 442  : 	if( KeyHit( Key_F6  ) ) { mCurrentPP = 5; }
+; 612  : 	if( KeyHit( Key_F6  ) ) { mCurrentPP = 5; }
 
 	push	117					; 00000075H
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
 	add	esp, 4
 	test	al, al
 	je	SHORT $LN23@UpdateScen
-	mov	DWORD PTR [esi+3040], 5
+	mov	DWORD PTR [esi+3312], 5
 $LN23@UpdateScen:
 
-; 443  : 	if( KeyHit( Key_F7  ) ) { mCurrentPP = 6; }
+; 613  : 	if( KeyHit( Key_F7  ) ) { mCurrentPP = 6; }
 
 	push	118					; 00000076H
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
 	add	esp, 4
 	test	al, al
 	je	SHORT $LN22@UpdateScen
-	mov	DWORD PTR [esi+3040], 6
+	mov	DWORD PTR [esi+3312], 6
 $LN22@UpdateScen:
 
-; 444  : 	if( KeyHit( Key_F8  ) ) { mCurrentPP = 7; }
+; 614  : 	if( KeyHit( Key_F8  ) ) { mCurrentPP = 7; }
 
 	push	119					; 00000077H
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
 	add	esp, 4
 	test	al, al
 	je	SHORT $LN21@UpdateScen
-	mov	DWORD PTR [esi+3040], 7
+	mov	DWORD PTR [esi+3312], 7
 $LN21@UpdateScen:
 
-; 445  : 	if( KeyHit( Key_F9  ) ) { mCurrentPP = 8; }
+; 615  : 	if( KeyHit( Key_F9  ) ) { mCurrentPP = 8; }
 
 	push	120					; 00000078H
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
 	add	esp, 4
 	test	al, al
 	je	SHORT $LN20@UpdateScen
-	mov	DWORD PTR [esi+3040], 8
+	mov	DWORD PTR [esi+3312], 8
 $LN20@UpdateScen:
 
-; 446  : 	if( KeyHit( Key_F10 ) ) { mCurrentPP = 9; }
+; 616  : 	if( KeyHit( Key_F10 ) ) { mCurrentPP = 9; }
 
 	push	121					; 00000079H
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
 	add	esp, 4
 	test	al, al
 	je	SHORT $LN19@UpdateScen
-	mov	DWORD PTR [esi+3040], 9
+	mov	DWORD PTR [esi+3312], 9
 $LN19@UpdateScen:
 
-; 447  : 	if( KeyHit( Key_F11 ) ) { mCurrentPP = 10; }
+; 617  : 	if( KeyHit( Key_F11 ) ) { mCurrentPP = 10; }
 
 	push	122					; 0000007aH
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
 	add	esp, 4
 	test	al, al
 	je	SHORT $LN18@UpdateScen
-	mov	DWORD PTR [esi+3040], 10		; 0000000aH
+	mov	DWORD PTR [esi+3312], 10		; 0000000aH
 $LN18@UpdateScen:
 
-; 448  : 	if( KeyHit( Key_F12 ) ) { mCurrentPP = 11; }
+; 618  : 	if( KeyHit( Key_F12 ) ) { mCurrentPP = 11; }
 
 	push	123					; 0000007bH
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
 	add	esp, 4
 	test	al, al
 	je	SHORT $LN17@UpdateScen
-	mov	DWORD PTR [esi+3040], 11		; 0000000bH
+	mov	DWORD PTR [esi+3312], 11		; 0000000bH
 $LN17@UpdateScen:
 
-; 449  : 
-; 450  : 	//change the controlled object
-; 451  : 	if( KeyHit( Key_1 ) )
+; 619  : 
+; 620  : 	//change the controlled object
+; 621  : 	if( KeyHit( Key_1 ) )
 
 	push	49					; 00000031H
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
@@ -8442,15 +12030,15 @@ $LN17@UpdateScen:
 	test	al, al
 	je	SHORT $LN16@UpdateScen
 
-; 452  : 	{
-; 453  : 		mControlObject = 0;
+; 622  : 	{
+; 623  : 		mControlObject = 0;
 
 	mov	DWORD PTR [esi+2552], 0
 $LN16@UpdateScen:
 
-; 454  : 	}
-; 455  : 
-; 456  : 	if( KeyHit( Key_2 ) )
+; 624  : 	}
+; 625  : 
+; 626  : 	if( KeyHit( Key_2 ) )
 
 	push	50					; 00000032H
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
@@ -8458,15 +12046,15 @@ $LN16@UpdateScen:
 	test	al, al
 	je	SHORT $LN15@UpdateScen
 
-; 457  : 	{
-; 458  : 		mControlObject = 1;
+; 627  : 	{
+; 628  : 		mControlObject = 1;
 
 	mov	DWORD PTR [esi+2552], 1
 $LN15@UpdateScen:
 
-; 459  : 	}
-; 460  : 
-; 461  : 	if( KeyHit( Key_3 ) )
+; 629  : 	}
+; 630  : 
+; 631  : 	if( KeyHit( Key_3 ) )
 
 	push	51					; 00000033H
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
@@ -8474,15 +12062,15 @@ $LN15@UpdateScen:
 	test	al, al
 	je	SHORT $LN14@UpdateScen
 
-; 462  : 	{
-; 463  : 		mControlObject = 2;
+; 632  : 	{
+; 633  : 		mControlObject = 2;
 
 	mov	DWORD PTR [esi+2552], 2
 $LN14@UpdateScen:
 
-; 464  : 	}
-; 465  : 
-; 466  : 	if( KeyHit( Key_4 ) )
+; 634  : 	}
+; 635  : 
+; 636  : 	if( KeyHit( Key_4 ) )
 
 	push	52					; 00000034H
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
@@ -8490,15 +12078,15 @@ $LN14@UpdateScen:
 	test	al, al
 	je	SHORT $LN13@UpdateScen
 
-; 467  : 	{
-; 468  : 		mControlObject = 3;
+; 637  : 	{
+; 638  : 		mControlObject = 3;
 
 	mov	DWORD PTR [esi+2552], 3
 $LN13@UpdateScen:
 
-; 469  : 	}
-; 470  : 
-; 471  : 	if( KeyHit( Key_5 ) )
+; 639  : 	}
+; 640  : 
+; 641  : 	if( KeyHit( Key_5 ) )
 
 	push	53					; 00000035H
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
@@ -8506,15 +12094,15 @@ $LN13@UpdateScen:
 	test	al, al
 	je	SHORT $LN12@UpdateScen
 
-; 472  : 	{
-; 473  : 		mControlObject = 4;
+; 642  : 	{
+; 643  : 		mControlObject = 4;
 
 	mov	DWORD PTR [esi+2552], 4
 $LN12@UpdateScen:
 
-; 474  : 	}
-; 475  : 
-; 476  : 	if( KeyHit( Key_6 ) )
+; 644  : 	}
+; 645  : 
+; 646  : 	if( KeyHit( Key_6 ) )
 
 	push	54					; 00000036H
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
@@ -8522,15 +12110,15 @@ $LN12@UpdateScen:
 	test	al, al
 	je	SHORT $LN11@UpdateScen
 
-; 477  : 	{
-; 478  : 		mControlObject = 5;
+; 647  : 	{
+; 648  : 		mControlObject = 5;
 
 	mov	DWORD PTR [esi+2552], 5
 $LN11@UpdateScen:
 
-; 479  : 	}
-; 480  : 
-; 481  : 	if( KeyHit( Key_7 ) )
+; 649  : 	}
+; 650  : 
+; 651  : 	if( KeyHit( Key_7 ) )
 
 	push	55					; 00000037H
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
@@ -8538,15 +12126,15 @@ $LN11@UpdateScen:
 	test	al, al
 	je	SHORT $LN10@UpdateScen
 
-; 482  : 	{
-; 483  : 		mControlObject = 6;
+; 652  : 	{
+; 653  : 		mControlObject = 6;
 
 	mov	DWORD PTR [esi+2552], 6
 $LN10@UpdateScen:
 
-; 484  : 	}
-; 485  : 
-; 486  : 	if( KeyHit( Key_8 ) )
+; 654  : 	}
+; 655  : 
+; 656  : 	if( KeyHit( Key_8 ) )
 
 	push	56					; 00000038H
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
@@ -8554,15 +12142,15 @@ $LN10@UpdateScen:
 	test	al, al
 	je	SHORT $LN9@UpdateScen
 
-; 487  : 	{
-; 488  : 		mControlObject = 7;
+; 657  : 	{
+; 658  : 		mControlObject = 7;
 
 	mov	DWORD PTR [esi+2552], 7
 $LN9@UpdateScen:
 
-; 489  : 	}
-; 490  : 
-; 491  : 	if( KeyHit( Key_9 ) )
+; 659  : 	}
+; 660  : 
+; 661  : 	if( KeyHit( Key_9 ) )
 
 	push	57					; 00000039H
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
@@ -8570,15 +12158,15 @@ $LN9@UpdateScen:
 	test	al, al
 	je	SHORT $LN8@UpdateScen
 
-; 492  : 	{
-; 493  : 		mControlObject = 8;
+; 662  : 	{
+; 663  : 		mControlObject = 8;
 
 	mov	DWORD PTR [esi+2552], 8
 $LN8@UpdateScen:
 
-; 494  : 	}
-; 495  : 
-; 496  : 	if( KeyHit( Key_0 ) )
+; 664  : 	}
+; 665  : 
+; 666  : 	if( KeyHit( Key_0 ) )
 
 	push	48					; 00000030H
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
@@ -8586,15 +12174,15 @@ $LN8@UpdateScen:
 	test	al, al
 	je	SHORT $LN7@UpdateScen
 
-; 497  : 	{
-; 498  : 		mControlObject = 9;
+; 667  : 	{
+; 668  : 		mControlObject = 9;
 
 	mov	DWORD PTR [esi+2552], 9
 $LN7@UpdateScen:
 
-; 499  : 	}
-; 500  : 
-; 501  : 	if( KeyHit ( Key_Minus ) )
+; 669  : 	}
+; 670  : 
+; 671  : 	if( KeyHit ( Key_Minus ) )
 
 	push	189					; 000000bdH
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
@@ -8602,32 +12190,32 @@ $LN7@UpdateScen:
 	test	al, al
 	je	SHORT $LN4@UpdateScen
 
-; 502  : 	{
-; 503  : 		if ( mControlObject == 0 )
+; 672  : 	{
+; 673  : 		if ( mControlObject == 0 )
 
 	mov	eax, DWORD PTR [esi+2552]
 	test	eax, eax
 	jne	SHORT $LN5@UpdateScen
 
-; 504  : 		{
-; 505  : 			mControlObject = miNumObjects-1;
+; 674  : 		{
+; 675  : 			mControlObject = miNumObjects-1;
 
 	mov	eax, DWORD PTR [esi+808]
 $LN5@UpdateScen:
 
-; 506  : 		}
-; 507  : 		else
-; 508  : 		{
-; 509  : 			mControlObject--;
+; 676  : 		}
+; 677  : 		else
+; 678  : 		{
+; 679  : 			mControlObject--;
 
 	dec	eax
 	mov	DWORD PTR [esi+2552], eax
 $LN4@UpdateScen:
 
-; 510  : 		}
-; 511  : 	}
-; 512  : 
-; 513  : 	if( KeyHit ( Key_Plus ) )
+; 680  : 		}
+; 681  : 	}
+; 682  : 
+; 683  : 	if( KeyHit ( Key_Plus ) )
 
 	push	187					; 000000bbH
 	call	?KeyHit@@YA_NW4EKeyCode@@@Z		; KeyHit
@@ -8635,8 +12223,8 @@ $LN4@UpdateScen:
 	test	al, al
 	je	SHORT $LN1@UpdateScen
 
-; 514  : 	{
-; 515  : 		if ( mControlObject == miNumObjects-1 )
+; 684  : 	{
+; 685  : 		if ( mControlObject == miNumObjects-1 )
 
 	mov	eax, DWORD PTR [esi+808]
 	mov	ecx, DWORD PTR [esi+2552]
@@ -8644,15 +12232,15 @@ $LN4@UpdateScen:
 	cmp	ecx, eax
 	jne	SHORT $LN2@UpdateScen
 
-; 516  : 		{
-; 517  : 			mControlObject = 0;
+; 686  : 		{
+; 687  : 			mControlObject = 0;
 
 	mov	DWORD PTR [esi+2552], 0
 	pop	esi
 
-; 522  : 		}
-; 523  : 	}
-; 524  : }
+; 692  : 		}
+; 693  : 	}
+; 694  : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	xor	ecx, ebp
@@ -8662,18 +12250,18 @@ $LN4@UpdateScen:
 	ret	4
 $LN2@UpdateScen:
 
-; 518  : 		}
-; 519  : 		else
-; 520  : 		{
-; 521  : 			mControlObject++;
+; 688  : 		}
+; 689  : 		else
+; 690  : 		{
+; 691  : 			mControlObject++;
 
 	lea	eax, DWORD PTR [ecx+1]
 	mov	DWORD PTR [esi+2552], eax
 $LN1@UpdateScen:
 
-; 522  : 		}
-; 523  : 	}
-; 524  : }
+; 692  : 		}
+; 693  : 	}
+; 694  : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	xor	ecx, ebp
@@ -8692,7 +12280,7 @@ _this$1$ = -4						; size = 4
 ?InitATB@CScene@@QAE_NXZ PROC				; CScene::InitATB, COMDAT
 ; _this$ = ecx
 
-; 221  : {
+; 338  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -8703,390 +12291,580 @@ _this$1$ = -4						; size = 4
 	mov	edi, ecx
 	mov	DWORD PTR _this$1$[ebp], edi
 
-; 222  : 	TwInit(TW_DIRECT3D10, mpd3dDevice);
+; 339  : 	TwInit(TW_DIRECT3D10, mpd3dDevice);
 
 	push	DWORD PTR [edi]
 	push	3
 	call	DWORD PTR __imp__TwInit@8
 
-; 223  : 	TwWindowSize(mViewportWidth, mViewportHeight);
+; 340  : 	TwWindowSize(mViewportWidth, mViewportHeight);
 
 	push	DWORD PTR ?mViewportHeight@CScene@@0HA	; CScene::mViewportHeight
 	push	DWORD PTR ?mViewportWidth@CScene@@0HA	; CScene::mViewportWidth
 	call	DWORD PTR __imp__TwWindowSize@8
 
-; 224  : 
-; 225  : 	mtwBarPP = TwNewBar("PostProcessing");
+; 341  : 
+; 342  : 	mtwBarPP = TwNewBar("PostProcessing");
 
 	push	OFFSET ??_C@_0P@MPKDMNGJ@PostProcessing?$AA@
 	call	DWORD PTR __imp__TwNewBar@4
 
-; 226  : 	TwDefine(" PostProcessing position='5 5' ");
+; 343  : 	TwDefine(" PostProcessing position='5 5' ");
 
 	mov	ebx, DWORD PTR __imp__TwDefine@4
 	push	OFFSET ??_C@_0CA@HAEMFPIM@?5PostProcessing?5position?$DN?85?55?8?5?$AA@
-	mov	DWORD PTR [edi+3172], eax
+	mov	DWORD PTR [edi+3544], eax
 	call	ebx
 
-; 227  : 	TwAddVarRW(mtwBarPP, "Tint Cycle Time", TW_TYPE_FLOAT, &mTintCycleTime, "min=0.1 max=30 step=0.1");
+; 344  : 	TwAddVarRW(mtwBarPP, "Tint Cycle Time", TW_TYPE_FLOAT, &mTintCycleTime, "min=0.1 max=30 step=0.1");
 
 	mov	esi, DWORD PTR __imp__TwAddVarRW@20
-	lea	eax, DWORD PTR [edi+3004]
+	lea	eax, DWORD PTR [edi+3012]
 	push	OFFSET ??_C@_0BI@BNBHPOAI@min?$DN0?41?5max?$DN30?5step?$DN0?41?$AA@
 	push	eax
 	push	12					; 0000000cH
 	push	OFFSET ??_C@_0BA@LEBMNMMI@Tint?5Cycle?5Time?$AA@
-	push	DWORD PTR [edi+3172]
+	push	DWORD PTR [edi+3544]
 	call	esi
 
-; 228  : 	TwAddSeparator(mtwBarPP, "", "");
+; 345  : 	TwAddSeparator(mtwBarPP, "", "");
 
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
-	push	DWORD PTR [edi+3172]
+	push	DWORD PTR [edi+3544]
 	mov	edi, DWORD PTR __imp__TwAddSeparator@12
 	call	edi
 
-; 229  : 	TwAddVarRW(mtwBarPP, "Shock Strength", TW_TYPE_FLOAT, &mShockStrength, "min=0.01 max=0.5 step=0.01");
+; 346  : 	TwAddVarRW(mtwBarPP, "Shock Strength", TW_TYPE_FLOAT, &mShockStrength, "min=0.01 max=0.5 step=0.01");
 
 	mov	ecx, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_0BL@PGFPMOIN@min?$DN0?401?5max?$DN0?45?5step?$DN0?401?$AA@
-	lea	eax, DWORD PTR [ecx+2964]
-	push	eax
-	push	12					; 0000000cH
-	push	OFFSET ??_C@_0P@HMIPNKPE@Shock?5Strength?$AA@
-	push	DWORD PTR [ecx+3172]
-	call	esi
-
-; 230  : 	TwAddVarRW(mtwBarPP, "Shock Speed", TW_TYPE_FLOAT, &mShockSpeed, "min=0.1 max=30 step=0.1");
-
-	mov	ecx, DWORD PTR _this$1$[ebp]
-	push	OFFSET ??_C@_0BI@BNBHPOAI@min?$DN0?41?5max?$DN30?5step?$DN0?41?$AA@
 	lea	eax, DWORD PTR [ecx+2972]
 	push	eax
 	push	12					; 0000000cH
-	push	OFFSET ??_C@_0M@BCFLJLDD@Shock?5Speed?$AA@
-	push	DWORD PTR [ecx+3172]
+	push	OFFSET ??_C@_0P@HMIPNKPE@Shock?5Strength?$AA@
+	push	DWORD PTR [ecx+3544]
 	call	esi
 
-; 231  : 	TwAddVarRW(mtwBarPP, "Shock Length", TW_TYPE_FLOAT, &mShockLength, "min=0.1 max=5 step=0.1");
+; 347  : 	TwAddVarRW(mtwBarPP, "Shock Speed", TW_TYPE_FLOAT, &mShockSpeed, "min=0.1 max=30 step=0.1");
+
+	mov	ecx, DWORD PTR _this$1$[ebp]
+	push	OFFSET ??_C@_0BI@BNBHPOAI@min?$DN0?41?5max?$DN30?5step?$DN0?41?$AA@
+	lea	eax, DWORD PTR [ecx+2980]
+	push	eax
+	push	12					; 0000000cH
+	push	OFFSET ??_C@_0M@BCFLJLDD@Shock?5Speed?$AA@
+	push	DWORD PTR [ecx+3544]
+	call	esi
+
+; 348  : 	TwAddVarRW(mtwBarPP, "Shock Length", TW_TYPE_FLOAT, &mShockLength, "min=0.1 max=5 step=0.1");
 
 	mov	ecx, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_0BH@GEGIJDLI@min?$DN0?41?5max?$DN5?5step?$DN0?41?$AA@
-	lea	eax, DWORD PTR [ecx+2976]
+	lea	eax, DWORD PTR [ecx+2984]
 	push	eax
 	push	12					; 0000000cH
 	push	OFFSET ??_C@_0N@BBJEPOMH@Shock?5Length?$AA@
-	push	DWORD PTR [ecx+3172]
+	push	DWORD PTR [ecx+3544]
 	call	esi
 
-; 232  : 	TwAddSeparator(mtwBarPP, "", "");
+; 349  : 	TwAddSeparator(mtwBarPP, "", "");
 
 	mov	ecx, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
-	push	DWORD PTR [ecx+3172]
+	push	DWORD PTR [ecx+3544]
 	call	edi
 
-; 233  : 	TwAddVarRW(mtwBarPP, "Blur Radius", TW_TYPE_INT32, &mBlurRadius, "min=2 max=50 step=1");
+; 350  : 	TwAddVarRW(mtwBarPP, "Blur Radius", TW_TYPE_INT32, &mBlurRadius, "min=3 max=51 step=2");
 
 	mov	ecx, DWORD PTR _this$1$[ebp]
-	push	OFFSET ??_C@_0BE@BKDAFDIA@min?$DN2?5max?$DN50?5step?$DN1?$AA@
-	lea	eax, DWORD PTR [ecx+3008]
+	push	OFFSET ??_C@_0BE@IIAOIFJB@min?$DN3?5max?$DN51?5step?$DN2?$AA@
+	lea	eax, DWORD PTR [ecx+3016]
 	push	eax
 	push	10					; 0000000aH
 	push	OFFSET ??_C@_0M@DOKJBODC@Blur?5Radius?$AA@
-	push	DWORD PTR [ecx+3172]
+	push	DWORD PTR [ecx+3544]
 	call	esi
 
-; 234  : 	TwAddSeparator(mtwBarPP, "", "");
+; 351  : 	TwAddVarRW(mtwBarPP, "Blur Strength", TW_TYPE_FLOAT, &mBlurStrength, "min=0.1 max=50 step=0.1");
 
 	mov	ecx, DWORD PTR _this$1$[ebp]
-	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
-	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
-	push	DWORD PTR [ecx+3172]
-	call	edi
-
-; 235  : 	TwAddVarRW(mtwBarPP, "Double Vision Radius", TW_TYPE_FLOAT, &mDoubleVisionRadius, "min=0 max=0.5 step=0.005");
-
-	mov	ecx, DWORD PTR _this$1$[ebp]
-	push	OFFSET ??_C@_0BJ@BKHNEING@min?$DN0?5max?$DN0?45?5step?$DN0?4005?$AA@
+	push	OFFSET ??_C@_0BI@PCCKFLOI@min?$DN0?41?5max?$DN50?5step?$DN0?41?$AA@
 	lea	eax, DWORD PTR [ecx+3020]
 	push	eax
 	push	12					; 0000000cH
-	push	OFFSET ??_C@_0BF@OKIMCMFP@Double?5Vision?5Radius?$AA@
-	push	DWORD PTR [ecx+3172]
+	push	OFFSET ??_C@_0O@HBAEFCEA@Blur?5Strength?$AA@
+	push	DWORD PTR [ecx+3544]
 	call	esi
 
-; 236  : 	TwAddSeparator(mtwBarPP, "", "");
+; 352  : 	TwAddVarRW(mtwBarPP, "Blur Mean", TW_TYPE_FLOAT, &mBlurMean, "min=0.1 max=2.0 step=0.01");
 
-	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	mov	ecx, DWORD PTR _this$1$[ebp]
+	push	OFFSET ??_C@_0BK@GNJEKMKK@min?$DN0?41?5max?$DN2?40?5step?$DN0?401?$AA@
+	lea	eax, DWORD PTR [ecx+3024]
+	push	eax
+	push	12					; 0000000cH
+	push	OFFSET ??_C@_09LKHGBFJD@Blur?5Mean?$AA@
+	push	DWORD PTR [ecx+3544]
+	call	esi
+
+; 353  : 	TwAddSeparator(mtwBarPP, "", "");
+
 	mov	ecx, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
-	push	DWORD PTR [ecx+3172]
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	DWORD PTR [ecx+3544]
 	call	edi
 
-; 237  : 	TwAddVarRW(mtwBarPP, "Contrast Shift", TW_TYPE_FLOAT, &mContrastChange, "min=-128 max=128 step=1");
+; 354  : 	TwAddVarRW(mtwBarPP, "Double Vision Radius", TW_TYPE_FLOAT, &mDoubleVisionRadius, "min=0 max=0.5 step=0.005");
+
+	mov	ecx, DWORD PTR _this$1$[ebp]
+	push	OFFSET ??_C@_0BJ@BKHNEING@min?$DN0?5max?$DN0?45?5step?$DN0?4005?$AA@
+	lea	eax, DWORD PTR [ecx+3292]
+	push	eax
+	push	12					; 0000000cH
+	push	OFFSET ??_C@_0BF@OKIMCMFP@Double?5Vision?5Radius?$AA@
+	push	DWORD PTR [ecx+3544]
+	call	esi
+
+; 355  : 	TwAddSeparator(mtwBarPP, "", "");
+
+	mov	ecx, DWORD PTR _this$1$[ebp]
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	DWORD PTR [ecx+3544]
+	call	edi
+
+; 356  : 	TwAddVarRW(mtwBarPP, "Contrast Shift", TW_TYPE_FLOAT, &mContrastChange, "min=-128 max=128 step=1");
 
 	mov	ecx, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_0BI@JONKBOAH@min?$DN?9128?5max?$DN128?5step?$DN1?$AA@
-	lea	eax, DWORD PTR [ecx+3028]
+	lea	eax, DWORD PTR [ecx+3300]
 	push	eax
 	push	12					; 0000000cH
 	push	OFFSET ??_C@_0P@COCHJCAA@Contrast?5Shift?$AA@
-	push	DWORD PTR [ecx+3172]
+	push	DWORD PTR [ecx+3544]
 	call	esi
 
-; 238  : 	//TwAddVarRO(mtwBarPP, "Contrast Factor", TW_TYPE_FLOAT, &mContrastFactor, "");
-; 239  : 	TwAddVarRW(mtwBarPP, "Jamminess", TW_TYPE_FLOAT, &mBlood, "min=0 max=1 step=0.05");
+; 357  : 	//TwAddVarRO(mtwBarPP, "Contrast Factor", TW_TYPE_FLOAT, &mContrastFactor, "");
+; 358  : 	TwAddVarRW(mtwBarPP, "Jamminess", TW_TYPE_FLOAT, &mBlood, "min=0 max=1 step=0.05");
 
 	mov	ecx, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_0BG@BHAGHJLA@min?$DN0?5max?$DN1?5step?$DN0?405?$AA@
-	lea	eax, DWORD PTR [ecx+2944]
+	lea	eax, DWORD PTR [ecx+2952]
 	push	eax
 	push	12					; 0000000cH
 	push	OFFSET ??_C@_09CINOGBPL@Jamminess?$AA@
-	push	DWORD PTR [ecx+3172]
+	push	DWORD PTR [ecx+3544]
 	call	esi
 
-; 240  : 	TwAddSeparator(mtwBarPP, "", "");
+; 359  : 	TwAddSeparator(mtwBarPP, "", "");
 
 	mov	ecx, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
-	push	DWORD PTR [ecx+3172]
+	push	DWORD PTR [ecx+3544]
 	call	edi
 
-; 241  : 	TwAddVarRW(mtwBarPP, "Solarise Threshold", TW_TYPE_INT32, &mSolariseInt, "min=32 max=222 step=1");
+; 360  : 	TwAddVarRW(mtwBarPP, "Solarise Threshold", TW_TYPE_INT32, &mSolariseInt, "min=32 max=222 step=1");
 
 	mov	ecx, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_0BG@NEFNJEOO@min?$DN32?5max?$DN222?5step?$DN1?$AA@
-	lea	eax, DWORD PTR [ecx+3072]
+	lea	eax, DWORD PTR [ecx+3348]
 	push	eax
 	push	10					; 0000000aH
 	push	OFFSET ??_C@_0BD@GCNLHPML@Solarise?5Threshold?$AA@
-	push	DWORD PTR [ecx+3172]
+	push	DWORD PTR [ecx+3544]
 	call	esi
 
-; 242  : 	TwAddSeparator(mtwBarPP, "", "");
+; 361  : 	TwAddSeparator(mtwBarPP, "", "");
 
-	mov	esi, DWORD PTR _this$1$[ebp]
+	mov	ecx, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
-	push	DWORD PTR [esi+3172]
+	push	DWORD PTR [ecx+3544]
 	call	edi
 
-; 243  : 	TwAddVarRO(mtwBarPP, "Using multiple: ", TW_TYPE_BOOLCPP, &multiprocess, "");
+; 362  : 	TwAddVarRO(mtwBarPP, "Using multiple: ", TW_TYPE_BOOLCPP, &multiprocess, "");
 
+	mov	edi, DWORD PTR _this$1$[ebp]
+	mov	esi, DWORD PTR __imp__TwAddVarRO@20
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
-	lea	eax, DWORD PTR [esi+3184]
+	lea	eax, DWORD PTR [edi+3556]
 	push	eax
 	push	1
 	push	OFFSET ??_C@_0BB@IGJPDDCA@Using?5multiple?3?5?$AA@
-	push	DWORD PTR [esi+3172]
-	call	DWORD PTR __imp__TwAddVarRO@20
-
-; 244  : 	TwAddButton( mtwBarPP, "Toggle Single", ToggleSingle, this, "");
-
-	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
-	push	esi
-	push	OFFSET ?ToggleSingle@@YGXPAX@Z		; ToggleSingle
-	push	OFFSET ??_C@_0O@NMGOIPCC@Toggle?5Single?$AA@
-	push	DWORD PTR [esi+3172]
-	mov	esi, DWORD PTR __imp__TwAddButton@20
+	push	DWORD PTR [edi+3544]
 	call	esi
 
-; 245  : 	
-; 246  : 	mtwBarSinglePP = TwNewBar("Single Pass Select");
+; 363  : 	TwAddButton( mtwBarPP, "Toggle Single", ToggleSingle, this, "");
+
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	edi
+	push	OFFSET ?ToggleSingle@@YGXPAX@Z		; ToggleSingle
+	push	OFFSET ??_C@_0O@NMGOIPCC@Toggle?5Single?$AA@
+	push	DWORD PTR [edi+3544]
+	mov	edi, DWORD PTR __imp__TwAddButton@20
+	call	edi
+
+; 364  : 	
+; 365  : 	mtwBarSinglePP = TwNewBar("Single Pass Select");
 
 	push	OFFSET ??_C@_0BD@BGGKKCGG@Single?5Pass?5Select?$AA@
 	call	DWORD PTR __imp__TwNewBar@4
 	mov	ecx, DWORD PTR _this$1$[ebp]
 
-; 247  : 	TwDefine(" 'Single Pass Select' position='210 5' ");
+; 366  : 	TwDefine(" 'Single Pass Select' position='210 5' ");
 
 	push	OFFSET ??_C@_0CI@LLGGHJJD@?5?8Single?5Pass?5Select?8?5position?$DN?8@
-	mov	DWORD PTR [ecx+3176], eax
+	mov	DWORD PTR [ecx+3548], eax
 	call	ebx
 
-; 248  : 	TwAddButton(mtwBarSinglePP, "No PP", SetPP00, this, "");
+; 367  : 	TwAddButton(mtwBarSinglePP, "No PP", SetPP00, this, "");
 
 	mov	eax, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
 	push	eax
 	push	OFFSET ?SetPP00@@YGXPAX@Z		; SetPP00
 	push	OFFSET ??_C@_05BGDIAJAG@No?5PP?$AA@
-	push	DWORD PTR [eax+3176]
-	call	esi
+	push	DWORD PTR [eax+3548]
+	call	edi
 
-; 249  : 	TwAddButton(mtwBarSinglePP, "Tint", SetPP01, this, "");
+; 368  : 	TwAddButton(mtwBarSinglePP, "Tint", SetPP01, this, "");
 
 	mov	eax, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
 	push	eax
 	push	OFFSET ?SetPP01@@YGXPAX@Z		; SetPP01
 	push	OFFSET ??_C@_04LLHKIDLI@Tint?$AA@
-	push	DWORD PTR [eax+3176]
-	call	esi
+	push	DWORD PTR [eax+3548]
+	call	edi
 
-; 250  : 	TwAddButton(mtwBarSinglePP, "Shock", SetPP02, this, "");
+; 369  : 	TwAddButton(mtwBarSinglePP, "Shock", SetPP02, this, "");
 
 	mov	eax, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
 	push	eax
 	push	OFFSET ?SetPP02@@YGXPAX@Z		; SetPP02
 	push	OFFSET ??_C@_05MCLIDIMJ@Shock?$AA@
-	push	DWORD PTR [eax+3176]
-	call	esi
+	push	DWORD PTR [eax+3548]
+	call	edi
 
-; 251  : 	TwAddButton(mtwBarSinglePP, "Box Blur (3)", SetPP03, this, "");
+; 370  : 	TwAddButton(mtwBarSinglePP, "Box Blur (3)", SetPP03, this, "");
 
 	mov	eax, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
 	push	eax
 	push	OFFSET ?SetPP03@@YGXPAX@Z		; SetPP03
 	push	OFFSET ??_C@_0N@DFJGHPEG@Box?5Blur?5?$CI3?$CJ?$AA@
-	push	DWORD PTR [eax+3176]
-	call	esi
+	push	DWORD PTR [eax+3548]
+	call	edi
 
-; 252  : 	TwAddButton(mtwBarSinglePP, "Box Blur (5)", SetPP04, this, "");
+; 371  : 	TwAddButton(mtwBarSinglePP, "Box Blur (5)", SetPP04, this, "");
 
 	mov	eax, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
 	push	eax
 	push	OFFSET ?SetPP04@@YGXPAX@Z		; SetPP04
 	push	OFFSET ??_C@_0N@DBBLADPE@Box?5Blur?5?$CI5?$CJ?$AA@
-	push	DWORD PTR [eax+3176]
-	call	esi
+	push	DWORD PTR [eax+3548]
+	call	edi
 
-; 253  : 	TwAddButton(mtwBarSinglePP, "Box Blur (Custom)", SetPP05, this, "");
+; 372  : 	TwAddButton(mtwBarSinglePP, "Box Blur (Custom)", SetPP05, this, "");
 
 	mov	eax, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
 	push	eax
 	push	OFFSET ?SetPP05@@YGXPAX@Z		; SetPP05
 	push	OFFSET ??_C@_0BC@BBINBACJ@Box?5Blur?5?$CICustom?$CJ?$AA@
-	push	DWORD PTR [eax+3176]
-	call	esi
+	push	DWORD PTR [eax+3548]
+	call	edi
 
-; 254  : 	TwAddButton(mtwBarSinglePP, "Double Vision", SetPP06, this, "");
+; 373  : 	TwAddButton(mtwBarSinglePP, "Double Vision", SetPP06, this, "");
 
 	mov	eax, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
 	push	eax
 	push	OFFSET ?SetPP06@@YGXPAX@Z		; SetPP06
 	push	OFFSET ??_C@_0O@OAINAAFK@Double?5Vision?$AA@
-	push	DWORD PTR [eax+3176]
-	call	esi
+	push	DWORD PTR [eax+3548]
+	call	edi
 
-; 255  : 	TwAddButton(mtwBarSinglePP, "Edges", SetPP07, this, "");
+; 374  : 	TwAddButton(mtwBarSinglePP, "Edges (Sobel)", SetPP07, this, "");
 
 	mov	eax, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
 	push	eax
 	push	OFFSET ?SetPP07@@YGXPAX@Z		; SetPP07
-	push	OFFSET ??_C@_05JBOFPIEK@Edges?$AA@
-	push	DWORD PTR [eax+3176]
-	call	esi
+	push	OFFSET ??_C@_0O@OMFPBFFM@Edges?5?$CISobel?$CJ?$AA@
+	push	DWORD PTR [eax+3548]
+	call	edi
 
-; 256  : 	TwAddButton(mtwBarSinglePP, "Contrast", SetPP08, this, "");
+; 375  : 	TwAddButton(mtwBarSinglePP, "Contrast", SetPP08, this, "");
 
 	mov	eax, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
 	push	eax
 	push	OFFSET ?SetPP08@@YGXPAX@Z		; SetPP08
 	push	OFFSET ??_C@_08KBHEFHNJ@Contrast?$AA@
-	push	DWORD PTR [eax+3176]
-	call	esi
+	push	DWORD PTR [eax+3548]
+	call	edi
 
-; 257  : 	TwAddButton(mtwBarSinglePP, "Jam on the screen", SetPP09, this, "");
+; 376  : 	TwAddButton(mtwBarSinglePP, "Jam on the screen", SetPP09, this, "");
 
 	mov	eax, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
 	push	eax
 	push	OFFSET ?SetPP09@@YGXPAX@Z		; SetPP09
 	push	OFFSET ??_C@_0BC@EACNFBOP@Jam?5on?5the?5screen?$AA@
-	push	DWORD PTR [eax+3176]
-	call	esi
+	push	DWORD PTR [eax+3548]
+	call	edi
 
-; 258  : 	TwAddButton(mtwBarSinglePP, "Invert", SetPP10, this, "");
+; 377  : 	TwAddButton(mtwBarSinglePP, "Invert", SetPP10, this, "");
 
 	mov	eax, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
 	push	eax
 	push	OFFSET ?SetPP10@@YGXPAX@Z		; SetPP10
 	push	OFFSET ??_C@_06OHLCGMJD@Invert?$AA@
-	push	DWORD PTR [eax+3176]
-	call	esi
+	push	DWORD PTR [eax+3548]
+	call	edi
 
-; 259  : 	TwAddButton(mtwBarSinglePP, "Solarise (Above)", SetPP11, this, "");
+; 378  : 	TwAddButton(mtwBarSinglePP, "Solarise (Above)", SetPP11, this, "");
 
 	mov	eax, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
 	push	eax
 	push	OFFSET ?SetPP11@@YGXPAX@Z		; SetPP11
 	push	OFFSET ??_C@_0BB@OBDMAHBK@Solarise?5?$CIAbove?$CJ?$AA@
-	push	DWORD PTR [eax+3176]
-	call	esi
+	push	DWORD PTR [eax+3548]
+	call	edi
 
-; 260  : 	TwAddButton(mtwBarSinglePP, "Solarise (Below)", SetPP12, this, "");
+; 379  : 	TwAddButton(mtwBarSinglePP, "Solarise (Below)", SetPP12, this, "");
 
 	mov	eax, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
 	push	eax
 	push	OFFSET ?SetPP12@@YGXPAX@Z		; SetPP12
 	push	OFFSET ??_C@_0BB@LIMCDIOE@Solarise?5?$CIBelow?$CJ?$AA@
-	push	DWORD PTR [eax+3176]
-	call	esi
-
-; 261  : 	TwAddSeparator(mtwBarSinglePP, "", "");
-
-	mov	ecx, DWORD PTR _this$1$[ebp]
-	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
-	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
-	push	DWORD PTR [ecx+3176]
+	push	DWORD PTR [eax+3548]
 	call	edi
 
-; 262  : 	TwAddButton(mtwBarSinglePP, "Toggle Gaussian Blur", SetGauss, this, "");
+; 380  : 	TwAddButton(mtwBarSinglePP, "Cell Shade", SetPP13, this, "");
 
-	mov	edi, DWORD PTR _this$1$[ebp]
+	mov	eax, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
-	push	edi
-	push	OFFSET ?SetGauss@@YGXPAX@Z		; SetGauss
-	push	OFFSET ??_C@_0BF@FHPJJGJD@Toggle?5Gaussian?5Blur?$AA@
-	push	DWORD PTR [edi+3176]
-	call	esi
+	push	eax
+	push	OFFSET ?SetPP13@@YGXPAX@Z		; SetPP13
+	push	OFFSET ??_C@_0L@OJCECKLM@Cell?5Shade?$AA@
+	push	DWORD PTR [eax+3548]
+	call	edi
 
-; 263  : 
-; 264  : 	mtwBarMultiPP = TwNewBar("Multi Pass Controls");
+; 381  : 	TwAddButton(mtwBarSinglePP, "Gaussian Blur", SetPP14, this, "");
+
+	mov	eax, DWORD PTR _this$1$[ebp]
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	eax
+	push	OFFSET ?SetPP14@@YGXPAX@Z		; SetPP14
+	push	OFFSET ??_C@_0O@DDFGHDFG@Gaussian?5Blur?$AA@
+	push	DWORD PTR [eax+3548]
+	call	edi
+
+; 382  : 
+; 383  : 	mtwBarMultiPP = TwNewBar("Multi Pass Controls");
 
 	push	OFFSET ??_C@_0BE@DKPHBODF@Multi?5Pass?5Controls?$AA@
 	call	DWORD PTR __imp__TwNewBar@4
+	mov	ecx, DWORD PTR _this$1$[ebp]
 
-; 265  : 	TwDefine(" 'Multi Pass Controls' position='415 5' size='300 320' ");
+; 384  : 	TwDefine(" 'Multi Pass Controls' position='5 325' size='300 400' ");
 
-	push	OFFSET ??_C@_0DI@PFMGMAKO@?5?8Multi?5Pass?5Controls?8?5position?$DN@
-	mov	DWORD PTR [edi+3180], eax
+	push	OFFSET ??_C@_0DI@GLJKLPEM@?5?8Multi?5Pass?5Controls?8?5position?$DN@
+	mov	DWORD PTR [ecx+3552], eax
 	call	ebx
 
-; 266  : 	TwAddButton(mtwBarMultiPP, "Stop trying to hit me and hit me!", TWImpact, this, "");
+; 385  : 	TwAddButton(mtwBarMultiPP, "Stop trying to hit me and hit me!", TWImpact, this, "");
 
+	mov	ebx, DWORD PTR _this$1$[ebp]
 	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
-	push	edi
+	push	ebx
 	push	OFFSET ?TWImpact@@YGXPAX@Z		; TWImpact
 	push	OFFSET ??_C@_0CC@BOCCMAEA@Stop?5trying?5to?5hit?5me?5and?5hit?5me@
-	push	DWORD PTR [edi+3180]
+	push	DWORD PTR [ebx+3552]
+	call	edi
+
+; 386  : 	TwAddSeparator(mtwBarPP, "", "");
+
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	DWORD PTR [ebx+3544]
+	mov	ebx, DWORD PTR __imp__TwAddSeparator@12
+	call	ebx
+
+; 387  : 	TwAddVarRO(mtwBarMultiPP, "Chain Length", TW_TYPE_INT32, &mChainLength, "");
+
+	mov	ecx, DWORD PTR _this$1$[ebp]
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	lea	eax, DWORD PTR [ecx+3316]
+	push	eax
+	push	10					; 0000000aH
+	push	OFFSET ??_C@_0N@KKFAKGJN@Chain?5Length?$AA@
+	push	DWORD PTR [ecx+3552]
 	call	esi
+
+; 388  : 	TwAddButton(mtwBarMultiPP, "Clear Chain", ClearChain, this, "");
+
+	mov	esi, DWORD PTR _this$1$[ebp]
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	esi
+	push	OFFSET ?ClearChain@@YGXPAX@Z		; ClearChain
+	push	OFFSET ??_C@_0M@NLGLMPGD@Clear?5Chain?$AA@
+	push	DWORD PTR [esi+3552]
+	call	edi
+
+; 389  : 	TwAddSeparator(mtwBarMultiPP, "", "");
+
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	DWORD PTR [esi+3552]
+	call	ebx
+
+; 390  : 	TwAddButton(mtwBarMultiPP, "Tint", AddPP01, this, "");
+
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	esi
+	push	OFFSET ?AddPP01@@YGXPAX@Z		; AddPP01
+	push	OFFSET ??_C@_04LLHKIDLI@Tint?$AA@
+	push	DWORD PTR [esi+3552]
+	call	edi
+
+; 391  : 	TwAddButton(mtwBarMultiPP, "Shock", AddPP02, this, "");
+
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	esi
+	push	OFFSET ?AddPP02@@YGXPAX@Z		; AddPP02
+	push	OFFSET ??_C@_05MCLIDIMJ@Shock?$AA@
+	push	DWORD PTR [esi+3552]
+	call	edi
+
+; 392  : 	TwAddButton(mtwBarMultiPP, "Box Blur (3)", AddPP03, this, "");
+
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	esi
+	push	OFFSET ?AddPP03@@YGXPAX@Z		; AddPP03
+	push	OFFSET ??_C@_0N@DFJGHPEG@Box?5Blur?5?$CI3?$CJ?$AA@
+	push	DWORD PTR [esi+3552]
+	call	edi
+
+; 393  : 	TwAddButton(mtwBarMultiPP, "Box Blur (5)", AddPP04, this, "");
+
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	esi
+	push	OFFSET ?AddPP04@@YGXPAX@Z		; AddPP04
+	push	OFFSET ??_C@_0N@DBBLADPE@Box?5Blur?5?$CI5?$CJ?$AA@
+	push	DWORD PTR [esi+3552]
+	call	edi
+
+; 394  : 	TwAddButton(mtwBarMultiPP, "Box Blur (Custom)", AddPP05, this, "");
+
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	esi
+	push	OFFSET ?AddPP05@@YGXPAX@Z		; AddPP05
+	push	OFFSET ??_C@_0BC@BBINBACJ@Box?5Blur?5?$CICustom?$CJ?$AA@
+	push	DWORD PTR [esi+3552]
+	call	edi
+
+; 395  : 	TwAddButton(mtwBarMultiPP, "Double Vision", AddPP06, this, "");
+
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	esi
+	push	OFFSET ?AddPP06@@YGXPAX@Z		; AddPP06
+	push	OFFSET ??_C@_0O@OAINAAFK@Double?5Vision?$AA@
+	push	DWORD PTR [esi+3552]
+	call	edi
+
+; 396  : 	TwAddButton(mtwBarMultiPP, "Edges (Sobel)", AddPP07, this, "");
+
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	esi
+	push	OFFSET ?AddPP07@@YGXPAX@Z		; AddPP07
+	push	OFFSET ??_C@_0O@OMFPBFFM@Edges?5?$CISobel?$CJ?$AA@
+	push	DWORD PTR [esi+3552]
+	call	edi
+
+; 397  : 	TwAddButton(mtwBarMultiPP, "Contrast", AddPP08, this, "");
+
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	esi
+	push	OFFSET ?AddPP08@@YGXPAX@Z		; AddPP08
+	push	OFFSET ??_C@_08KBHEFHNJ@Contrast?$AA@
+	push	DWORD PTR [esi+3552]
+	call	edi
+
+; 398  : 	TwAddButton(mtwBarMultiPP, "Jam on the screen", AddPP09, this, "");
+
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	esi
+	push	OFFSET ?AddPP09@@YGXPAX@Z		; AddPP09
+	push	OFFSET ??_C@_0BC@EACNFBOP@Jam?5on?5the?5screen?$AA@
+	push	DWORD PTR [esi+3552]
+	call	edi
+
+; 399  : 	TwAddButton(mtwBarMultiPP, "Invert", AddPP10, this, "");
+
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	esi
+	push	OFFSET ?AddPP10@@YGXPAX@Z		; AddPP10
+	push	OFFSET ??_C@_06OHLCGMJD@Invert?$AA@
+	push	DWORD PTR [esi+3552]
+	call	edi
+
+; 400  : 	TwAddButton(mtwBarMultiPP, "Solarise (Above)", AddPP11, this, "");
+
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	esi
+	push	OFFSET ?AddPP11@@YGXPAX@Z		; AddPP11
+	push	OFFSET ??_C@_0BB@OBDMAHBK@Solarise?5?$CIAbove?$CJ?$AA@
+	push	DWORD PTR [esi+3552]
+	call	edi
+
+; 401  : 	TwAddButton(mtwBarMultiPP, "Solarise (Below)", AddPP12, this, "");
+
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	esi
+	push	OFFSET ?AddPP12@@YGXPAX@Z		; AddPP12
+	push	OFFSET ??_C@_0BB@LIMCDIOE@Solarise?5?$CIBelow?$CJ?$AA@
+	push	DWORD PTR [esi+3552]
+	call	edi
+
+; 402  : 	TwAddButton(mtwBarMultiPP, "Cell Shade", AddPP13, this, "");
+
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	esi
+	push	OFFSET ?AddPP13@@YGXPAX@Z		; AddPP13
+	push	OFFSET ??_C@_0L@OJCECKLM@Cell?5Shade?$AA@
+	push	DWORD PTR [esi+3552]
+	call	edi
+
+; 403  : 	TwAddButton(mtwBarMultiPP, "Gaussian Blur", AddPP14, this, "");
+
+	push	OFFSET ??_C@_00CNPNBAHC@?$AA@
+	push	esi
+	push	OFFSET ?AddPP14@@YGXPAX@Z		; AddPP14
+	push	OFFSET ??_C@_0O@DDFGHDFG@Gaussian?5Blur?$AA@
+	push	DWORD PTR [esi+3552]
+	call	edi
 	pop	edi
 	pop	esi
 
-; 267  : 
-; 268  : 	return true;
+; 404  : 
+; 405  : 	return true;
 
 	mov	al, 1
 	pop	ebx
 
-; 269  : }
+; 406  : }
 
 	mov	esp, ebp
 	pop	ebp
@@ -9107,7 +12885,7 @@ __$ArrayPad$ = -4					; size = 4
 ?InitPP@CScene@@QAE_NXZ PROC				; CScene::InitPP, COMDAT
 ; _this$ = ecx
 
-; 272  : {
+; 409  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -9116,44 +12894,46 @@ __$ArrayPad$ = -4					; size = 4
 	xor	eax, ebp
 	mov	DWORD PTR __$ArrayPad$[ebp], eax
 
-; 273  : 	mInitialTextureDesc.Width = mViewportWidth;
+; 410  : 	mInitialTextureDesc.Width = mViewportWidth;
 
 	mov	eax, DWORD PTR ?mViewportWidth@CScene@@0HA ; CScene::mViewportWidth
 	push	esi
 	mov	esi, ecx
 	push	edi
-	lea	edi, DWORD PTR [esi+2864]
+	lea	edi, DWORD PTR [esi+2872]
 	mov	DWORD PTR [edi], eax
 
-; 274  : 	mInitialTextureDesc.Height = mViewportHeight;
+; 411  : 	mInitialTextureDesc.Height = mViewportHeight;
 
 	mov	eax, DWORD PTR ?mViewportHeight@CScene@@0HA ; CScene::mViewportHeight
 
-; 275  : 	mInitialTextureDesc.MipLevels = 1;
-; 276  : 	mInitialTextureDesc.ArraySize = 1;
-; 277  : 	mInitialTextureDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-; 278  : 	mInitialTextureDesc.SampleDesc.Count = 1;
-; 279  : 	mInitialTextureDesc.SampleDesc.Quality = 0;
-; 280  : 	mInitialTextureDesc.Usage = D3D10_USAGE_DEFAULT;
-; 281  : 	mInitialTextureDesc.BindFlags = D3D10_BIND_RENDER_TARGET | D3D10_BIND_SHADER_RESOURCE;
-; 282  : 	mInitialTextureDesc.CPUAccessFlags = 0;
-; 283  : 	mInitialTextureDesc.MiscFlags = 0;
-; 284  : 	if( FAILED( mpd3dDevice->CreateTexture2D( &mInitialTextureDesc, NULL, &mInitialTexture) ) ) return false;
+; 412  : 	mInitialTextureDesc.MipLevels = 1;
+; 413  : 	mInitialTextureDesc.ArraySize = 1;
+; 414  : 	mInitialTextureDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+; 415  : 	mInitialTextureDesc.SampleDesc.Count = 1;
+; 416  : 	mInitialTextureDesc.SampleDesc.Quality = 0;
+; 417  : 	mInitialTextureDesc.Usage = D3D10_USAGE_DEFAULT;
+; 418  : 	mInitialTextureDesc.BindFlags = D3D10_BIND_RENDER_TARGET | D3D10_BIND_SHADER_RESOURCE;
+; 419  : 	mInitialTextureDesc.CPUAccessFlags = 0;
+; 420  : 	mInitialTextureDesc.MiscFlags = 0;
+; 421  : 
+; 422  : 
+; 423  : 	if( FAILED( mpd3dDevice->CreateTexture2D( &mInitialTextureDesc, NULL, &mInitialTexture) ) ) return false;
 
-	lea	edx, DWORD PTR [esi+2860]
+	lea	edx, DWORD PTR [esi+2868]
 	mov	ecx, DWORD PTR [esi]
 	push	edx
 	push	0
-	mov	DWORD PTR [esi+2868], eax
-	mov	DWORD PTR [esi+2872], 1
-	mov	DWORD PTR [esi+2876], 1
-	mov	DWORD PTR [esi+2880], 28		; 0000001cH
+	mov	DWORD PTR [esi+2876], eax
+	mov	DWORD PTR [esi+2880], 1
 	mov	DWORD PTR [esi+2884], 1
-	mov	DWORD PTR [esi+2888], 0
-	mov	DWORD PTR [esi+2892], 0
-	mov	DWORD PTR [esi+2896], 40		; 00000028H
+	mov	DWORD PTR [esi+2888], 28		; 0000001cH
+	mov	DWORD PTR [esi+2892], 1
+	mov	DWORD PTR [esi+2896], 0
 	mov	DWORD PTR [esi+2900], 0
-	mov	DWORD PTR [esi+2904], 0
+	mov	DWORD PTR [esi+2904], 40		; 00000028H
+	mov	DWORD PTR [esi+2908], 0
+	mov	DWORD PTR [esi+2912], 0
 	mov	eax, DWORD PTR [ecx]
 	push	edi
 	push	ecx
@@ -9164,10 +12944,10 @@ __$ArrayPad$ = -4					; size = 4
 	xor	al, al
 	pop	esi
 
-; 345  : 
-; 346  : 	return true;
-; 347  : 
-; 348  : }
+; 489  : 
+; 490  : 	return true;
+; 491  : 
+; 492  : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	xor	ecx, ebp
@@ -9177,11 +12957,11 @@ __$ArrayPad$ = -4					; size = 4
 	ret	0
 $LN12@InitPP:
 
-; 285  : 	if (FAILED( mpd3dDevice->CreateTexture2D( &mInitialTextureDesc, NULL, &mTextureOne ) ) ) return false;
+; 424  : 	if (FAILED( mpd3dDevice->CreateTexture2D( &mInitialTextureDesc, NULL, &mTextureOne ) ) ) return false;
 
 	mov	ecx, DWORD PTR [esi]
 	push	ebx
-	lea	ebx, DWORD PTR [esi+3044]
+	lea	ebx, DWORD PTR [esi+3320]
 	push	ebx
 	mov	eax, DWORD PTR [ecx]
 	push	0
@@ -9191,10 +12971,10 @@ $LN12@InitPP:
 	test	eax, eax
 	js	$LN1@InitPP
 
-; 286  : 	if (FAILED( mpd3dDevice->CreateTexture2D( &mInitialTextureDesc, NULL, &mTextureTwo ) ) ) return false;
+; 425  : 	if (FAILED( mpd3dDevice->CreateTexture2D( &mInitialTextureDesc, NULL, &mTextureTwo ) ) ) return false;
 
 	mov	ecx, DWORD PTR [esi]
-	lea	edx, DWORD PTR [esi+3048]
+	lea	edx, DWORD PTR [esi+3324]
 	push	edx
 	push	0
 	push	edi
@@ -9204,24 +12984,24 @@ $LN12@InitPP:
 	test	eax, eax
 	js	$LN1@InitPP
 
-; 287  : 
-; 288  : 	if( FAILED( mpd3dDevice->CreateRenderTargetView( mInitialTexture, NULL, &mInitialRenderTarget ) ) ) return false;
+; 426  : 
+; 427  : 	if( FAILED( mpd3dDevice->CreateRenderTargetView( mInitialTexture, NULL, &mInitialRenderTarget ) ) ) return false;
 
 	mov	ecx, DWORD PTR [esi]
-	lea	eax, DWORD PTR [esi+2908]
+	lea	eax, DWORD PTR [esi+2916]
 	push	eax
 	push	0
-	push	DWORD PTR [esi+2860]
+	push	DWORD PTR [esi+2868]
 	mov	edx, DWORD PTR [ecx]
 	push	ecx
 	call	DWORD PTR [edx+304]
 	test	eax, eax
 	js	$LN1@InitPP
 
-; 289  : 	if (FAILED( mpd3dDevice->CreateRenderTargetView( mTextureOne, NULL, &mRenderTargetOne) ) ) return false;
+; 428  : 	if (FAILED( mpd3dDevice->CreateRenderTargetView( mTextureOne, NULL, &mRenderTargetOne) ) ) return false;
 
 	mov	ecx, DWORD PTR [esi]
-	lea	eax, DWORD PTR [esi+3052]
+	lea	eax, DWORD PTR [esi+3328]
 	push	eax
 	push	0
 	push	DWORD PTR [ebx]
@@ -9231,49 +13011,49 @@ $LN12@InitPP:
 	test	eax, eax
 	js	$LN1@InitPP
 
-; 290  : 	if (FAILED( mpd3dDevice->CreateRenderTargetView( mTextureTwo, NULL, &mRenderTargetTwo) ) ) return false;
+; 429  : 	if (FAILED( mpd3dDevice->CreateRenderTargetView( mTextureTwo, NULL, &mRenderTargetTwo) ) ) return false;
 
 	mov	ecx, DWORD PTR [esi]
-	lea	eax, DWORD PTR [esi+3056]
+	lea	eax, DWORD PTR [esi+3332]
 	push	eax
 	push	0
-	push	DWORD PTR [esi+3048]
+	push	DWORD PTR [esi+3324]
 	mov	edx, DWORD PTR [ecx]
 	push	ecx
 	call	DWORD PTR [edx+304]
 	test	eax, eax
 	js	$LN1@InitPP
 
-; 291  : 
-; 292  : 	mInitialShaderDesc.Format = mInitialTextureDesc.Format;
+; 430  : 
+; 431  : 	mInitialShaderDesc.Format = mInitialTextureDesc.Format;
 
-	mov	eax, DWORD PTR [esi+2880]
-	lea	edi, DWORD PTR [esi+2916]
+	mov	eax, DWORD PTR [esi+2888]
+	lea	edi, DWORD PTR [esi+2924]
 
-; 293  : 	mInitialShaderDesc.ViewDimension = D3D10_SRV_DIMENSION_TEXTURE2D;
-; 294  : 	mInitialShaderDesc.Texture2D.MostDetailedMip = 0;
-; 295  : 	mInitialShaderDesc.Texture2D.MipLevels = 1;
-; 296  : 	if( FAILED( mpd3dDevice->CreateShaderResourceView( mInitialTexture, &mInitialShaderDesc, &mInitialShaderResource ) ) ) return false;
+; 432  : 	mInitialShaderDesc.ViewDimension = D3D10_SRV_DIMENSION_TEXTURE2D;
+; 433  : 	mInitialShaderDesc.Texture2D.MostDetailedMip = 0;
+; 434  : 	mInitialShaderDesc.Texture2D.MipLevels = 1;
+; 435  : 	if( FAILED( mpd3dDevice->CreateShaderResourceView( mInitialTexture, &mInitialShaderDesc, &mInitialShaderResource ) ) ) return false;
 
 	mov	ecx, DWORD PTR [esi]
 	mov	DWORD PTR [edi], eax
-	lea	eax, DWORD PTR [esi+2912]
+	lea	eax, DWORD PTR [esi+2920]
 	push	eax
 	push	edi
-	push	DWORD PTR [esi+2860]
-	mov	DWORD PTR [esi+2920], 4
-	mov	DWORD PTR [esi+2924], 0
-	mov	DWORD PTR [esi+2928], 1
+	push	DWORD PTR [esi+2868]
+	mov	DWORD PTR [esi+2928], 4
+	mov	DWORD PTR [esi+2932], 0
+	mov	DWORD PTR [esi+2936], 1
 	mov	edx, DWORD PTR [ecx]
 	push	ecx
 	call	DWORD PTR [edx+300]
 	test	eax, eax
 	js	$LN1@InitPP
 
-; 297  : 	if (FAILED( mpd3dDevice->CreateShaderResourceView( mTextureOne, &mInitialShaderDesc, &mTextureOneShader))) return false;
+; 436  : 	if (FAILED( mpd3dDevice->CreateShaderResourceView( mTextureOne, &mInitialShaderDesc, &mTextureOneShader))) return false;
 
 	mov	ecx, DWORD PTR [esi]
-	lea	eax, DWORD PTR [esi+3060]
+	lea	eax, DWORD PTR [esi+3336]
 	push	eax
 	push	edi
 	push	DWORD PTR [ebx]
@@ -9283,25 +13063,25 @@ $LN12@InitPP:
 	test	eax, eax
 	js	$LN1@InitPP
 
-; 298  : 	if (FAILED( mpd3dDevice->CreateShaderResourceView( mTextureTwo, &mInitialShaderDesc, &mTextureTwoShader))) return false;
+; 437  : 	if (FAILED( mpd3dDevice->CreateShaderResourceView( mTextureTwo, &mInitialShaderDesc, &mTextureTwoShader))) return false;
 
 	mov	ecx, DWORD PTR [esi]
-	lea	eax, DWORD PTR [esi+3064]
+	lea	eax, DWORD PTR [esi+3340]
 	push	eax
 	push	edi
-	push	DWORD PTR [esi+3048]
+	push	DWORD PTR [esi+3324]
 	mov	edx, DWORD PTR [ecx]
 	push	ecx
 	call	DWORD PTR [edx+300]
 	test	eax, eax
 	js	$LN1@InitPP
 
-; 299  : 
-; 300  : 	ID3D10Blob* pErrors; // This strangely typed variable collects any errors when compiling the effect file
-; 301  : 	DWORD dwShaderFlags = D3D10_SHADER_ENABLE_STRICTNESS; // These "flags" are used to set the compiler options
-; 302  : 
-; 303  : 	// Load and compile the effect file
-; 304  : 	HRESULT hr = D3DX10CreateEffectFromFile( L"PostProcess.fx", NULL, NULL, "fx_4_0", dwShaderFlags, 0, mpd3dDevice, NULL, NULL, &mPPEffect, &pErrors, NULL );
+; 438  : 
+; 439  : 	ID3D10Blob* pErrors; // This strangely typed variable collects any errors when compiling the effect file
+; 440  : 	DWORD dwShaderFlags = D3D10_SHADER_ENABLE_STRICTNESS; // These "flags" are used to set the compiler options
+; 441  : 
+; 442  : 	// Load and compile the effect file
+; 443  : 	HRESULT hr = D3DX10CreateEffectFromFile( L"PostProcess.fx", NULL, NULL, "fx_4_0", dwShaderFlags, 0, mpd3dDevice, NULL, NULL, &mPPEffect, &pErrors, NULL );
 
 	push	0
 	lea	eax, DWORD PTR _pErrors$[ebp]
@@ -9319,12 +13099,12 @@ $LN12@InitPP:
 	push	OFFSET ??_C@_1BO@KFFLPJBB@?$AAP?$AAo?$AAs?$AAt?$AAP?$AAr?$AAo?$AAc?$AAe?$AAs?$AAs?$AA?4?$AAf?$AAx?$AA?$AA@
 	call	_D3DX10CreateEffectFromFileW@48
 
-; 305  : 	if( FAILED( hr ) )
+; 444  : 	if( FAILED( hr ) )
 
 	test	eax, eax
 	jns	$LN3@InitPP
 
-; 307  : 		if (pErrors != 0)  MessageBox( NULL, CA2CT(reinterpret_cast<char*>(pErrors->GetBufferPointer())), L"Error", MB_OK ); // Compiler error: display error message
+; 446  : 		if (pErrors != 0)  MessageBox( NULL, CA2CT(reinterpret_cast<char*>(pErrors->GetBufferPointer())), L"Error", MB_OK ); // Compiler error: display error message
 
 	mov	ecx, DWORD PTR _pErrors$[ebp]
 	test	ecx, ecx
@@ -9347,7 +13127,7 @@ $LN12@InitPP:
 	call	?Init@?$CA2WEX@$0IA@@ATL@@AAEXPBDI@Z	; ATL::CA2WEX<128>::Init
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 307  : 		if (pErrors != 0)  MessageBox( NULL, CA2CT(reinterpret_cast<char*>(pErrors->GetBufferPointer())), L"Error", MB_OK ); // Compiler error: display error message
+; 446  : 		if (pErrors != 0)  MessageBox( NULL, CA2CT(reinterpret_cast<char*>(pErrors->GetBufferPointer())), L"Error", MB_OK ); // Compiler error: display error message
 
 	push	0
 	push	OFFSET ??_C@_1M@ILHOPKA@?$AAE?$AAr?$AAr?$AAo?$AAr?$AA?$AA@
@@ -9371,17 +13151,17 @@ $LN12@InitPP:
 	add	esp, 4
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 309  : 		return false;
+; 448  : 		return false;
 
 	xor	al, al
 	pop	ebx
 	pop	edi
 	pop	esi
 
-; 345  : 
-; 346  : 	return true;
-; 347  : 
-; 348  : }
+; 489  : 
+; 490  : 	return true;
+; 491  : 
+; 492  : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	xor	ecx, ebp
@@ -9391,7 +13171,7 @@ $LN12@InitPP:
 	ret	0
 $LN2@InitPP:
 
-; 308  : 		else               MessageBox( NULL, L"Error loading Post Processing FX file. Ensure your FX file is in the same folder as this executable.", L"Error", MB_OK );  // No error message - probably file not found
+; 447  : 		else               MessageBox( NULL, L"Error loading Post Processing FX file. Ensure your FX file is in the same folder as this executable.", L"Error", MB_OK );  // No error message - probably file not found
 
 	push	0
 	push	OFFSET ??_C@_1M@ILHOPKA@?$AAE?$AAr?$AAr?$AAo?$AAr?$AA?$AA@
@@ -9400,17 +13180,17 @@ $LN2@InitPP:
 	call	DWORD PTR __imp__MessageBoxW@16
 $LN1@InitPP:
 
-; 309  : 		return false;
+; 448  : 		return false;
 
 	pop	ebx
 	pop	edi
 	xor	al, al
 	pop	esi
 
-; 345  : 
-; 346  : 	return true;
-; 347  : 
-; 348  : }
+; 489  : 
+; 490  : 	return true;
+; 491  : 
+; 492  : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	xor	ecx, ebp
@@ -9420,18 +13200,18 @@ $LN1@InitPP:
 	ret	0
 $LN3@InitPP:
 
-; 310  : 	}
-; 311  : 
-; 312  : 	mPPTechniques[0]  = mPPEffect->GetTechniqueByName( "PPCopy" );
+; 449  : 	}
+; 450  : 
+; 451  : 	mPPTechniques[0]  = mPPEffect->GetTechniqueByName( "PPDMCopy" );
 
 	mov	eax, DWORD PTR [edi]
-	push	OFFSET ??_C@_06JLNCKOOC@PPCopy?$AA@
+	push	OFFSET ??_C@_08OLBKHOBK@PPDMCopy?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
 	mov	DWORD PTR [esi+2564], eax
 
-; 313  : 	mPPTechniques[1]  = mPPEffect->GetTechniqueByName( "PPTint" );
+; 452  : 	mPPTechniques[1]  = mPPEffect->GetTechniqueByName( "PPTint" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_06MPGPEKJL@PPTint?$AA@
@@ -9440,7 +13220,7 @@ $LN3@InitPP:
 	call	DWORD PTR [ecx+52]
 	mov	DWORD PTR [esi+2568], eax
 
-; 314  : 	mPPTechniques[2]  = mPPEffect->GetTechniqueByName( "PPShock" );
+; 453  : 	mPPTechniques[2]  = mPPEffect->GetTechniqueByName( "PPShock" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_07GAKLFMHC@PPShock?$AA@
@@ -9449,7 +13229,7 @@ $LN3@InitPP:
 	call	DWORD PTR [ecx+52]
 	mov	DWORD PTR [esi+2572], eax
 
-; 315  : 	mPPTechniques[3]  = mPPEffect->GetTechniqueByName( "PPBoxBlur3" );
+; 454  : 	mPPTechniques[3]  = mPPEffect->GetTechniqueByName( "PPBoxBlur3" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0L@JCFHKKCO@PPBoxBlur3?$AA@
@@ -9458,7 +13238,7 @@ $LN3@InitPP:
 	call	DWORD PTR [ecx+52]
 	mov	DWORD PTR [esi+2576], eax
 
-; 316  : 	mPPTechniques[4]  = mPPEffect->GetTechniqueByName( "PPBoxBlur5" );
+; 455  : 	mPPTechniques[4]  = mPPEffect->GetTechniqueByName( "PPBoxBlur5" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0L@MEANANKI@PPBoxBlur5?$AA@
@@ -9467,7 +13247,7 @@ $LN3@InitPP:
 	call	DWORD PTR [ecx+52]
 	mov	DWORD PTR [esi+2580], eax
 
-; 317  : 	mPPTechniques[5]  = mPPEffect->GetTechniqueByName( "PPBoxBlurV" );
+; 456  : 	mPPTechniques[5]  = mPPEffect->GetTechniqueByName( "PPBoxBlurV" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0L@IKNNDFMM@PPBoxBlurV?$AA@
@@ -9476,7 +13256,7 @@ $LN3@InitPP:
 	call	DWORD PTR [ecx+52]
 	mov	DWORD PTR [esi+2584], eax
 
-; 318  : 	mPPTechniques[6]  = mPPEffect->GetTechniqueByName( "PPDoubleVision" );
+; 457  : 	mPPTechniques[6]  = mPPEffect->GetTechniqueByName( "PPDoubleVision" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0P@PBCAEHNN@PPDoubleVision?$AA@
@@ -9485,7 +13265,7 @@ $LN3@InitPP:
 	call	DWORD PTR [ecx+52]
 	mov	DWORD PTR [esi+2588], eax
 
-; 319  : 	mPPTechniques[7]  = mPPEffect->GetTechniqueByName( "PPEdge" );
+; 458  : 	mPPTechniques[7]  = mPPEffect->GetTechniqueByName( "PPEdge" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_06DMINDEOL@PPEdge?$AA@
@@ -9494,7 +13274,7 @@ $LN3@InitPP:
 	call	DWORD PTR [ecx+52]
 	mov	DWORD PTR [esi+2592], eax
 
-; 320  : 	mPPTechniques[8]  = mPPEffect->GetTechniqueByName( "PPContrast" );
+; 459  : 	mPPTechniques[8]  = mPPEffect->GetTechniqueByName( "PPContrast" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0L@ONFAKJPH@PPContrast?$AA@
@@ -9503,7 +13283,7 @@ $LN3@InitPP:
 	call	DWORD PTR [ecx+52]
 	mov	DWORD PTR [esi+2596], eax
 
-; 321  : 	mPPTechniques[9]  = mPPEffect->GetTechniqueByName( "PPBlood" );
+; 460  : 	mPPTechniques[9]  = mPPEffect->GetTechniqueByName( "PPBlood" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_07NDCDMOCH@PPBlood?$AA@
@@ -9512,7 +13292,7 @@ $LN3@InitPP:
 	call	DWORD PTR [ecx+52]
 	mov	DWORD PTR [esi+2600], eax
 
-; 322  : 	mPPTechniques[10] = mPPEffect->GetTechniqueByName( "PPInvert" );
+; 461  : 	mPPTechniques[10] = mPPEffect->GetTechniqueByName( "PPInvert" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_08LLKDBFPD@PPInvert?$AA@
@@ -9521,7 +13301,7 @@ $LN3@InitPP:
 	call	DWORD PTR [ecx+52]
 	mov	DWORD PTR [esi+2604], eax
 
-; 323  : 	mPPTechniques[11] = mPPEffect->GetTechniqueByName( "PPSolariseA" );
+; 462  : 	mPPTechniques[11] = mPPEffect->GetTechniqueByName( "PPSolariseA" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0M@LHKPPOCI@PPSolariseA?$AA@
@@ -9530,7 +13310,7 @@ $LN3@InitPP:
 	call	DWORD PTR [ecx+52]
 	mov	DWORD PTR [esi+2608], eax
 
-; 324  : 	mPPTechniques[12] = mPPEffect->GetTechniqueByName( "PPSolariseB" );
+; 463  : 	mPPTechniques[12] = mPPEffect->GetTechniqueByName( "PPSolariseB" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0M@JMICKNOL@PPSolariseB?$AA@
@@ -9539,20 +13319,38 @@ $LN3@InitPP:
 	call	DWORD PTR [ecx+52]
 	mov	DWORD PTR [esi+2612], eax
 
-; 325  : 
-; 326  : 	mInitialTextureVar = mPPEffect->GetVariableByName( "InitialTexture" )->AsShaderResource();
+; 464  : 	mPPTechniques[13] = mPPEffect->GetTechniqueByName( "PPCell" );
+
+	mov	eax, DWORD PTR [edi]
+	push	OFFSET ??_C@_06NGOGPCIG@PPCell?$AA@
+	mov	ecx, DWORD PTR [eax]
+	push	eax
+	call	DWORD PTR [ecx+52]
+	mov	DWORD PTR [esi+2616], eax
+
+; 465  : 	mPPTechniques[14] = mPPEffect->GetTechniqueByName( "PPGaussian" );
+
+	mov	eax, DWORD PTR [edi]
+	push	OFFSET ??_C@_0L@IKLBJONP@PPGaussian?$AA@
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+52]
+	mov	DWORD PTR [esi+2620], eax
+
+; 466  : 
+; 467  : 	mInitialTextureVar = mPPEffect->GetVariableByName( "InitialTexture" )->AsShaderResource();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0P@CCPNLBHC@InitialTexture?$AA@
-	mov	ecx, DWORD PTR [eax]
 	push	eax
+	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+40]
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+56]
-	mov	DWORD PTR [esi+2940], eax
+	mov	DWORD PTR [esi+2948], eax
 
-; 327  : 	mPostProcessMapVar = mPPEffect->GetVariableByName( "BloodTexture" )->AsShaderResource();
+; 468  : 	mPostProcessMapVar = mPPEffect->GetVariableByName( "BloodTexture" )->AsShaderResource();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0N@BCJCHFBA@BloodTexture?$AA@
@@ -9562,10 +13360,22 @@ $LN3@InitPP:
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+56]
-	mov	DWORD PTR [esi+2956], eax
+	mov	DWORD PTR [esi+2964], eax
 
-; 328  : 
-; 329  : 	mdxPPTintColour = mPPEffect->GetVariableByName( "TintColour" )->AsVector();
+; 469  : 	mPPDepthMap        = mPPEffect->GetVariableByName( "DepthMap" )->AsShaderResource();
+
+	mov	eax, DWORD PTR [edi]
+	push	OFFSET ??_C@_08NIEOOMPE@DepthMap?$AA@
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+40]
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+56]
+	mov	DWORD PTR [esi+3456], eax
+
+; 470  : 
+; 471  : 	mdxPPTintColour = mPPEffect->GetVariableByName( "TintColour" )->AsVector();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0L@DBKDBEOO@TintColour?$AA@
@@ -9575,10 +13385,10 @@ $LN3@InitPP:
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+44]
-	mov	DWORD PTR [esi+2988], eax
+	mov	DWORD PTR [esi+2996], eax
 
-; 330  : 
-; 331  : 	mdxPPShock = mPPEffect->GetVariableByName( "Shock" )->AsScalar();
+; 472  : 
+; 473  : 	mdxPPShock = mPPEffect->GetVariableByName( "Shock" )->AsScalar();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_05MCLIDIMJ@Shock?$AA@
@@ -9588,10 +13398,10 @@ $LN3@InitPP:
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+40]
-	mov	DWORD PTR [esi+2980], eax
+	mov	DWORD PTR [esi+2988], eax
 
-; 332  : 
-; 333  : 	mPPEffect->GetVariableByName( "PixelX" )->AsScalar()->SetFloat(1.0f/mViewportWidth);
+; 474  : 
+; 475  : 	mPPEffect->GetVariableByName( "PixelX" )->AsScalar()->SetFloat(1.0f/mViewportWidth);
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_06JIEINOID@PixelX?$AA@
@@ -9611,7 +13421,7 @@ $LN3@InitPP:
 	push	eax
 	call	DWORD PTR [ecx+100]
 
-; 334  : 	mPPEffect->GetVariableByName( "PixelY" )->AsScalar()->SetFloat(1.0f/mViewportHeight);
+; 476  : 	mPPEffect->GetVariableByName( "PixelY" )->AsScalar()->SetFloat(1.0f/mViewportHeight);
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_06IBFDOPMC@PixelY?$AA@
@@ -9622,17 +13432,17 @@ $LN3@InitPP:
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+40]
 	movd	xmm0, DWORD PTR ?mViewportHeight@CScene@@0HA ; CScene::mViewportHeight
+	mov	ecx, DWORD PTR [eax]
 	movss	xmm1, DWORD PTR __real@3f800000
 	cvtdq2ps xmm0, xmm0
-	mov	ecx, DWORD PTR [eax]
 	push	ecx
 	divss	xmm1, xmm0
 	movss	DWORD PTR [esp], xmm1
 	push	eax
 	call	DWORD PTR [ecx+100]
 
-; 335  : 
-; 336  : 	mdxBlurRadius = mPPEffect->GetVariableByName( "BlurRange" )->AsScalar();
+; 477  : 
+; 478  : 	mdxBlurRadius = mPPEffect->GetVariableByName( "BlurRange" )->AsScalar();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_09MINFFJCE@BlurRange?$AA@
@@ -9642,23 +13452,23 @@ $LN3@InitPP:
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+40]
-	mov	DWORD PTR [esi+3016], eax
+	mov	DWORD PTR [esi+3028], eax
 
-; 337  : 
-; 338  : 	mdxDoubleVisionRadius = mPPEffect->GetVariableByName( "DVRange" )->AsScalar();
+; 479  : 
+; 480  : 	mdxDoubleVisionRadius = mPPEffect->GetVariableByName( "DVRange" )->AsScalar();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_07BMPAAFHK@DVRange?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+40]
-	mov	ecx, DWORD PTR [eax]
 	push	eax
+	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+40]
-	mov	DWORD PTR [esi+3024], eax
+	mov	DWORD PTR [esi+3296], eax
 
-; 339  : 
-; 340  : 	mdxContrastFactor = mPPEffect->GetVariableByName( "Contrast" )->AsScalar();
+; 481  : 
+; 482  : 	mdxContrastFactor = mPPEffect->GetVariableByName( "Contrast" )->AsScalar();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_08KBHEFHNJ@Contrast?$AA@
@@ -9668,10 +13478,10 @@ $LN3@InitPP:
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+40]
-	mov	DWORD PTR [esi+3036], eax
+	mov	DWORD PTR [esi+3308], eax
 
-; 341  : 
-; 342  : 	mdxBlood = mPPEffect->GetVariableByName( "Blood" )->AsScalar();
+; 483  : 
+; 484  : 	mdxBlood = mPPEffect->GetVariableByName( "Blood" )->AsScalar();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_05HBDAKKJM@Blood?$AA@
@@ -9681,10 +13491,10 @@ $LN3@InitPP:
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+40]
-	mov	DWORD PTR [esi+2948], eax
+	mov	DWORD PTR [esi+2956], eax
 
-; 343  : 
-; 344  : 	mdxSolariseFloat = mPPEffect->GetVariableByName("SolariseThreshold")->AsScalar();
+; 485  : 
+; 486  : 	mdxSolariseFloat = mPPEffect->GetVariableByName("SolariseThreshold")->AsScalar();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BC@KBOPGDGH@SolariseThreshold?$AA@
@@ -9694,15 +13504,28 @@ $LN3@InitPP:
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+40]
+	mov	DWORD PTR [esi+3356], eax
 
-; 345  : 
-; 346  : 	return true;
-; 347  : 
-; 348  : }
+; 487  : 
+; 488  : 	mdxBlurWeights = mPPEffect->GetVariableByName("GaussianFilter")->AsVector();
+
+	mov	eax, DWORD PTR [edi]
+	push	OFFSET ??_C@_0P@LLOKOHHM@GaussianFilter?$AA@
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+40]
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+44]
+
+; 489  : 
+; 490  : 	return true;
+; 491  : 
+; 492  : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	pop	ebx
-	mov	DWORD PTR [esi+3080], eax
+	mov	DWORD PTR [esi+3032], eax
 	xor	ecx, ebp
 	pop	edi
 	mov	al, 1
@@ -9763,7 +13586,7 @@ __$EHRec$ = -12						; size = 12
 ?InitScene@CScene@@QAE_NXZ PROC				; CScene::InitScene, COMDAT
 ; _this$ = ecx
 
-; 56   : {
+; 64   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -9781,7 +13604,7 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR fs:0, eax
 	mov	esi, ecx
 
-; 60   : 	Camera = new CCamera();
+; 68   : 	Camera = new CCamera();
 
 	push	304					; 00000130H
 	call	??2@YAPAXI@Z				; operator new
@@ -9800,7 +13623,7 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR $T4[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 60   : 	Camera = new CCamera();
+; 68   : 	Camera = new CCamera();
 
 	mov	eax, DWORD PTR $T4[ebp+8]
 	mov	ecx, esp
@@ -9812,7 +13635,7 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR $T11[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 60   : 	Camera = new CCamera();
+; 68   : 	Camera = new CCamera();
 
 	unpcklps xmm0, xmm1
 	mov	DWORD PTR [esp+20], 1176256512		; 461c4000H
@@ -9875,7 +13698,7 @@ $LN23@InitScene:
 	mov	DWORD PTR [ecx+16], eax
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 62   : 	Camera->SetRotation( D3DXVECTOR3(ToRadians(13.0f), ToRadians(18.0f), 0.0f) ); // ToRadians is a new helper function to convert degrees to radians
+; 70   : 	Camera->SetRotation( D3DXVECTOR3(ToRadians(13.0f), ToRadians(18.0f), 0.0f) ); // ToRadians is a new helper function to convert degrees to radians
 
 	mov	ecx, DWORD PTR [esi+4]
 ; File c:\users\simon\documents\github\post-processing\camera.h
@@ -9901,11 +13724,11 @@ $LN23@InitScene:
 	mov	DWORD PTR [ecx+28], eax
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 63   : 	Camera->SetNearClip( 1.0f );
+; 71   : 	Camera->SetNearClip( 1.0f );
 
 	mov	eax, DWORD PTR [esi+4]
 
-; 66   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"StoneDiffuseSpecular.dds",		NULL, NULL, &mpMaps[0],  NULL ) )) return false;
+; 74   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"StoneDiffuseSpecular.dds",		NULL, NULL, &mpMaps[0],  NULL ) )) return false;
 
 	push	0
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -9917,7 +13740,7 @@ $LN23@InitScene:
 	mov	DWORD PTR [eax+36], 1065353216		; 3f800000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 66   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"StoneDiffuseSpecular.dds",		NULL, NULL, &mpMaps[0],  NULL ) )) return false;
+; 74   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"StoneDiffuseSpecular.dds",		NULL, NULL, &mpMaps[0],  NULL ) )) return false;
 
 	lea	eax, DWORD PTR [esi+936]
 	push	eax
@@ -9933,7 +13756,7 @@ $LN59@InitScene:
 	jmp	$LN1@InitScene
 $LN19@InitScene:
 
-; 67   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"WoodDiffuseSpecular.dds",		NULL, NULL, &mpMaps[1],  NULL ) )) return false;
+; 75   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"WoodDiffuseSpecular.dds",		NULL, NULL, &mpMaps[1],  NULL ) )) return false;
 
 	push	0
 	lea	eax, DWORD PTR [esi+940]
@@ -9946,7 +13769,7 @@ $LN19@InitScene:
 	test	eax, eax
 	js	SHORT $LN59@InitScene
 
-; 68   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Moon.jpg",						NULL, NULL, &mpMaps[2],  NULL ) )) return false; 
+; 76   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Moon.jpg",						NULL, NULL, &mpMaps[2],  NULL ) )) return false; 
 
 	push	0
 	lea	eax, DWORD PTR [esi+944]
@@ -9959,7 +13782,7 @@ $LN19@InitScene:
 	test	eax, eax
 	js	SHORT $LN59@InitScene
 
-; 69   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"WallDiffuseSpecular.dds",		NULL, NULL, &mpMaps[3],  NULL ) )) return false;
+; 77   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"WallDiffuseSpecular.dds",		NULL, NULL, &mpMaps[3],  NULL ) )) return false;
 
 	push	0
 	lea	eax, DWORD PTR [esi+948]
@@ -9972,7 +13795,7 @@ $LN19@InitScene:
 	test	eax, eax
 	js	SHORT $LN59@InitScene
 
-; 70   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"WallNormalDepth.dds",			NULL, NULL, &mpMaps[4],  NULL ) )) return false;
+; 78   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"WallNormalDepth.dds",			NULL, NULL, &mpMaps[4],  NULL ) )) return false;
 
 	push	0
 	lea	eax, DWORD PTR [esi+952]
@@ -9985,7 +13808,7 @@ $LN19@InitScene:
 	test	eax, eax
 	js	SHORT $LN59@InitScene
 
-; 71   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"MetalDiffuseSpecular.dds",		NULL, NULL, &mpMaps[5],  NULL ) )) return false;
+; 79   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"MetalDiffuseSpecular.dds",		NULL, NULL, &mpMaps[5],  NULL ) )) return false;
 
 	push	0
 	lea	eax, DWORD PTR [esi+956]
@@ -9998,7 +13821,7 @@ $LN19@InitScene:
 	test	eax, eax
 	js	$LN59@InitScene
 
-; 72   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"PatternDiffuseSpecular.dds",		NULL, NULL, &mpMaps[6],  NULL ) )) return false;
+; 80   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"PatternDiffuseSpecular.dds",		NULL, NULL, &mpMaps[6],  NULL ) )) return false;
 
 	push	0
 	lea	eax, DWORD PTR [esi+960]
@@ -10011,7 +13834,7 @@ $LN19@InitScene:
 	test	eax, eax
 	js	$LN59@InitScene
 
-; 73   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"PatternNormalDepth.dds",			NULL, NULL, &mpMaps[7],  NULL ) )) return false;
+; 81   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"PatternNormalDepth.dds",			NULL, NULL, &mpMaps[7],  NULL ) )) return false;
 
 	push	0
 	lea	eax, DWORD PTR [esi+964]
@@ -10024,7 +13847,7 @@ $LN19@InitScene:
 	test	eax, eax
 	js	$LN59@InitScene
 
-; 74   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Glass.jpg",						NULL, NULL, &mpMaps[8],  NULL ) )) return false;
+; 82   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Glass.jpg",						NULL, NULL, &mpMaps[8],  NULL ) )) return false;
 
 	push	0
 	lea	eax, DWORD PTR [esi+968]
@@ -10037,7 +13860,7 @@ $LN19@InitScene:
 	test	eax, eax
 	js	$LN59@InitScene
 
-; 75   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Troll1DiffuseSpecular.dds",		NULL, NULL, &mpMaps[9],  NULL ) )) return false;
+; 83   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Troll1DiffuseSpecular.dds",		NULL, NULL, &mpMaps[9],  NULL ) )) return false;
 
 	push	0
 	lea	eax, DWORD PTR [esi+972]
@@ -10050,7 +13873,7 @@ $LN19@InitScene:
 	test	eax, eax
 	js	$LN59@InitScene
 
-; 76   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Troll2DiffuseSpecular.dds",		NULL, NULL, &mpMaps[10], NULL ) )) return false;
+; 84   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Troll2DiffuseSpecular.dds",		NULL, NULL, &mpMaps[10], NULL ) )) return false;
 
 	push	0
 	lea	eax, DWORD PTR [esi+976]
@@ -10063,7 +13886,7 @@ $LN19@InitScene:
 	test	eax, eax
 	js	$LN59@InitScene
 
-; 77   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Troll3DiffuseSpecular.dds",		NULL, NULL, &mpMaps[11], NULL ) )) return false;
+; 85   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Troll3DiffuseSpecular.dds",		NULL, NULL, &mpMaps[11], NULL ) )) return false;
 
 	push	0
 	lea	eax, DWORD PTR [esi+980]
@@ -10076,7 +13899,7 @@ $LN19@InitScene:
 	test	eax, eax
 	js	$LN59@InitScene
 
-; 78   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Troll4DiffuseSpecular.dds",		NULL, NULL, &mpMaps[12], NULL ) )) return false;
+; 86   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Troll4DiffuseSpecular.dds",		NULL, NULL, &mpMaps[12], NULL ) )) return false;
 
 	push	0
 	lea	eax, DWORD PTR [esi+984]
@@ -10089,7 +13912,7 @@ $LN19@InitScene:
 	test	eax, eax
 	js	$LN59@InitScene
 
-; 79   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"BrainDiffuseSpecular.dds",		NULL, NULL, &mpMaps[13], NULL ) )) return false;
+; 87   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"BrainDiffuseSpecular.dds",		NULL, NULL, &mpMaps[13], NULL ) )) return false;
 
 	push	0
 	lea	eax, DWORD PTR [esi+988]
@@ -10102,7 +13925,7 @@ $LN19@InitScene:
 	test	eax, eax
 	js	$LN59@InitScene
 
-; 80   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"BrainNormalDepth.dds",			NULL, NULL, &mpMaps[14], NULL ) )) return false;
+; 88   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"BrainNormalDepth.dds",			NULL, NULL, &mpMaps[14], NULL ) )) return false;
 
 	push	0
 	lea	eax, DWORD PTR [esi+992]
@@ -10115,7 +13938,7 @@ $LN19@InitScene:
 	test	eax, eax
 	js	$LN59@InitScene
 
-; 81   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Blood.jpg",                      NULL, NULL, &mpMaps[15], NULL ) )) return false;
+; 89   : 	if (FAILED( D3DX10CreateShaderResourceViewFromFile( mpd3dDevice, L"Blood.jpg",                      NULL, NULL, &mpMaps[15], NULL ) )) return false;
 
 	push	0
 	lea	eax, DWORD PTR [esi+996]
@@ -10128,7 +13951,7 @@ $LN19@InitScene:
 	test	eax, eax
 	js	$LN59@InitScene
 
-; 85   : 	mpObjects[0] = new CRenderObject("Mirror.x",	D3DXVECTOR3( -20, 30, 0 ),		D3DXVECTOR3(0.2f, 0.2f, 0.3f), mTechniquesMirror[18], mTechniquesMirror[19], NULL, NULL, false, false, false);
+; 93   : 	mpObjects[0] = new CRenderObject("Mirror.x",	D3DXVECTOR3( -20, 30, 0 ),		D3DXVECTOR3(0.2f, 0.2f, 0.3f), mTechniquesMirror[18], mTechniquesMirror[19], NULL, NULL, false, false, false);
 
 	push	72					; 00000048H
 	mov	DWORD PTR [esi+2536], 16		; 00000010H
@@ -10146,7 +13969,7 @@ $LN19@InitScene:
 	movss	xmm1, DWORD PTR __real@3e4ccccd
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 85   : 	mpObjects[0] = new CRenderObject("Mirror.x",	D3DXVECTOR3( -20, 30, 0 ),		D3DXVECTOR3(0.2f, 0.2f, 0.3f), mTechniquesMirror[18], mTechniquesMirror[19], NULL, NULL, false, false, false);
+; 93   : 	mpObjects[0] = new CRenderObject("Mirror.x",	D3DXVECTOR3( -20, 30, 0 ),		D3DXVECTOR3(0.2f, 0.2f, 0.3f), mTechniquesMirror[18], mTechniquesMirror[19], NULL, NULL, false, false, false);
 
 	push	0
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -10160,15 +13983,15 @@ $LN19@InitScene:
 	movss	xmm0, DWORD PTR __real@41f00000
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 85   : 	mpObjects[0] = new CRenderObject("Mirror.x",	D3DXVECTOR3( -20, 30, 0 ),		D3DXVECTOR3(0.2f, 0.2f, 0.3f), mTechniquesMirror[18], mTechniquesMirror[19], NULL, NULL, false, false, false);
+; 93   : 	mpObjects[0] = new CRenderObject("Mirror.x",	D3DXVECTOR3( -20, 30, 0 ),		D3DXVECTOR3(0.2f, 0.2f, 0.3f), mTechniquesMirror[18], mTechniquesMirror[19], NULL, NULL, false, false, false);
 
 	push	0
 	push	0
 	push	0
 	push	0
-	push	DWORD PTR [esi+2812]
+	push	DWORD PTR [esi+2820]
 	unpcklps xmm1, xmm1
-	push	DWORD PTR [esi+2808]
+	push	DWORD PTR [esi+2816]
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
 
 ; 323  :     z = fz;
@@ -10176,7 +13999,7 @@ $LN19@InitScene:
 	mov	DWORD PTR $T8[ebp+8], 1050253722	; 3e99999aH
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 85   : 	mpObjects[0] = new CRenderObject("Mirror.x",	D3DXVECTOR3( -20, 30, 0 ),		D3DXVECTOR3(0.2f, 0.2f, 0.3f), mTechniquesMirror[18], mTechniquesMirror[19], NULL, NULL, false, false, false);
+; 93   : 	mpObjects[0] = new CRenderObject("Mirror.x",	D3DXVECTOR3( -20, 30, 0 ),		D3DXVECTOR3(0.2f, 0.2f, 0.3f), mTechniquesMirror[18], mTechniquesMirror[19], NULL, NULL, false, false, false);
 
 	mov	eax, DWORD PTR $T8[ebp+8]
 	sub	esp, 12					; 0000000cH
@@ -10190,7 +14013,7 @@ $LN19@InitScene:
 	mov	DWORD PTR $T3[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 85   : 	mpObjects[0] = new CRenderObject("Mirror.x",	D3DXVECTOR3( -20, 30, 0 ),		D3DXVECTOR3(0.2f, 0.2f, 0.3f), mTechniquesMirror[18], mTechniquesMirror[19], NULL, NULL, false, false, false);
+; 93   : 	mpObjects[0] = new CRenderObject("Mirror.x",	D3DXVECTOR3( -20, 30, 0 ),		D3DXVECTOR3(0.2f, 0.2f, 0.3f), mTechniquesMirror[18], mTechniquesMirror[19], NULL, NULL, false, false, false);
 
 	movq	QWORD PTR [ecx], xmm1
 	mov	DWORD PTR [ecx+8], eax
@@ -10237,39 +14060,39 @@ $LN25@InitScene:
 	mov	ecx, DWORD PTR [esi+8]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 85   : 	mpObjects[0] = new CRenderObject("Mirror.x",	D3DXVECTOR3( -20, 30, 0 ),		D3DXVECTOR3(0.2f, 0.2f, 0.3f), mTechniquesMirror[18], mTechniquesMirror[19], NULL, NULL, false, false, false);
+; 93   : 	mpObjects[0] = new CRenderObject("Mirror.x",	D3DXVECTOR3( -20, 30, 0 ),		D3DXVECTOR3(0.2f, 0.2f, 0.3f), mTechniquesMirror[18], mTechniquesMirror[19], NULL, NULL, false, false, false);
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 
-; 86   : 	mpObjects[0]->GetModel()->SetRotation( D3DXVECTOR3(1, 2, 0)  );
-; 87   : 	mpObjects[0]->GetModel()->UpdateMatrix();
+; 94   : 	mpObjects[0]->GetModel()->SetRotation( D3DXVECTOR3(1, 2, 0)  );
+; 95   : 	mpObjects[0]->GetModel()->UpdateMatrix();
 
 	mov	ecx, DWORD PTR [ecx]
 	call	?UpdateMatrix@CModel@@QAEXXZ		; CModel::UpdateMatrix
 
-; 88   : 	miNumObjects++;
+; 96   : 	miNumObjects++;
 
 	inc	DWORD PTR [esi+808]
 
-; 89   : 
-; 90   : 	//Load items for basic pass
-; 91   : 	if(! BasicItems() ) return false;
+; 97   : 
+; 98   : 	//Load items for basic pass
+; 99   : 	if(! BasicItems() ) return false;
 
 	mov	ecx, esi
 	call	?BasicItems@CScene@@AAE_NXZ		; CScene::BasicItems
 	test	al, al
 	je	$LN59@InitScene
 
-; 92   : 	//Load test objects
-; 93   : 	if(! TestItems() ) return false;
+; 100  : 	//Load test objects
+; 101  : 	if(! TestItems() ) return false;
 
 	mov	ecx, esi
 	call	?TestItems@CScene@@AAE_NXZ		; CScene::TestItems
 	test	al, al
 	je	$LN59@InitScene
 
-; 94   : 	//Load diarama
-; 95   : 	if(! SceneItems() ) return false;
+; 102  : 	//Load diarama
+; 103  : 	if(! SceneItems() ) return false;
 
 	mov	ecx, esi
 	call	?SceneItems@CScene@@AAE_NXZ		; CScene::SceneItems
@@ -10277,10 +14100,10 @@ $LN25@InitScene:
 	setne	al
 $LN1@InitScene:
 
-; 96   : 
-; 97   : 	
-; 98   : 	return true;
-; 99   : }
+; 104  : 
+; 105  : 	
+; 106  : 	return true;
+; 107  : }
 
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, ecx
@@ -10334,7 +14157,7 @@ __$ArrayPad$ = -4					; size = 4
 ?LoadEffectFile@CScene@@QAE_NXZ PROC			; CScene::LoadEffectFile, COMDAT
 ; _this$ = ecx
 
-; 1144 : {
+; 1345 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -10345,11 +14168,11 @@ __$ArrayPad$ = -4					; size = 4
 	push	esi
 	push	edi
 
-; 1145 : 	ID3D10Blob* pErrors; // This strangely typed variable collects any errors when compiling the effect file
-; 1146 : 	DWORD dwShaderFlags = D3D10_SHADER_ENABLE_STRICTNESS; // These "flags" are used to set the compiler options
-; 1147 : 
-; 1148 : 	// Load and compile the effect file
-; 1149 : 	HRESULT hr = D3DX10CreateEffectFromFile( L"GraphicsAssign1.fx", NULL, NULL, "fx_4_0", dwShaderFlags, 0, mpd3dDevice, NULL, NULL, &Effect, &pErrors, NULL );
+; 1346 : 	ID3D10Blob* pErrors; // This strangely typed variable collects any errors when compiling the effect file
+; 1347 : 	DWORD dwShaderFlags = D3D10_SHADER_ENABLE_STRICTNESS; // These "flags" are used to set the compiler options
+; 1348 : 
+; 1349 : 	// Load and compile the effect file
+; 1350 : 	HRESULT hr = D3DX10CreateEffectFromFile( L"GraphicsAssign1.fx", NULL, NULL, "fx_4_0", dwShaderFlags, 0, mpd3dDevice, NULL, NULL, &Effect, &pErrors, NULL );
 
 	push	0
 	mov	esi, ecx
@@ -10368,12 +14191,12 @@ __$ArrayPad$ = -4					; size = 4
 	push	OFFSET ??_C@_1CG@MCKIKNIO@?$AAG?$AAr?$AAa?$AAp?$AAh?$AAi?$AAc?$AAs?$AAA?$AAs?$AAs?$AAi?$AAg?$AAn?$AA1?$AA?4?$AAf?$AAx?$AA?$AA@
 	call	_D3DX10CreateEffectFromFileW@48
 
-; 1150 : 	if( FAILED( hr ) )
+; 1351 : 	if( FAILED( hr ) )
 
 	test	eax, eax
 	jns	$LN3@LoadEffect
 
-; 1152 : 		if (pErrors != 0)  MessageBox( NULL, CA2CT(reinterpret_cast<char*>(pErrors->GetBufferPointer())), L"Error", MB_OK ); // Compiler error: display error message
+; 1353 : 		if (pErrors != 0)  MessageBox( NULL, CA2CT(reinterpret_cast<char*>(pErrors->GetBufferPointer())), L"Error", MB_OK ); // Compiler error: display error message
 
 	mov	ecx, DWORD PTR _pErrors$[ebp]
 	test	ecx, ecx
@@ -10396,7 +14219,7 @@ __$ArrayPad$ = -4					; size = 4
 	call	?Init@?$CA2WEX@$0IA@@ATL@@AAEXPBDI@Z	; ATL::CA2WEX<128>::Init
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1152 : 		if (pErrors != 0)  MessageBox( NULL, CA2CT(reinterpret_cast<char*>(pErrors->GetBufferPointer())), L"Error", MB_OK ); // Compiler error: display error message
+; 1353 : 		if (pErrors != 0)  MessageBox( NULL, CA2CT(reinterpret_cast<char*>(pErrors->GetBufferPointer())), L"Error", MB_OK ); // Compiler error: display error message
 
 	push	0
 	push	OFFSET ??_C@_1M@ILHOPKA@?$AAE?$AAr?$AAr?$AAo?$AAr?$AA?$AA@
@@ -10420,15 +14243,15 @@ __$ArrayPad$ = -4					; size = 4
 	add	esp, 4
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1154 : 		return false;
+; 1355 : 		return false;
 
 	xor	al, al
 	pop	edi
 	pop	esi
 
-; 1230 : 
-; 1231 : 	return true;
-; 1232 : }
+; 1431 : 
+; 1432 : 	return true;
+; 1433 : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	xor	ecx, ebp
@@ -10438,7 +14261,7 @@ __$ArrayPad$ = -4					; size = 4
 	ret	0
 $LN2@LoadEffect:
 
-; 1153 : 		else               MessageBox( NULL, L"Error loading FX file. Ensure your FX file is in the same folder as this executable.", L"Error", MB_OK );  // No error message - probably file not found
+; 1354 : 		else               MessageBox( NULL, L"Error loading FX file. Ensure your FX file is in the same folder as this executable.", L"Error", MB_OK );  // No error message - probably file not found
 
 	push	0
 	push	OFFSET ??_C@_1M@ILHOPKA@?$AAE?$AAr?$AAr?$AAo?$AAr?$AA?$AA@
@@ -10447,15 +14270,15 @@ $LN2@LoadEffect:
 	call	DWORD PTR __imp__MessageBoxW@16
 $LN1@LoadEffect:
 
-; 1154 : 		return false;
+; 1355 : 		return false;
 
 	pop	edi
 	xor	al, al
 	pop	esi
 
-; 1230 : 
-; 1231 : 	return true;
-; 1232 : }
+; 1431 : 
+; 1432 : 	return true;
+; 1433 : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	xor	ecx, ebp
@@ -10465,377 +14288,377 @@ $LN1@LoadEffect:
 	ret	0
 $LN3@LoadEffect:
 
-; 1155 : 	}
-; 1156 : 
-; 1157 : 	// Now we can select techniques from the compiled effect file
-; 1158 : 	// Regular techniques for the main scene
-; 1159 : 	mTechniques[ 0]	= Effect->GetTechniqueByName( "tPlainColour" );
+; 1356 : 	}
+; 1357 : 
+; 1358 : 	// Now we can select techniques from the compiled effect file
+; 1359 : 	// Regular techniques for the main scene
+; 1360 : 	mTechniques[ 0]	= Effect->GetTechniqueByName( "tPlainColour" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0N@BLACAFBJ@tPlainColour?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2616], eax
+	mov	DWORD PTR [esi+2624], eax
 
-; 1160 : 	mTechniques[ 1]	= Effect->GetTechniqueByName( "tPlainTexture" );
+; 1361 : 	mTechniques[ 1]	= Effect->GetTechniqueByName( "tPlainTexture" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0O@CBIDLEEF@tPlainTexture?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2620], eax
+	mov	DWORD PTR [esi+2628], eax
 
-; 1161 : 	mTechniques[ 2]	= Effect->GetTechniqueByName( "tColourChangeTexture" );
+; 1362 : 	mTechniques[ 2]	= Effect->GetTechniqueByName( "tColourChangeTexture" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BF@HOFAMMJK@tColourChangeTexture?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2624], eax
+	mov	DWORD PTR [esi+2632], eax
 
-; 1162 : 	mTechniques[ 3]	= Effect->GetTechniqueByName( "tLitTexture" );
+; 1363 : 	mTechniques[ 3]	= Effect->GetTechniqueByName( "tLitTexture" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0M@PFGJBPP@tLitTexture?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2628], eax
+	mov	DWORD PTR [esi+2636], eax
 
-; 1163 : 	mTechniques[ 4]	= Effect->GetTechniqueByName( "t4LitTexture" );
+; 1364 : 	mTechniques[ 4]	= Effect->GetTechniqueByName( "t4LitTexture" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0N@DBNJLAPA@t4LitTexture?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2632], eax
+	mov	DWORD PTR [esi+2640], eax
 
-; 1164 : 	mTechniques[ 5] = Effect->GetTechniqueByName( "t4LitAttenTexture" );
+; 1365 : 	mTechniques[ 5] = Effect->GetTechniqueByName( "t4LitAttenTexture" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BC@EBBNGCN@t4LitAttenTexture?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2636], eax
+	mov	DWORD PTR [esi+2644], eax
 
-; 1165 : 	mTechniques[ 6]	= Effect->GetTechniqueByName( "t4LitSpecularMap" );
+; 1366 : 	mTechniques[ 6]	= Effect->GetTechniqueByName( "t4LitSpecularMap" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BB@NDOCHMBG@t4LitSpecularMap?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2640], eax
+	mov	DWORD PTR [esi+2648], eax
 
-; 1166 : 	mTechniques[ 7]	= Effect->GetTechniqueByName( "tParallaxMap" );
+; 1367 : 	mTechniques[ 7]	= Effect->GetTechniqueByName( "tParallaxMap" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0N@FAEPMAEM@tParallaxMap?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2644], eax
+	mov	DWORD PTR [esi+2652], eax
 
-; 1167 : 	mTechniques[ 8]	= Effect->GetTechniqueByName( "tJelly" );
+; 1368 : 	mTechniques[ 8]	= Effect->GetTechniqueByName( "tJelly" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_06ELGFLNMO@tJelly?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2648], eax
+	mov	DWORD PTR [esi+2656], eax
 
-; 1168 : 	mTechniques[ 9]	= Effect->GetTechniqueByName( "tCellShading" );
+; 1369 : 	mTechniques[ 9]	= Effect->GetTechniqueByName( "tCellShading" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0N@HPAFDOEN@tCellShading?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2652], eax
+	mov	DWORD PTR [esi+2660], eax
 
-; 1169 : 	mTechniques[10] = Effect->GetTechniqueByName( "tCellShadingWrong" );
+; 1370 : 	mTechniques[10] = Effect->GetTechniqueByName( "tCellShadingWrong" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BC@IHNCMDEH@tCellShadingWrong?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2656], eax
+	mov	DWORD PTR [esi+2664], eax
 
-; 1170 : 	mTechniques[11] = Effect->GetTechniqueByName( "tHalo" );
+; 1371 : 	mTechniques[11] = Effect->GetTechniqueByName( "tHalo" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_05JGDPNHEJ@tHalo?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2660], eax
+	mov	DWORD PTR [esi+2668], eax
 
-; 1171 : 	mTechniques[12] = Effect->GetTechniqueByName( "tSpaceHaloPara" );
+; 1372 : 	mTechniques[12] = Effect->GetTechniqueByName( "tSpaceHaloPara" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0P@FEDIONCO@tSpaceHaloPara?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2664], eax
+	mov	DWORD PTR [esi+2672], eax
 
-; 1172 : 	mTechniques[13] = Effect->GetTechniqueByName( "tSpaceOutlinePara" );
+; 1373 : 	mTechniques[13] = Effect->GetTechniqueByName( "tSpaceOutlinePara" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BC@NABDBAIK@tSpaceOutlinePara?$AA@
 	mov	ecx, DWORD PTR [eax]
 	push	eax
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2668], eax
+	mov	DWORD PTR [esi+2676], eax
 
-; 1173 : 	mTechniques[14] = Effect->GetTechniqueByName( "tLitGlass" );
+; 1374 : 	mTechniques[14] = Effect->GetTechniqueByName( "tLitGlass" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_09JDFCMBBC@tLitGlass?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2672], eax
+	mov	DWORD PTR [esi+2680], eax
 
-; 1174 : 	mTechniques[15] = Effect->GetTechniqueByName( "tSpaceHalo" );
+; 1375 : 	mTechniques[15] = Effect->GetTechniqueByName( "tSpaceHalo" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0L@MOJEDPIK@tSpaceHalo?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2676], eax
+	mov	DWORD PTR [esi+2684], eax
 
-; 1175 : 	mTechniques[16] = Effect->GetTechniqueByName( "tSpaceOutline" );
+; 1376 : 	mTechniques[16] = Effect->GetTechniqueByName( "tSpaceOutline" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0O@GOICGJFK@tSpaceOutline?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2680], eax
+	mov	DWORD PTR [esi+2688], eax
 
-; 1176 : 	mTechniques[17] = Effect->GetTechniqueByName( "tTextureMorph" );
+; 1377 : 	mTechniques[17] = Effect->GetTechniqueByName( "tTextureMorph" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0O@CIOABDO@tTextureMorph?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2684], eax
+	mov	DWORD PTR [esi+2692], eax
 
-; 1177 : 	mTechniques[18] = Effect->GetTechniqueByName( "MirrorClear" );		//added to both just to keep the enum consistant.
+; 1378 : 	mTechniques[18] = Effect->GetTechniqueByName( "MirrorClear" );		//added to both just to keep the enum consistant.
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0M@NCEALFAM@MirrorClear?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2688], eax
+	mov	DWORD PTR [esi+2696], eax
 
-; 1178 : 	mTechniques[19] = Effect->GetTechniqueByName( "MirrorSurface" );	
+; 1379 : 	mTechniques[19] = Effect->GetTechniqueByName( "MirrorSurface" );	
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0O@CFAHMOKA@MirrorSurface?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2692], eax
+	mov	DWORD PTR [esi+2700], eax
 
-; 1179 : 	miNumTechniques = 20;
-; 1180 : 
-; 1181 : 	// Techniques for the mirrored objects
-; 1182 : 	mTechniquesMirror[ 0] = Effect->GetTechniqueByName( "tPlainColourMirror" );
+; 1380 : 	miNumTechniques = 20;
+; 1381 : 
+; 1382 : 	// Techniques for the mirrored objects
+; 1383 : 	mTechniquesMirror[ 0] = Effect->GetTechniqueByName( "tPlainColourMirror" );
 
 	mov	eax, DWORD PTR [edi]
-	mov	DWORD PTR [esi+2856], 20		; 00000014H
+	mov	DWORD PTR [esi+2864], 20		; 00000014H
 	push	OFFSET ??_C@_0BD@EAMCFOMD@tPlainColourMirror?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2736], eax
+	mov	DWORD PTR [esi+2744], eax
 
-; 1183 : 	mTechniquesMirror[ 1] = Effect->GetTechniqueByName( "tPlainTextureMirror" );
+; 1384 : 	mTechniquesMirror[ 1] = Effect->GetTechniqueByName( "tPlainTextureMirror" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BE@GKDAAGPD@tPlainTextureMirror?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2740], eax
+	mov	DWORD PTR [esi+2748], eax
 
-; 1184 : 	mTechniquesMirror[ 2] = Effect->GetTechniqueByName( "tColourChangeTextureMirror" );
+; 1385 : 	mTechniquesMirror[ 2] = Effect->GetTechniqueByName( "tColourChangeTextureMirror" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BL@BDPLHMPN@tColourChangeTextureMirror?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2744], eax
+	mov	DWORD PTR [esi+2752], eax
 
-; 1185 : 	mTechniquesMirror[ 3] = Effect->GetTechniqueByName( "tLitTextureMirror" );
+; 1386 : 	mTechniquesMirror[ 3] = Effect->GetTechniqueByName( "tLitTextureMirror" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BC@PLBJLENF@tLitTextureMirror?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2748], eax
+	mov	DWORD PTR [esi+2756], eax
 
-; 1186 : 	mTechniquesMirror[ 4] = Effect->GetTechniqueByName( "t4LitTextureMirror" );
+; 1387 : 	mTechniquesMirror[ 4] = Effect->GetTechniqueByName( "t4LitTextureMirror" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BD@GNCBGOED@t4LitTextureMirror?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2752], eax
+	mov	DWORD PTR [esi+2760], eax
 
-; 1187 : 	mTechniquesMirror[ 5] = Effect->GetTechniqueByName( "t4LitAttenTextureMirror" );
+; 1388 : 	mTechniquesMirror[ 5] = Effect->GetTechniqueByName( "t4LitAttenTextureMirror" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BI@EEKKACMN@t4LitAttenTextureMirror?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2756], eax
+	mov	DWORD PTR [esi+2764], eax
 
-; 1188 : 	mTechniquesMirror[ 6] = Effect->GetTechniqueByName( "t4LitSpecularMapMirror" );
+; 1389 : 	mTechniquesMirror[ 6] = Effect->GetTechniqueByName( "t4LitSpecularMapMirror" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BH@MJFOIGI@t4LitSpecularMapMirror?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2760], eax
+	mov	DWORD PTR [esi+2768], eax
 
-; 1189 : 	mTechniquesMirror[ 7] = Effect->GetTechniqueByName( "tParallaxMapMirror" );
+; 1390 : 	mTechniquesMirror[ 7] = Effect->GetTechniqueByName( "tParallaxMapMirror" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BD@CIMFECON@tParallaxMapMirror?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2764], eax
+	mov	DWORD PTR [esi+2772], eax
 
-; 1190 : 	mTechniquesMirror[ 8] = Effect->GetTechniqueByName( "tJellyMirror" );
+; 1391 : 	mTechniquesMirror[ 8] = Effect->GetTechniqueByName( "tJellyMirror" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0N@KFADNAIL@tJellyMirror?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2768], eax
+	mov	DWORD PTR [esi+2776], eax
 
-; 1191 : 	mTechniquesMirror[ 9] = Effect->GetTechniqueByName( "tCellShadingMirror" );
+; 1392 : 	mTechniquesMirror[ 9] = Effect->GetTechniqueByName( "tCellShadingMirror" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BD@NDCFMGPA@tCellShadingMirror?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2772], eax
+	mov	DWORD PTR [esi+2780], eax
 
-; 1192 : 	mTechniquesMirror[10] = Effect->GetTechniqueByName( "tCellShadingWrongMirror" );
+; 1393 : 	mTechniquesMirror[10] = Effect->GetTechniqueByName( "tCellShadingWrongMirror" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BI@MCEONCDC@tCellShadingWrongMirror?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2776], eax
+	mov	DWORD PTR [esi+2784], eax
 
-; 1193 : 	mTechniquesMirror[11] = Effect->GetTechniqueByName( "tHaloMirror" );
+; 1394 : 	mTechniquesMirror[11] = Effect->GetTechniqueByName( "tHaloMirror" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0M@FENFNCKC@tHaloMirror?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2780], eax
+	mov	DWORD PTR [esi+2788], eax
 
-; 1194 : 	mTechniquesMirror[12] = Effect->GetTechniqueByName( "tSpaceHaloParaMirror" );
+; 1395 : 	mTechniquesMirror[12] = Effect->GetTechniqueByName( "tSpaceHaloParaMirror" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BF@KFEJDHPA@tSpaceHaloParaMirror?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2784], eax
+	mov	DWORD PTR [esi+2792], eax
 
-; 1195 : 	mTechniquesMirror[13] = Effect->GetTechniqueByName( "tSpaceOutlineParaMirror" );
+; 1396 : 	mTechniquesMirror[13] = Effect->GetTechniqueByName( "tSpaceOutlineParaMirror" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BI@GGPGLIH@tSpaceOutlineParaMirror?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2788], eax
+	mov	DWORD PTR [esi+2796], eax
 
-; 1196 : 	mTechniquesMirror[14] = Effect->GetTechniqueByName( "tLitGlassMirror" );
+; 1397 : 	mTechniquesMirror[14] = Effect->GetTechniqueByName( "tLitGlassMirror" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BA@BCLLKFIB@tLitGlassMirror?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2792], eax
+	mov	DWORD PTR [esi+2800], eax
 
-; 1197 : 	mTechniquesMirror[15] = Effect->GetTechniqueByName( "tSpaceHaloMirror" );
+; 1398 : 	mTechniquesMirror[15] = Effect->GetTechniqueByName( "tSpaceHaloMirror" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BB@CDMINDKK@tSpaceHaloMirror?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2796], eax
+	mov	DWORD PTR [esi+2804], eax
 
-; 1198 : 	mTechniquesMirror[16] = Effect->GetTechniqueByName( "tSpaceOutlineMirror" );
+; 1399 : 	mTechniquesMirror[16] = Effect->GetTechniqueByName( "tSpaceOutlineMirror" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BE@CKKPKAMN@tSpaceOutlineMirror?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2800], eax
+	mov	DWORD PTR [esi+2808], eax
 
-; 1199 : 	mTechniquesMirror[17] = Effect->GetTechniqueByName( "tTextureMorphMirror" );
+; 1400 : 	mTechniquesMirror[17] = Effect->GetTechniqueByName( "tTextureMorphMirror" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BE@BLJDFMPB@tTextureMorphMirror?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2804], eax
+	mov	DWORD PTR [esi+2812], eax
 
-; 1200 : 	mTechniquesMirror[18] = Effect->GetTechniqueByName( "MirrorClear" );
+; 1401 : 	mTechniquesMirror[18] = Effect->GetTechniqueByName( "MirrorClear" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0M@NCEALFAM@MirrorClear?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2808], eax
+	mov	DWORD PTR [esi+2816], eax
 
-; 1201 : 	mTechniquesMirror[19] = Effect->GetTechniqueByName( "MirrorSurface" );
+; 1402 : 	mTechniquesMirror[19] = Effect->GetTechniqueByName( "MirrorSurface" );
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0O@CFAHMOKA@MirrorSurface?$AA@
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+52]
-	mov	DWORD PTR [esi+2812], eax
+	mov	DWORD PTR [esi+2820], eax
 
-; 1202 : 
-; 1203 : 	// Create special variables to allow us to access global variables in the shaders from C++
-; 1204 : 	WorldMatrixVar		= Effect->GetVariableByName( "WorldMatrix" )->AsMatrix();
+; 1403 : 
+; 1404 : 	// Create special variables to allow us to access global variables in the shaders from C++
+; 1405 : 	WorldMatrixVar		= Effect->GetVariableByName( "WorldMatrix" )->AsMatrix();
 
 	mov	eax, DWORD PTR [edi]
 	mov	ecx, DWORD PTR [eax]
@@ -10845,9 +14668,9 @@ $LN3@LoadEffect:
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+48]
-	mov	DWORD PTR [esi+3088], eax
+	mov	DWORD PTR [esi+3460], eax
 
-; 1205 : 	ViewMatrixVar		= Effect->GetVariableByName( "ViewMatrix"  )->AsMatrix();
+; 1406 : 	ViewMatrixVar		= Effect->GetVariableByName( "ViewMatrix"  )->AsMatrix();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0L@BCBAMPKD@ViewMatrix?$AA@
@@ -10857,9 +14680,9 @@ $LN3@LoadEffect:
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+48]
-	mov	DWORD PTR [esi+3092], eax
+	mov	DWORD PTR [esi+3464], eax
 
-; 1206 : 	ProjMatrixVar		= Effect->GetVariableByName( "ProjMatrix"  )->AsMatrix();
+; 1407 : 	ProjMatrixVar		= Effect->GetVariableByName( "ProjMatrix"  )->AsMatrix();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0L@FHHLNBJL@ProjMatrix?$AA@
@@ -10869,12 +14692,12 @@ $LN3@LoadEffect:
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+48]
-	mov	DWORD PTR [esi+3096], eax
+	mov	DWORD PTR [esi+3468], eax
 
-; 1207 : 
-; 1208 : 	// We access the texture variable in the shader in the same way as we have before for matrices, light data etc.
-; 1209 : 	// Only difference is that this variable is a "Shader Resource"
-; 1210 : 	DiffuseMapVar = Effect->GetVariableByName( "DiffuseMap" )->AsShaderResource();
+; 1408 : 
+; 1409 : 	// We access the texture variable in the shader in the same way as we have before for matrices, light data etc.
+; 1410 : 	// Only difference is that this variable is a "Shader Resource"
+; 1411 : 	DiffuseMapVar = Effect->GetVariableByName( "DiffuseMap" )->AsShaderResource();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0L@ILIGHKAJ@DiffuseMap?$AA@
@@ -10884,9 +14707,9 @@ $LN3@LoadEffect:
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+56]
-	mov	DWORD PTR [esi+3104], eax
+	mov	DWORD PTR [esi+3476], eax
 
-; 1211 : 	NormalMapVar = Effect->GetVariableByName( "NormalMap" )->AsShaderResource();
+; 1412 : 	NormalMapVar = Effect->GetVariableByName( "NormalMap" )->AsShaderResource();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_09ILPGELJF@NormalMap?$AA@
@@ -10896,11 +14719,11 @@ $LN3@LoadEffect:
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+56]
-	mov	DWORD PTR [esi+3108], eax
+	mov	DWORD PTR [esi+3480], eax
 
-; 1212 : 
-; 1213 : 	//Camera Position
-; 1214 : 	dxCameraPos = Effect->GetVariableByName( "cameraPos" )->AsVector();
+; 1413 : 
+; 1414 : 	//Camera Position
+; 1415 : 	dxCameraPos = Effect->GetVariableByName( "cameraPos" )->AsVector();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_09JBPBDAII@cameraPos?$AA@
@@ -10910,11 +14733,11 @@ $LN3@LoadEffect:
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+44]
-	mov	DWORD PTR [esi+3120], eax
+	mov	DWORD PTR [esi+3492], eax
 
-; 1215 : 
-; 1216 : 	// Other shader variables
-; 1217 : 	ModelColourVar = Effect->GetVariableByName( "ModelColour"  )->AsVector();
+; 1416 : 
+; 1417 : 	// Other shader variables
+; 1418 : 	ModelColourVar = Effect->GetVariableByName( "ModelColour"  )->AsVector();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0M@FMIDCGNI@ModelColour?$AA@
@@ -10924,11 +14747,11 @@ $LN3@LoadEffect:
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+44]
-	mov	DWORD PTR [esi+3112], eax
+	mov	DWORD PTR [esi+3484], eax
 
-; 1218 : 
-; 1219 : 	//Lighting Values
-; 1220 : 	dxLightPosA = Effect->GetVariableByName( "lightPos" )->AsVector();
+; 1419 : 
+; 1420 : 	//Lighting Values
+; 1421 : 	dxLightPosA = Effect->GetVariableByName( "lightPos" )->AsVector();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_08EGHFDCKI@lightPos?$AA@
@@ -10938,9 +14761,9 @@ $LN3@LoadEffect:
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+44]
-	mov	DWORD PTR [esi+3116], eax
+	mov	DWORD PTR [esi+3488], eax
 
-; 1221 : 	dxLightColourA = Effect->GetVariableByName( "lightColour" )->AsVector();
+; 1422 : 	dxLightColourA = Effect->GetVariableByName( "lightColour" )->AsVector();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0M@ICIEANMG@lightColour?$AA@
@@ -10950,9 +14773,9 @@ $LN3@LoadEffect:
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+44]
-	mov	DWORD PTR [esi+3124], eax
+	mov	DWORD PTR [esi+3496], eax
 
-; 1222 : 	dxLightBrightnessA = Effect->GetVariableByName( "lightBright" )->AsVector();
+; 1423 : 	dxLightBrightnessA = Effect->GetVariableByName( "lightBright" )->AsVector();
 
 	mov	eax, DWORD PTR [edi]
 	mov	ecx, DWORD PTR [eax]
@@ -10962,10 +14785,10 @@ $LN3@LoadEffect:
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+44]
-	mov	DWORD PTR [esi+3132], eax
+	mov	DWORD PTR [esi+3504], eax
 
-; 1223 : 	
-; 1224 : 	dxAmbientColour = Effect->GetVariableByName( "ambientColour" )->AsVector();
+; 1424 : 	
+; 1425 : 	dxAmbientColour = Effect->GetVariableByName( "ambientColour" )->AsVector();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0O@OODJBMLI@ambientColour?$AA@
@@ -10975,10 +14798,10 @@ $LN3@LoadEffect:
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+44]
-	mov	DWORD PTR [esi+3128], eax
+	mov	DWORD PTR [esi+3500], eax
 
-; 1225 : 
-; 1226 : 	dxWiggle = Effect->GetVariableByName( "wiggle" )->AsScalar();
+; 1426 : 
+; 1427 : 	dxWiggle = Effect->GetVariableByName( "wiggle" )->AsScalar();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_06LAADFJPH@wiggle?$AA@
@@ -10988,9 +14811,9 @@ $LN3@LoadEffect:
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+40]
-	mov	DWORD PTR [esi+3136], eax
+	mov	DWORD PTR [esi+3508], eax
 
-; 1227 : 	dxOutlineThickness = Effect->GetVariableByName( "OutlineThickness" )->AsScalar();
+; 1428 : 	dxOutlineThickness = Effect->GetVariableByName( "OutlineThickness" )->AsScalar();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_0BB@HDLHOHKD@OutlineThickness?$AA@
@@ -11000,10 +14823,10 @@ $LN3@LoadEffect:
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+40]
-	mov	DWORD PTR [esi+3140], eax
+	mov	DWORD PTR [esi+3512], eax
 
-; 1228 : 
-; 1229 : 	ClipPlaneVar      = Effect->GetVariableByName( "ClipPlane"      )->AsVector();
+; 1429 : 
+; 1430 : 	ClipPlaneVar      = Effect->GetVariableByName( "ClipPlane"      )->AsVector();
 
 	mov	eax, DWORD PTR [edi]
 	push	OFFSET ??_C@_09HJHGEJDE@ClipPlane?$AA@
@@ -11014,12 +14837,12 @@ $LN3@LoadEffect:
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+44]
 
-; 1230 : 
-; 1231 : 	return true;
-; 1232 : }
+; 1431 : 
+; 1432 : 	return true;
+; 1433 : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
-	mov	DWORD PTR [esi+3144], eax
+	mov	DWORD PTR [esi+3516], eax
 	xor	ecx, ebp
 	pop	edi
 	mov	al, 1
@@ -11039,7 +14862,7 @@ tv599 = -4						; size = 4
 ?ReleaseResources@CScene@@QAEXXZ PROC			; CScene::ReleaseResources, COMDAT
 ; _this$ = ecx
 
-; 1100 : {
+; 1301 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -11047,11 +14870,11 @@ tv599 = -4						; size = 4
 	push	esi
 	mov	esi, ecx
 
-; 1101 : 	// The D3D setup and preparation of the geometry created several objects that use up memory (e.g. textures, vertex/index buffers etc.)
-; 1102 : 	// Each object that allocates memory (or hardware resources) needs to be "released" when we exit the program
-; 1103 : 	// There is similar code in every D3D program, but the list of objects that need to be released depends on what was created
-; 1104 : 	// Test each variable to see if it exists before deletion
-; 1105 : 	if( mpd3dDevice )     mpd3dDevice->ClearState();
+; 1302 : 	// The D3D setup and preparation of the geometry created several objects that use up memory (e.g. textures, vertex/index buffers etc.)
+; 1303 : 	// Each object that allocates memory (or hardware resources) needs to be "released" when we exit the program
+; 1304 : 	// There is similar code in every D3D program, but the list of objects that need to be released depends on what was created
+; 1305 : 	// Test each variable to see if it exists before deletion
+; 1306 : 	if( mpd3dDevice )     mpd3dDevice->ClearState();
 
 	mov	ecx, DWORD PTR [esi]
 	test	ecx, ecx
@@ -11061,31 +14884,31 @@ tv599 = -4						; size = 4
 	call	DWORD PTR [eax+276]
 $LN17@ReleaseRes:
 
-; 1106 : 
-; 1107 : 	delete Camera;
+; 1307 : 
+; 1308 : 	delete Camera;
 
 	push	ebx
 	push	edi
 	push	DWORD PTR [esi+4]
 	call	??3@YAXPAX@Z				; operator delete
 
-; 1108 : 
-; 1109 : 	for(int i = 0; i < miNumObjects; i++)
+; 1309 : 
+; 1310 : 	for(int i = 0; i < miNumObjects; i++)
 
 	xor	ebx, ebx
 	add	esp, 4
 	cmp	DWORD PTR [esi+808], ebx
 	jle	SHORT $LN14@ReleaseRes
 
-; 1106 : 
-; 1107 : 	delete Camera;
+; 1307 : 
+; 1308 : 	delete Camera;
 
 	lea	eax, DWORD PTR [esi+8]
 	mov	DWORD PTR tv600[ebp], eax
 $LL16@ReleaseRes:
 
-; 1110 : 	{
-; 1111 : 		delete mpObjects[i];
+; 1311 : 	{
+; 1312 : 		delete mpObjects[i];
 
 	mov	edi, DWORD PTR [eax]
 	test	edi, edi
@@ -11098,8 +14921,8 @@ $LL16@ReleaseRes:
 	add	esp, 4
 $LN15@ReleaseRes:
 
-; 1108 : 
-; 1109 : 	for(int i = 0; i < miNumObjects; i++)
+; 1309 : 
+; 1310 : 	for(int i = 0; i < miNumObjects; i++)
 
 	inc	ebx
 	add	eax, 4
@@ -11108,9 +14931,9 @@ $LN15@ReleaseRes:
 	jl	SHORT $LL16@ReleaseRes
 $LN14@ReleaseRes:
 
-; 1112 : 	}
-; 1113 : 
-; 1114 : 	for(int i = 0; i < miNumLights; i++)
+; 1313 : 	}
+; 1314 : 
+; 1315 : 	for(int i = 0; i < miNumLights; i++)
 
 	xor	ebx, ebx
 	cmp	DWORD PTR [esi+932], ebx
@@ -11120,8 +14943,8 @@ $LN14@ReleaseRes:
 	npad	2
 $LL13@ReleaseRes:
 
-; 1115 : 	{
-; 1116 : 		delete mpLights[i];
+; 1316 : 	{
+; 1317 : 		delete mpLights[i];
 
 	mov	edi, DWORD PTR [eax]
 	test	edi, edi
@@ -11134,9 +14957,9 @@ $LL13@ReleaseRes:
 	add	esp, 4
 $LN12@ReleaseRes:
 
-; 1112 : 	}
-; 1113 : 
-; 1114 : 	for(int i = 0; i < miNumLights; i++)
+; 1313 : 	}
+; 1314 : 
+; 1315 : 	for(int i = 0; i < miNumLights; i++)
 
 	inc	ebx
 	add	eax, 4
@@ -11145,9 +14968,9 @@ $LN12@ReleaseRes:
 	jl	SHORT $LL13@ReleaseRes
 $LN11@ReleaseRes:
 
-; 1117 : 	}
-; 1118 : 	
-; 1119 : 	for(int i = 0; i < miNumMaps; i++)
+; 1318 : 	}
+; 1319 : 	
+; 1320 : 	for(int i = 0; i < miNumMaps; i++)
 
 	xor	edi, edi
 	cmp	DWORD PTR [esi+2536], edi
@@ -11155,23 +14978,23 @@ $LN11@ReleaseRes:
 	lea	ebx, DWORD PTR [esi+936]
 $LL10@ReleaseRes:
 
-; 1120 : 	{
-; 1121 : 		if ( mpMaps[i] )
+; 1321 : 	{
+; 1322 : 		if ( mpMaps[i] )
 
 	mov	ecx, DWORD PTR [ebx]
 	test	ecx, ecx
 	je	SHORT $LN9@ReleaseRes
 
-; 1122 : 			mpMaps[i]->Release();
+; 1323 : 			mpMaps[i]->Release();
 
 	mov	eax, DWORD PTR [ecx]
 	push	ecx
 	call	DWORD PTR [eax+8]
 $LN9@ReleaseRes:
 
-; 1117 : 	}
-; 1118 : 	
-; 1119 : 	for(int i = 0; i < miNumMaps; i++)
+; 1318 : 	}
+; 1319 : 	
+; 1320 : 	for(int i = 0; i < miNumMaps; i++)
 
 	inc	edi
 	add	ebx, 4
@@ -11179,9 +15002,9 @@ $LN9@ReleaseRes:
 	jl	SHORT $LL10@ReleaseRes
 $LN8@ReleaseRes:
 
-; 1123 : 	}
-; 1124 : 
-; 1125 : 	if( Effect )           Effect->Release();
+; 1324 : 	}
+; 1325 : 
+; 1326 : 	if( Effect )           Effect->Release();
 
 	mov	ecx, DWORD PTR [esi+2556]
 	pop	edi
@@ -11193,9 +15016,9 @@ $LN8@ReleaseRes:
 	call	DWORD PTR [eax+8]
 $LN6@ReleaseRes:
 
-; 1126 : 	if( DepthStencilView ) DepthStencilView->Release();
+; 1327 : 	if( DepthStencilView ) DepthStencilView->Release();
 
-	mov	ecx, DWORD PTR [esi+3156]
+	mov	ecx, DWORD PTR [esi+3528]
 	test	ecx, ecx
 	je	SHORT $LN5@ReleaseRes
 	mov	eax, DWORD PTR [ecx]
@@ -11203,9 +15026,9 @@ $LN6@ReleaseRes:
 	call	DWORD PTR [eax+8]
 $LN5@ReleaseRes:
 
-; 1127 : 	if( RenderTargetView ) RenderTargetView->Release();
+; 1328 : 	if( RenderTargetView ) RenderTargetView->Release();
 
-	mov	ecx, DWORD PTR [esi+3160]
+	mov	ecx, DWORD PTR [esi+3532]
 	test	ecx, ecx
 	je	SHORT $LN4@ReleaseRes
 	mov	eax, DWORD PTR [ecx]
@@ -11213,9 +15036,9 @@ $LN5@ReleaseRes:
 	call	DWORD PTR [eax+8]
 $LN4@ReleaseRes:
 
-; 1128 : 	if( DepthStencil )     DepthStencil->Release();
+; 1329 : 	if( DepthStencil )     DepthStencil->Release();
 
-	mov	ecx, DWORD PTR [esi+3152]
+	mov	ecx, DWORD PTR [esi+3524]
 	test	ecx, ecx
 	je	SHORT $LN3@ReleaseRes
 	mov	eax, DWORD PTR [ecx]
@@ -11223,9 +15046,9 @@ $LN4@ReleaseRes:
 	call	DWORD PTR [eax+8]
 $LN3@ReleaseRes:
 
-; 1129 : 	if( SwapChain )        SwapChain->Release();
+; 1330 : 	if( SwapChain )        SwapChain->Release();
 
-	mov	ecx, DWORD PTR [esi+3148]
+	mov	ecx, DWORD PTR [esi+3520]
 	test	ecx, ecx
 	je	SHORT $LN2@ReleaseRes
 	mov	eax, DWORD PTR [ecx]
@@ -11233,7 +15056,7 @@ $LN3@ReleaseRes:
 	call	DWORD PTR [eax+8]
 $LN2@ReleaseRes:
 
-; 1130 : 	if( mpd3dDevice )     mpd3dDevice->Release();
+; 1331 : 	if( mpd3dDevice )     mpd3dDevice->Release();
 
 	mov	ecx, DWORD PTR [esi]
 	pop	esi
@@ -11244,8 +15067,8 @@ $LN2@ReleaseRes:
 	call	DWORD PTR [eax+8]
 $LN1@ReleaseRes:
 
-; 1131 : 
-; 1132 : }
+; 1332 : 
+; 1333 : }
 
 	mov	esp, ebp
 	pop	ebp
@@ -11266,14 +15089,14 @@ _TEXT	SEGMENT
 _descDSV$ = -172					; size = 20
 _pBackBuffer$ = -152					; size = 4
 _sd$ = -148						; size = 60
-_vp$ = -88						; size = 24
-_descDepth$ = -64					; size = 44
+_descDepth$ = -88					; size = 44
+_vp$ = -44						; size = 24
 _rc$ = -20						; size = 16
 __$ArrayPad$ = -4					; size = 4
 ?InitDevice@CScene@@QAE_NXZ PROC			; CScene::InitDevice, COMDAT
 ; _this$ = ecx
 
-; 1003 : {
+; 1196 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -11286,34 +15109,34 @@ __$ArrayPad$ = -4					; size = 4
 	push	edi
 	mov	ebx, ecx
 
-; 1004 : 	// Many DirectX functions return a "HRESULT" variable to indicate success or failure. Microsoft code often uses
-; 1005 : 	// the FAILED macro to test this variable, you'll see it throughout the code - it's fairly self explanatory.
-; 1006 : 	HRESULT hr = S_OK;
-; 1007 : 
-; 1008 : 
-; 1009 : 	////////////////////////////////
-; 1010 : 	// Initialise Direct3D
-; 1011 : 
-; 1012 : 	// Calculate the visible area the window we are using - the "client rectangle" refered to in the first function is the 
-; 1013 : 	// size of the interior of the window, i.e. excluding the frame and title
-; 1014 : 	RECT rc;
-; 1015 : 	GetClientRect( HWnd, &rc );
+; 1197 : 	// Many DirectX functions return a "HRESULT" variable to indicate success or failure. Microsoft code often uses
+; 1198 : 	// the FAILED macro to test this variable, you'll see it throughout the code - it's fairly self explanatory.
+; 1199 : 	HRESULT hr = S_OK;
+; 1200 : 
+; 1201 : 
+; 1202 : 	////////////////////////////////
+; 1203 : 	// Initialise Direct3D
+; 1204 : 
+; 1205 : 	// Calculate the visible area the window we are using - the "client rectangle" refered to in the first function is the 
+; 1206 : 	// size of the interior of the window, i.e. excluding the frame and title
+; 1207 : 	RECT rc;
+; 1208 : 	GetClientRect( HWnd, &rc );
 
 	lea	eax, DWORD PTR _rc$[ebp]
 	push	eax
-	push	DWORD PTR [ebx+3168]
+	push	DWORD PTR [ebx+3540]
 	call	DWORD PTR __imp__GetClientRect@8
 
-; 1016 : 	mViewportWidth = rc.right - rc.left;
+; 1209 : 	mViewportWidth = rc.right - rc.left;
 
 	mov	edi, DWORD PTR _rc$[ebp+8]
 
-; 1017 : 	mViewportHeight = rc.bottom - rc.top;
-; 1018 : 
-; 1019 : 
-; 1020 : 	// Create a Direct3D device (i.e. initialise D3D), and create a swap-chain (create a back buffer to render to)
-; 1021 : 	DXGI_SWAP_CHAIN_DESC sd;         // Structure to contain all the information needed
-; 1022 : 	ZeroMemory( &sd, sizeof( sd ) ); // Clear the structure to 0 - common Microsoft practice, not really good style
+; 1210 : 	mViewportHeight = rc.bottom - rc.top;
+; 1211 : 
+; 1212 : 
+; 1213 : 	// Create a Direct3D device (i.e. initialise D3D), and create a swap-chain (create a back buffer to render to)
+; 1214 : 	DXGI_SWAP_CHAIN_DESC sd;         // Structure to contain all the information needed
+; 1215 : 	ZeroMemory( &sd, sizeof( sd ) ); // Clear the structure to 0 - common Microsoft practice, not really good style
 
 	lea	eax, DWORD PTR _sd$[ebp]
 	mov	esi, DWORD PTR _rc$[ebp+12]
@@ -11326,26 +15149,26 @@ __$ArrayPad$ = -4					; size = 4
 	mov	DWORD PTR ?mViewportHeight@CScene@@0HA, esi ; CScene::mViewportHeight
 	call	_memset
 
-; 1023 : 	sd.BufferCount = 1;
-; 1024 : 	sd.BufferDesc.Width = mViewportWidth;             // Target window size
-; 1025 : 	sd.BufferDesc.Height = mViewportHeight;           // --"--
-; 1026 : 	sd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM; // Pixel format of target window
-; 1027 : 	sd.BufferDesc.RefreshRate.Numerator = 60;          // Refresh rate of monitor
-; 1028 : 	sd.BufferDesc.RefreshRate.Denominator = 1;         // --"--
-; 1029 : 	sd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
-; 1030 : 	sd.SampleDesc.Count = 1;
-; 1031 : 	sd.SampleDesc.Quality = 0;
-; 1032 : 	sd.OutputWindow = HWnd;                          // Target window
+; 1216 : 	sd.BufferCount = 1;
+; 1217 : 	sd.BufferDesc.Width = mViewportWidth;             // Target window size
+; 1218 : 	sd.BufferDesc.Height = mViewportHeight;           // --"--
+; 1219 : 	sd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM; // Pixel format of target window
+; 1220 : 	sd.BufferDesc.RefreshRate.Numerator = 60;          // Refresh rate of monitor
+; 1221 : 	sd.BufferDesc.RefreshRate.Denominator = 1;         // --"--
+; 1222 : 	sd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
+; 1223 : 	sd.SampleDesc.Count = 1;
+; 1224 : 	sd.SampleDesc.Quality = 0;
+; 1225 : 	sd.OutputWindow = HWnd;                          // Target window
 
-	mov	eax, DWORD PTR [ebx+3168]
+	mov	eax, DWORD PTR [ebx+3540]
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _sd$[ebp+4], esi
 
-; 1033 : 	sd.Windowed = TRUE;                                // Whether to render in a window (TRUE) or go fullscreen (FALSE)
-; 1034 : 	hr = D3D10CreateDeviceAndSwapChain( NULL, D3D10_DRIVER_TYPE_HARDWARE, NULL, D3D10_CREATE_DEVICE_DEBUG,
-; 1035 : 										D3D10_SDK_VERSION, &sd, &SwapChain, &mpd3dDevice );
+; 1226 : 	sd.Windowed = TRUE;                                // Whether to render in a window (TRUE) or go fullscreen (FALSE)
+; 1227 : 	hr = D3D10CreateDeviceAndSwapChain( NULL, D3D10_DRIVER_TYPE_HARDWARE, NULL, 0,
+; 1228 : 										D3D10_SDK_VERSION, &sd, &SwapChain, &mpd3dDevice );
 
-	lea	esi, DWORD PTR [ebx+3148]
+	lea	esi, DWORD PTR [ebx+3520]
 	mov	DWORD PTR _sd$[ebp+44], eax
 	lea	eax, DWORD PTR _sd$[ebp]
 	mov	DWORD PTR _sd$[ebp+40], 1
@@ -11353,7 +15176,7 @@ __$ArrayPad$ = -4					; size = 4
 	push	esi
 	push	eax
 	push	29					; 0000001dH
-	push	2
+	push	0
 	push	0
 	push	0
 	push	0
@@ -11367,17 +15190,17 @@ __$ArrayPad$ = -4					; size = 4
 	mov	DWORD PTR _sd$[ebp+48], 1
 	call	_D3D10CreateDeviceAndSwapChain@32
 
-; 1036 : 	if( FAILED( hr ) ) return false;
+; 1229 : 	if( FAILED( hr ) ) return false;
 
 	test	eax, eax
-	jns	SHORT $LN5@InitDevice
-$LN12@InitDevice:
+	jns	SHORT $LN6@InitDevice
+$LN13@InitDevice:
 	pop	edi
 	pop	esi
 	xor	al, al
 	pop	ebx
 
-; 1095 : }
+; 1296 : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	xor	ecx, ebp
@@ -11385,13 +15208,13 @@ $LN12@InitDevice:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-$LN5@InitDevice:
+$LN6@InitDevice:
 
-; 1037 : 
-; 1038 : 
-; 1039 : 	// Specify the render target as the back-buffer - this is an advanced topic. This code almost always occurs in the standard D3D setup
-; 1040 : 	ID3D10Texture2D* pBackBuffer;
-; 1041 : 	hr = SwapChain->GetBuffer( 0, __uuidof( ID3D10Texture2D ), ( LPVOID* )&pBackBuffer );
+; 1230 : 
+; 1231 : 
+; 1232 : 	// Specify the render target as the back-buffer - this is an advanced topic. This code almost always occurs in the standard D3D setup
+; 1233 : 	ID3D10Texture2D* pBackBuffer;
+; 1234 : 	hr = SwapChain->GetBuffer( 0, __uuidof( ID3D10Texture2D ), ( LPVOID* )&pBackBuffer );
 
 	mov	eax, DWORD PTR [esi]
 	lea	edx, DWORD PTR _pBackBuffer$[ebp]
@@ -11402,15 +15225,15 @@ $LN5@InitDevice:
 	push	eax
 	call	DWORD PTR [ecx+36]
 
-; 1042 : 	if( FAILED( hr ) ) return false;
+; 1235 : 	if( FAILED( hr ) ) return false;
 
 	test	eax, eax
-	js	SHORT $LN12@InitDevice
+	js	SHORT $LN13@InitDevice
 
-; 1043 : 	hr = mpd3dDevice->CreateRenderTargetView( pBackBuffer, NULL, &RenderTargetView );
+; 1236 : 	hr = mpd3dDevice->CreateRenderTargetView( pBackBuffer, NULL, &RenderTargetView );
 
 	mov	ecx, DWORD PTR [ebx]
-	lea	edx, DWORD PTR [ebx+3160]
+	lea	edx, DWORD PTR [ebx+3532]
 	push	edx
 	push	0
 	push	DWORD PTR _pBackBuffer$[ebp]
@@ -11418,7 +15241,7 @@ $LN5@InitDevice:
 	push	ecx
 	call	DWORD PTR [eax+304]
 
-; 1044 : 	pBackBuffer->Release();
+; 1237 : 	pBackBuffer->Release();
 
 	mov	ecx, DWORD PTR _pBackBuffer$[ebp]
 	mov	esi, eax
@@ -11426,46 +15249,46 @@ $LN5@InitDevice:
 	mov	edx, DWORD PTR [ecx]
 	call	DWORD PTR [edx+8]
 
-; 1045 : 	if( FAILED( hr ) ) return false;
+; 1238 : 	if( FAILED( hr ) ) return false;
 
 	test	esi, esi
-	js	SHORT $LN12@InitDevice
+	js	SHORT $LN13@InitDevice
 
-; 1046 : 
-; 1047 : 
-; 1048 : 	// Create a texture (bitmap) to use for a depth buffer
-; 1049 : 	D3D10_TEXTURE2D_DESC descDepth;
-; 1050 : 	descDepth.Width = mViewportWidth;
-; 1051 : 	descDepth.Height = mViewportHeight;
-; 1052 : 	descDepth.MipLevels = 1;
-; 1053 : 	descDepth.ArraySize = 1;
-; 1054 : 	descDepth.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;		// 24 bits for depth, 8 for stencil - more memory efficient
-; 1055 : 	//descDepth.Format = DXGI_FORMAT_D32_FLOAT;				// 32 bit float depth only 
-; 1056 : 	//descDepth.Format = DXGI_FORMAT_D32_FLOAT_S8X24_UINT;	// 32 bit depth + 8 for stencil, 24 unused bytes - more precise depth buffer
-; 1057 : 	descDepth.SampleDesc.Count = 1;
-; 1058 : 	descDepth.SampleDesc.Quality = 0;
-; 1059 : 	descDepth.Usage = D3D10_USAGE_DEFAULT;
-; 1060 : 	descDepth.BindFlags = D3D10_BIND_DEPTH_STENCIL;
-; 1061 : 	descDepth.CPUAccessFlags = 0;
-; 1062 : 	descDepth.MiscFlags = 0;
-; 1063 : 	hr = mpd3dDevice->CreateTexture2D( &descDepth, NULL, &DepthStencil );
+; 1239 : 
+; 1240 : 
+; 1241 : 	// Create a texture (bitmap) to use for a depth buffer
+; 1242 : 	D3D10_TEXTURE2D_DESC descDepth;
+; 1243 : 	descDepth.Width = mViewportWidth;
+; 1244 : 	descDepth.Height = mViewportHeight;
+; 1245 : 	descDepth.MipLevels = 1;
+; 1246 : 	descDepth.ArraySize = 1;
+; 1247 : 	//descDepth.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;		// 24 bits for depth, 8 for stencil - more memory efficient
+; 1248 : 	descDepth.Format = DXGI_FORMAT_R24G8_TYPELESS;
+; 1249 : 	//descDepth.Format = DXGI_FORMAT_R32_TYPELESS;
+; 1250 : 	descDepth.SampleDesc.Count = 1;
+; 1251 : 	descDepth.SampleDesc.Quality = 0;
+; 1252 : 	descDepth.Usage = D3D10_USAGE_DEFAULT;
+; 1253 : 	descDepth.BindFlags = D3D10_BIND_DEPTH_STENCIL | D3D10_BIND_SHADER_RESOURCE;
+; 1254 : 	descDepth.CPUAccessFlags = 0;
+; 1255 : 	descDepth.MiscFlags = 0;
+; 1256 : 	hr = mpd3dDevice->CreateTexture2D( &descDepth, NULL, &DepthStencil );
 
 	mov	ecx, DWORD PTR [ebx]
-	lea	esi, DWORD PTR [ebx+3152]
+	lea	edi, DWORD PTR [ebx+3524]
 	mov	eax, DWORD PTR ?mViewportWidth@CScene@@0HA ; CScene::mViewportWidth
 	lea	edx, DWORD PTR _descDepth$[ebp]
-	push	esi
+	push	edi
 	mov	DWORD PTR _descDepth$[ebp], eax
 	mov	eax, DWORD PTR ?mViewportHeight@CScene@@0HA ; CScene::mViewportHeight
 	push	0
 	mov	DWORD PTR _descDepth$[ebp+4], eax
 	mov	DWORD PTR _descDepth$[ebp+8], 1
 	mov	DWORD PTR _descDepth$[ebp+12], 1
-	mov	DWORD PTR _descDepth$[ebp+16], 45	; 0000002dH
+	mov	DWORD PTR _descDepth$[ebp+16], 44	; 0000002cH
 	mov	DWORD PTR _descDepth$[ebp+20], 1
 	mov	DWORD PTR _descDepth$[ebp+24], 0
 	mov	DWORD PTR _descDepth$[ebp+28], 0
-	mov	DWORD PTR _descDepth$[ebp+32], 64	; 00000040H
+	mov	DWORD PTR _descDepth$[ebp+32], 72	; 00000048H
 	mov	DWORD PTR _descDepth$[ebp+36], 0
 	mov	DWORD PTR _descDepth$[ebp+40], 0
 	mov	eax, DWORD PTR [ecx]
@@ -11473,65 +15296,89 @@ $LN5@InitDevice:
 	push	ecx
 	call	DWORD PTR [eax+292]
 
-; 1064 : 	if( FAILED( hr ) ) return false;
+; 1257 : 	if( FAILED( hr ) ) return false;
 
 	test	eax, eax
-	js	$LN12@InitDevice
+	js	$LN13@InitDevice
 
-; 1065 : 
-; 1066 : 	// Create the depth stencil view, i.e. indicate that the texture just created is to be used as a depth buffer
-; 1067 : 	D3D10_DEPTH_STENCIL_VIEW_DESC descDSV;
-; 1068 : 	descDSV.Format = descDepth.Format;
-; 1069 : 	descDSV.ViewDimension = D3D10_DSV_DIMENSION_TEXTURE2D;
-; 1070 : 	descDSV.Texture2D.MipSlice = 0;
-; 1071 : 	hr = mpd3dDevice->CreateDepthStencilView( DepthStencil, &descDSV, &DepthStencilView );
+; 1258 : 
+; 1259 : 	// Create the depth stencil view, i.e. indicate that the texture just created is to be used as a depth buffer
+; 1260 : 	D3D10_DEPTH_STENCIL_VIEW_DESC descDSV;
+; 1261 : 	descDSV.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+; 1262 : 	descDSV.ViewDimension = D3D10_DSV_DIMENSION_TEXTURE2D;
+; 1263 : 	descDSV.Texture2D.MipSlice = 0;
+; 1264 : 	hr = mpd3dDevice->CreateDepthStencilView( DepthStencil, &descDSV, &DepthStencilView );
 
 	mov	ecx, DWORD PTR [ebx]
-	lea	edi, DWORD PTR [ebx+3156]
-	mov	eax, DWORD PTR _descDepth$[ebp+16]
-	lea	edx, DWORD PTR _descDSV$[ebp]
-	push	edi
+	lea	edx, DWORD PTR [ebx+3528]
 	push	edx
-	push	DWORD PTR [esi]
-	mov	DWORD PTR _descDSV$[ebp], eax
+	lea	edx, DWORD PTR _descDSV$[ebp]
+	mov	DWORD PTR _descDSV$[ebp], 45		; 0000002dH
+	push	edx
+	push	DWORD PTR [edi]
 	mov	DWORD PTR _descDSV$[ebp+4], 3
 	mov	DWORD PTR _descDSV$[ebp+8], 0
 	mov	eax, DWORD PTR [ecx]
 	push	ecx
 	call	DWORD PTR [eax+308]
 
-; 1072 : 	if( FAILED( hr ) ) return false;
+; 1265 : 	if( FAILED( hr ) ) return false;
 
 	test	eax, eax
-	js	$LN12@InitDevice
+	js	$LN13@InitDevice
 
-; 1073 : 
-; 1074 : 	// Select the back buffer and depth buffer to use for rendering now
-; 1075 : 	mpd3dDevice->OMSetRenderTargets( 1, &RenderTargetView, DepthStencilView );
+; 1266 : 
+; 1267 : 	// Create a shader resource view for the depth buffer - required for the soft-particles shaders that will access the depth buffer as a texture
+; 1268 : 	
+; 1269 : 	mDepthShaderDesc.Format = DXGI_FORMAT::DXGI_FORMAT_R24_UNORM_X8_TYPELESS;
+; 1270 : 	mDepthShaderDesc.ViewDimension = D3D10_SRV_DIMENSION_TEXTURE2D;
+; 1271 : 	mDepthShaderDesc.Texture2D.MipLevels = 1;
+; 1272 : 	mDepthShaderDesc.Texture2D.MostDetailedMip = 0;
+; 1273 : 	if (FAILED(mpd3dDevice->CreateShaderResourceView(DepthStencil, &mDepthShaderDesc, &mDepthShaderView))) return false;
+
+	mov	ecx, DWORD PTR [ebx]
+	lea	eax, DWORD PTR [ebx+3364]
+	push	eax
+	lea	esi, DWORD PTR [ebx+3388]
+	mov	DWORD PTR [ebx+3392], 4
+	mov	DWORD PTR [esi], 46			; 0000002eH
+	push	esi
+	push	DWORD PTR [edi]
+	mov	DWORD PTR [ebx+3400], 1
+	mov	DWORD PTR [ebx+3396], 0
+	mov	edx, DWORD PTR [ecx]
+	push	ecx
+	call	DWORD PTR [edx+300]
+	test	eax, eax
+	js	$LN13@InitDevice
+
+; 1274 : 
+; 1275 : 	// Select the back buffer and depth buffer to use for rendering now
+; 1276 : 	mpd3dDevice->OMSetRenderTargets( 1, &RenderTargetView, DepthStencilView );
 
 	mov	eax, DWORD PTR [ebx]
-	lea	edx, DWORD PTR [ebx+3160]
-	push	DWORD PTR [edi]
+	lea	edx, DWORD PTR [ebx+3532]
+	push	DWORD PTR [ebx+3528]
 	push	edx
 	mov	ecx, DWORD PTR [eax]
 	push	1
 	push	eax
 	call	DWORD PTR [ecx+96]
 
-; 1076 : 
-; 1077 : 
-; 1078 : 	// Setup the viewport - defines which part of the window we will render to, almost always the whole window
-; 1079 : 	D3D10_VIEWPORT vp;
-; 1080 : 	vp.Width  = mViewportWidth;
+; 1277 : 
+; 1278 : 
+; 1279 : 	// Setup the viewport - defines which part of the window we will render to, almost always the whole window
+; 1280 : 	D3D10_VIEWPORT vp;
+; 1281 : 	vp.Width  = mViewportWidth;
 
 	mov	eax, DWORD PTR ?mViewportWidth@CScene@@0HA ; CScene::mViewportWidth
 
-; 1081 : 	vp.Height = mViewportHeight;
-; 1082 : 	vp.MinDepth = 0.0f;
-; 1083 : 	vp.MaxDepth = 1.0f;
-; 1084 : 	vp.TopLeftX = 0;
-; 1085 : 	vp.TopLeftY = 0;
-; 1086 : 	mpd3dDevice->RSSetViewports( 1, &vp );
+; 1282 : 	vp.Height = mViewportHeight;
+; 1283 : 	vp.MinDepth = 0.0f;
+; 1284 : 	vp.MaxDepth = 1.0f;
+; 1285 : 	vp.TopLeftX = 0;
+; 1286 : 	vp.TopLeftY = 0;
+; 1287 : 	mpd3dDevice->RSSetViewports( 1, &vp );
 
 	lea	edx, DWORD PTR _vp$[ebp]
 	mov	DWORD PTR _vp$[ebp+8], eax
@@ -11554,7 +15401,7 @@ $LN5@InitDevice:
 	mov	eax, DWORD PTR ?mViewportWidth@CScene@@0HA ; CScene::mViewportWidth
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1095 : }
+; 1296 : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 ; File c:\users\simon\documents\github\post-processing\camera.h
@@ -11564,7 +15411,7 @@ $LN5@InitDevice:
 	mov	DWORD PTR ?mViewportWidth@CCamera@@0HA, eax ; CCamera::mViewportWidth
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1095 : }
+; 1296 : }
 
 	xor	ecx, ebp
 ; File c:\users\simon\documents\github\post-processing\camera.h
@@ -11583,12 +15430,12 @@ $LN5@InitDevice:
 	mov	DWORD PTR ?mpd3dDev@CModel@@0PAUID3D10Device@@A, eax ; CModel::mpd3dDev
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1094 : 	return true;
+; 1295 : 	return true;
 
 	mov	al, 1
 	pop	ebx
 
-; 1095 : }
+; 1296 : }
 
 	call	@__security_check_cookie@4
 	mov	esp, ebp
@@ -11604,51 +15451,51 @@ _index$ = 8						; size = 4
 ?SetSinglePP@CScene@@QAEXH@Z PROC			; CScene::SetSinglePP, COMDAT
 ; _this$ = ecx
 
-; 199  : {
+; 316  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 200  : 	if(index < 0)
+; 317  : 	if(index < 0)
 
 	mov	eax, DWORD PTR _index$[ebp]
 	test	eax, eax
 	jns	SHORT $LN2@SetSingleP
 
-; 201  : 	{
-; 202  : 		mCurrentPP = 0;
+; 318  : 	{
+; 319  : 		mCurrentPP = 0;
 
-	mov	DWORD PTR [ecx+3040], 0
+	mov	DWORD PTR [ecx+3312], 0
 
-; 207  : 	{
-; 208  : 		mCurrentPP = 0;
-; 209  : 		return;
-; 210  : 	}
-; 211  : 
-; 212  : 	mCurrentPP = index;
-; 213  : }
+; 324  : 	{
+; 325  : 		mCurrentPP = 0;
+; 326  : 		return;
+; 327  : 	}
+; 328  : 
+; 329  : 	mCurrentPP = index;
+; 330  : }
 
 	pop	ebp
 	ret	4
 $LN2@SetSingleP:
 
-; 203  : 		return;
-; 204  : 	}
-; 205  : 
-; 206  : 	if(index > NumPostProcesses)
+; 320  : 		return;
+; 321  : 	}
+; 322  : 
+; 323  : 	if(index > NumPostProcesses)
 
 	xor	edx, edx
-	cmp	eax, 13					; 0000000dH
+	cmp	eax, 15					; 0000000fH
 	cmovg	eax, edx
-	mov	DWORD PTR [ecx+3040], eax
+	mov	DWORD PTR [ecx+3312], eax
 
-; 207  : 	{
-; 208  : 		mCurrentPP = 0;
-; 209  : 		return;
-; 210  : 	}
-; 211  : 
-; 212  : 	mCurrentPP = index;
-; 213  : }
+; 324  : 	{
+; 325  : 		mCurrentPP = 0;
+; 326  : 		return;
+; 327  : 	}
+; 328  : 
+; 329  : 	mCurrentPP = index;
+; 330  : }
 
 	pop	ebp
 	ret	4
@@ -11661,24 +15508,63 @@ _TEXT	SEGMENT
 ?ResetShock@CScene@@QAEXXZ PROC				; CScene::ResetShock, COMDAT
 ; _this$ = ecx
 
-; 217  : 	mShockTime = mShockLength;	
+; 334  : 	mShockTime = mShockLength;	
 
-	mov	eax, DWORD PTR [ecx+2976]
-	mov	DWORD PTR [ecx+2968], eax
+	mov	eax, DWORD PTR [ecx+2984]
+	mov	DWORD PTR [ecx+2976], eax
 
-; 218  : }
+; 335  : }
 
 	ret	0
 ?ResetShock@CScene@@QAEXXZ ENDP				; CScene::ResetShock
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+; File c:\users\simon\documents\github\post-processing\scene.cpp
 ;	COMDAT ??1CScene@@QAE@XZ
 _TEXT	SEGMENT
 ??1CScene@@QAE@XZ PROC					; CScene::~CScene, COMDAT
 ; _this$ = ecx
 
-; 48   : }
+; 55   : {
+
+	push	esi
+	mov	esi, ecx
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+
+; 1623 : 		if (this->_Myfirst != pointer())
+
+	mov	eax, DWORD PTR [esi+3560]
+	test	eax, eax
+	je	SHORT $LN6@CScene
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+
+; 573  : 		::operator delete(_Ptr);
+
+	push	eax
+	call	??3@YAXPAX@Z				; operator delete
+	add	esp, 4
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+
+; 1629 : 			this->_Myfirst = pointer();
+
+	mov	DWORD PTR [esi+3560], 0
+
+; 1630 : 			this->_Mylast = pointer();
+
+	mov	DWORD PTR [esi+3564], 0
+
+; 1631 : 			this->_Myend = pointer();
+
+	mov	DWORD PTR [esi+3568], 0
+$LN6@CScene:
+	pop	esi
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+
+; 56   : }
 
 	ret	0
 ??1CScene@@QAE@XZ ENDP					; CScene::~CScene
@@ -11688,6 +15574,8 @@ _TEXT	ENDS
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 ;	COMDAT ??0CScene@@QAE@XZ
 _TEXT	SEGMENT
@@ -11700,6 +15588,7 @@ $T1 = -12						; size = 12
 	push	ebp
 	mov	ebp, esp
 	sub	esp, 12					; 0000000cH
+	mov	edx, ecx
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
 
 ; 321  :     x = fx;
@@ -11710,18 +15599,6 @@ $T1 = -12						; size = 12
 ; 13   : 	AmbientColour = D3DXVECTOR3( 0.2f, 0.2f, 0.2f );
 
 	unpcklps xmm0, xmm0
-; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
-
-; 323  :     z = fz;
-
-	mov	DWORD PTR $T1[ebp+8], 1045220557	; 3e4ccccdH
-; File c:\users\simon\documents\github\post-processing\scene.cpp
-
-; 13   : 	AmbientColour = D3DXVECTOR3( 0.2f, 0.2f, 0.2f );
-
-	mov	eax, DWORD PTR $T1[ebp+8]
-	movq	QWORD PTR [ecx+2540], xmm0
-	mov	DWORD PTR [ecx+2548], eax
 
 ; 14   : 
 ; 15   : 	//set the controlled object to the mirror
@@ -11738,48 +15615,3919 @@ $T1 = -12						; size = 12
 ; 26   : 
 ; 27   : 	mDoubleVisionRadius = 0.05f;
 ; 28   : 
-; 29   : 	mBlurRadius = 10;
-; 30   : 
-; 31   : 	multiprocess = false;
-; 32   : 	ppDirection = true;
-; 33   : 
-; 34   : 	mbGaussian = false;
+; 29   : 	mBlurRadius = 11;
+; 30   : 	mBlurStrength = 1.0f;
+; 31   : 	mBlurMean = 0.5f;
+; 32   : 
+; 33   : 	multiprocess = false;
+; 34   : 	ppDirection = true;
 ; 35   : 
-; 36   : 	mContrastChange = 0.0f;
-; 37   : 	mContrastFactor = 0.0f;
-; 38   : 
-; 39   : 	mBlood = 0.5;
+; 36   : 	mbGaussian = false;
+; 37   : 
+; 38   : 	mContrastChange = 0.0f;
+; 39   : 	mContrastFactor = 0.0f;
 ; 40   : 
-; 41   : 	impact = false;
-; 42   : 	mSolariseInt = 127;
-; 43   : 	mSolariseFloat = 0.5f;
-; 44   : }
+; 41   : 	mBlood = 0.5;
+; 42   : 
+; 43   : 	impact = false;
+; 44   : 	mSolariseInt = 127;
+; 45   : 	mSolariseFloat = 0.5f;
+; 46   : 
+; 47   : 	for (int i = 0; i < MAX_BLUR_RADIUS; i++)
+; 48   : 	{
+; 49   : 		mBlurWeights[i] = 1.0f;
 
-	mov	eax, ecx
-	mov	DWORD PTR [ecx+808], 0
-	mov	DWORD PTR [ecx+932], 0
-	mov	DWORD PTR [ecx+2536], 0
-	mov	DWORD PTR [ecx+2552], 0
-	mov	DWORD PTR [ecx+3040], 0
-	mov	DWORD PTR [ecx+2984], 0
-	mov	DWORD PTR [ecx+3004], 1090519040	; 41000000H
-	mov	DWORD PTR [ecx+2964], 1045220557	; 3e4ccccdH
-	mov	DWORD PTR [ecx+2972], 1101004800	; 41a00000H
-	mov	DWORD PTR [ecx+2976], 1073741824	; 40000000H
-	mov	DWORD PTR [ecx+3020], 1028443341	; 3d4ccccdH
-	mov	DWORD PTR [ecx+3008], 10		; 0000000aH
-	mov	WORD PTR [ecx+3184], 0
-	mov	BYTE PTR [ecx+3068], 1
-	mov	DWORD PTR [ecx+3028], 0
-	mov	DWORD PTR [ecx+3032], 0
-	mov	DWORD PTR [ecx+2944], 1056964608	; 3f000000H
-	mov	BYTE PTR [ecx+3084], 0
-	mov	DWORD PTR [ecx+3072], 127		; 0000007fH
-	mov	DWORD PTR [ecx+3076], 1056964608	; 3f000000H
+	mov	ecx, 64					; 00000040H
+	push	edi
+; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
+
+; 323  :     z = fz;
+
+	mov	DWORD PTR $T1[ebp+8], 1045220557	; 3e4ccccdH
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+
+; 13   : 	AmbientColour = D3DXVECTOR3( 0.2f, 0.2f, 0.2f );
+
+	mov	eax, DWORD PTR $T1[ebp+8]
+	lea	edi, DWORD PTR [edx+3036]
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+
+; 482  : 		_Myfirst = pointer();
+
+	mov	DWORD PTR [edx+3560], 0
+
+; 483  : 		_Mylast = pointer();
+
+	mov	DWORD PTR [edx+3564], 0
+
+; 484  : 		_Myend = pointer();
+
+	mov	DWORD PTR [edx+3568], 0
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+
+; 13   : 	AmbientColour = D3DXVECTOR3( 0.2f, 0.2f, 0.2f );
+
+	movq	QWORD PTR [edx+2540], xmm0
+	mov	DWORD PTR [edx+2548], eax
+
+; 14   : 
+; 15   : 	//set the controlled object to the mirror
+; 16   : 	mControlObject = 0;
+; 17   : 
+; 18   : 	mCurrentPP = 0;
+; 19   : 	mCumulativeFTime = 0.0f;
+; 20   : 	
+; 21   : 	mTintCycleTime = 8.0f;
+; 22   : 
+; 23   : 	mShockStrength = 0.2f;
+; 24   : 	mShockSpeed = 20.0f;
+; 25   : 	mShockLength = 2.0f;
+; 26   : 
+; 27   : 	mDoubleVisionRadius = 0.05f;
+; 28   : 
+; 29   : 	mBlurRadius = 11;
+; 30   : 	mBlurStrength = 1.0f;
+; 31   : 	mBlurMean = 0.5f;
+; 32   : 
+; 33   : 	multiprocess = false;
+; 34   : 	ppDirection = true;
+; 35   : 
+; 36   : 	mbGaussian = false;
+; 37   : 
+; 38   : 	mContrastChange = 0.0f;
+; 39   : 	mContrastFactor = 0.0f;
+; 40   : 
+; 41   : 	mBlood = 0.5;
+; 42   : 
+; 43   : 	impact = false;
+; 44   : 	mSolariseInt = 127;
+; 45   : 	mSolariseFloat = 0.5f;
+; 46   : 
+; 47   : 	for (int i = 0; i < MAX_BLUR_RADIUS; i++)
+; 48   : 	{
+; 49   : 		mBlurWeights[i] = 1.0f;
+
+	mov	eax, 1065353216				; 3f800000H
+	mov	DWORD PTR [edx+808], 0
+	mov	DWORD PTR [edx+932], 0
+	mov	DWORD PTR [edx+2536], 0
+	mov	DWORD PTR [edx+2552], 0
+	mov	DWORD PTR [edx+3312], 0
+	mov	DWORD PTR [edx+2992], 0
+	mov	DWORD PTR [edx+3012], 1090519040	; 41000000H
+	mov	DWORD PTR [edx+2972], 1045220557	; 3e4ccccdH
+	mov	DWORD PTR [edx+2980], 1101004800	; 41a00000H
+	mov	DWORD PTR [edx+2984], 1073741824	; 40000000H
+	mov	DWORD PTR [edx+3292], 1028443341	; 3d4ccccdH
+	mov	DWORD PTR [edx+3016], 11		; 0000000bH
+	mov	DWORD PTR [edx+3020], 1065353216	; 3f800000H
+	mov	DWORD PTR [edx+3024], 1056964608	; 3f000000H
+	mov	WORD PTR [edx+3556], 0
+	mov	BYTE PTR [edx+3344], 1
+	mov	DWORD PTR [edx+3300], 0
+	mov	DWORD PTR [edx+3304], 0
+	mov	DWORD PTR [edx+2952], 1056964608	; 3f000000H
+	mov	BYTE PTR [edx+3360], 0
+	mov	DWORD PTR [edx+3348], 127		; 0000007fH
+	mov	DWORD PTR [edx+3352], 1056964608	; 3f000000H
+	rep stosd
+
+; 50   : 	}
+; 51   : 
+; 52   : }
+
+	mov	eax, edx
+	pop	edi
 	mov	esp, ebp
 	pop	ebp
 	ret	0
 ??0CScene@@QAE@XZ ENDP					; CScene::CScene
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ?_Orphan_range@?$vector@HV?$allocator@H@std@@@std@@IBEXPAH0@Z
+_TEXT	SEGMENT
+___formal$ = 8						; size = 4
+___formal$ = 12						; size = 4
+?_Orphan_range@?$vector@HV?$allocator@H@std@@@std@@IBEXPAH0@Z PROC ; std::vector<int,std::allocator<int> >::_Orphan_range, COMDAT
+; _this$ = ecx
+
+; 1781 : 		}
+
+	ret	8
+?_Orphan_range@?$vector@HV?$allocator@H@std@@@std@@IBEXPAH0@Z ENDP ; std::vector<int,std::allocator<int> >::_Orphan_range
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ?_Xlen@?$vector@HV?$allocator@H@std@@@std@@IBEXXZ
+_TEXT	SEGMENT
+?_Xlen@?$vector@HV?$allocator@H@std@@@std@@IBEXXZ PROC	; std::vector<int,std::allocator<int> >::_Xlen, COMDAT
+; _this$ = ecx
+
+; 1754 : 		_Xlength_error("vector<T> too long");
+
+	push	OFFSET ??_C@_0BD@OLBABOEK@vector?$DMT?$DO?5too?5long?$AA@
+	call	?_Xlength_error@std@@YAXPBD@Z		; std::_Xlength_error
+$LN4@Xlen:
+$LN3@Xlen:
+	int	3
+?_Xlen@?$vector@HV?$allocator@H@std@@@std@@IBEXXZ ENDP	; std::vector<int,std::allocator<int> >::_Xlen
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ?_Tidy@?$vector@HV?$allocator@H@std@@@std@@IAEXXZ
+_TEXT	SEGMENT
+?_Tidy@?$vector@HV?$allocator@H@std@@@std@@IAEXXZ PROC	; std::vector<int,std::allocator<int> >::_Tidy, COMDAT
+; _this$ = ecx
+
+; 1622 : 		{	// free all storage
+
+	push	esi
+	mov	esi, ecx
+
+; 1623 : 		if (this->_Myfirst != pointer())
+
+	mov	eax, DWORD PTR [esi]
+	test	eax, eax
+	je	SHORT $LN1@Tidy
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+
+; 573  : 		::operator delete(_Ptr);
+
+	push	eax
+	call	??3@YAXPAX@Z				; operator delete
+	add	esp, 4
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+
+; 1629 : 			this->_Myfirst = pointer();
+
+	mov	DWORD PTR [esi], 0
+
+; 1630 : 			this->_Mylast = pointer();
+
+	mov	DWORD PTR [esi+4], 0
+
+; 1631 : 			this->_Myend = pointer();
+
+	mov	DWORD PTR [esi+8], 0
+$LN1@Tidy:
+	pop	esi
+
+; 1632 : 			}
+; 1633 : 		}
+
+	ret	0
+?_Tidy@?$vector@HV?$allocator@H@std@@@std@@IAEXXZ ENDP	; std::vector<int,std::allocator<int> >::_Tidy
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ?_Reserve@?$vector@HV?$allocator@H@std@@@std@@IAEXI@Z
+_TEXT	SEGMENT
+__Count$ = 8						; size = 4
+?_Reserve@?$vector@HV?$allocator@H@std@@@std@@IAEXI@Z PROC ; std::vector<int,std::allocator<int> >::_Reserve, COMDAT
+; _this$ = ecx
+
+; 1612 : 		{	// ensure room for _Count new elements, grow exponentially
+
+	push	ebp
+	mov	ebp, esp
+
+; 1011 : 		}
+; 1012 : 
+; 1013 : 	size_type _Unused_capacity() const _NOEXCEPT
+; 1014 : 		{	// micro-optimization for capacity() - size()
+; 1015 : 		return (this->_Myend - this->_Mylast);
+
+	mov	edx, DWORD PTR [ecx+8]
+	mov	eax, edx
+	push	esi
+	mov	esi, DWORD PTR [ecx+4]
+	sub	eax, esi
+	push	edi
+
+; 1613 : 		if (_Unused_capacity() < _Count)
+
+	mov	edi, DWORD PTR __Count$[ebp]
+
+; 1011 : 		}
+; 1012 : 
+; 1013 : 	size_type _Unused_capacity() const _NOEXCEPT
+; 1014 : 		{	// micro-optimization for capacity() - size()
+; 1015 : 		return (this->_Myend - this->_Mylast);
+
+	sar	eax, 2
+
+; 1613 : 		if (_Unused_capacity() < _Count)
+
+	cmp	eax, edi
+	jae	SHORT $LN2@Reserve
+
+; 1016 : 		}
+; 1017 : 
+; 1018 : 	size_type _Has_unused_capacity() const _NOEXCEPT
+; 1019 : 		{	// micro-optimization for capacity() != size()
+; 1020 : 		return (this->_Myend != this->_Mylast);
+; 1021 : 		}
+; 1022 : 
+; 1023 : 	iterator begin() _NOEXCEPT
+; 1024 : 		{	// return iterator for beginning of mutable sequence
+; 1025 : 		return (iterator(this->_Myfirst, this));
+; 1026 : 		}
+; 1027 : 
+; 1028 : 	const_iterator begin() const _NOEXCEPT
+; 1029 : 		{	// return iterator for beginning of nonmutable sequence
+; 1030 : 		return (const_iterator(this->_Myfirst, this));
+; 1031 : 		}
+; 1032 : 
+; 1033 : 	iterator end() _NOEXCEPT
+; 1034 : 		{	// return iterator for end of mutable sequence
+; 1035 : 		return (iterator(this->_Mylast, this));
+; 1036 : 		}
+; 1037 : 
+; 1038 : 	const_iterator end() const _NOEXCEPT
+; 1039 : 		{	// return iterator for end of nonmutable sequence
+; 1040 : 		return (const_iterator(this->_Mylast, this));
+; 1041 : 		}
+; 1042 : 
+; 1043 : 	iterator _Make_iter(const_iterator _Where) const
+; 1044 : 		{	// make iterator from const_iterator
+; 1045 : 		return (iterator(_Where._Ptr, this));
+; 1046 : 		}
+; 1047 : 
+; 1048 : 	reverse_iterator rbegin() _NOEXCEPT
+; 1049 : 		{	// return iterator for beginning of reversed mutable sequence
+; 1050 : 		return (reverse_iterator(end()));
+; 1051 : 		}
+; 1052 : 
+; 1053 : 	const_reverse_iterator rbegin() const _NOEXCEPT
+; 1054 : 		{	// return iterator for beginning of reversed nonmutable sequence
+; 1055 : 		return (const_reverse_iterator(end()));
+; 1056 : 		}
+; 1057 : 
+; 1058 : 	reverse_iterator rend() _NOEXCEPT
+; 1059 : 		{	// return iterator for end of reversed mutable sequence
+; 1060 : 		return (reverse_iterator(begin()));
+; 1061 : 		}
+; 1062 : 
+; 1063 : 	const_reverse_iterator rend() const _NOEXCEPT
+; 1064 : 		{	// return iterator for end of reversed nonmutable sequence
+; 1065 : 		return (const_reverse_iterator(begin()));
+; 1066 : 		}
+; 1067 : 
+; 1068 : 	const_iterator cbegin() const _NOEXCEPT
+; 1069 : 		{	// return iterator for beginning of nonmutable sequence
+; 1070 : 		return (((const _Myt *)this)->begin());
+; 1071 : 		}
+; 1072 : 
+; 1073 : 	const_iterator cend() const _NOEXCEPT
+; 1074 : 		{	// return iterator for end of nonmutable sequence
+; 1075 : 		return (((const _Myt *)this)->end());
+; 1076 : 		}
+; 1077 : 
+; 1078 : 	const_reverse_iterator crbegin() const _NOEXCEPT
+; 1079 : 		{	// return iterator for beginning of reversed nonmutable sequence
+; 1080 : 		return (((const _Myt *)this)->rbegin());
+; 1081 : 		}
+; 1082 : 
+; 1083 : 	const_reverse_iterator crend() const _NOEXCEPT
+; 1084 : 		{	// return iterator for end of reversed nonmutable sequence
+; 1085 : 		return (((const _Myt *)this)->rend());
+; 1086 : 		}
+; 1087 : 
+; 1088 : 	void shrink_to_fit()
+; 1089 : 		{	// reduce capacity
+; 1090 : 		if (_Has_unused_capacity())
+; 1091 : 			{	// worth shrinking, do it
+; 1092 : 			if (empty())
+; 1093 : 				_Tidy();
+; 1094 : 			else
+; 1095 : 				_Reallocate(size());
+; 1096 : 			}
+; 1097 : 		}
+; 1098 : 
+; 1099 : 	void resize(size_type _Newsize)
+; 1100 : 		{	// determine new length, padding as needed
+; 1101 : 		if (_Newsize < size())
+; 1102 : 			_Pop_back_n(size() - _Newsize);
+; 1103 : 		else if (size() < _Newsize)
+; 1104 : 			{	// pad as needed
+; 1105 : 			_Alty _Alval(this->_Getal());
+; 1106 : 			_Reserve(_Newsize - size());
+; 1107 : 			_TRY_BEGIN
+; 1108 : 			_Uninitialized_default_fill_n(this->_Mylast, _Newsize - size(),
+; 1109 : 				_Alval);
+; 1110 : 			_CATCH_ALL
+; 1111 : 			_Tidy();
+; 1112 : 			_RERAISE;
+; 1113 : 			_CATCH_END
+; 1114 : 			this->_Mylast += _Newsize - size();
+; 1115 : 			}
+; 1116 : 		}
+; 1117 : 
+; 1118 : 	void resize(size_type _Newsize, const value_type& _Val)
+; 1119 : 		{	// determine new length, padding with _Val elements as needed
+; 1120 : 		if (_Newsize < size())
+; 1121 : 			_Pop_back_n(size() - _Newsize);
+; 1122 : 		else if (size() < _Newsize)
+; 1123 : 			{	// pad as needed
+; 1124 : 			const value_type *_Ptr = _STD addressof(_Val);
+; 1125 : 
+; 1126 : 			if (_Inside(_Ptr))
+; 1127 : 				{	// padding is inside vector, recompute _Ptr after reserve
+; 1128 : 				const difference_type _Idx = _Ptr
+; 1129 : 					- _STD addressof(*this->_Myfirst);
+; 1130 : 				_Reserve(_Newsize - size());
+; 1131 : 				_Ptr = _STD addressof(*this->_Myfirst) + _Idx;
+; 1132 : 				}
+; 1133 : 			else
+; 1134 : 				_Reserve(_Newsize - size());
+; 1135 : 
+; 1136 : 			_TRY_BEGIN
+; 1137 : 			_Ufill(this->_Mylast, _Newsize - size(), _Ptr);
+; 1138 : 			_CATCH_ALL
+; 1139 : 			_Tidy();
+; 1140 : 			_RERAISE;
+; 1141 : 			_CATCH_END
+; 1142 : 			this->_Mylast += _Newsize - size();
+; 1143 : 			}
+; 1144 : 		}
+; 1145 : 
+; 1146 : 	size_type size() const _NOEXCEPT
+; 1147 : 		{	// return length of sequence
+; 1148 : 		return (this->_Mylast - this->_Myfirst);
+
+	sub	esi, DWORD PTR [ecx]
+	push	ebx
+
+; 1614 : 			{	// need more room, try to get it
+; 1615 : 			if (max_size() - size() < _Count)
+
+	mov	ebx, 1073741823				; 3fffffffH
+
+; 1016 : 		}
+; 1017 : 
+; 1018 : 	size_type _Has_unused_capacity() const _NOEXCEPT
+; 1019 : 		{	// micro-optimization for capacity() != size()
+; 1020 : 		return (this->_Myend != this->_Mylast);
+; 1021 : 		}
+; 1022 : 
+; 1023 : 	iterator begin() _NOEXCEPT
+; 1024 : 		{	// return iterator for beginning of mutable sequence
+; 1025 : 		return (iterator(this->_Myfirst, this));
+; 1026 : 		}
+; 1027 : 
+; 1028 : 	const_iterator begin() const _NOEXCEPT
+; 1029 : 		{	// return iterator for beginning of nonmutable sequence
+; 1030 : 		return (const_iterator(this->_Myfirst, this));
+; 1031 : 		}
+; 1032 : 
+; 1033 : 	iterator end() _NOEXCEPT
+; 1034 : 		{	// return iterator for end of mutable sequence
+; 1035 : 		return (iterator(this->_Mylast, this));
+; 1036 : 		}
+; 1037 : 
+; 1038 : 	const_iterator end() const _NOEXCEPT
+; 1039 : 		{	// return iterator for end of nonmutable sequence
+; 1040 : 		return (const_iterator(this->_Mylast, this));
+; 1041 : 		}
+; 1042 : 
+; 1043 : 	iterator _Make_iter(const_iterator _Where) const
+; 1044 : 		{	// make iterator from const_iterator
+; 1045 : 		return (iterator(_Where._Ptr, this));
+; 1046 : 		}
+; 1047 : 
+; 1048 : 	reverse_iterator rbegin() _NOEXCEPT
+; 1049 : 		{	// return iterator for beginning of reversed mutable sequence
+; 1050 : 		return (reverse_iterator(end()));
+; 1051 : 		}
+; 1052 : 
+; 1053 : 	const_reverse_iterator rbegin() const _NOEXCEPT
+; 1054 : 		{	// return iterator for beginning of reversed nonmutable sequence
+; 1055 : 		return (const_reverse_iterator(end()));
+; 1056 : 		}
+; 1057 : 
+; 1058 : 	reverse_iterator rend() _NOEXCEPT
+; 1059 : 		{	// return iterator for end of reversed mutable sequence
+; 1060 : 		return (reverse_iterator(begin()));
+; 1061 : 		}
+; 1062 : 
+; 1063 : 	const_reverse_iterator rend() const _NOEXCEPT
+; 1064 : 		{	// return iterator for end of reversed nonmutable sequence
+; 1065 : 		return (const_reverse_iterator(begin()));
+; 1066 : 		}
+; 1067 : 
+; 1068 : 	const_iterator cbegin() const _NOEXCEPT
+; 1069 : 		{	// return iterator for beginning of nonmutable sequence
+; 1070 : 		return (((const _Myt *)this)->begin());
+; 1071 : 		}
+; 1072 : 
+; 1073 : 	const_iterator cend() const _NOEXCEPT
+; 1074 : 		{	// return iterator for end of nonmutable sequence
+; 1075 : 		return (((const _Myt *)this)->end());
+; 1076 : 		}
+; 1077 : 
+; 1078 : 	const_reverse_iterator crbegin() const _NOEXCEPT
+; 1079 : 		{	// return iterator for beginning of reversed nonmutable sequence
+; 1080 : 		return (((const _Myt *)this)->rbegin());
+; 1081 : 		}
+; 1082 : 
+; 1083 : 	const_reverse_iterator crend() const _NOEXCEPT
+; 1084 : 		{	// return iterator for end of reversed nonmutable sequence
+; 1085 : 		return (((const _Myt *)this)->rend());
+; 1086 : 		}
+; 1087 : 
+; 1088 : 	void shrink_to_fit()
+; 1089 : 		{	// reduce capacity
+; 1090 : 		if (_Has_unused_capacity())
+; 1091 : 			{	// worth shrinking, do it
+; 1092 : 			if (empty())
+; 1093 : 				_Tidy();
+; 1094 : 			else
+; 1095 : 				_Reallocate(size());
+; 1096 : 			}
+; 1097 : 		}
+; 1098 : 
+; 1099 : 	void resize(size_type _Newsize)
+; 1100 : 		{	// determine new length, padding as needed
+; 1101 : 		if (_Newsize < size())
+; 1102 : 			_Pop_back_n(size() - _Newsize);
+; 1103 : 		else if (size() < _Newsize)
+; 1104 : 			{	// pad as needed
+; 1105 : 			_Alty _Alval(this->_Getal());
+; 1106 : 			_Reserve(_Newsize - size());
+; 1107 : 			_TRY_BEGIN
+; 1108 : 			_Uninitialized_default_fill_n(this->_Mylast, _Newsize - size(),
+; 1109 : 				_Alval);
+; 1110 : 			_CATCH_ALL
+; 1111 : 			_Tidy();
+; 1112 : 			_RERAISE;
+; 1113 : 			_CATCH_END
+; 1114 : 			this->_Mylast += _Newsize - size();
+; 1115 : 			}
+; 1116 : 		}
+; 1117 : 
+; 1118 : 	void resize(size_type _Newsize, const value_type& _Val)
+; 1119 : 		{	// determine new length, padding with _Val elements as needed
+; 1120 : 		if (_Newsize < size())
+; 1121 : 			_Pop_back_n(size() - _Newsize);
+; 1122 : 		else if (size() < _Newsize)
+; 1123 : 			{	// pad as needed
+; 1124 : 			const value_type *_Ptr = _STD addressof(_Val);
+; 1125 : 
+; 1126 : 			if (_Inside(_Ptr))
+; 1127 : 				{	// padding is inside vector, recompute _Ptr after reserve
+; 1128 : 				const difference_type _Idx = _Ptr
+; 1129 : 					- _STD addressof(*this->_Myfirst);
+; 1130 : 				_Reserve(_Newsize - size());
+; 1131 : 				_Ptr = _STD addressof(*this->_Myfirst) + _Idx;
+; 1132 : 				}
+; 1133 : 			else
+; 1134 : 				_Reserve(_Newsize - size());
+; 1135 : 
+; 1136 : 			_TRY_BEGIN
+; 1137 : 			_Ufill(this->_Mylast, _Newsize - size(), _Ptr);
+; 1138 : 			_CATCH_ALL
+; 1139 : 			_Tidy();
+; 1140 : 			_RERAISE;
+; 1141 : 			_CATCH_END
+; 1142 : 			this->_Mylast += _Newsize - size();
+; 1143 : 			}
+; 1144 : 		}
+; 1145 : 
+; 1146 : 	size_type size() const _NOEXCEPT
+; 1147 : 		{	// return length of sequence
+; 1148 : 		return (this->_Mylast - this->_Myfirst);
+
+	sar	esi, 2
+
+; 1614 : 			{	// need more room, try to get it
+; 1615 : 			if (max_size() - size() < _Count)
+
+	mov	eax, ebx
+	sub	eax, esi
+	cmp	eax, edi
+	jb	SHORT $LN43@Reserve
+
+; 1010 : 		return (this->_Myend - this->_Myfirst);
+
+	sub	edx, DWORD PTR [ecx]
+
+; 1616 : 				_Xlen();
+; 1617 : 			_Reallocate(_Grow_to(size() + _Count));
+
+	add	esi, edi
+
+; 1010 : 		return (this->_Myend - this->_Myfirst);
+
+	sar	edx, 2
+
+; 1149 : 		}
+; 1150 : 
+; 1151 : 	size_type max_size() const _NOEXCEPT
+; 1152 : 		{	// return maximum possible length of sequence
+; 1153 : 		return (this->_Getal().max_size());
+; 1154 : 		}
+; 1155 : 
+; 1156 : 	bool empty() const _NOEXCEPT
+; 1157 : 		{	// test if sequence is empty
+; 1158 : 		return (this->_Myfirst == this->_Mylast);
+; 1159 : 		}
+; 1160 : 
+; 1161 : 	_Alloc get_allocator() const _NOEXCEPT
+; 1162 : 		{	// return allocator object for values
+; 1163 : 		return (this->_Getal());
+; 1164 : 		}
+; 1165 : 
+; 1166 : 	const_reference at(size_type _Pos) const
+; 1167 : 		{	// subscript nonmutable sequence with checking
+; 1168 : 		if (size() <= _Pos)
+; 1169 : 			_Xran();
+; 1170 : 		return (*(this->_Myfirst + _Pos));
+; 1171 : 		}
+; 1172 : 
+; 1173 : 	reference at(size_type _Pos)
+; 1174 : 		{	// subscript mutable sequence with checking
+; 1175 : 		if (size() <= _Pos)
+; 1176 : 			_Xran();
+; 1177 : 		return (*(this->_Myfirst + _Pos));
+; 1178 : 		}
+; 1179 : 
+; 1180 : 	const_reference operator[](size_type _Pos) const
+; 1181 : 		{	// subscript nonmutable sequence
+; 1182 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1183 : 		if (size() <= _Pos)
+; 1184 : 			{	// report error
+; 1185 : 			_DEBUG_ERROR("vector subscript out of range");
+; 1186 : 			_SCL_SECURE_OUT_OF_RANGE;
+; 1187 : 			}
+; 1188 : 
+; 1189 :  #elif _ITERATOR_DEBUG_LEVEL == 1
+; 1190 : 		_SCL_SECURE_VALIDATE_RANGE(_Pos < size());
+; 1191 :  #endif /* _ITERATOR_DEBUG_LEVEL */
+; 1192 : 
+; 1193 : 		return (*(this->_Myfirst + _Pos));
+; 1194 : 		}
+; 1195 : 
+; 1196 : 	reference operator[](size_type _Pos)
+; 1197 : 		{	// subscript mutable sequence
+; 1198 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1199 : 		if (size() <= _Pos)
+; 1200 : 			{	// report error
+; 1201 : 			_DEBUG_ERROR("vector subscript out of range");
+; 1202 : 			_SCL_SECURE_OUT_OF_RANGE;
+; 1203 : 			}
+; 1204 : 
+; 1205 :  #elif _ITERATOR_DEBUG_LEVEL == 1
+; 1206 : 		_SCL_SECURE_VALIDATE_RANGE(_Pos < size());
+; 1207 :  #endif /* _ITERATOR_DEBUG_LEVEL */
+; 1208 : 
+; 1209 : 		return (*(this->_Myfirst + _Pos));
+; 1210 : 		}
+; 1211 : 
+; 1212 : 	pointer data() _NOEXCEPT
+; 1213 : 		{	// return address of first element
+; 1214 : 		return (this->_Myfirst);
+; 1215 : 		}
+; 1216 : 
+; 1217 : 	const_pointer data() const _NOEXCEPT
+; 1218 : 		{	// return address of first element
+; 1219 : 		return (this->_Myfirst);
+; 1220 : 		}
+; 1221 : 
+; 1222 : 	reference front()
+; 1223 : 		{	// return first element of mutable sequence
+; 1224 : 		return (*begin());
+; 1225 : 		}
+; 1226 : 
+; 1227 : 	const_reference front() const
+; 1228 : 		{	// return first element of nonmutable sequence
+; 1229 : 		return (*begin());
+; 1230 : 		}
+; 1231 : 
+; 1232 : 	reference back()
+; 1233 : 		{	// return last element of mutable sequence
+; 1234 : 		return (*(end() - 1));
+; 1235 : 		}
+; 1236 : 
+; 1237 : 	const_reference back() const
+; 1238 : 		{	// return last element of nonmutable sequence
+; 1239 : 		return (*(end() - 1));
+; 1240 : 		}
+; 1241 : 
+; 1242 : 	void push_back(const value_type& _Val)
+; 1243 : 		{	// insert element at end
+; 1244 : 		if (_Inside(_STD addressof(_Val)))
+; 1245 : 			{	// push back an element
+; 1246 : 			size_type _Idx = _STD addressof(_Val) - this->_Myfirst;
+; 1247 : 			if (this->_Mylast == this->_Myend)
+; 1248 : 				_Reserve(1);
+; 1249 : 			_Orphan_range(this->_Mylast, this->_Mylast);
+; 1250 : 			this->_Getal().construct(this->_Mylast,
+; 1251 : 				this->_Myfirst[_Idx]);
+; 1252 : 			++this->_Mylast;
+; 1253 : 			}
+; 1254 : 		else
+; 1255 : 			{	// push back a non-element
+; 1256 : 			if (this->_Mylast == this->_Myend)
+; 1257 : 				_Reserve(1);
+; 1258 : 			_Orphan_range(this->_Mylast, this->_Mylast);
+; 1259 : 			this->_Getal().construct(this->_Mylast,
+; 1260 : 				_Val);
+; 1261 : 			++this->_Mylast;
+; 1262 : 			}
+; 1263 : 		}
+; 1264 : 
+; 1265 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1266 : 	void pop_back()
+; 1267 : 		{	// erase element at end
+; 1268 : 		if (empty())
+; 1269 : 			_DEBUG_ERROR("vector empty before pop");
+; 1270 : 		else
+; 1271 : 			{	// erase last element
+; 1272 : 			_Orphan_range(this->_Mylast - 1, this->_Mylast);
+; 1273 : 			this->_Getal().destroy(this->_Mylast - 1);
+; 1274 : 			--this->_Mylast;
+; 1275 : 			}
+; 1276 : 		}
+; 1277 : 
+; 1278 :  #else /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1279 : 	void pop_back()
+; 1280 : 		{	// erase element at end
+; 1281 : 		this->_Getal().destroy(this->_Mylast - 1);
+; 1282 : 		--this->_Mylast;
+; 1283 : 		}
+; 1284 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1285 : 
+; 1286 : 	template<class _Iter>
+; 1287 : 		typename enable_if<_Is_iterator<_Iter>::value,
+; 1288 : 			void>::type
+; 1289 : 		assign(_Iter _First, _Iter _Last)
+; 1290 : 		{	// assign [_First, _Last)
+; 1291 : 		clear();
+; 1292 : 		_Assign(_First, _Last, _Iter_cat(_First));
+; 1293 : 		}
+; 1294 : 
+; 1295 : 	template<class _Iter>
+; 1296 : 		void _Assign(_Iter _First, _Iter _Last, input_iterator_tag)
+; 1297 : 		{	// assign [_First, _Last), input iterators
+; 1298 : 		for (; _First != _Last; ++_First)
+; 1299 : 			emplace_back(*_First);
+; 1300 : 		}
+; 1301 : 
+; 1302 : 	template<class _Iter>
+; 1303 : 		void _Assign(_Iter _First, _Iter _Last, forward_iterator_tag)
+; 1304 : 		{	// assign [_First, _Last), forward iterators
+; 1305 : 		if (_First == _Last)
+; 1306 : 			return;	// nothing to do
+; 1307 : 
+; 1308 : 		size_type _Newsize = _STD distance(_First, _Last);
+; 1309 : 
+; 1310 : 		if (capacity() < _Newsize)
+; 1311 : 			{	// need more room, try to get it
+; 1312 : 			size_type _Newcapacity = _Grow_to(_Newsize);
+; 1313 : 			_Tidy();
+; 1314 : 			_Buy(_Newcapacity);
+; 1315 : 			}
+; 1316 : 
+; 1317 : 		this->_Mylast = _Ucopy(_First, _Last, this->_Myfirst);
+; 1318 : 		}
+; 1319 : 
+; 1320 : 	void assign(size_type _Count, const value_type& _Val)
+; 1321 : 		{	// assign _Count * _Val
+; 1322 : 		clear();
+; 1323 : 		insert(begin(), _Count, _Val);
+; 1324 : 		}
+; 1325 : 
+; 1326 : 	iterator insert(const_iterator _Where, const _Ty& _Val)
+; 1327 : 		{	// insert _Val at _Where
+; 1328 : 		return (_Insert_n(_Where, (size_type)1, _Val));
+; 1329 : 		}
+; 1330 : 
+; 1331 : 	iterator insert(const_iterator _Where, size_type _Count,
+; 1332 : 		const _Ty& _Val)
+; 1333 : 		{	// insert _Count * _Val at _Where
+; 1334 : 		return (_Insert_n(_Where, _Count, _Val));
+; 1335 : 		}
+; 1336 : 
+; 1337 : 	template<class _Iter>
+; 1338 : 		typename enable_if<_Is_iterator<_Iter>::value,
+; 1339 : 			iterator>::type
+; 1340 : 		insert(const_iterator _Where, _Iter _First, _Iter _Last)
+; 1341 : 		{	// insert [_First, _Last) at _Where
+; 1342 : 		size_type _Off = _VIPTR(_Where) - this->_Myfirst;
+; 1343 : 		_Insert(_Where, _First, _Last, _Iter_cat(_First));
+; 1344 : 		return (begin() + _Off);
+; 1345 : 		}
+; 1346 : 
+; 1347 : 	template<class _Iter>
+; 1348 : 		void _Insert(const_iterator _Where, _Iter _First, _Iter _Last,
+; 1349 : 			input_iterator_tag)
+; 1350 : 		{	// insert [_First, _Last) at _Where, input iterators
+; 1351 : 		size_type _Off = _VIPTR(_Where) - this->_Myfirst;
+; 1352 : 
+; 1353 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1354 : 		if (size() < _Off)
+; 1355 : 			_DEBUG_ERROR("vector insert iterator outside range");
+; 1356 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1357 : 
+; 1358 : 		if (_First != _Last)
+; 1359 : 			{	// worth doing, gather at end and rotate into place
+; 1360 : 			size_type _Oldsize = size();
+; 1361 : 
+; 1362 : 			_TRY_BEGIN
+; 1363 : 			for (; _First != _Last; ++_First)
+; 1364 : 				push_back(*_First);	// append
+; 1365 : 
+; 1366 : 			_CATCH_ALL
+; 1367 : 			erase(begin() + _Oldsize, end());
+; 1368 : 			_RERAISE;
+; 1369 : 			_CATCH_END
+; 1370 : 
+; 1371 : 			_STD rotate(begin() + _Off, begin() + _Oldsize, end());
+; 1372 : 			}
+; 1373 : 		}
+; 1374 : 
+; 1375 : 	template<class _Iter>
+; 1376 : 		void _Insert(const_iterator _Where, _Iter _First, _Iter _Last,
+; 1377 : 			forward_iterator_tag)
+; 1378 : 		{	// insert [_First, _Last) at _Where, forward iterators
+; 1379 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1380 : 		if (_VICONT(_Where) != this
+; 1381 : 			|| _VIPTR(_Where) < this->_Myfirst
+; 1382 : 			|| this->_Mylast < _VIPTR(_Where))
+; 1383 : 			_DEBUG_ERROR("vector insert iterator outside range");
+; 1384 : 		_DEBUG_RANGE(_First, _Last);
+; 1385 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1386 : 
+; 1387 : 		size_type _Count = 0;
+; 1388 : 		_Distance(_First, _Last, _Count);
+; 1389 : 
+; 1390 : 		if (_Count == 0)
+; 1391 : 			;
+; 1392 : 		else if (_Unused_capacity() < _Count)
+; 1393 : 			{	// not enough room, reallocate
+; 1394 : 			if (max_size() - size() < _Count)
+; 1395 : 				_Xlen();	// result too long
+; 1396 : 
+; 1397 : 			size_type _Capacity = _Grow_to(size() + _Count);
+; 1398 : 			pointer _Newvec = this->_Getal().allocate(_Capacity);
+; 1399 : 			pointer _Ptr = _Newvec;
+; 1400 : 
+; 1401 : 			_TRY_BEGIN
+; 1402 : 			_Ptr = _Umove(this->_Myfirst, _VIPTR(_Where),
+; 1403 : 				_Newvec);	// copy prefix
+; 1404 : 			_Ptr = _Ucopy(_First, _Last, _Ptr);	// add new stuff
+; 1405 : 			_Umove(_VIPTR(_Where), this->_Mylast,
+; 1406 : 				_Ptr);	// copy suffix
+; 1407 : 			_CATCH_ALL
+; 1408 : 			_Destroy(_Newvec, _Ptr);
+; 1409 : 			this->_Getal().deallocate(_Newvec, _Capacity);
+; 1410 : 			_RERAISE;
+; 1411 : 			_CATCH_END
+; 1412 : 
+; 1413 : 			_Count += size();
+; 1414 : 			if (this->_Myfirst != pointer())
+; 1415 : 				{	// destroy and deallocate old array
+; 1416 : 				_Destroy(this->_Myfirst, this->_Mylast);
+; 1417 : 				this->_Getal().deallocate(this->_Myfirst,
+; 1418 : 					this->_Myend - this->_Myfirst);
+; 1419 : 				}
+; 1420 : 
+; 1421 : 			this->_Orphan_all();
+; 1422 : 			this->_Myend = _Newvec + _Capacity;
+; 1423 : 			this->_Mylast = _Newvec + _Count;
+; 1424 : 			this->_Myfirst = _Newvec;
+; 1425 : 			}
+; 1426 : 		else
+; 1427 : 			{	// new stuff fits, append and rotate into place
+; 1428 : 			_Ucopy(_First, _Last, this->_Mylast);
+; 1429 : 			_STD rotate(_VIPTR(_Where), this->_Mylast,
+; 1430 : 				this->_Mylast + _Count);
+; 1431 : 			this->_Mylast += _Count;
+; 1432 : 			_Orphan_range(_VIPTR(_Where), this->_Mylast);
+; 1433 : 			}
+; 1434 : 		}
+; 1435 : 
+; 1436 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1437 : 	iterator erase(const_iterator _Where)
+; 1438 : 		{	// erase element at where
+; 1439 : 		if (_VICONT(_Where) != this
+; 1440 : 			|| _VIPTR(_Where) < this->_Myfirst
+; 1441 : 			|| this->_Mylast <= _VIPTR(_Where))
+; 1442 : 			_DEBUG_ERROR("vector erase iterator outside range");
+; 1443 : 		_Move(_VIPTR(_Where) + 1, this->_Mylast, _VIPTR(_Where));
+; 1444 : 		_Destroy(this->_Mylast - 1, this->_Mylast);
+; 1445 : 		_Orphan_range(_VIPTR(_Where), this->_Mylast);
+; 1446 : 		--this->_Mylast;
+; 1447 : 		return (_Make_iter(_Where));
+; 1448 : 		}
+; 1449 : 
+; 1450 :  #else /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1451 : 	iterator erase(const_iterator _Where)
+; 1452 : 		{	// erase element at where
+; 1453 : 		_Move(_VIPTR(_Where) + 1, this->_Mylast,
+; 1454 : 			_VIPTR(_Where));
+; 1455 : 		_Destroy(this->_Mylast - 1, this->_Mylast);
+; 1456 : 		--this->_Mylast;
+; 1457 : 		return (_Make_iter(_Where));
+; 1458 : 		}
+; 1459 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1460 : 
+; 1461 : 	iterator erase(const_iterator _First_arg,
+; 1462 : 		const_iterator _Last_arg)
+; 1463 : 		{	// erase [_First, _Last)
+; 1464 : 		if (_First_arg == begin() && _Last_arg == end())
+; 1465 : 			clear();
+; 1466 : 		else if (_First_arg != _Last_arg)
+; 1467 : 			{	// clear partial
+; 1468 : 			iterator _First = _Make_iter(_First_arg);
+; 1469 : 			iterator _Last = _Make_iter(_Last_arg);
+; 1470 : 
+; 1471 : 			if (_First != _Last)
+; 1472 : 				{	// worth doing, copy down over hole
+; 1473 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1474 : 				if (_Last < _First || _VICONT(_First) != this
+; 1475 : 					|| _VIPTR(_First) < this->_Myfirst
+; 1476 : 					|| this->_Mylast < _VIPTR(_Last))
+; 1477 : 					_DEBUG_ERROR("vector erase iterator outside range");
+; 1478 : 				pointer _Ptr = _Move(_VIPTR(_Last), this->_Mylast,
+; 1479 : 					_VIPTR(_First));
+; 1480 : 				_Orphan_range(_VIPTR(_First), this->_Mylast);
+; 1481 : 
+; 1482 :  #else /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1483 : 				pointer _Ptr = _Move(_VIPTR(_Last), this->_Mylast,
+; 1484 : 					_VIPTR(_First));
+; 1485 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1486 : 
+; 1487 : 				_Destroy(_Ptr, this->_Mylast);
+; 1488 : 				this->_Mylast = _Ptr;
+; 1489 : 				}
+; 1490 : 			}
+; 1491 : 		return (_Make_iter(_First_arg));
+; 1492 : 		}
+; 1493 : 
+; 1494 : 	void _Pop_back_n(size_type _Count)
+; 1495 : 		{	// erase _Count elements at end
+; 1496 : 		pointer _Ptr = this->_Mylast - _Count;
+; 1497 : 
+; 1498 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1499 : 		_Orphan_range(_Ptr, this->_Mylast);
+; 1500 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1501 : 
+; 1502 : 		_Destroy(_Ptr, this->_Mylast);
+; 1503 : 		this->_Mylast = _Ptr;
+; 1504 : 		}
+; 1505 : 
+; 1506 : 	void clear() _NOEXCEPT
+; 1507 : 		{	// erase all
+; 1508 : 		this->_Orphan_all();
+; 1509 : 		_Destroy(this->_Myfirst, this->_Mylast);
+; 1510 : 		this->_Mylast = this->_Myfirst;
+; 1511 : 		}
+; 1512 : 
+; 1513 : 	void swap(_Myt& _Right)
+; 1514 : 		{	// exchange contents with _Right
+; 1515 : 		if (this == &_Right)
+; 1516 : 			;	// same object, do nothing
+; 1517 : 		else if (this->_Getal() == _Right._Getal())
+; 1518 : 			{	// same allocator, swap control information
+; 1519 : 			this->_Swap_all(_Right);
+; 1520 : 			_Swap_adl(this->_Myfirst, _Right._Myfirst);
+; 1521 : 			_Swap_adl(this->_Mylast, _Right._Mylast);
+; 1522 : 			_Swap_adl(this->_Myend, _Right._Myend);
+; 1523 : 			}
+; 1524 : 
+; 1525 : 		else if (_Alty::propagate_on_container_swap::value)
+; 1526 : 			{	// swap allocators and control information
+; 1527 : 			this->_Swap_alloc(_Right);
+; 1528 : 			_Swap_adl(this->_Myfirst, _Right._Myfirst);
+; 1529 : 			_Swap_adl(this->_Mylast, _Right._Mylast);
+; 1530 : 			_Swap_adl(this->_Myend, _Right._Myend);
+; 1531 : 			}
+; 1532 : 
+; 1533 : 		else
+; 1534 : 			{	// containers are incompatible
+; 1535 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1536 : 			_DEBUG_ERROR("vector containers incompatible for swap");
+; 1537 : 
+; 1538 :  #else /* ITERATOR_DEBUG_LEVEL == 2 */
+; 1539 : 			_XSTD terminate();
+; 1540 :  #endif /* ITERATOR_DEBUG_LEVEL == 2 */
+; 1541 : 			}
+; 1542 : 		}
+; 1543 : 
+; 1544 : protected:
+; 1545 : 	bool _Buy(size_type _Capacity)
+; 1546 : 		{	// allocate array with _Capacity elements
+; 1547 : 		this->_Myfirst = pointer();
+; 1548 : 		this->_Mylast = pointer();
+; 1549 : 		this->_Myend = pointer();
+; 1550 : 
+; 1551 : 		if (_Capacity == 0)
+; 1552 : 			return (false);
+; 1553 : 		else if (max_size() < _Capacity)
+; 1554 : 			_Xlen();	// result too long
+; 1555 : 		else
+; 1556 : 			{	// nonempty array, allocate storage
+; 1557 : 			this->_Myfirst = this->_Getal().allocate(_Capacity);
+; 1558 : 			this->_Mylast = this->_Myfirst;
+; 1559 : 			this->_Myend = this->_Myfirst + _Capacity;
+; 1560 : 			}
+; 1561 : 		return (true);
+; 1562 : 		}
+; 1563 : 
+; 1564 : 	void _Destroy(pointer _First, pointer _Last)
+; 1565 : 		{	// destroy [_First, _Last) using allocator
+; 1566 : 		_Alty _Alval(this->_Getal());
+; 1567 : 		_Destroy_range(_First, _Last, _Alval);
+; 1568 : 		}
+; 1569 : 
+; 1570 : 	size_type _Grow_to(size_type _Count) const
+; 1571 : 		{	// grow by 50% or at least to _Count
+; 1572 : 		size_type _Capacity = capacity();
+; 1573 : 
+; 1574 : 		_Capacity = max_size() - _Capacity / 2 < _Capacity
+; 1575 : 			? 0 : _Capacity + _Capacity / 2;	// try to grow by 50%
+
+	mov	eax, edx
+	shr	eax, 1
+	sub	ebx, eax
+	cmp	ebx, edx
+	pop	ebx
+	jae	SHORT $LN27@Reserve
+	xor	edx, edx
+
+; 1576 : 		if (_Capacity < _Count)
+
+	cmp	edx, esi
+	pop	edi
+	cmovb	edx, esi
+	pop	esi
+
+; 1616 : 				_Xlen();
+; 1617 : 			_Reallocate(_Grow_to(size() + _Count));
+
+	mov	DWORD PTR __Count$[ebp], edx
+
+; 1618 : 			}
+; 1619 : 		}
+
+	pop	ebp
+
+; 1616 : 				_Xlen();
+; 1617 : 			_Reallocate(_Grow_to(size() + _Count));
+
+	jmp	?_Reallocate@?$vector@HV?$allocator@H@std@@@std@@IAEXI@Z ; std::vector<int,std::allocator<int> >::_Reallocate
+$LN27@Reserve:
+
+; 1149 : 		}
+; 1150 : 
+; 1151 : 	size_type max_size() const _NOEXCEPT
+; 1152 : 		{	// return maximum possible length of sequence
+; 1153 : 		return (this->_Getal().max_size());
+; 1154 : 		}
+; 1155 : 
+; 1156 : 	bool empty() const _NOEXCEPT
+; 1157 : 		{	// test if sequence is empty
+; 1158 : 		return (this->_Myfirst == this->_Mylast);
+; 1159 : 		}
+; 1160 : 
+; 1161 : 	_Alloc get_allocator() const _NOEXCEPT
+; 1162 : 		{	// return allocator object for values
+; 1163 : 		return (this->_Getal());
+; 1164 : 		}
+; 1165 : 
+; 1166 : 	const_reference at(size_type _Pos) const
+; 1167 : 		{	// subscript nonmutable sequence with checking
+; 1168 : 		if (size() <= _Pos)
+; 1169 : 			_Xran();
+; 1170 : 		return (*(this->_Myfirst + _Pos));
+; 1171 : 		}
+; 1172 : 
+; 1173 : 	reference at(size_type _Pos)
+; 1174 : 		{	// subscript mutable sequence with checking
+; 1175 : 		if (size() <= _Pos)
+; 1176 : 			_Xran();
+; 1177 : 		return (*(this->_Myfirst + _Pos));
+; 1178 : 		}
+; 1179 : 
+; 1180 : 	const_reference operator[](size_type _Pos) const
+; 1181 : 		{	// subscript nonmutable sequence
+; 1182 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1183 : 		if (size() <= _Pos)
+; 1184 : 			{	// report error
+; 1185 : 			_DEBUG_ERROR("vector subscript out of range");
+; 1186 : 			_SCL_SECURE_OUT_OF_RANGE;
+; 1187 : 			}
+; 1188 : 
+; 1189 :  #elif _ITERATOR_DEBUG_LEVEL == 1
+; 1190 : 		_SCL_SECURE_VALIDATE_RANGE(_Pos < size());
+; 1191 :  #endif /* _ITERATOR_DEBUG_LEVEL */
+; 1192 : 
+; 1193 : 		return (*(this->_Myfirst + _Pos));
+; 1194 : 		}
+; 1195 : 
+; 1196 : 	reference operator[](size_type _Pos)
+; 1197 : 		{	// subscript mutable sequence
+; 1198 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1199 : 		if (size() <= _Pos)
+; 1200 : 			{	// report error
+; 1201 : 			_DEBUG_ERROR("vector subscript out of range");
+; 1202 : 			_SCL_SECURE_OUT_OF_RANGE;
+; 1203 : 			}
+; 1204 : 
+; 1205 :  #elif _ITERATOR_DEBUG_LEVEL == 1
+; 1206 : 		_SCL_SECURE_VALIDATE_RANGE(_Pos < size());
+; 1207 :  #endif /* _ITERATOR_DEBUG_LEVEL */
+; 1208 : 
+; 1209 : 		return (*(this->_Myfirst + _Pos));
+; 1210 : 		}
+; 1211 : 
+; 1212 : 	pointer data() _NOEXCEPT
+; 1213 : 		{	// return address of first element
+; 1214 : 		return (this->_Myfirst);
+; 1215 : 		}
+; 1216 : 
+; 1217 : 	const_pointer data() const _NOEXCEPT
+; 1218 : 		{	// return address of first element
+; 1219 : 		return (this->_Myfirst);
+; 1220 : 		}
+; 1221 : 
+; 1222 : 	reference front()
+; 1223 : 		{	// return first element of mutable sequence
+; 1224 : 		return (*begin());
+; 1225 : 		}
+; 1226 : 
+; 1227 : 	const_reference front() const
+; 1228 : 		{	// return first element of nonmutable sequence
+; 1229 : 		return (*begin());
+; 1230 : 		}
+; 1231 : 
+; 1232 : 	reference back()
+; 1233 : 		{	// return last element of mutable sequence
+; 1234 : 		return (*(end() - 1));
+; 1235 : 		}
+; 1236 : 
+; 1237 : 	const_reference back() const
+; 1238 : 		{	// return last element of nonmutable sequence
+; 1239 : 		return (*(end() - 1));
+; 1240 : 		}
+; 1241 : 
+; 1242 : 	void push_back(const value_type& _Val)
+; 1243 : 		{	// insert element at end
+; 1244 : 		if (_Inside(_STD addressof(_Val)))
+; 1245 : 			{	// push back an element
+; 1246 : 			size_type _Idx = _STD addressof(_Val) - this->_Myfirst;
+; 1247 : 			if (this->_Mylast == this->_Myend)
+; 1248 : 				_Reserve(1);
+; 1249 : 			_Orphan_range(this->_Mylast, this->_Mylast);
+; 1250 : 			this->_Getal().construct(this->_Mylast,
+; 1251 : 				this->_Myfirst[_Idx]);
+; 1252 : 			++this->_Mylast;
+; 1253 : 			}
+; 1254 : 		else
+; 1255 : 			{	// push back a non-element
+; 1256 : 			if (this->_Mylast == this->_Myend)
+; 1257 : 				_Reserve(1);
+; 1258 : 			_Orphan_range(this->_Mylast, this->_Mylast);
+; 1259 : 			this->_Getal().construct(this->_Mylast,
+; 1260 : 				_Val);
+; 1261 : 			++this->_Mylast;
+; 1262 : 			}
+; 1263 : 		}
+; 1264 : 
+; 1265 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1266 : 	void pop_back()
+; 1267 : 		{	// erase element at end
+; 1268 : 		if (empty())
+; 1269 : 			_DEBUG_ERROR("vector empty before pop");
+; 1270 : 		else
+; 1271 : 			{	// erase last element
+; 1272 : 			_Orphan_range(this->_Mylast - 1, this->_Mylast);
+; 1273 : 			this->_Getal().destroy(this->_Mylast - 1);
+; 1274 : 			--this->_Mylast;
+; 1275 : 			}
+; 1276 : 		}
+; 1277 : 
+; 1278 :  #else /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1279 : 	void pop_back()
+; 1280 : 		{	// erase element at end
+; 1281 : 		this->_Getal().destroy(this->_Mylast - 1);
+; 1282 : 		--this->_Mylast;
+; 1283 : 		}
+; 1284 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1285 : 
+; 1286 : 	template<class _Iter>
+; 1287 : 		typename enable_if<_Is_iterator<_Iter>::value,
+; 1288 : 			void>::type
+; 1289 : 		assign(_Iter _First, _Iter _Last)
+; 1290 : 		{	// assign [_First, _Last)
+; 1291 : 		clear();
+; 1292 : 		_Assign(_First, _Last, _Iter_cat(_First));
+; 1293 : 		}
+; 1294 : 
+; 1295 : 	template<class _Iter>
+; 1296 : 		void _Assign(_Iter _First, _Iter _Last, input_iterator_tag)
+; 1297 : 		{	// assign [_First, _Last), input iterators
+; 1298 : 		for (; _First != _Last; ++_First)
+; 1299 : 			emplace_back(*_First);
+; 1300 : 		}
+; 1301 : 
+; 1302 : 	template<class _Iter>
+; 1303 : 		void _Assign(_Iter _First, _Iter _Last, forward_iterator_tag)
+; 1304 : 		{	// assign [_First, _Last), forward iterators
+; 1305 : 		if (_First == _Last)
+; 1306 : 			return;	// nothing to do
+; 1307 : 
+; 1308 : 		size_type _Newsize = _STD distance(_First, _Last);
+; 1309 : 
+; 1310 : 		if (capacity() < _Newsize)
+; 1311 : 			{	// need more room, try to get it
+; 1312 : 			size_type _Newcapacity = _Grow_to(_Newsize);
+; 1313 : 			_Tidy();
+; 1314 : 			_Buy(_Newcapacity);
+; 1315 : 			}
+; 1316 : 
+; 1317 : 		this->_Mylast = _Ucopy(_First, _Last, this->_Myfirst);
+; 1318 : 		}
+; 1319 : 
+; 1320 : 	void assign(size_type _Count, const value_type& _Val)
+; 1321 : 		{	// assign _Count * _Val
+; 1322 : 		clear();
+; 1323 : 		insert(begin(), _Count, _Val);
+; 1324 : 		}
+; 1325 : 
+; 1326 : 	iterator insert(const_iterator _Where, const _Ty& _Val)
+; 1327 : 		{	// insert _Val at _Where
+; 1328 : 		return (_Insert_n(_Where, (size_type)1, _Val));
+; 1329 : 		}
+; 1330 : 
+; 1331 : 	iterator insert(const_iterator _Where, size_type _Count,
+; 1332 : 		const _Ty& _Val)
+; 1333 : 		{	// insert _Count * _Val at _Where
+; 1334 : 		return (_Insert_n(_Where, _Count, _Val));
+; 1335 : 		}
+; 1336 : 
+; 1337 : 	template<class _Iter>
+; 1338 : 		typename enable_if<_Is_iterator<_Iter>::value,
+; 1339 : 			iterator>::type
+; 1340 : 		insert(const_iterator _Where, _Iter _First, _Iter _Last)
+; 1341 : 		{	// insert [_First, _Last) at _Where
+; 1342 : 		size_type _Off = _VIPTR(_Where) - this->_Myfirst;
+; 1343 : 		_Insert(_Where, _First, _Last, _Iter_cat(_First));
+; 1344 : 		return (begin() + _Off);
+; 1345 : 		}
+; 1346 : 
+; 1347 : 	template<class _Iter>
+; 1348 : 		void _Insert(const_iterator _Where, _Iter _First, _Iter _Last,
+; 1349 : 			input_iterator_tag)
+; 1350 : 		{	// insert [_First, _Last) at _Where, input iterators
+; 1351 : 		size_type _Off = _VIPTR(_Where) - this->_Myfirst;
+; 1352 : 
+; 1353 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1354 : 		if (size() < _Off)
+; 1355 : 			_DEBUG_ERROR("vector insert iterator outside range");
+; 1356 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1357 : 
+; 1358 : 		if (_First != _Last)
+; 1359 : 			{	// worth doing, gather at end and rotate into place
+; 1360 : 			size_type _Oldsize = size();
+; 1361 : 
+; 1362 : 			_TRY_BEGIN
+; 1363 : 			for (; _First != _Last; ++_First)
+; 1364 : 				push_back(*_First);	// append
+; 1365 : 
+; 1366 : 			_CATCH_ALL
+; 1367 : 			erase(begin() + _Oldsize, end());
+; 1368 : 			_RERAISE;
+; 1369 : 			_CATCH_END
+; 1370 : 
+; 1371 : 			_STD rotate(begin() + _Off, begin() + _Oldsize, end());
+; 1372 : 			}
+; 1373 : 		}
+; 1374 : 
+; 1375 : 	template<class _Iter>
+; 1376 : 		void _Insert(const_iterator _Where, _Iter _First, _Iter _Last,
+; 1377 : 			forward_iterator_tag)
+; 1378 : 		{	// insert [_First, _Last) at _Where, forward iterators
+; 1379 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1380 : 		if (_VICONT(_Where) != this
+; 1381 : 			|| _VIPTR(_Where) < this->_Myfirst
+; 1382 : 			|| this->_Mylast < _VIPTR(_Where))
+; 1383 : 			_DEBUG_ERROR("vector insert iterator outside range");
+; 1384 : 		_DEBUG_RANGE(_First, _Last);
+; 1385 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1386 : 
+; 1387 : 		size_type _Count = 0;
+; 1388 : 		_Distance(_First, _Last, _Count);
+; 1389 : 
+; 1390 : 		if (_Count == 0)
+; 1391 : 			;
+; 1392 : 		else if (_Unused_capacity() < _Count)
+; 1393 : 			{	// not enough room, reallocate
+; 1394 : 			if (max_size() - size() < _Count)
+; 1395 : 				_Xlen();	// result too long
+; 1396 : 
+; 1397 : 			size_type _Capacity = _Grow_to(size() + _Count);
+; 1398 : 			pointer _Newvec = this->_Getal().allocate(_Capacity);
+; 1399 : 			pointer _Ptr = _Newvec;
+; 1400 : 
+; 1401 : 			_TRY_BEGIN
+; 1402 : 			_Ptr = _Umove(this->_Myfirst, _VIPTR(_Where),
+; 1403 : 				_Newvec);	// copy prefix
+; 1404 : 			_Ptr = _Ucopy(_First, _Last, _Ptr);	// add new stuff
+; 1405 : 			_Umove(_VIPTR(_Where), this->_Mylast,
+; 1406 : 				_Ptr);	// copy suffix
+; 1407 : 			_CATCH_ALL
+; 1408 : 			_Destroy(_Newvec, _Ptr);
+; 1409 : 			this->_Getal().deallocate(_Newvec, _Capacity);
+; 1410 : 			_RERAISE;
+; 1411 : 			_CATCH_END
+; 1412 : 
+; 1413 : 			_Count += size();
+; 1414 : 			if (this->_Myfirst != pointer())
+; 1415 : 				{	// destroy and deallocate old array
+; 1416 : 				_Destroy(this->_Myfirst, this->_Mylast);
+; 1417 : 				this->_Getal().deallocate(this->_Myfirst,
+; 1418 : 					this->_Myend - this->_Myfirst);
+; 1419 : 				}
+; 1420 : 
+; 1421 : 			this->_Orphan_all();
+; 1422 : 			this->_Myend = _Newvec + _Capacity;
+; 1423 : 			this->_Mylast = _Newvec + _Count;
+; 1424 : 			this->_Myfirst = _Newvec;
+; 1425 : 			}
+; 1426 : 		else
+; 1427 : 			{	// new stuff fits, append and rotate into place
+; 1428 : 			_Ucopy(_First, _Last, this->_Mylast);
+; 1429 : 			_STD rotate(_VIPTR(_Where), this->_Mylast,
+; 1430 : 				this->_Mylast + _Count);
+; 1431 : 			this->_Mylast += _Count;
+; 1432 : 			_Orphan_range(_VIPTR(_Where), this->_Mylast);
+; 1433 : 			}
+; 1434 : 		}
+; 1435 : 
+; 1436 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1437 : 	iterator erase(const_iterator _Where)
+; 1438 : 		{	// erase element at where
+; 1439 : 		if (_VICONT(_Where) != this
+; 1440 : 			|| _VIPTR(_Where) < this->_Myfirst
+; 1441 : 			|| this->_Mylast <= _VIPTR(_Where))
+; 1442 : 			_DEBUG_ERROR("vector erase iterator outside range");
+; 1443 : 		_Move(_VIPTR(_Where) + 1, this->_Mylast, _VIPTR(_Where));
+; 1444 : 		_Destroy(this->_Mylast - 1, this->_Mylast);
+; 1445 : 		_Orphan_range(_VIPTR(_Where), this->_Mylast);
+; 1446 : 		--this->_Mylast;
+; 1447 : 		return (_Make_iter(_Where));
+; 1448 : 		}
+; 1449 : 
+; 1450 :  #else /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1451 : 	iterator erase(const_iterator _Where)
+; 1452 : 		{	// erase element at where
+; 1453 : 		_Move(_VIPTR(_Where) + 1, this->_Mylast,
+; 1454 : 			_VIPTR(_Where));
+; 1455 : 		_Destroy(this->_Mylast - 1, this->_Mylast);
+; 1456 : 		--this->_Mylast;
+; 1457 : 		return (_Make_iter(_Where));
+; 1458 : 		}
+; 1459 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1460 : 
+; 1461 : 	iterator erase(const_iterator _First_arg,
+; 1462 : 		const_iterator _Last_arg)
+; 1463 : 		{	// erase [_First, _Last)
+; 1464 : 		if (_First_arg == begin() && _Last_arg == end())
+; 1465 : 			clear();
+; 1466 : 		else if (_First_arg != _Last_arg)
+; 1467 : 			{	// clear partial
+; 1468 : 			iterator _First = _Make_iter(_First_arg);
+; 1469 : 			iterator _Last = _Make_iter(_Last_arg);
+; 1470 : 
+; 1471 : 			if (_First != _Last)
+; 1472 : 				{	// worth doing, copy down over hole
+; 1473 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1474 : 				if (_Last < _First || _VICONT(_First) != this
+; 1475 : 					|| _VIPTR(_First) < this->_Myfirst
+; 1476 : 					|| this->_Mylast < _VIPTR(_Last))
+; 1477 : 					_DEBUG_ERROR("vector erase iterator outside range");
+; 1478 : 				pointer _Ptr = _Move(_VIPTR(_Last), this->_Mylast,
+; 1479 : 					_VIPTR(_First));
+; 1480 : 				_Orphan_range(_VIPTR(_First), this->_Mylast);
+; 1481 : 
+; 1482 :  #else /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1483 : 				pointer _Ptr = _Move(_VIPTR(_Last), this->_Mylast,
+; 1484 : 					_VIPTR(_First));
+; 1485 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1486 : 
+; 1487 : 				_Destroy(_Ptr, this->_Mylast);
+; 1488 : 				this->_Mylast = _Ptr;
+; 1489 : 				}
+; 1490 : 			}
+; 1491 : 		return (_Make_iter(_First_arg));
+; 1492 : 		}
+; 1493 : 
+; 1494 : 	void _Pop_back_n(size_type _Count)
+; 1495 : 		{	// erase _Count elements at end
+; 1496 : 		pointer _Ptr = this->_Mylast - _Count;
+; 1497 : 
+; 1498 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1499 : 		_Orphan_range(_Ptr, this->_Mylast);
+; 1500 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1501 : 
+; 1502 : 		_Destroy(_Ptr, this->_Mylast);
+; 1503 : 		this->_Mylast = _Ptr;
+; 1504 : 		}
+; 1505 : 
+; 1506 : 	void clear() _NOEXCEPT
+; 1507 : 		{	// erase all
+; 1508 : 		this->_Orphan_all();
+; 1509 : 		_Destroy(this->_Myfirst, this->_Mylast);
+; 1510 : 		this->_Mylast = this->_Myfirst;
+; 1511 : 		}
+; 1512 : 
+; 1513 : 	void swap(_Myt& _Right)
+; 1514 : 		{	// exchange contents with _Right
+; 1515 : 		if (this == &_Right)
+; 1516 : 			;	// same object, do nothing
+; 1517 : 		else if (this->_Getal() == _Right._Getal())
+; 1518 : 			{	// same allocator, swap control information
+; 1519 : 			this->_Swap_all(_Right);
+; 1520 : 			_Swap_adl(this->_Myfirst, _Right._Myfirst);
+; 1521 : 			_Swap_adl(this->_Mylast, _Right._Mylast);
+; 1522 : 			_Swap_adl(this->_Myend, _Right._Myend);
+; 1523 : 			}
+; 1524 : 
+; 1525 : 		else if (_Alty::propagate_on_container_swap::value)
+; 1526 : 			{	// swap allocators and control information
+; 1527 : 			this->_Swap_alloc(_Right);
+; 1528 : 			_Swap_adl(this->_Myfirst, _Right._Myfirst);
+; 1529 : 			_Swap_adl(this->_Mylast, _Right._Mylast);
+; 1530 : 			_Swap_adl(this->_Myend, _Right._Myend);
+; 1531 : 			}
+; 1532 : 
+; 1533 : 		else
+; 1534 : 			{	// containers are incompatible
+; 1535 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1536 : 			_DEBUG_ERROR("vector containers incompatible for swap");
+; 1537 : 
+; 1538 :  #else /* ITERATOR_DEBUG_LEVEL == 2 */
+; 1539 : 			_XSTD terminate();
+; 1540 :  #endif /* ITERATOR_DEBUG_LEVEL == 2 */
+; 1541 : 			}
+; 1542 : 		}
+; 1543 : 
+; 1544 : protected:
+; 1545 : 	bool _Buy(size_type _Capacity)
+; 1546 : 		{	// allocate array with _Capacity elements
+; 1547 : 		this->_Myfirst = pointer();
+; 1548 : 		this->_Mylast = pointer();
+; 1549 : 		this->_Myend = pointer();
+; 1550 : 
+; 1551 : 		if (_Capacity == 0)
+; 1552 : 			return (false);
+; 1553 : 		else if (max_size() < _Capacity)
+; 1554 : 			_Xlen();	// result too long
+; 1555 : 		else
+; 1556 : 			{	// nonempty array, allocate storage
+; 1557 : 			this->_Myfirst = this->_Getal().allocate(_Capacity);
+; 1558 : 			this->_Mylast = this->_Myfirst;
+; 1559 : 			this->_Myend = this->_Myfirst + _Capacity;
+; 1560 : 			}
+; 1561 : 		return (true);
+; 1562 : 		}
+; 1563 : 
+; 1564 : 	void _Destroy(pointer _First, pointer _Last)
+; 1565 : 		{	// destroy [_First, _Last) using allocator
+; 1566 : 		_Alty _Alval(this->_Getal());
+; 1567 : 		_Destroy_range(_First, _Last, _Alval);
+; 1568 : 		}
+; 1569 : 
+; 1570 : 	size_type _Grow_to(size_type _Count) const
+; 1571 : 		{	// grow by 50% or at least to _Count
+; 1572 : 		size_type _Capacity = capacity();
+; 1573 : 
+; 1574 : 		_Capacity = max_size() - _Capacity / 2 < _Capacity
+; 1575 : 			? 0 : _Capacity + _Capacity / 2;	// try to grow by 50%
+
+	add	edx, eax
+
+; 1576 : 		if (_Capacity < _Count)
+
+	cmp	edx, esi
+	pop	edi
+	cmovb	edx, esi
+	pop	esi
+
+; 1616 : 				_Xlen();
+; 1617 : 			_Reallocate(_Grow_to(size() + _Count));
+
+	mov	DWORD PTR __Count$[ebp], edx
+
+; 1618 : 			}
+; 1619 : 		}
+
+	pop	ebp
+
+; 1616 : 				_Xlen();
+; 1617 : 			_Reallocate(_Grow_to(size() + _Count));
+
+	jmp	?_Reallocate@?$vector@HV?$allocator@H@std@@@std@@IAEXI@Z ; std::vector<int,std::allocator<int> >::_Reallocate
+$LN2@Reserve:
+	pop	edi
+	pop	esi
+
+; 1618 : 			}
+; 1619 : 		}
+
+	pop	ebp
+	ret	4
+$LN43@Reserve:
+
+; 1620 : 
+; 1621 : 	void _Tidy()
+; 1622 : 		{	// free all storage
+; 1623 : 		if (this->_Myfirst != pointer())
+; 1624 : 			{	// something to free, destroy and deallocate it
+; 1625 : 			this->_Orphan_all();
+; 1626 : 			_Destroy(this->_Myfirst, this->_Mylast);
+; 1627 : 			this->_Getal().deallocate(this->_Myfirst,
+; 1628 : 				this->_Myend - this->_Myfirst);
+; 1629 : 			this->_Myfirst = pointer();
+; 1630 : 			this->_Mylast = pointer();
+; 1631 : 			this->_Myend = pointer();
+; 1632 : 			}
+; 1633 : 		}
+; 1634 : 
+; 1635 : 	template<class _Iter>
+; 1636 : 		pointer _Ucopy(_Iter _First, _Iter _Last, pointer _Ptr)
+; 1637 : 		{	// copy initializing [_First, _Last), using allocator
+; 1638 : 		_Alty _Alval(this->_Getal());
+; 1639 : 		return (_Uninitialized_copy(_First, _Last,
+; 1640 : 			_Ptr, _Alval));
+; 1641 : 		}
+; 1642 : 
+; 1643 : 	template<class _Iter>
+; 1644 : 		pointer _Umove(_Iter _First, _Iter _Last, pointer _Ptr)
+; 1645 : 		{	// move initializing [_First, _Last), using allocator
+; 1646 : 		_Alty _Alval(this->_Getal());
+; 1647 : 		return (_Uninitialized_move(_First, _Last,
+; 1648 : 			_Ptr, _Alval));
+; 1649 : 		}
+; 1650 : 
+; 1651 : 	iterator _Insert_n(const_iterator _Where,
+; 1652 : 		size_type _Count, const value_type& _Val)
+; 1653 : 		{	// insert _Count * _Val at _Where
+; 1654 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1655 : 		if (_VICONT(_Where) != this
+; 1656 : 			|| _VIPTR(_Where) < this->_Myfirst
+; 1657 : 			|| this->_Mylast < _VIPTR(_Where))
+; 1658 : 			_DEBUG_ERROR("vector insert iterator outside range");
+; 1659 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1660 : 
+; 1661 : 		size_type _Off = _VIPTR(_Where) - this->_Myfirst;
+; 1662 : 		if (_Count == 0)
+; 1663 : 			;
+; 1664 : 		else if (_Unused_capacity() < _Count)
+; 1665 : 			{	// not enough room, reallocate
+; 1666 : 			if (max_size() - size() < _Count)
+; 1667 : 				_Xlen();	// result too long
+; 1668 : 
+; 1669 : 			size_type _Capacity = _Grow_to(size() + _Count);
+; 1670 : 			pointer _Newvec = this->_Getal().allocate(_Capacity);
+; 1671 : 			size_type _Whereoff = _VIPTR(_Where) - this->_Myfirst;
+; 1672 : 			int _Ncopied = 0;
+; 1673 : 
+; 1674 : 			_TRY_BEGIN
+; 1675 : 			_Ufill(_Newvec + _Whereoff, _Count,
+; 1676 : 				_STD addressof(_Val));	// add new stuff
+; 1677 : 			++_Ncopied;
+; 1678 : 			_Umove(this->_Myfirst, _VIPTR(_Where),
+; 1679 : 				_Newvec);	// copy prefix
+; 1680 : 			++_Ncopied;
+; 1681 : 			_Umove(_VIPTR(_Where), this->_Mylast,
+; 1682 : 				_Newvec + (_Whereoff + _Count));	// copy suffix
+; 1683 : 			_CATCH_ALL
+; 1684 : 			if (1 < _Ncopied)
+; 1685 : 				_Destroy(_Newvec, _Newvec + _Whereoff);
+; 1686 : 			if (0 < _Ncopied)
+; 1687 : 				_Destroy(_Newvec + _Whereoff, _Newvec + _Whereoff + _Count);
+; 1688 : 			this->_Getal().deallocate(_Newvec, _Capacity);
+; 1689 : 			_RERAISE;
+; 1690 : 			_CATCH_END
+; 1691 : 
+; 1692 : 			_Count += size();
+; 1693 : 			if (this->_Myfirst != pointer())
+; 1694 : 				{	// destroy and deallocate old array
+; 1695 : 				_Destroy(this->_Myfirst, this->_Mylast);
+; 1696 : 				this->_Getal().deallocate(this->_Myfirst,
+; 1697 : 					this->_Myend - this->_Myfirst);
+; 1698 : 				}
+; 1699 : 
+; 1700 : 			this->_Orphan_all();
+; 1701 : 			this->_Myend = _Newvec + _Capacity;
+; 1702 : 			this->_Mylast = _Newvec + _Count;
+; 1703 : 			this->_Myfirst = _Newvec;
+; 1704 : 			}
+; 1705 : 		else if ((size_type)(this->_Mylast - _VIPTR(_Where))
+; 1706 : 			< _Count)
+; 1707 : 			{	// new stuff spills off end
+; 1708 : 			value_type _Tmp = _Val;	// in case _Val is in sequence
+; 1709 : 
+; 1710 : 			_Umove(_VIPTR(_Where), this->_Mylast,
+; 1711 : 				_VIPTR(_Where) + _Count);	// copy suffix
+; 1712 : 
+; 1713 : 			_TRY_BEGIN
+; 1714 : 			_Ufill(this->_Mylast,
+; 1715 : 				_Count - (this->_Mylast - _VIPTR(_Where)),
+; 1716 : 				_STD addressof(_Tmp));	// insert new stuff off end
+; 1717 : 			_CATCH_ALL
+; 1718 : 			_Destroy(_VIPTR(_Where) + _Count,
+; 1719 : 				this->_Mylast + _Count);
+; 1720 : 			_RERAISE;
+; 1721 : 			_CATCH_END
+; 1722 : 
+; 1723 : 			this->_Mylast += _Count;
+; 1724 : 			_Orphan_range(_VIPTR(_Where), this->_Mylast);
+; 1725 : 			_STD fill(_VIPTR(_Where), this->_Mylast - _Count,
+; 1726 : 				_Tmp);	// insert up to old end
+; 1727 : 			}
+; 1728 : 		else
+; 1729 : 			{	// new stuff can all be assigned
+; 1730 : 			value_type _Tmp = _Val;	// in case _Val is in sequence
+; 1731 : 
+; 1732 : 			pointer _Oldend = this->_Mylast;
+; 1733 : 			this->_Mylast = _Umove(_Oldend - _Count, _Oldend,
+; 1734 : 				this->_Mylast);	// copy suffix
+; 1735 : 
+; 1736 : 			_Orphan_range(_VIPTR(_Where), this->_Mylast);
+; 1737 : 			_Copy_backward(_VIPTR(_Where), _Oldend - _Count,
+; 1738 : 				_Oldend);	// copy hole
+; 1739 : 			_STD fill(_VIPTR(_Where),
+; 1740 : 				_VIPTR(_Where) + _Count, _Tmp);	// insert into hole
+; 1741 : 			}
+; 1742 : 		return (begin() + _Off);
+; 1743 : 		}
+; 1744 : 
+; 1745 : 	pointer _Ufill(pointer _Ptr, size_type _Count, const value_type *_Pval)
+; 1746 : 		{	// copy initializing _Count * _Val, using allocator
+; 1747 : 		_Alty _Alval(this->_Getal());
+; 1748 : 		_Uninitialized_fill_n(_Ptr, _Count, _Pval, _Alval);
+; 1749 : 		return (_Ptr + _Count);
+; 1750 : 		}
+; 1751 : 
+; 1752 : 	__declspec(noreturn) void _Xlen() const
+; 1753 : 		{	// report a length_error
+; 1754 : 		_Xlength_error("vector<T> too long");
+
+	push	OFFSET ??_C@_0BD@OLBABOEK@vector?$DMT?$DO?5too?5long?$AA@
+	call	?_Xlength_error@std@@YAXPBD@Z		; std::_Xlength_error
+$LN45@Reserve:
+$LN42@Reserve:
+	int	3
+?_Reserve@?$vector@HV?$allocator@H@std@@@std@@IAEXI@Z ENDP ; std::vector<int,std::allocator<int> >::_Reserve
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ?_Reallocate@?$vector@HV?$allocator@H@std@@@std@@IAEXI@Z
+_TEXT	SEGMENT
+__Size$1$ = 8						; size = 4
+__Count$ = 8						; size = 4
+?_Reallocate@?$vector@HV?$allocator@H@std@@@std@@IAEXI@Z PROC ; std::vector<int,std::allocator<int> >::_Reallocate, COMDAT
+; _this$ = ecx
+
+; 1587 : 		{	// move to array of exactly _Count elements
+
+	push	ebp
+	mov	ebp, esp
+	push	ebx
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+
+; 25   : 	if (_Count == 0)
+
+	mov	ebx, DWORD PTR __Count$[ebp]
+	push	esi
+
+; 23   : 	void *_Ptr = 0;
+
+	xor	esi, esi
+	push	edi
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+
+; 1587 : 		{	// move to array of exactly _Count elements
+
+	mov	edi, ecx
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+
+; 25   : 	if (_Count == 0)
+
+	test	ebx, ebx
+	je	SHORT $LN16@Reallocate
+
+; 26   : 		;
+; 27   : 	else if (((size_t)(-1) / sizeof (_Ty) < _Count)
+; 28   : 		|| (_Ptr = ::operator new(_Count * sizeof (_Ty))) == 0)
+
+	cmp	ebx, 1073741823				; 3fffffffH
+	ja	SHORT $LN61@Reallocate
+	lea	eax, DWORD PTR [ebx*4]
+	push	eax
+	call	??2@YAPAXI@Z				; operator new
+	mov	esi, eax
+	add	esp, 4
+	test	esi, esi
+	je	SHORT $LN61@Reallocate
+$LN16@Reallocate:
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+
+; 1591 : 		_Umove(this->_Myfirst, this->_Mylast, _Ptr);
+
+	mov	ecx, DWORD PTR [edi]
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory
+
+; 472  : 	size_t _Count = (size_t)(_Last - _First);
+
+	mov	eax, DWORD PTR [edi+4]
+	sub	eax, ecx
+
+; 474  : 		_Count * sizeof (*_First)) + _Count);	// NB: non-overlapping move
+
+	and	eax, -4					; fffffffcH
+	push	eax
+	push	ecx
+	push	esi
+	call	_memmove
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+
+; 1148 : 		return (this->_Mylast - this->_Myfirst);
+
+	mov	ecx, DWORD PTR [edi]
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory
+
+; 474  : 		_Count * sizeof (*_First)) + _Count);	// NB: non-overlapping move
+
+	add	esp, 12					; 0000000cH
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+
+; 1148 : 		return (this->_Mylast - this->_Myfirst);
+
+	mov	eax, DWORD PTR [edi+4]
+	sub	eax, ecx
+	sar	eax, 2
+	mov	DWORD PTR __Size$1$[ebp], eax
+
+; 1592 : 		_CATCH_ALL
+; 1593 : 		this->_Getal().deallocate(_Ptr, _Count);
+; 1594 : 		_RERAISE;
+; 1595 : 		_CATCH_END
+; 1596 : 
+; 1597 : 		size_type _Size = size();
+; 1598 : 		if (this->_Myfirst != pointer())
+
+	test	ecx, ecx
+	je	SHORT $LN56@Reallocate
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+
+; 573  : 		::operator delete(_Ptr);
+
+	push	ecx
+	call	??3@YAXPAX@Z				; operator delete
+	add	esp, 4
+$LN56@Reallocate:
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+
+; 1606 : 		this->_Myend = _Ptr + _Count;
+
+	lea	eax, DWORD PTR [esi+ebx*4]
+
+; 1607 : 		this->_Mylast = _Ptr + _Size;
+; 1608 : 		this->_Myfirst = _Ptr;
+
+	mov	DWORD PTR [edi], esi
+	mov	DWORD PTR [edi+8], eax
+	mov	eax, DWORD PTR __Size$1$[ebp]
+	lea	eax, DWORD PTR [esi+eax*4]
+	mov	DWORD PTR [edi+4], eax
+	pop	edi
+	pop	esi
+	pop	ebx
+
+; 1609 : 		}
+
+	pop	ebp
+	ret	4
+$LN61@Reallocate:
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+
+; 29   : 		_Xbad_alloc();	// report no memory
+
+	call	?_Xbad_alloc@std@@YAXXZ			; std::_Xbad_alloc
+$LN63@Reallocate:
+$LN60@Reallocate:
+	int	3
+?_Reallocate@?$vector@HV?$allocator@H@std@@@std@@IAEXI@Z ENDP ; std::vector<int,std::allocator<int> >::_Reallocate
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ?_Inside@?$vector@HV?$allocator@H@std@@@std@@IBE_NPBH@Z
+_TEXT	SEGMENT
+__Ptr$ = 8						; size = 4
+?_Inside@?$vector@HV?$allocator@H@std@@@std@@IBE_NPBH@Z PROC ; std::vector<int,std::allocator<int> >::_Inside, COMDAT
+; _this$ = ecx
+
+; 1582 : 		{	// test if _Ptr points inside vector
+
+	push	ebp
+	mov	ebp, esp
+
+; 1583 : 		return (_Ptr < this->_Mylast && this->_Myfirst <= _Ptr);
+
+	mov	eax, DWORD PTR __Ptr$[ebp]
+	cmp	eax, DWORD PTR [ecx+4]
+	jae	SHORT $LN3@Inside
+	cmp	DWORD PTR [ecx], eax
+	ja	SHORT $LN3@Inside
+	mov	al, 1
+
+; 1584 : 		}
+
+	pop	ebp
+	ret	4
+$LN3@Inside:
+
+; 1583 : 		return (_Ptr < this->_Mylast && this->_Myfirst <= _Ptr);
+
+	xor	al, al
+
+; 1584 : 		}
+
+	pop	ebp
+	ret	4
+?_Inside@?$vector@HV?$allocator@H@std@@@std@@IBE_NPBH@Z ENDP ; std::vector<int,std::allocator<int> >::_Inside
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ?_Grow_to@?$vector@HV?$allocator@H@std@@@std@@IBEII@Z
+_TEXT	SEGMENT
+__Count$ = 8						; size = 4
+?_Grow_to@?$vector@HV?$allocator@H@std@@@std@@IBEII@Z PROC ; std::vector<int,std::allocator<int> >::_Grow_to, COMDAT
+; _this$ = ecx
+
+; 1571 : 		{	// grow by 50% or at least to _Count
+
+	push	ebp
+	mov	ebp, esp
+
+; 1010 : 		return (this->_Myend - this->_Myfirst);
+
+	mov	edx, DWORD PTR [ecx+8]
+
+; 1572 : 		size_type _Capacity = capacity();
+; 1573 : 
+; 1574 : 		_Capacity = max_size() - _Capacity / 2 < _Capacity
+; 1575 : 			? 0 : _Capacity + _Capacity / 2;	// try to grow by 50%
+
+	mov	eax, 1073741823				; 3fffffffH
+
+; 1010 : 		return (this->_Myend - this->_Myfirst);
+
+	sub	edx, DWORD PTR [ecx]
+	sar	edx, 2
+
+; 1572 : 		size_type _Capacity = capacity();
+; 1573 : 
+; 1574 : 		_Capacity = max_size() - _Capacity / 2 < _Capacity
+; 1575 : 			? 0 : _Capacity + _Capacity / 2;	// try to grow by 50%
+
+	mov	ecx, edx
+	shr	ecx, 1
+	sub	eax, ecx
+	cmp	eax, edx
+	jae	SHORT $LN4@Grow_to
+	xor	edx, edx
+
+; 1576 : 		if (_Capacity < _Count)
+
+	cmp	edx, DWORD PTR __Count$[ebp]
+	cmovb	edx, DWORD PTR __Count$[ebp]
+
+; 1577 : 			_Capacity = _Count;
+; 1578 : 		return (_Capacity);
+
+	mov	eax, edx
+
+; 1579 : 		}
+
+	pop	ebp
+	ret	4
+$LN4@Grow_to:
+
+; 1572 : 		size_type _Capacity = capacity();
+; 1573 : 
+; 1574 : 		_Capacity = max_size() - _Capacity / 2 < _Capacity
+; 1575 : 			? 0 : _Capacity + _Capacity / 2;	// try to grow by 50%
+
+	add	edx, ecx
+
+; 1576 : 		if (_Capacity < _Count)
+
+	cmp	edx, DWORD PTR __Count$[ebp]
+	cmovb	edx, DWORD PTR __Count$[ebp]
+
+; 1577 : 			_Capacity = _Count;
+; 1578 : 		return (_Capacity);
+
+	mov	eax, edx
+
+; 1579 : 		}
+
+	pop	ebp
+	ret	4
+?_Grow_to@?$vector@HV?$allocator@H@std@@@std@@IBEII@Z ENDP ; std::vector<int,std::allocator<int> >::_Grow_to
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ?_Destroy@?$vector@HV?$allocator@H@std@@@std@@IAEXPAH0@Z
+_TEXT	SEGMENT
+__First$ = 8						; size = 4
+__Last$ = 12						; size = 4
+?_Destroy@?$vector@HV?$allocator@H@std@@@std@@IAEXPAH0@Z PROC ; std::vector<int,std::allocator<int> >::_Destroy, COMDAT
+; _this$ = ecx
+
+; 1566 : 		_Alty _Alval(this->_Getal());
+; 1567 : 		_Destroy_range(_First, _Last, _Alval);
+; 1568 : 		}
+
+	ret	8
+?_Destroy@?$vector@HV?$allocator@H@std@@@std@@IAEXPAH0@Z ENDP ; std::vector<int,std::allocator<int> >::_Destroy
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ?clear@?$vector@HV?$allocator@H@std@@@std@@QAEXXZ
+_TEXT	SEGMENT
+?clear@?$vector@HV?$allocator@H@std@@@std@@QAEXXZ PROC	; std::vector<int,std::allocator<int> >::clear, COMDAT
+; _this$ = ecx
+
+; 1508 : 		this->_Orphan_all();
+; 1509 : 		_Destroy(this->_Myfirst, this->_Mylast);
+; 1510 : 		this->_Mylast = this->_Myfirst;
+
+	mov	eax, DWORD PTR [ecx]
+	mov	DWORD PTR [ecx+4], eax
+
+; 1511 : 		}
+
+	ret	0
+?clear@?$vector@HV?$allocator@H@std@@@std@@QAEXXZ ENDP	; std::vector<int,std::allocator<int> >::clear
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ?max_size@?$vector@HV?$allocator@H@std@@@std@@QBEIXZ
+_TEXT	SEGMENT
+?max_size@?$vector@HV?$allocator@H@std@@@std@@QBEIXZ PROC ; std::vector<int,std::allocator<int> >::max_size, COMDAT
+; _this$ = ecx
+
+; 1153 : 		return (this->_Getal().max_size());
+
+	mov	eax, 1073741823				; 3fffffffH
+
+; 1154 : 		}
+
+	ret	0
+?max_size@?$vector@HV?$allocator@H@std@@@std@@QBEIXZ ENDP ; std::vector<int,std::allocator<int> >::max_size
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ?size@?$vector@HV?$allocator@H@std@@@std@@QBEIXZ
+_TEXT	SEGMENT
+?size@?$vector@HV?$allocator@H@std@@@std@@QBEIXZ PROC	; std::vector<int,std::allocator<int> >::size, COMDAT
+; _this$ = ecx
+
+; 1148 : 		return (this->_Mylast - this->_Myfirst);
+
+	mov	eax, DWORD PTR [ecx+4]
+	sub	eax, DWORD PTR [ecx]
+	sar	eax, 2
+
+; 1149 : 		}
+
+	ret	0
+?size@?$vector@HV?$allocator@H@std@@@std@@QBEIXZ ENDP	; std::vector<int,std::allocator<int> >::size
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ?end@?$vector@HV?$allocator@H@std@@@std@@QAE?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@2@XZ
+_TEXT	SEGMENT
+___$ReturnUdt$ = 8					; size = 4
+?end@?$vector@HV?$allocator@H@std@@@std@@QAE?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@2@XZ PROC ; std::vector<int,std::allocator<int> >::end, COMDAT
+; _this$ = ecx
+
+; 1034 : 		{	// return iterator for end of mutable sequence
+
+	push	ebp
+	mov	ebp, esp
+
+; 47   : 		{	// construct with pointer _Parg
+
+	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
+	mov	ecx, DWORD PTR [ecx+4]
+	mov	DWORD PTR [eax], ecx
+
+; 1035 : 		return (iterator(this->_Mylast, this));
+; 1036 : 		}
+
+	pop	ebp
+	ret	4
+?end@?$vector@HV?$allocator@H@std@@@std@@QAE?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@2@XZ ENDP ; std::vector<int,std::allocator<int> >::end
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ?begin@?$vector@HV?$allocator@H@std@@@std@@QAE?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@2@XZ
+_TEXT	SEGMENT
+___$ReturnUdt$ = 8					; size = 4
+?begin@?$vector@HV?$allocator@H@std@@@std@@QAE?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@2@XZ PROC ; std::vector<int,std::allocator<int> >::begin, COMDAT
+; _this$ = ecx
+
+; 1024 : 		{	// return iterator for beginning of mutable sequence
+
+	push	ebp
+	mov	ebp, esp
+
+; 47   : 		{	// construct with pointer _Parg
+
+	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
+	mov	ecx, DWORD PTR [ecx]
+	mov	DWORD PTR [eax], ecx
+
+; 1025 : 		return (iterator(this->_Myfirst, this));
+; 1026 : 		}
+
+	pop	ebp
+	ret	4
+?begin@?$vector@HV?$allocator@H@std@@@std@@QAE?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@H@std@@@std@@@2@XZ ENDP ; std::vector<int,std::allocator<int> >::begin
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ?_Unused_capacity@?$vector@HV?$allocator@H@std@@@std@@QBEIXZ
+_TEXT	SEGMENT
+?_Unused_capacity@?$vector@HV?$allocator@H@std@@@std@@QBEIXZ PROC ; std::vector<int,std::allocator<int> >::_Unused_capacity, COMDAT
+; _this$ = ecx
+
+; 1015 : 		return (this->_Myend - this->_Mylast);
+
+	mov	eax, DWORD PTR [ecx+8]
+	sub	eax, DWORD PTR [ecx+4]
+	sar	eax, 2
+
+; 1016 : 		}
+
+	ret	0
+?_Unused_capacity@?$vector@HV?$allocator@H@std@@@std@@QBEIXZ ENDP ; std::vector<int,std::allocator<int> >::_Unused_capacity
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ?capacity@?$vector@HV?$allocator@H@std@@@std@@QBEIXZ
+_TEXT	SEGMENT
+?capacity@?$vector@HV?$allocator@H@std@@@std@@QBEIXZ PROC ; std::vector<int,std::allocator<int> >::capacity, COMDAT
+; _this$ = ecx
+
+; 1010 : 		return (this->_Myend - this->_Myfirst);
+
+	mov	eax, DWORD PTR [ecx+8]
+	sub	eax, DWORD PTR [ecx]
+	sar	eax, 2
+
+; 1011 : 		}
+
+	ret	0
+?capacity@?$vector@HV?$allocator@H@std@@@std@@QBEIXZ ENDP ; std::vector<int,std::allocator<int> >::capacity
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ??1?$vector@HV?$allocator@H@std@@@std@@QAE@XZ
+_TEXT	SEGMENT
+??1?$vector@HV?$allocator@H@std@@@std@@QAE@XZ PROC	; std::vector<int,std::allocator<int> >::~vector<int,std::allocator<int> >, COMDAT
+; _this$ = ecx
+
+; 944  : 		{	// destroy the object
+
+	push	esi
+	mov	esi, ecx
+
+; 947  : 
+; 948  : 	_Myt& operator=(const _Myt& _Right)
+; 949  : 		{	// assign _Right
+; 950  : 		if (this != &_Right)
+; 951  : 			{	// different, assign it
+; 952  : 			if (this->_Getal() != _Right._Getal()
+; 953  : 				&& _Alty::propagate_on_container_copy_assignment::value)
+; 954  : 				{	// change allocator before copying
+; 955  : 				_Tidy();
+; 956  : 				this->_Change_alloc(_Right._Getal());
+; 957  : 				}
+; 958  : 
+; 959  : 			this->_Orphan_all();
+; 960  : 
+; 961  : 			if (_Right.empty())
+; 962  : 				clear();	// new sequence empty, erase existing sequence
+; 963  : 			else if (_Right.size() <= size())
+; 964  : 				{	// enough elements, copy new and destroy old
+; 965  : 				pointer _Ptr = _Copy_impl(_Right._Myfirst,
+; 966  : 					_Right._Mylast, this->_Myfirst);	// copy new
+; 967  : 				_Destroy(_Ptr, this->_Mylast);	// destroy old
+; 968  : 				this->_Mylast = this->_Myfirst + _Right.size();
+; 969  : 				}
+; 970  : 			else if (_Right.size() <= capacity())
+; 971  : 				{	// enough room, copy and construct new
+; 972  : 				pointer _Ptr = _Right._Myfirst + size();
+; 973  : 				_Copy_impl(_Right._Myfirst,
+; 974  : 					_Ptr, this->_Myfirst);
+; 975  : 				this->_Mylast = _Ucopy(_Ptr, _Right._Mylast, this->_Mylast);
+; 976  : 				}
+; 977  : 			else
+; 978  : 				{	// not enough room, allocate new array and construct new
+; 979  : 				if (this->_Myfirst != pointer())
+; 980  : 					{	// discard old array
+; 981  : 					_Destroy(this->_Myfirst, this->_Mylast);
+; 982  : 					this->_Getal().deallocate(this->_Myfirst,
+; 983  : 						this->_Myend - this->_Myfirst);
+; 984  : 					}
+; 985  : 				if (_Buy(_Right.size()))
+; 986  : 					_TRY_BEGIN
+; 987  : 					this->_Mylast = _Ucopy(_Right._Myfirst, _Right._Mylast,
+; 988  : 						this->_Myfirst);
+; 989  : 					_CATCH_ALL
+; 990  : 					_Tidy();
+; 991  : 					_RERAISE;
+; 992  : 					_CATCH_END
+; 993  : 				}
+; 994  : 			}
+; 995  : 		return (*this);
+; 996  : 		}
+; 997  : 
+; 998  : 	void reserve(size_type _Count)
+; 999  : 		{	// determine new minimum length of allocated storage
+; 1000 : 		if (capacity() < _Count)
+; 1001 : 			{	// something to do, check and reallocate
+; 1002 : 			if (max_size() < _Count)
+; 1003 : 				_Xlen();
+; 1004 : 			_Reallocate(_Count);
+; 1005 : 			}
+; 1006 : 		}
+; 1007 : 
+; 1008 : 	size_type capacity() const _NOEXCEPT
+; 1009 : 		{	// return current length of allocated storage
+; 1010 : 		return (this->_Myend - this->_Myfirst);
+; 1011 : 		}
+; 1012 : 
+; 1013 : 	size_type _Unused_capacity() const _NOEXCEPT
+; 1014 : 		{	// micro-optimization for capacity() - size()
+; 1015 : 		return (this->_Myend - this->_Mylast);
+; 1016 : 		}
+; 1017 : 
+; 1018 : 	size_type _Has_unused_capacity() const _NOEXCEPT
+; 1019 : 		{	// micro-optimization for capacity() != size()
+; 1020 : 		return (this->_Myend != this->_Mylast);
+; 1021 : 		}
+; 1022 : 
+; 1023 : 	iterator begin() _NOEXCEPT
+; 1024 : 		{	// return iterator for beginning of mutable sequence
+; 1025 : 		return (iterator(this->_Myfirst, this));
+; 1026 : 		}
+; 1027 : 
+; 1028 : 	const_iterator begin() const _NOEXCEPT
+; 1029 : 		{	// return iterator for beginning of nonmutable sequence
+; 1030 : 		return (const_iterator(this->_Myfirst, this));
+; 1031 : 		}
+; 1032 : 
+; 1033 : 	iterator end() _NOEXCEPT
+; 1034 : 		{	// return iterator for end of mutable sequence
+; 1035 : 		return (iterator(this->_Mylast, this));
+; 1036 : 		}
+; 1037 : 
+; 1038 : 	const_iterator end() const _NOEXCEPT
+; 1039 : 		{	// return iterator for end of nonmutable sequence
+; 1040 : 		return (const_iterator(this->_Mylast, this));
+; 1041 : 		}
+; 1042 : 
+; 1043 : 	iterator _Make_iter(const_iterator _Where) const
+; 1044 : 		{	// make iterator from const_iterator
+; 1045 : 		return (iterator(_Where._Ptr, this));
+; 1046 : 		}
+; 1047 : 
+; 1048 : 	reverse_iterator rbegin() _NOEXCEPT
+; 1049 : 		{	// return iterator for beginning of reversed mutable sequence
+; 1050 : 		return (reverse_iterator(end()));
+; 1051 : 		}
+; 1052 : 
+; 1053 : 	const_reverse_iterator rbegin() const _NOEXCEPT
+; 1054 : 		{	// return iterator for beginning of reversed nonmutable sequence
+; 1055 : 		return (const_reverse_iterator(end()));
+; 1056 : 		}
+; 1057 : 
+; 1058 : 	reverse_iterator rend() _NOEXCEPT
+; 1059 : 		{	// return iterator for end of reversed mutable sequence
+; 1060 : 		return (reverse_iterator(begin()));
+; 1061 : 		}
+; 1062 : 
+; 1063 : 	const_reverse_iterator rend() const _NOEXCEPT
+; 1064 : 		{	// return iterator for end of reversed nonmutable sequence
+; 1065 : 		return (const_reverse_iterator(begin()));
+; 1066 : 		}
+; 1067 : 
+; 1068 : 	const_iterator cbegin() const _NOEXCEPT
+; 1069 : 		{	// return iterator for beginning of nonmutable sequence
+; 1070 : 		return (((const _Myt *)this)->begin());
+; 1071 : 		}
+; 1072 : 
+; 1073 : 	const_iterator cend() const _NOEXCEPT
+; 1074 : 		{	// return iterator for end of nonmutable sequence
+; 1075 : 		return (((const _Myt *)this)->end());
+; 1076 : 		}
+; 1077 : 
+; 1078 : 	const_reverse_iterator crbegin() const _NOEXCEPT
+; 1079 : 		{	// return iterator for beginning of reversed nonmutable sequence
+; 1080 : 		return (((const _Myt *)this)->rbegin());
+; 1081 : 		}
+; 1082 : 
+; 1083 : 	const_reverse_iterator crend() const _NOEXCEPT
+; 1084 : 		{	// return iterator for end of reversed nonmutable sequence
+; 1085 : 		return (((const _Myt *)this)->rend());
+; 1086 : 		}
+; 1087 : 
+; 1088 : 	void shrink_to_fit()
+; 1089 : 		{	// reduce capacity
+; 1090 : 		if (_Has_unused_capacity())
+; 1091 : 			{	// worth shrinking, do it
+; 1092 : 			if (empty())
+; 1093 : 				_Tidy();
+; 1094 : 			else
+; 1095 : 				_Reallocate(size());
+; 1096 : 			}
+; 1097 : 		}
+; 1098 : 
+; 1099 : 	void resize(size_type _Newsize)
+; 1100 : 		{	// determine new length, padding as needed
+; 1101 : 		if (_Newsize < size())
+; 1102 : 			_Pop_back_n(size() - _Newsize);
+; 1103 : 		else if (size() < _Newsize)
+; 1104 : 			{	// pad as needed
+; 1105 : 			_Alty _Alval(this->_Getal());
+; 1106 : 			_Reserve(_Newsize - size());
+; 1107 : 			_TRY_BEGIN
+; 1108 : 			_Uninitialized_default_fill_n(this->_Mylast, _Newsize - size(),
+; 1109 : 				_Alval);
+; 1110 : 			_CATCH_ALL
+; 1111 : 			_Tidy();
+; 1112 : 			_RERAISE;
+; 1113 : 			_CATCH_END
+; 1114 : 			this->_Mylast += _Newsize - size();
+; 1115 : 			}
+; 1116 : 		}
+; 1117 : 
+; 1118 : 	void resize(size_type _Newsize, const value_type& _Val)
+; 1119 : 		{	// determine new length, padding with _Val elements as needed
+; 1120 : 		if (_Newsize < size())
+; 1121 : 			_Pop_back_n(size() - _Newsize);
+; 1122 : 		else if (size() < _Newsize)
+; 1123 : 			{	// pad as needed
+; 1124 : 			const value_type *_Ptr = _STD addressof(_Val);
+; 1125 : 
+; 1126 : 			if (_Inside(_Ptr))
+; 1127 : 				{	// padding is inside vector, recompute _Ptr after reserve
+; 1128 : 				const difference_type _Idx = _Ptr
+; 1129 : 					- _STD addressof(*this->_Myfirst);
+; 1130 : 				_Reserve(_Newsize - size());
+; 1131 : 				_Ptr = _STD addressof(*this->_Myfirst) + _Idx;
+; 1132 : 				}
+; 1133 : 			else
+; 1134 : 				_Reserve(_Newsize - size());
+; 1135 : 
+; 1136 : 			_TRY_BEGIN
+; 1137 : 			_Ufill(this->_Mylast, _Newsize - size(), _Ptr);
+; 1138 : 			_CATCH_ALL
+; 1139 : 			_Tidy();
+; 1140 : 			_RERAISE;
+; 1141 : 			_CATCH_END
+; 1142 : 			this->_Mylast += _Newsize - size();
+; 1143 : 			}
+; 1144 : 		}
+; 1145 : 
+; 1146 : 	size_type size() const _NOEXCEPT
+; 1147 : 		{	// return length of sequence
+; 1148 : 		return (this->_Mylast - this->_Myfirst);
+; 1149 : 		}
+; 1150 : 
+; 1151 : 	size_type max_size() const _NOEXCEPT
+; 1152 : 		{	// return maximum possible length of sequence
+; 1153 : 		return (this->_Getal().max_size());
+; 1154 : 		}
+; 1155 : 
+; 1156 : 	bool empty() const _NOEXCEPT
+; 1157 : 		{	// test if sequence is empty
+; 1158 : 		return (this->_Myfirst == this->_Mylast);
+; 1159 : 		}
+; 1160 : 
+; 1161 : 	_Alloc get_allocator() const _NOEXCEPT
+; 1162 : 		{	// return allocator object for values
+; 1163 : 		return (this->_Getal());
+; 1164 : 		}
+; 1165 : 
+; 1166 : 	const_reference at(size_type _Pos) const
+; 1167 : 		{	// subscript nonmutable sequence with checking
+; 1168 : 		if (size() <= _Pos)
+; 1169 : 			_Xran();
+; 1170 : 		return (*(this->_Myfirst + _Pos));
+; 1171 : 		}
+; 1172 : 
+; 1173 : 	reference at(size_type _Pos)
+; 1174 : 		{	// subscript mutable sequence with checking
+; 1175 : 		if (size() <= _Pos)
+; 1176 : 			_Xran();
+; 1177 : 		return (*(this->_Myfirst + _Pos));
+; 1178 : 		}
+; 1179 : 
+; 1180 : 	const_reference operator[](size_type _Pos) const
+; 1181 : 		{	// subscript nonmutable sequence
+; 1182 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1183 : 		if (size() <= _Pos)
+; 1184 : 			{	// report error
+; 1185 : 			_DEBUG_ERROR("vector subscript out of range");
+; 1186 : 			_SCL_SECURE_OUT_OF_RANGE;
+; 1187 : 			}
+; 1188 : 
+; 1189 :  #elif _ITERATOR_DEBUG_LEVEL == 1
+; 1190 : 		_SCL_SECURE_VALIDATE_RANGE(_Pos < size());
+; 1191 :  #endif /* _ITERATOR_DEBUG_LEVEL */
+; 1192 : 
+; 1193 : 		return (*(this->_Myfirst + _Pos));
+; 1194 : 		}
+; 1195 : 
+; 1196 : 	reference operator[](size_type _Pos)
+; 1197 : 		{	// subscript mutable sequence
+; 1198 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1199 : 		if (size() <= _Pos)
+; 1200 : 			{	// report error
+; 1201 : 			_DEBUG_ERROR("vector subscript out of range");
+; 1202 : 			_SCL_SECURE_OUT_OF_RANGE;
+; 1203 : 			}
+; 1204 : 
+; 1205 :  #elif _ITERATOR_DEBUG_LEVEL == 1
+; 1206 : 		_SCL_SECURE_VALIDATE_RANGE(_Pos < size());
+; 1207 :  #endif /* _ITERATOR_DEBUG_LEVEL */
+; 1208 : 
+; 1209 : 		return (*(this->_Myfirst + _Pos));
+; 1210 : 		}
+; 1211 : 
+; 1212 : 	pointer data() _NOEXCEPT
+; 1213 : 		{	// return address of first element
+; 1214 : 		return (this->_Myfirst);
+; 1215 : 		}
+; 1216 : 
+; 1217 : 	const_pointer data() const _NOEXCEPT
+; 1218 : 		{	// return address of first element
+; 1219 : 		return (this->_Myfirst);
+; 1220 : 		}
+; 1221 : 
+; 1222 : 	reference front()
+; 1223 : 		{	// return first element of mutable sequence
+; 1224 : 		return (*begin());
+; 1225 : 		}
+; 1226 : 
+; 1227 : 	const_reference front() const
+; 1228 : 		{	// return first element of nonmutable sequence
+; 1229 : 		return (*begin());
+; 1230 : 		}
+; 1231 : 
+; 1232 : 	reference back()
+; 1233 : 		{	// return last element of mutable sequence
+; 1234 : 		return (*(end() - 1));
+; 1235 : 		}
+; 1236 : 
+; 1237 : 	const_reference back() const
+; 1238 : 		{	// return last element of nonmutable sequence
+; 1239 : 		return (*(end() - 1));
+; 1240 : 		}
+; 1241 : 
+; 1242 : 	void push_back(const value_type& _Val)
+; 1243 : 		{	// insert element at end
+; 1244 : 		if (_Inside(_STD addressof(_Val)))
+; 1245 : 			{	// push back an element
+; 1246 : 			size_type _Idx = _STD addressof(_Val) - this->_Myfirst;
+; 1247 : 			if (this->_Mylast == this->_Myend)
+; 1248 : 				_Reserve(1);
+; 1249 : 			_Orphan_range(this->_Mylast, this->_Mylast);
+; 1250 : 			this->_Getal().construct(this->_Mylast,
+; 1251 : 				this->_Myfirst[_Idx]);
+; 1252 : 			++this->_Mylast;
+; 1253 : 			}
+; 1254 : 		else
+; 1255 : 			{	// push back a non-element
+; 1256 : 			if (this->_Mylast == this->_Myend)
+; 1257 : 				_Reserve(1);
+; 1258 : 			_Orphan_range(this->_Mylast, this->_Mylast);
+; 1259 : 			this->_Getal().construct(this->_Mylast,
+; 1260 : 				_Val);
+; 1261 : 			++this->_Mylast;
+; 1262 : 			}
+; 1263 : 		}
+; 1264 : 
+; 1265 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1266 : 	void pop_back()
+; 1267 : 		{	// erase element at end
+; 1268 : 		if (empty())
+; 1269 : 			_DEBUG_ERROR("vector empty before pop");
+; 1270 : 		else
+; 1271 : 			{	// erase last element
+; 1272 : 			_Orphan_range(this->_Mylast - 1, this->_Mylast);
+; 1273 : 			this->_Getal().destroy(this->_Mylast - 1);
+; 1274 : 			--this->_Mylast;
+; 1275 : 			}
+; 1276 : 		}
+; 1277 : 
+; 1278 :  #else /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1279 : 	void pop_back()
+; 1280 : 		{	// erase element at end
+; 1281 : 		this->_Getal().destroy(this->_Mylast - 1);
+; 1282 : 		--this->_Mylast;
+; 1283 : 		}
+; 1284 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1285 : 
+; 1286 : 	template<class _Iter>
+; 1287 : 		typename enable_if<_Is_iterator<_Iter>::value,
+; 1288 : 			void>::type
+; 1289 : 		assign(_Iter _First, _Iter _Last)
+; 1290 : 		{	// assign [_First, _Last)
+; 1291 : 		clear();
+; 1292 : 		_Assign(_First, _Last, _Iter_cat(_First));
+; 1293 : 		}
+; 1294 : 
+; 1295 : 	template<class _Iter>
+; 1296 : 		void _Assign(_Iter _First, _Iter _Last, input_iterator_tag)
+; 1297 : 		{	// assign [_First, _Last), input iterators
+; 1298 : 		for (; _First != _Last; ++_First)
+; 1299 : 			emplace_back(*_First);
+; 1300 : 		}
+; 1301 : 
+; 1302 : 	template<class _Iter>
+; 1303 : 		void _Assign(_Iter _First, _Iter _Last, forward_iterator_tag)
+; 1304 : 		{	// assign [_First, _Last), forward iterators
+; 1305 : 		if (_First == _Last)
+; 1306 : 			return;	// nothing to do
+; 1307 : 
+; 1308 : 		size_type _Newsize = _STD distance(_First, _Last);
+; 1309 : 
+; 1310 : 		if (capacity() < _Newsize)
+; 1311 : 			{	// need more room, try to get it
+; 1312 : 			size_type _Newcapacity = _Grow_to(_Newsize);
+; 1313 : 			_Tidy();
+; 1314 : 			_Buy(_Newcapacity);
+; 1315 : 			}
+; 1316 : 
+; 1317 : 		this->_Mylast = _Ucopy(_First, _Last, this->_Myfirst);
+; 1318 : 		}
+; 1319 : 
+; 1320 : 	void assign(size_type _Count, const value_type& _Val)
+; 1321 : 		{	// assign _Count * _Val
+; 1322 : 		clear();
+; 1323 : 		insert(begin(), _Count, _Val);
+; 1324 : 		}
+; 1325 : 
+; 1326 : 	iterator insert(const_iterator _Where, const _Ty& _Val)
+; 1327 : 		{	// insert _Val at _Where
+; 1328 : 		return (_Insert_n(_Where, (size_type)1, _Val));
+; 1329 : 		}
+; 1330 : 
+; 1331 : 	iterator insert(const_iterator _Where, size_type _Count,
+; 1332 : 		const _Ty& _Val)
+; 1333 : 		{	// insert _Count * _Val at _Where
+; 1334 : 		return (_Insert_n(_Where, _Count, _Val));
+; 1335 : 		}
+; 1336 : 
+; 1337 : 	template<class _Iter>
+; 1338 : 		typename enable_if<_Is_iterator<_Iter>::value,
+; 1339 : 			iterator>::type
+; 1340 : 		insert(const_iterator _Where, _Iter _First, _Iter _Last)
+; 1341 : 		{	// insert [_First, _Last) at _Where
+; 1342 : 		size_type _Off = _VIPTR(_Where) - this->_Myfirst;
+; 1343 : 		_Insert(_Where, _First, _Last, _Iter_cat(_First));
+; 1344 : 		return (begin() + _Off);
+; 1345 : 		}
+; 1346 : 
+; 1347 : 	template<class _Iter>
+; 1348 : 		void _Insert(const_iterator _Where, _Iter _First, _Iter _Last,
+; 1349 : 			input_iterator_tag)
+; 1350 : 		{	// insert [_First, _Last) at _Where, input iterators
+; 1351 : 		size_type _Off = _VIPTR(_Where) - this->_Myfirst;
+; 1352 : 
+; 1353 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1354 : 		if (size() < _Off)
+; 1355 : 			_DEBUG_ERROR("vector insert iterator outside range");
+; 1356 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1357 : 
+; 1358 : 		if (_First != _Last)
+; 1359 : 			{	// worth doing, gather at end and rotate into place
+; 1360 : 			size_type _Oldsize = size();
+; 1361 : 
+; 1362 : 			_TRY_BEGIN
+; 1363 : 			for (; _First != _Last; ++_First)
+; 1364 : 				push_back(*_First);	// append
+; 1365 : 
+; 1366 : 			_CATCH_ALL
+; 1367 : 			erase(begin() + _Oldsize, end());
+; 1368 : 			_RERAISE;
+; 1369 : 			_CATCH_END
+; 1370 : 
+; 1371 : 			_STD rotate(begin() + _Off, begin() + _Oldsize, end());
+; 1372 : 			}
+; 1373 : 		}
+; 1374 : 
+; 1375 : 	template<class _Iter>
+; 1376 : 		void _Insert(const_iterator _Where, _Iter _First, _Iter _Last,
+; 1377 : 			forward_iterator_tag)
+; 1378 : 		{	// insert [_First, _Last) at _Where, forward iterators
+; 1379 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1380 : 		if (_VICONT(_Where) != this
+; 1381 : 			|| _VIPTR(_Where) < this->_Myfirst
+; 1382 : 			|| this->_Mylast < _VIPTR(_Where))
+; 1383 : 			_DEBUG_ERROR("vector insert iterator outside range");
+; 1384 : 		_DEBUG_RANGE(_First, _Last);
+; 1385 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1386 : 
+; 1387 : 		size_type _Count = 0;
+; 1388 : 		_Distance(_First, _Last, _Count);
+; 1389 : 
+; 1390 : 		if (_Count == 0)
+; 1391 : 			;
+; 1392 : 		else if (_Unused_capacity() < _Count)
+; 1393 : 			{	// not enough room, reallocate
+; 1394 : 			if (max_size() - size() < _Count)
+; 1395 : 				_Xlen();	// result too long
+; 1396 : 
+; 1397 : 			size_type _Capacity = _Grow_to(size() + _Count);
+; 1398 : 			pointer _Newvec = this->_Getal().allocate(_Capacity);
+; 1399 : 			pointer _Ptr = _Newvec;
+; 1400 : 
+; 1401 : 			_TRY_BEGIN
+; 1402 : 			_Ptr = _Umove(this->_Myfirst, _VIPTR(_Where),
+; 1403 : 				_Newvec);	// copy prefix
+; 1404 : 			_Ptr = _Ucopy(_First, _Last, _Ptr);	// add new stuff
+; 1405 : 			_Umove(_VIPTR(_Where), this->_Mylast,
+; 1406 : 				_Ptr);	// copy suffix
+; 1407 : 			_CATCH_ALL
+; 1408 : 			_Destroy(_Newvec, _Ptr);
+; 1409 : 			this->_Getal().deallocate(_Newvec, _Capacity);
+; 1410 : 			_RERAISE;
+; 1411 : 			_CATCH_END
+; 1412 : 
+; 1413 : 			_Count += size();
+; 1414 : 			if (this->_Myfirst != pointer())
+; 1415 : 				{	// destroy and deallocate old array
+; 1416 : 				_Destroy(this->_Myfirst, this->_Mylast);
+; 1417 : 				this->_Getal().deallocate(this->_Myfirst,
+; 1418 : 					this->_Myend - this->_Myfirst);
+; 1419 : 				}
+; 1420 : 
+; 1421 : 			this->_Orphan_all();
+; 1422 : 			this->_Myend = _Newvec + _Capacity;
+; 1423 : 			this->_Mylast = _Newvec + _Count;
+; 1424 : 			this->_Myfirst = _Newvec;
+; 1425 : 			}
+; 1426 : 		else
+; 1427 : 			{	// new stuff fits, append and rotate into place
+; 1428 : 			_Ucopy(_First, _Last, this->_Mylast);
+; 1429 : 			_STD rotate(_VIPTR(_Where), this->_Mylast,
+; 1430 : 				this->_Mylast + _Count);
+; 1431 : 			this->_Mylast += _Count;
+; 1432 : 			_Orphan_range(_VIPTR(_Where), this->_Mylast);
+; 1433 : 			}
+; 1434 : 		}
+; 1435 : 
+; 1436 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1437 : 	iterator erase(const_iterator _Where)
+; 1438 : 		{	// erase element at where
+; 1439 : 		if (_VICONT(_Where) != this
+; 1440 : 			|| _VIPTR(_Where) < this->_Myfirst
+; 1441 : 			|| this->_Mylast <= _VIPTR(_Where))
+; 1442 : 			_DEBUG_ERROR("vector erase iterator outside range");
+; 1443 : 		_Move(_VIPTR(_Where) + 1, this->_Mylast, _VIPTR(_Where));
+; 1444 : 		_Destroy(this->_Mylast - 1, this->_Mylast);
+; 1445 : 		_Orphan_range(_VIPTR(_Where), this->_Mylast);
+; 1446 : 		--this->_Mylast;
+; 1447 : 		return (_Make_iter(_Where));
+; 1448 : 		}
+; 1449 : 
+; 1450 :  #else /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1451 : 	iterator erase(const_iterator _Where)
+; 1452 : 		{	// erase element at where
+; 1453 : 		_Move(_VIPTR(_Where) + 1, this->_Mylast,
+; 1454 : 			_VIPTR(_Where));
+; 1455 : 		_Destroy(this->_Mylast - 1, this->_Mylast);
+; 1456 : 		--this->_Mylast;
+; 1457 : 		return (_Make_iter(_Where));
+; 1458 : 		}
+; 1459 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1460 : 
+; 1461 : 	iterator erase(const_iterator _First_arg,
+; 1462 : 		const_iterator _Last_arg)
+; 1463 : 		{	// erase [_First, _Last)
+; 1464 : 		if (_First_arg == begin() && _Last_arg == end())
+; 1465 : 			clear();
+; 1466 : 		else if (_First_arg != _Last_arg)
+; 1467 : 			{	// clear partial
+; 1468 : 			iterator _First = _Make_iter(_First_arg);
+; 1469 : 			iterator _Last = _Make_iter(_Last_arg);
+; 1470 : 
+; 1471 : 			if (_First != _Last)
+; 1472 : 				{	// worth doing, copy down over hole
+; 1473 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1474 : 				if (_Last < _First || _VICONT(_First) != this
+; 1475 : 					|| _VIPTR(_First) < this->_Myfirst
+; 1476 : 					|| this->_Mylast < _VIPTR(_Last))
+; 1477 : 					_DEBUG_ERROR("vector erase iterator outside range");
+; 1478 : 				pointer _Ptr = _Move(_VIPTR(_Last), this->_Mylast,
+; 1479 : 					_VIPTR(_First));
+; 1480 : 				_Orphan_range(_VIPTR(_First), this->_Mylast);
+; 1481 : 
+; 1482 :  #else /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1483 : 				pointer _Ptr = _Move(_VIPTR(_Last), this->_Mylast,
+; 1484 : 					_VIPTR(_First));
+; 1485 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1486 : 
+; 1487 : 				_Destroy(_Ptr, this->_Mylast);
+; 1488 : 				this->_Mylast = _Ptr;
+; 1489 : 				}
+; 1490 : 			}
+; 1491 : 		return (_Make_iter(_First_arg));
+; 1492 : 		}
+; 1493 : 
+; 1494 : 	void _Pop_back_n(size_type _Count)
+; 1495 : 		{	// erase _Count elements at end
+; 1496 : 		pointer _Ptr = this->_Mylast - _Count;
+; 1497 : 
+; 1498 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1499 : 		_Orphan_range(_Ptr, this->_Mylast);
+; 1500 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1501 : 
+; 1502 : 		_Destroy(_Ptr, this->_Mylast);
+; 1503 : 		this->_Mylast = _Ptr;
+; 1504 : 		}
+; 1505 : 
+; 1506 : 	void clear() _NOEXCEPT
+; 1507 : 		{	// erase all
+; 1508 : 		this->_Orphan_all();
+; 1509 : 		_Destroy(this->_Myfirst, this->_Mylast);
+; 1510 : 		this->_Mylast = this->_Myfirst;
+; 1511 : 		}
+; 1512 : 
+; 1513 : 	void swap(_Myt& _Right)
+; 1514 : 		{	// exchange contents with _Right
+; 1515 : 		if (this == &_Right)
+; 1516 : 			;	// same object, do nothing
+; 1517 : 		else if (this->_Getal() == _Right._Getal())
+; 1518 : 			{	// same allocator, swap control information
+; 1519 : 			this->_Swap_all(_Right);
+; 1520 : 			_Swap_adl(this->_Myfirst, _Right._Myfirst);
+; 1521 : 			_Swap_adl(this->_Mylast, _Right._Mylast);
+; 1522 : 			_Swap_adl(this->_Myend, _Right._Myend);
+; 1523 : 			}
+; 1524 : 
+; 1525 : 		else if (_Alty::propagate_on_container_swap::value)
+; 1526 : 			{	// swap allocators and control information
+; 1527 : 			this->_Swap_alloc(_Right);
+; 1528 : 			_Swap_adl(this->_Myfirst, _Right._Myfirst);
+; 1529 : 			_Swap_adl(this->_Mylast, _Right._Mylast);
+; 1530 : 			_Swap_adl(this->_Myend, _Right._Myend);
+; 1531 : 			}
+; 1532 : 
+; 1533 : 		else
+; 1534 : 			{	// containers are incompatible
+; 1535 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1536 : 			_DEBUG_ERROR("vector containers incompatible for swap");
+; 1537 : 
+; 1538 :  #else /* ITERATOR_DEBUG_LEVEL == 2 */
+; 1539 : 			_XSTD terminate();
+; 1540 :  #endif /* ITERATOR_DEBUG_LEVEL == 2 */
+; 1541 : 			}
+; 1542 : 		}
+; 1543 : 
+; 1544 : protected:
+; 1545 : 	bool _Buy(size_type _Capacity)
+; 1546 : 		{	// allocate array with _Capacity elements
+; 1547 : 		this->_Myfirst = pointer();
+; 1548 : 		this->_Mylast = pointer();
+; 1549 : 		this->_Myend = pointer();
+; 1550 : 
+; 1551 : 		if (_Capacity == 0)
+; 1552 : 			return (false);
+; 1553 : 		else if (max_size() < _Capacity)
+; 1554 : 			_Xlen();	// result too long
+; 1555 : 		else
+; 1556 : 			{	// nonempty array, allocate storage
+; 1557 : 			this->_Myfirst = this->_Getal().allocate(_Capacity);
+; 1558 : 			this->_Mylast = this->_Myfirst;
+; 1559 : 			this->_Myend = this->_Myfirst + _Capacity;
+; 1560 : 			}
+; 1561 : 		return (true);
+; 1562 : 		}
+; 1563 : 
+; 1564 : 	void _Destroy(pointer _First, pointer _Last)
+; 1565 : 		{	// destroy [_First, _Last) using allocator
+; 1566 : 		_Alty _Alval(this->_Getal());
+; 1567 : 		_Destroy_range(_First, _Last, _Alval);
+; 1568 : 		}
+; 1569 : 
+; 1570 : 	size_type _Grow_to(size_type _Count) const
+; 1571 : 		{	// grow by 50% or at least to _Count
+; 1572 : 		size_type _Capacity = capacity();
+; 1573 : 
+; 1574 : 		_Capacity = max_size() - _Capacity / 2 < _Capacity
+; 1575 : 			? 0 : _Capacity + _Capacity / 2;	// try to grow by 50%
+; 1576 : 		if (_Capacity < _Count)
+; 1577 : 			_Capacity = _Count;
+; 1578 : 		return (_Capacity);
+; 1579 : 		}
+; 1580 : 
+; 1581 : 	bool _Inside(const value_type *_Ptr) const
+; 1582 : 		{	// test if _Ptr points inside vector
+; 1583 : 		return (_Ptr < this->_Mylast && this->_Myfirst <= _Ptr);
+; 1584 : 		}
+; 1585 : 
+; 1586 : 	void _Reallocate(size_type _Count)
+; 1587 : 		{	// move to array of exactly _Count elements
+; 1588 : 		pointer _Ptr = this->_Getal().allocate(_Count);
+; 1589 : 
+; 1590 : 		_TRY_BEGIN
+; 1591 : 		_Umove(this->_Myfirst, this->_Mylast, _Ptr);
+; 1592 : 		_CATCH_ALL
+; 1593 : 		this->_Getal().deallocate(_Ptr, _Count);
+; 1594 : 		_RERAISE;
+; 1595 : 		_CATCH_END
+; 1596 : 
+; 1597 : 		size_type _Size = size();
+; 1598 : 		if (this->_Myfirst != pointer())
+; 1599 : 			{	// destroy and deallocate old array
+; 1600 : 			_Destroy(this->_Myfirst, this->_Mylast);
+; 1601 : 			this->_Getal().deallocate(this->_Myfirst,
+; 1602 : 				this->_Myend - this->_Myfirst);
+; 1603 : 			}
+; 1604 : 
+; 1605 : 		this->_Orphan_all();
+; 1606 : 		this->_Myend = _Ptr + _Count;
+; 1607 : 		this->_Mylast = _Ptr + _Size;
+; 1608 : 		this->_Myfirst = _Ptr;
+; 1609 : 		}
+; 1610 : 
+; 1611 : 	void _Reserve(size_type _Count)
+; 1612 : 		{	// ensure room for _Count new elements, grow exponentially
+; 1613 : 		if (_Unused_capacity() < _Count)
+; 1614 : 			{	// need more room, try to get it
+; 1615 : 			if (max_size() - size() < _Count)
+; 1616 : 				_Xlen();
+; 1617 : 			_Reallocate(_Grow_to(size() + _Count));
+; 1618 : 			}
+; 1619 : 		}
+; 1620 : 
+; 1621 : 	void _Tidy()
+; 1622 : 		{	// free all storage
+; 1623 : 		if (this->_Myfirst != pointer())
+
+	mov	eax, DWORD PTR [esi]
+	test	eax, eax
+	je	SHORT $LN3@vector
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+
+; 573  : 		::operator delete(_Ptr);
+
+	push	eax
+	call	??3@YAXPAX@Z				; operator delete
+	add	esp, 4
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+
+; 1629 : 			this->_Myfirst = pointer();
+
+	mov	DWORD PTR [esi], 0
+
+; 1630 : 			this->_Mylast = pointer();
+
+	mov	DWORD PTR [esi+4], 0
+
+; 1631 : 			this->_Myend = pointer();
+
+	mov	DWORD PTR [esi+8], 0
+$LN3@vector:
+	pop	esi
+
+; 945  : 		_Tidy();
+; 946  : 		}
+
+	ret	0
+??1?$vector@HV?$allocator@H@std@@@std@@QAE@XZ ENDP	; std::vector<int,std::allocator<int> >::~vector<int,std::allocator<int> >
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ?push_back@?$vector@HV?$allocator@H@std@@@std@@QAEX$$QAH@Z
+_TEXT	SEGMENT
+__Val$ = 8						; size = 4
+?push_back@?$vector@HV?$allocator@H@std@@@std@@QAEX$$QAH@Z PROC ; std::vector<int,std::allocator<int> >::push_back, COMDAT
+; _this$ = ecx
+
+; 865  : 		{	// insert by moving into element at end
+
+	push	ebp
+	mov	ebp, esp
+	push	esi
+	mov	esi, ecx
+	push	edi
+
+; 886  : 
+; 887  : 	iterator insert(const_iterator _Where, _Ty&& _Val)
+; 888  : 		{	// insert by moving _Val at _Where
+; 889  : 		return (emplace(_Where, _STD move(_Val)));
+; 890  : 		}
+; 891  : 
+; 892  : 	template<class... _Valty>
+; 893  : 		void emplace_back(_Valty&&... _Val)
+; 894  : 		{	// insert by moving into element at end
+; 895  : 		if (this->_Mylast == this->_Myend)
+; 896  : 			_Reserve(1);
+; 897  : 		_Orphan_range(this->_Mylast, this->_Mylast);
+; 898  : 		this->_Getal().construct(this->_Mylast,
+; 899  : 			_STD forward<_Valty>(_Val)...);
+; 900  : 		++this->_Mylast;
+; 901  : 		}
+; 902  : 
+; 903  : 	template<class... _Valty>
+; 904  : 		iterator emplace(const_iterator _Where, _Valty&&... _Val)
+; 905  : 		{	// insert by moving _Val at _Where
+; 906  : 		size_type _Off = _VIPTR(_Where) - this->_Myfirst;
+; 907  : 
+; 908  :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 909  : 		if (size() < _Off)
+; 910  : 			_DEBUG_ERROR("vector emplace iterator outside range");
+; 911  :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 912  : 
+; 913  : 		emplace_back(_STD forward<_Valty>(_Val)...);
+; 914  : 		_STD rotate(begin() + _Off, end() - 1, end());
+; 915  : 		return (begin() + _Off);
+; 916  : 		}
+; 917  : 
+; 918  : 
+; 919  : 	vector(_XSTD initializer_list<value_type> _Ilist,
+; 920  : 		const _Alloc& _Al = allocator_type())
+; 921  : 		: _Mybase(_Al)
+; 922  : 		{	// construct from initializer_list
+; 923  : 		insert(begin(), _Ilist.begin(), _Ilist.end());
+; 924  : 		}
+; 925  : 
+; 926  : 	_Myt& operator=(_XSTD initializer_list<value_type> _Ilist)
+; 927  : 		{	// assign initializer_list
+; 928  : 		assign(_Ilist.begin(), _Ilist.end());
+; 929  : 		return (*this);
+; 930  : 		}
+; 931  : 
+; 932  : 	void assign(_XSTD initializer_list<value_type> _Ilist)
+; 933  : 		{	// assign initializer_list
+; 934  : 		assign(_Ilist.begin(), _Ilist.end());
+; 935  : 		}
+; 936  : 
+; 937  : 	iterator insert(const_iterator _Where,
+; 938  : 		_XSTD initializer_list<value_type> _Ilist)
+; 939  : 		{	// insert initializer_list
+; 940  : 		return (insert(_Where, _Ilist.begin(), _Ilist.end()));
+; 941  : 		}
+; 942  : 
+; 943  : 	~vector() _NOEXCEPT
+; 944  : 		{	// destroy the object
+; 945  : 		_Tidy();
+; 946  : 		}
+; 947  : 
+; 948  : 	_Myt& operator=(const _Myt& _Right)
+; 949  : 		{	// assign _Right
+; 950  : 		if (this != &_Right)
+; 951  : 			{	// different, assign it
+; 952  : 			if (this->_Getal() != _Right._Getal()
+; 953  : 				&& _Alty::propagate_on_container_copy_assignment::value)
+; 954  : 				{	// change allocator before copying
+; 955  : 				_Tidy();
+; 956  : 				this->_Change_alloc(_Right._Getal());
+; 957  : 				}
+; 958  : 
+; 959  : 			this->_Orphan_all();
+; 960  : 
+; 961  : 			if (_Right.empty())
+; 962  : 				clear();	// new sequence empty, erase existing sequence
+; 963  : 			else if (_Right.size() <= size())
+; 964  : 				{	// enough elements, copy new and destroy old
+; 965  : 				pointer _Ptr = _Copy_impl(_Right._Myfirst,
+; 966  : 					_Right._Mylast, this->_Myfirst);	// copy new
+; 967  : 				_Destroy(_Ptr, this->_Mylast);	// destroy old
+; 968  : 				this->_Mylast = this->_Myfirst + _Right.size();
+; 969  : 				}
+; 970  : 			else if (_Right.size() <= capacity())
+; 971  : 				{	// enough room, copy and construct new
+; 972  : 				pointer _Ptr = _Right._Myfirst + size();
+; 973  : 				_Copy_impl(_Right._Myfirst,
+; 974  : 					_Ptr, this->_Myfirst);
+; 975  : 				this->_Mylast = _Ucopy(_Ptr, _Right._Mylast, this->_Mylast);
+; 976  : 				}
+; 977  : 			else
+; 978  : 				{	// not enough room, allocate new array and construct new
+; 979  : 				if (this->_Myfirst != pointer())
+; 980  : 					{	// discard old array
+; 981  : 					_Destroy(this->_Myfirst, this->_Mylast);
+; 982  : 					this->_Getal().deallocate(this->_Myfirst,
+; 983  : 						this->_Myend - this->_Myfirst);
+; 984  : 					}
+; 985  : 				if (_Buy(_Right.size()))
+; 986  : 					_TRY_BEGIN
+; 987  : 					this->_Mylast = _Ucopy(_Right._Myfirst, _Right._Mylast,
+; 988  : 						this->_Myfirst);
+; 989  : 					_CATCH_ALL
+; 990  : 					_Tidy();
+; 991  : 					_RERAISE;
+; 992  : 					_CATCH_END
+; 993  : 				}
+; 994  : 			}
+; 995  : 		return (*this);
+; 996  : 		}
+; 997  : 
+; 998  : 	void reserve(size_type _Count)
+; 999  : 		{	// determine new minimum length of allocated storage
+; 1000 : 		if (capacity() < _Count)
+; 1001 : 			{	// something to do, check and reallocate
+; 1002 : 			if (max_size() < _Count)
+; 1003 : 				_Xlen();
+; 1004 : 			_Reallocate(_Count);
+; 1005 : 			}
+; 1006 : 		}
+; 1007 : 
+; 1008 : 	size_type capacity() const _NOEXCEPT
+; 1009 : 		{	// return current length of allocated storage
+; 1010 : 		return (this->_Myend - this->_Myfirst);
+; 1011 : 		}
+; 1012 : 
+; 1013 : 	size_type _Unused_capacity() const _NOEXCEPT
+; 1014 : 		{	// micro-optimization for capacity() - size()
+; 1015 : 		return (this->_Myend - this->_Mylast);
+; 1016 : 		}
+; 1017 : 
+; 1018 : 	size_type _Has_unused_capacity() const _NOEXCEPT
+; 1019 : 		{	// micro-optimization for capacity() != size()
+; 1020 : 		return (this->_Myend != this->_Mylast);
+; 1021 : 		}
+; 1022 : 
+; 1023 : 	iterator begin() _NOEXCEPT
+; 1024 : 		{	// return iterator for beginning of mutable sequence
+; 1025 : 		return (iterator(this->_Myfirst, this));
+; 1026 : 		}
+; 1027 : 
+; 1028 : 	const_iterator begin() const _NOEXCEPT
+; 1029 : 		{	// return iterator for beginning of nonmutable sequence
+; 1030 : 		return (const_iterator(this->_Myfirst, this));
+; 1031 : 		}
+; 1032 : 
+; 1033 : 	iterator end() _NOEXCEPT
+; 1034 : 		{	// return iterator for end of mutable sequence
+; 1035 : 		return (iterator(this->_Mylast, this));
+; 1036 : 		}
+; 1037 : 
+; 1038 : 	const_iterator end() const _NOEXCEPT
+; 1039 : 		{	// return iterator for end of nonmutable sequence
+; 1040 : 		return (const_iterator(this->_Mylast, this));
+; 1041 : 		}
+; 1042 : 
+; 1043 : 	iterator _Make_iter(const_iterator _Where) const
+; 1044 : 		{	// make iterator from const_iterator
+; 1045 : 		return (iterator(_Where._Ptr, this));
+; 1046 : 		}
+; 1047 : 
+; 1048 : 	reverse_iterator rbegin() _NOEXCEPT
+; 1049 : 		{	// return iterator for beginning of reversed mutable sequence
+; 1050 : 		return (reverse_iterator(end()));
+; 1051 : 		}
+; 1052 : 
+; 1053 : 	const_reverse_iterator rbegin() const _NOEXCEPT
+; 1054 : 		{	// return iterator for beginning of reversed nonmutable sequence
+; 1055 : 		return (const_reverse_iterator(end()));
+; 1056 : 		}
+; 1057 : 
+; 1058 : 	reverse_iterator rend() _NOEXCEPT
+; 1059 : 		{	// return iterator for end of reversed mutable sequence
+; 1060 : 		return (reverse_iterator(begin()));
+; 1061 : 		}
+; 1062 : 
+; 1063 : 	const_reverse_iterator rend() const _NOEXCEPT
+; 1064 : 		{	// return iterator for end of reversed nonmutable sequence
+; 1065 : 		return (const_reverse_iterator(begin()));
+; 1066 : 		}
+; 1067 : 
+; 1068 : 	const_iterator cbegin() const _NOEXCEPT
+; 1069 : 		{	// return iterator for beginning of nonmutable sequence
+; 1070 : 		return (((const _Myt *)this)->begin());
+; 1071 : 		}
+; 1072 : 
+; 1073 : 	const_iterator cend() const _NOEXCEPT
+; 1074 : 		{	// return iterator for end of nonmutable sequence
+; 1075 : 		return (((const _Myt *)this)->end());
+; 1076 : 		}
+; 1077 : 
+; 1078 : 	const_reverse_iterator crbegin() const _NOEXCEPT
+; 1079 : 		{	// return iterator for beginning of reversed nonmutable sequence
+; 1080 : 		return (((const _Myt *)this)->rbegin());
+; 1081 : 		}
+; 1082 : 
+; 1083 : 	const_reverse_iterator crend() const _NOEXCEPT
+; 1084 : 		{	// return iterator for end of reversed nonmutable sequence
+; 1085 : 		return (((const _Myt *)this)->rend());
+; 1086 : 		}
+; 1087 : 
+; 1088 : 	void shrink_to_fit()
+; 1089 : 		{	// reduce capacity
+; 1090 : 		if (_Has_unused_capacity())
+; 1091 : 			{	// worth shrinking, do it
+; 1092 : 			if (empty())
+; 1093 : 				_Tidy();
+; 1094 : 			else
+; 1095 : 				_Reallocate(size());
+; 1096 : 			}
+; 1097 : 		}
+; 1098 : 
+; 1099 : 	void resize(size_type _Newsize)
+; 1100 : 		{	// determine new length, padding as needed
+; 1101 : 		if (_Newsize < size())
+; 1102 : 			_Pop_back_n(size() - _Newsize);
+; 1103 : 		else if (size() < _Newsize)
+; 1104 : 			{	// pad as needed
+; 1105 : 			_Alty _Alval(this->_Getal());
+; 1106 : 			_Reserve(_Newsize - size());
+; 1107 : 			_TRY_BEGIN
+; 1108 : 			_Uninitialized_default_fill_n(this->_Mylast, _Newsize - size(),
+; 1109 : 				_Alval);
+; 1110 : 			_CATCH_ALL
+; 1111 : 			_Tidy();
+; 1112 : 			_RERAISE;
+; 1113 : 			_CATCH_END
+; 1114 : 			this->_Mylast += _Newsize - size();
+; 1115 : 			}
+; 1116 : 		}
+; 1117 : 
+; 1118 : 	void resize(size_type _Newsize, const value_type& _Val)
+; 1119 : 		{	// determine new length, padding with _Val elements as needed
+; 1120 : 		if (_Newsize < size())
+; 1121 : 			_Pop_back_n(size() - _Newsize);
+; 1122 : 		else if (size() < _Newsize)
+; 1123 : 			{	// pad as needed
+; 1124 : 			const value_type *_Ptr = _STD addressof(_Val);
+; 1125 : 
+; 1126 : 			if (_Inside(_Ptr))
+; 1127 : 				{	// padding is inside vector, recompute _Ptr after reserve
+; 1128 : 				const difference_type _Idx = _Ptr
+; 1129 : 					- _STD addressof(*this->_Myfirst);
+; 1130 : 				_Reserve(_Newsize - size());
+; 1131 : 				_Ptr = _STD addressof(*this->_Myfirst) + _Idx;
+; 1132 : 				}
+; 1133 : 			else
+; 1134 : 				_Reserve(_Newsize - size());
+; 1135 : 
+; 1136 : 			_TRY_BEGIN
+; 1137 : 			_Ufill(this->_Mylast, _Newsize - size(), _Ptr);
+; 1138 : 			_CATCH_ALL
+; 1139 : 			_Tidy();
+; 1140 : 			_RERAISE;
+; 1141 : 			_CATCH_END
+; 1142 : 			this->_Mylast += _Newsize - size();
+; 1143 : 			}
+; 1144 : 		}
+; 1145 : 
+; 1146 : 	size_type size() const _NOEXCEPT
+; 1147 : 		{	// return length of sequence
+; 1148 : 		return (this->_Mylast - this->_Myfirst);
+; 1149 : 		}
+; 1150 : 
+; 1151 : 	size_type max_size() const _NOEXCEPT
+; 1152 : 		{	// return maximum possible length of sequence
+; 1153 : 		return (this->_Getal().max_size());
+; 1154 : 		}
+; 1155 : 
+; 1156 : 	bool empty() const _NOEXCEPT
+; 1157 : 		{	// test if sequence is empty
+; 1158 : 		return (this->_Myfirst == this->_Mylast);
+; 1159 : 		}
+; 1160 : 
+; 1161 : 	_Alloc get_allocator() const _NOEXCEPT
+; 1162 : 		{	// return allocator object for values
+; 1163 : 		return (this->_Getal());
+; 1164 : 		}
+; 1165 : 
+; 1166 : 	const_reference at(size_type _Pos) const
+; 1167 : 		{	// subscript nonmutable sequence with checking
+; 1168 : 		if (size() <= _Pos)
+; 1169 : 			_Xran();
+; 1170 : 		return (*(this->_Myfirst + _Pos));
+; 1171 : 		}
+; 1172 : 
+; 1173 : 	reference at(size_type _Pos)
+; 1174 : 		{	// subscript mutable sequence with checking
+; 1175 : 		if (size() <= _Pos)
+; 1176 : 			_Xran();
+; 1177 : 		return (*(this->_Myfirst + _Pos));
+; 1178 : 		}
+; 1179 : 
+; 1180 : 	const_reference operator[](size_type _Pos) const
+; 1181 : 		{	// subscript nonmutable sequence
+; 1182 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1183 : 		if (size() <= _Pos)
+; 1184 : 			{	// report error
+; 1185 : 			_DEBUG_ERROR("vector subscript out of range");
+; 1186 : 			_SCL_SECURE_OUT_OF_RANGE;
+; 1187 : 			}
+; 1188 : 
+; 1189 :  #elif _ITERATOR_DEBUG_LEVEL == 1
+; 1190 : 		_SCL_SECURE_VALIDATE_RANGE(_Pos < size());
+; 1191 :  #endif /* _ITERATOR_DEBUG_LEVEL */
+; 1192 : 
+; 1193 : 		return (*(this->_Myfirst + _Pos));
+; 1194 : 		}
+; 1195 : 
+; 1196 : 	reference operator[](size_type _Pos)
+; 1197 : 		{	// subscript mutable sequence
+; 1198 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1199 : 		if (size() <= _Pos)
+; 1200 : 			{	// report error
+; 1201 : 			_DEBUG_ERROR("vector subscript out of range");
+; 1202 : 			_SCL_SECURE_OUT_OF_RANGE;
+; 1203 : 			}
+; 1204 : 
+; 1205 :  #elif _ITERATOR_DEBUG_LEVEL == 1
+; 1206 : 		_SCL_SECURE_VALIDATE_RANGE(_Pos < size());
+; 1207 :  #endif /* _ITERATOR_DEBUG_LEVEL */
+; 1208 : 
+; 1209 : 		return (*(this->_Myfirst + _Pos));
+; 1210 : 		}
+; 1211 : 
+; 1212 : 	pointer data() _NOEXCEPT
+; 1213 : 		{	// return address of first element
+; 1214 : 		return (this->_Myfirst);
+; 1215 : 		}
+; 1216 : 
+; 1217 : 	const_pointer data() const _NOEXCEPT
+; 1218 : 		{	// return address of first element
+; 1219 : 		return (this->_Myfirst);
+; 1220 : 		}
+; 1221 : 
+; 1222 : 	reference front()
+; 1223 : 		{	// return first element of mutable sequence
+; 1224 : 		return (*begin());
+; 1225 : 		}
+; 1226 : 
+; 1227 : 	const_reference front() const
+; 1228 : 		{	// return first element of nonmutable sequence
+; 1229 : 		return (*begin());
+; 1230 : 		}
+; 1231 : 
+; 1232 : 	reference back()
+; 1233 : 		{	// return last element of mutable sequence
+; 1234 : 		return (*(end() - 1));
+; 1235 : 		}
+; 1236 : 
+; 1237 : 	const_reference back() const
+; 1238 : 		{	// return last element of nonmutable sequence
+; 1239 : 		return (*(end() - 1));
+; 1240 : 		}
+; 1241 : 
+; 1242 : 	void push_back(const value_type& _Val)
+; 1243 : 		{	// insert element at end
+; 1244 : 		if (_Inside(_STD addressof(_Val)))
+; 1245 : 			{	// push back an element
+; 1246 : 			size_type _Idx = _STD addressof(_Val) - this->_Myfirst;
+; 1247 : 			if (this->_Mylast == this->_Myend)
+; 1248 : 				_Reserve(1);
+; 1249 : 			_Orphan_range(this->_Mylast, this->_Mylast);
+; 1250 : 			this->_Getal().construct(this->_Mylast,
+; 1251 : 				this->_Myfirst[_Idx]);
+; 1252 : 			++this->_Mylast;
+; 1253 : 			}
+; 1254 : 		else
+; 1255 : 			{	// push back a non-element
+; 1256 : 			if (this->_Mylast == this->_Myend)
+; 1257 : 				_Reserve(1);
+; 1258 : 			_Orphan_range(this->_Mylast, this->_Mylast);
+; 1259 : 			this->_Getal().construct(this->_Mylast,
+; 1260 : 				_Val);
+; 1261 : 			++this->_Mylast;
+; 1262 : 			}
+; 1263 : 		}
+; 1264 : 
+; 1265 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1266 : 	void pop_back()
+; 1267 : 		{	// erase element at end
+; 1268 : 		if (empty())
+; 1269 : 			_DEBUG_ERROR("vector empty before pop");
+; 1270 : 		else
+; 1271 : 			{	// erase last element
+; 1272 : 			_Orphan_range(this->_Mylast - 1, this->_Mylast);
+; 1273 : 			this->_Getal().destroy(this->_Mylast - 1);
+; 1274 : 			--this->_Mylast;
+; 1275 : 			}
+; 1276 : 		}
+; 1277 : 
+; 1278 :  #else /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1279 : 	void pop_back()
+; 1280 : 		{	// erase element at end
+; 1281 : 		this->_Getal().destroy(this->_Mylast - 1);
+; 1282 : 		--this->_Mylast;
+; 1283 : 		}
+; 1284 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1285 : 
+; 1286 : 	template<class _Iter>
+; 1287 : 		typename enable_if<_Is_iterator<_Iter>::value,
+; 1288 : 			void>::type
+; 1289 : 		assign(_Iter _First, _Iter _Last)
+; 1290 : 		{	// assign [_First, _Last)
+; 1291 : 		clear();
+; 1292 : 		_Assign(_First, _Last, _Iter_cat(_First));
+; 1293 : 		}
+; 1294 : 
+; 1295 : 	template<class _Iter>
+; 1296 : 		void _Assign(_Iter _First, _Iter _Last, input_iterator_tag)
+; 1297 : 		{	// assign [_First, _Last), input iterators
+; 1298 : 		for (; _First != _Last; ++_First)
+; 1299 : 			emplace_back(*_First);
+; 1300 : 		}
+; 1301 : 
+; 1302 : 	template<class _Iter>
+; 1303 : 		void _Assign(_Iter _First, _Iter _Last, forward_iterator_tag)
+; 1304 : 		{	// assign [_First, _Last), forward iterators
+; 1305 : 		if (_First == _Last)
+; 1306 : 			return;	// nothing to do
+; 1307 : 
+; 1308 : 		size_type _Newsize = _STD distance(_First, _Last);
+; 1309 : 
+; 1310 : 		if (capacity() < _Newsize)
+; 1311 : 			{	// need more room, try to get it
+; 1312 : 			size_type _Newcapacity = _Grow_to(_Newsize);
+; 1313 : 			_Tidy();
+; 1314 : 			_Buy(_Newcapacity);
+; 1315 : 			}
+; 1316 : 
+; 1317 : 		this->_Mylast = _Ucopy(_First, _Last, this->_Myfirst);
+; 1318 : 		}
+; 1319 : 
+; 1320 : 	void assign(size_type _Count, const value_type& _Val)
+; 1321 : 		{	// assign _Count * _Val
+; 1322 : 		clear();
+; 1323 : 		insert(begin(), _Count, _Val);
+; 1324 : 		}
+; 1325 : 
+; 1326 : 	iterator insert(const_iterator _Where, const _Ty& _Val)
+; 1327 : 		{	// insert _Val at _Where
+; 1328 : 		return (_Insert_n(_Where, (size_type)1, _Val));
+; 1329 : 		}
+; 1330 : 
+; 1331 : 	iterator insert(const_iterator _Where, size_type _Count,
+; 1332 : 		const _Ty& _Val)
+; 1333 : 		{	// insert _Count * _Val at _Where
+; 1334 : 		return (_Insert_n(_Where, _Count, _Val));
+; 1335 : 		}
+; 1336 : 
+; 1337 : 	template<class _Iter>
+; 1338 : 		typename enable_if<_Is_iterator<_Iter>::value,
+; 1339 : 			iterator>::type
+; 1340 : 		insert(const_iterator _Where, _Iter _First, _Iter _Last)
+; 1341 : 		{	// insert [_First, _Last) at _Where
+; 1342 : 		size_type _Off = _VIPTR(_Where) - this->_Myfirst;
+; 1343 : 		_Insert(_Where, _First, _Last, _Iter_cat(_First));
+; 1344 : 		return (begin() + _Off);
+; 1345 : 		}
+; 1346 : 
+; 1347 : 	template<class _Iter>
+; 1348 : 		void _Insert(const_iterator _Where, _Iter _First, _Iter _Last,
+; 1349 : 			input_iterator_tag)
+; 1350 : 		{	// insert [_First, _Last) at _Where, input iterators
+; 1351 : 		size_type _Off = _VIPTR(_Where) - this->_Myfirst;
+; 1352 : 
+; 1353 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1354 : 		if (size() < _Off)
+; 1355 : 			_DEBUG_ERROR("vector insert iterator outside range");
+; 1356 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1357 : 
+; 1358 : 		if (_First != _Last)
+; 1359 : 			{	// worth doing, gather at end and rotate into place
+; 1360 : 			size_type _Oldsize = size();
+; 1361 : 
+; 1362 : 			_TRY_BEGIN
+; 1363 : 			for (; _First != _Last; ++_First)
+; 1364 : 				push_back(*_First);	// append
+; 1365 : 
+; 1366 : 			_CATCH_ALL
+; 1367 : 			erase(begin() + _Oldsize, end());
+; 1368 : 			_RERAISE;
+; 1369 : 			_CATCH_END
+; 1370 : 
+; 1371 : 			_STD rotate(begin() + _Off, begin() + _Oldsize, end());
+; 1372 : 			}
+; 1373 : 		}
+; 1374 : 
+; 1375 : 	template<class _Iter>
+; 1376 : 		void _Insert(const_iterator _Where, _Iter _First, _Iter _Last,
+; 1377 : 			forward_iterator_tag)
+; 1378 : 		{	// insert [_First, _Last) at _Where, forward iterators
+; 1379 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1380 : 		if (_VICONT(_Where) != this
+; 1381 : 			|| _VIPTR(_Where) < this->_Myfirst
+; 1382 : 			|| this->_Mylast < _VIPTR(_Where))
+; 1383 : 			_DEBUG_ERROR("vector insert iterator outside range");
+; 1384 : 		_DEBUG_RANGE(_First, _Last);
+; 1385 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1386 : 
+; 1387 : 		size_type _Count = 0;
+; 1388 : 		_Distance(_First, _Last, _Count);
+; 1389 : 
+; 1390 : 		if (_Count == 0)
+; 1391 : 			;
+; 1392 : 		else if (_Unused_capacity() < _Count)
+; 1393 : 			{	// not enough room, reallocate
+; 1394 : 			if (max_size() - size() < _Count)
+; 1395 : 				_Xlen();	// result too long
+; 1396 : 
+; 1397 : 			size_type _Capacity = _Grow_to(size() + _Count);
+; 1398 : 			pointer _Newvec = this->_Getal().allocate(_Capacity);
+; 1399 : 			pointer _Ptr = _Newvec;
+; 1400 : 
+; 1401 : 			_TRY_BEGIN
+; 1402 : 			_Ptr = _Umove(this->_Myfirst, _VIPTR(_Where),
+; 1403 : 				_Newvec);	// copy prefix
+; 1404 : 			_Ptr = _Ucopy(_First, _Last, _Ptr);	// add new stuff
+; 1405 : 			_Umove(_VIPTR(_Where), this->_Mylast,
+; 1406 : 				_Ptr);	// copy suffix
+; 1407 : 			_CATCH_ALL
+; 1408 : 			_Destroy(_Newvec, _Ptr);
+; 1409 : 			this->_Getal().deallocate(_Newvec, _Capacity);
+; 1410 : 			_RERAISE;
+; 1411 : 			_CATCH_END
+; 1412 : 
+; 1413 : 			_Count += size();
+; 1414 : 			if (this->_Myfirst != pointer())
+; 1415 : 				{	// destroy and deallocate old array
+; 1416 : 				_Destroy(this->_Myfirst, this->_Mylast);
+; 1417 : 				this->_Getal().deallocate(this->_Myfirst,
+; 1418 : 					this->_Myend - this->_Myfirst);
+; 1419 : 				}
+; 1420 : 
+; 1421 : 			this->_Orphan_all();
+; 1422 : 			this->_Myend = _Newvec + _Capacity;
+; 1423 : 			this->_Mylast = _Newvec + _Count;
+; 1424 : 			this->_Myfirst = _Newvec;
+; 1425 : 			}
+; 1426 : 		else
+; 1427 : 			{	// new stuff fits, append and rotate into place
+; 1428 : 			_Ucopy(_First, _Last, this->_Mylast);
+; 1429 : 			_STD rotate(_VIPTR(_Where), this->_Mylast,
+; 1430 : 				this->_Mylast + _Count);
+; 1431 : 			this->_Mylast += _Count;
+; 1432 : 			_Orphan_range(_VIPTR(_Where), this->_Mylast);
+; 1433 : 			}
+; 1434 : 		}
+; 1435 : 
+; 1436 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1437 : 	iterator erase(const_iterator _Where)
+; 1438 : 		{	// erase element at where
+; 1439 : 		if (_VICONT(_Where) != this
+; 1440 : 			|| _VIPTR(_Where) < this->_Myfirst
+; 1441 : 			|| this->_Mylast <= _VIPTR(_Where))
+; 1442 : 			_DEBUG_ERROR("vector erase iterator outside range");
+; 1443 : 		_Move(_VIPTR(_Where) + 1, this->_Mylast, _VIPTR(_Where));
+; 1444 : 		_Destroy(this->_Mylast - 1, this->_Mylast);
+; 1445 : 		_Orphan_range(_VIPTR(_Where), this->_Mylast);
+; 1446 : 		--this->_Mylast;
+; 1447 : 		return (_Make_iter(_Where));
+; 1448 : 		}
+; 1449 : 
+; 1450 :  #else /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1451 : 	iterator erase(const_iterator _Where)
+; 1452 : 		{	// erase element at where
+; 1453 : 		_Move(_VIPTR(_Where) + 1, this->_Mylast,
+; 1454 : 			_VIPTR(_Where));
+; 1455 : 		_Destroy(this->_Mylast - 1, this->_Mylast);
+; 1456 : 		--this->_Mylast;
+; 1457 : 		return (_Make_iter(_Where));
+; 1458 : 		}
+; 1459 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1460 : 
+; 1461 : 	iterator erase(const_iterator _First_arg,
+; 1462 : 		const_iterator _Last_arg)
+; 1463 : 		{	// erase [_First, _Last)
+; 1464 : 		if (_First_arg == begin() && _Last_arg == end())
+; 1465 : 			clear();
+; 1466 : 		else if (_First_arg != _Last_arg)
+; 1467 : 			{	// clear partial
+; 1468 : 			iterator _First = _Make_iter(_First_arg);
+; 1469 : 			iterator _Last = _Make_iter(_Last_arg);
+; 1470 : 
+; 1471 : 			if (_First != _Last)
+; 1472 : 				{	// worth doing, copy down over hole
+; 1473 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1474 : 				if (_Last < _First || _VICONT(_First) != this
+; 1475 : 					|| _VIPTR(_First) < this->_Myfirst
+; 1476 : 					|| this->_Mylast < _VIPTR(_Last))
+; 1477 : 					_DEBUG_ERROR("vector erase iterator outside range");
+; 1478 : 				pointer _Ptr = _Move(_VIPTR(_Last), this->_Mylast,
+; 1479 : 					_VIPTR(_First));
+; 1480 : 				_Orphan_range(_VIPTR(_First), this->_Mylast);
+; 1481 : 
+; 1482 :  #else /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1483 : 				pointer _Ptr = _Move(_VIPTR(_Last), this->_Mylast,
+; 1484 : 					_VIPTR(_First));
+; 1485 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1486 : 
+; 1487 : 				_Destroy(_Ptr, this->_Mylast);
+; 1488 : 				this->_Mylast = _Ptr;
+; 1489 : 				}
+; 1490 : 			}
+; 1491 : 		return (_Make_iter(_First_arg));
+; 1492 : 		}
+; 1493 : 
+; 1494 : 	void _Pop_back_n(size_type _Count)
+; 1495 : 		{	// erase _Count elements at end
+; 1496 : 		pointer _Ptr = this->_Mylast - _Count;
+; 1497 : 
+; 1498 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1499 : 		_Orphan_range(_Ptr, this->_Mylast);
+; 1500 :  #endif /* _ITERATOR_DEBUG_LEVEL == 2 */
+; 1501 : 
+; 1502 : 		_Destroy(_Ptr, this->_Mylast);
+; 1503 : 		this->_Mylast = _Ptr;
+; 1504 : 		}
+; 1505 : 
+; 1506 : 	void clear() _NOEXCEPT
+; 1507 : 		{	// erase all
+; 1508 : 		this->_Orphan_all();
+; 1509 : 		_Destroy(this->_Myfirst, this->_Mylast);
+; 1510 : 		this->_Mylast = this->_Myfirst;
+; 1511 : 		}
+; 1512 : 
+; 1513 : 	void swap(_Myt& _Right)
+; 1514 : 		{	// exchange contents with _Right
+; 1515 : 		if (this == &_Right)
+; 1516 : 			;	// same object, do nothing
+; 1517 : 		else if (this->_Getal() == _Right._Getal())
+; 1518 : 			{	// same allocator, swap control information
+; 1519 : 			this->_Swap_all(_Right);
+; 1520 : 			_Swap_adl(this->_Myfirst, _Right._Myfirst);
+; 1521 : 			_Swap_adl(this->_Mylast, _Right._Mylast);
+; 1522 : 			_Swap_adl(this->_Myend, _Right._Myend);
+; 1523 : 			}
+; 1524 : 
+; 1525 : 		else if (_Alty::propagate_on_container_swap::value)
+; 1526 : 			{	// swap allocators and control information
+; 1527 : 			this->_Swap_alloc(_Right);
+; 1528 : 			_Swap_adl(this->_Myfirst, _Right._Myfirst);
+; 1529 : 			_Swap_adl(this->_Mylast, _Right._Mylast);
+; 1530 : 			_Swap_adl(this->_Myend, _Right._Myend);
+; 1531 : 			}
+; 1532 : 
+; 1533 : 		else
+; 1534 : 			{	// containers are incompatible
+; 1535 :  #if _ITERATOR_DEBUG_LEVEL == 2
+; 1536 : 			_DEBUG_ERROR("vector containers incompatible for swap");
+; 1537 : 
+; 1538 :  #else /* ITERATOR_DEBUG_LEVEL == 2 */
+; 1539 : 			_XSTD terminate();
+; 1540 :  #endif /* ITERATOR_DEBUG_LEVEL == 2 */
+; 1541 : 			}
+; 1542 : 		}
+; 1543 : 
+; 1544 : protected:
+; 1545 : 	bool _Buy(size_type _Capacity)
+; 1546 : 		{	// allocate array with _Capacity elements
+; 1547 : 		this->_Myfirst = pointer();
+; 1548 : 		this->_Mylast = pointer();
+; 1549 : 		this->_Myend = pointer();
+; 1550 : 
+; 1551 : 		if (_Capacity == 0)
+; 1552 : 			return (false);
+; 1553 : 		else if (max_size() < _Capacity)
+; 1554 : 			_Xlen();	// result too long
+; 1555 : 		else
+; 1556 : 			{	// nonempty array, allocate storage
+; 1557 : 			this->_Myfirst = this->_Getal().allocate(_Capacity);
+; 1558 : 			this->_Mylast = this->_Myfirst;
+; 1559 : 			this->_Myend = this->_Myfirst + _Capacity;
+; 1560 : 			}
+; 1561 : 		return (true);
+; 1562 : 		}
+; 1563 : 
+; 1564 : 	void _Destroy(pointer _First, pointer _Last)
+; 1565 : 		{	// destroy [_First, _Last) using allocator
+; 1566 : 		_Alty _Alval(this->_Getal());
+; 1567 : 		_Destroy_range(_First, _Last, _Alval);
+; 1568 : 		}
+; 1569 : 
+; 1570 : 	size_type _Grow_to(size_type _Count) const
+; 1571 : 		{	// grow by 50% or at least to _Count
+; 1572 : 		size_type _Capacity = capacity();
+; 1573 : 
+; 1574 : 		_Capacity = max_size() - _Capacity / 2 < _Capacity
+; 1575 : 			? 0 : _Capacity + _Capacity / 2;	// try to grow by 50%
+; 1576 : 		if (_Capacity < _Count)
+; 1577 : 			_Capacity = _Count;
+; 1578 : 		return (_Capacity);
+; 1579 : 		}
+; 1580 : 
+; 1581 : 	bool _Inside(const value_type *_Ptr) const
+; 1582 : 		{	// test if _Ptr points inside vector
+; 1583 : 		return (_Ptr < this->_Mylast && this->_Myfirst <= _Ptr);
+
+	mov	edi, DWORD PTR __Val$[ebp]
+	mov	eax, DWORD PTR [esi+4]
+	cmp	edi, eax
+	jae	SHORT $LN4@push_back
+	mov	ecx, DWORD PTR [esi]
+	cmp	ecx, edi
+	ja	SHORT $LN4@push_back
+
+; 866  : 		if (_Inside(_STD addressof(_Val)))
+; 867  : 			{	// push back an element
+; 868  : 			size_type _Idx = _STD addressof(_Val) - this->_Myfirst;
+
+	sub	edi, ecx
+	sar	edi, 2
+
+; 869  : 			if (this->_Mylast == this->_Myend)
+
+	cmp	eax, DWORD PTR [esi+8]
+	jne	SHORT $LN3@push_back
+
+; 870  : 				_Reserve(1);
+
+	push	1
+	mov	ecx, esi
+	call	?_Reserve@?$vector@HV?$allocator@H@std@@@std@@IAEXI@Z ; std::vector<int,std::allocator<int> >::_Reserve
+$LN3@push_back:
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+
+; 600  : 		::new ((void *)_Ptr) _Objty(_STD forward<_Types>(_Args)...);
+
+	mov	ecx, DWORD PTR [esi+4]
+	test	ecx, ecx
+	je	SHORT $LN53@push_back
+	mov	eax, DWORD PTR [esi]
+	mov	eax, DWORD PTR [eax+edi*4]
+	mov	DWORD PTR [ecx], eax
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+
+; 883  : 			++this->_Mylast;
+
+	add	DWORD PTR [esi+4], 4
+	pop	edi
+	pop	esi
+
+; 884  : 			}
+; 885  : 		}
+
+	pop	ebp
+	ret	4
+$LN4@push_back:
+
+; 871  : 			_Orphan_range(this->_Mylast, this->_Mylast);
+; 872  : 			this->_Getal().construct(this->_Mylast,
+; 873  : 				_STD forward<value_type>(this->_Myfirst[_Idx]));
+; 874  : 			++this->_Mylast;
+; 875  : 			}
+; 876  : 		else
+; 877  : 			{	// push back a non-element
+; 878  : 			if (this->_Mylast == this->_Myend)
+
+	cmp	eax, DWORD PTR [esi+8]
+	jne	SHORT $LN1@push_back
+
+; 879  : 				_Reserve(1);
+
+	push	1
+	mov	ecx, esi
+	call	?_Reserve@?$vector@HV?$allocator@H@std@@@std@@IAEXI@Z ; std::vector<int,std::allocator<int> >::_Reserve
+$LN1@push_back:
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+
+; 600  : 		::new ((void *)_Ptr) _Objty(_STD forward<_Types>(_Args)...);
+
+	mov	ecx, DWORD PTR [esi+4]
+	test	ecx, ecx
+	je	SHORT $LN53@push_back
+	mov	eax, DWORD PTR [edi]
+	mov	DWORD PTR [ecx], eax
+$LN53@push_back:
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+
+; 883  : 			++this->_Mylast;
+
+	add	DWORD PTR [esi+4], 4
+	pop	edi
+	pop	esi
+
+; 884  : 			}
+; 885  : 		}
+
+	pop	ebp
+	ret	4
+?push_back@?$vector@HV?$allocator@H@std@@@std@@QAEX$$QAH@Z ENDP ; std::vector<int,std::allocator<int> >::push_back
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ??0?$vector@HV?$allocator@H@std@@@std@@QAE@XZ
+_TEXT	SEGMENT
+??0?$vector@HV?$allocator@H@std@@@std@@QAE@XZ PROC	; std::vector<int,std::allocator<int> >::vector<int,std::allocator<int> >, COMDAT
+; _this$ = ecx
+
+; 482  : 		_Myfirst = pointer();
+
+	mov	DWORD PTR [ecx], 0
+
+; 681  : 		}
+
+	mov	eax, ecx
+
+; 483  : 		_Mylast = pointer();
+
+	mov	DWORD PTR [ecx+4], 0
+
+; 484  : 		_Myend = pointer();
+
+	mov	DWORD PTR [ecx+8], 0
+
+; 681  : 		}
+
+	ret	0
+??0?$vector@HV?$allocator@H@std@@@std@@QAE@XZ ENDP	; std::vector<int,std::allocator<int> >::vector<int,std::allocator<int> >
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ?_Getal@?$_Vector_alloc@$0A@U?$_Vec_base_types@HV?$allocator@H@std@@@std@@@std@@QBE?AU?$_Wrap_alloc@V?$allocator@H@std@@@2@XZ
+_TEXT	SEGMENT
+___$ReturnUdt$ = 8					; size = 4
+?_Getal@?$_Vector_alloc@$0A@U?$_Vec_base_types@HV?$allocator@H@std@@@std@@@std@@QBE?AU?$_Wrap_alloc@V?$allocator@H@std@@@2@XZ PROC ; std::_Vector_alloc<0,std::_Vec_base_types<int,std::allocator<int> > >::_Getal, COMDAT
+; _this$ = ecx
+
+; 641  : 		{	// get reference to allocator
+
+	push	ebp
+	mov	ebp, esp
+
+; 642  : 		return (_Alty());
+
+	mov	eax, DWORD PTR ___$ReturnUdt$[ebp]
+
+; 643  : 		}
+
+	pop	ebp
+	ret	4
+?_Getal@?$_Vector_alloc@$0A@U?$_Vec_base_types@HV?$allocator@H@std@@@std@@@std@@QBE?AU?$_Wrap_alloc@V?$allocator@H@std@@@2@XZ ENDP ; std::_Vector_alloc<0,std::_Vec_base_types<int,std::allocator<int> > >::_Getal
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ??0?$_Vector_alloc@$0A@U?$_Vec_base_types@HV?$allocator@H@std@@@std@@@std@@QAE@ABV?$allocator@H@1@@Z
+_TEXT	SEGMENT
+___formal$ = 8						; size = 4
+??0?$_Vector_alloc@$0A@U?$_Vec_base_types@HV?$allocator@H@std@@@std@@@std@@QAE@ABV?$allocator@H@1@@Z PROC ; std::_Vector_alloc<0,std::_Vec_base_types<int,std::allocator<int> > >::_Vector_alloc<0,std::_Vec_base_types<int,std::allocator<int> > >, COMDAT
+; _this$ = ecx
+
+; 482  : 		_Myfirst = pointer();
+
+	mov	DWORD PTR [ecx], 0
+
+; 589  : 		{	// construct allocator from _Al
+; 590  : 		}
+
+	mov	eax, ecx
+
+; 483  : 		_Mylast = pointer();
+
+	mov	DWORD PTR [ecx+4], 0
+
+; 484  : 		_Myend = pointer();
+
+	mov	DWORD PTR [ecx+8], 0
+
+; 589  : 		{	// construct allocator from _Al
+; 590  : 		}
+
+	ret	4
+??0?$_Vector_alloc@$0A@U?$_Vec_base_types@HV?$allocator@H@std@@@std@@@std@@QAE@ABV?$allocator@H@1@@Z ENDP ; std::_Vector_alloc<0,std::_Vec_base_types<int,std::allocator<int> > >::_Vector_alloc<0,std::_Vec_base_types<int,std::allocator<int> > >
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\vector
+;	COMDAT ??0?$_Vector_val@U?$_Simple_types@H@std@@@std@@QAE@XZ
+_TEXT	SEGMENT
+??0?$_Vector_val@U?$_Simple_types@H@std@@@std@@QAE@XZ PROC ; std::_Vector_val<std::_Simple_types<int> >::_Vector_val<std::_Simple_types<int> >, COMDAT
+; _this$ = ecx
+
+; 481  : 		{	// initialize values
+; 482  : 		_Myfirst = pointer();
+
+	mov	DWORD PTR [ecx], 0
+
+; 483  : 		_Mylast = pointer();
+; 484  : 		_Myend = pointer();
+; 485  : 		}
+
+	mov	eax, ecx
+	mov	DWORD PTR [ecx+4], 0
+	mov	DWORD PTR [ecx+8], 0
+	ret	0
+??0?$_Vector_val@U?$_Simple_types@H@std@@@std@@QAE@XZ ENDP ; std::_Vector_val<std::_Simple_types<int> >::_Vector_val<std::_Simple_types<int> >
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+;	COMDAT ?max_size@?$_Wrap_alloc@V?$allocator@H@std@@@std@@QBEIXZ
+_TEXT	SEGMENT
+?max_size@?$_Wrap_alloc@V?$allocator@H@std@@@std@@QBEIXZ PROC ; std::_Wrap_alloc<std::allocator<int> >::max_size, COMDAT
+; _this$ = ecx
+
+; 884  : 		return (_Mytraits::max_size(*this));
+
+	mov	eax, 1073741823				; 3fffffffH
+
+; 885  : 		}
+
+	ret	0
+?max_size@?$_Wrap_alloc@V?$allocator@H@std@@@std@@QBEIXZ ENDP ; std::_Wrap_alloc<std::allocator<int> >::max_size
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+;	COMDAT ?deallocate@?$_Wrap_alloc@V?$allocator@H@std@@@std@@QAEXPAHI@Z
+_TEXT	SEGMENT
+__Ptr$ = 8						; size = 4
+__Count$ = 12						; size = 4
+?deallocate@?$_Wrap_alloc@V?$allocator@H@std@@@std@@QAEXPAHI@Z PROC ; std::_Wrap_alloc<std::allocator<int> >::deallocate, COMDAT
+; _this$ = ecx
+
+; 857  : 		{	// deallocate object at _Ptr, ignore size
+
+	push	ebp
+	mov	ebp, esp
+
+; 573  : 		::operator delete(_Ptr);
+
+	push	DWORD PTR __Ptr$[ebp]
+	call	??3@YAXPAX@Z				; operator delete
+	add	esp, 4
+
+; 858  : 		_Mybase::deallocate(_Ptr, _Count);
+; 859  : 		}
+
+	pop	ebp
+	ret	8
+?deallocate@?$_Wrap_alloc@V?$allocator@H@std@@@std@@QAEXPAHI@Z ENDP ; std::_Wrap_alloc<std::allocator<int> >::deallocate
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+;	COMDAT ?allocate@?$_Wrap_alloc@V?$allocator@H@std@@@std@@QAEPAHI@Z
+_TEXT	SEGMENT
+__Count$ = 8						; size = 4
+?allocate@?$_Wrap_alloc@V?$allocator@H@std@@@std@@QAEPAHI@Z PROC ; std::_Wrap_alloc<std::allocator<int> >::allocate, COMDAT
+; _this$ = ecx
+
+; 846  : 		{	// allocate array of _Count elements
+
+	push	ebp
+	mov	ebp, esp
+
+; 25   : 	if (_Count == 0)
+
+	mov	eax, DWORD PTR __Count$[ebp]
+	xor	ecx, ecx
+	test	eax, eax
+	je	SHORT $LN6@allocate
+
+; 26   : 		;
+; 27   : 	else if (((size_t)(-1) / sizeof (_Ty) < _Count)
+; 28   : 		|| (_Ptr = ::operator new(_Count * sizeof (_Ty))) == 0)
+
+	cmp	eax, 1073741823				; 3fffffffH
+	ja	SHORT $LN14@allocate
+	shl	eax, 2
+	push	eax
+	call	??2@YAPAXI@Z				; operator new
+	mov	ecx, eax
+	add	esp, 4
+	test	ecx, ecx
+	je	SHORT $LN14@allocate
+$LN6@allocate:
+
+; 847  : 		return (_Mybase::allocate(_Count));
+
+	mov	eax, ecx
+
+; 848  : 		}
+
+	pop	ebp
+	ret	4
+$LN14@allocate:
+
+; 29   : 		_Xbad_alloc();	// report no memory
+
+	call	?_Xbad_alloc@std@@YAXXZ			; std::_Xbad_alloc
+$LN16@allocate:
+$LN13@allocate:
+	int	3
+?allocate@?$_Wrap_alloc@V?$allocator@H@std@@@std@@QAEPAHI@Z ENDP ; std::_Wrap_alloc<std::allocator<int> >::allocate
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+;	COMDAT ??0?$_Wrap_alloc@V?$allocator@H@std@@@std@@QAE@XZ
+_TEXT	SEGMENT
+??0?$_Wrap_alloc@V?$allocator@H@std@@@std@@QAE@XZ PROC	; std::_Wrap_alloc<std::allocator<int> >::_Wrap_alloc<std::allocator<int> >, COMDAT
+; _this$ = ecx
+
+; 802  : 		}
+
+	mov	eax, ecx
+	ret	0
+??0?$_Wrap_alloc@V?$allocator@H@std@@@std@@QAE@XZ ENDP	; std::_Wrap_alloc<std::allocator<int> >::_Wrap_alloc<std::allocator<int> >
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+;	COMDAT ?max_size@?$allocator_traits@V?$allocator@H@std@@@std@@SAIABV?$allocator@H@2@@Z
+_TEXT	SEGMENT
+__Al$ = 8						; size = 4
+?max_size@?$allocator_traits@V?$allocator@H@std@@@std@@SAIABV?$allocator@H@2@@Z PROC ; std::allocator_traits<std::allocator<int> >::max_size, COMDAT
+
+; 735  : 		return (_Al.max_size());
+
+	mov	eax, 1073741823				; 3fffffffH
+
+; 736  : 		}
+
+	ret	0
+?max_size@?$allocator_traits@V?$allocator@H@std@@@std@@SAIABV?$allocator@H@2@@Z ENDP ; std::allocator_traits<std::allocator<int> >::max_size
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+;	COMDAT ?max_size@?$allocator@H@std@@QBEIXZ
+_TEXT	SEGMENT
+?max_size@?$allocator@H@std@@QBEIXZ PROC		; std::allocator<int>::max_size, COMDAT
+; _this$ = ecx
+
+; 612  : 		return ((size_t)(-1) / sizeof (_Ty));
+
+	mov	eax, 1073741823				; 3fffffffH
+
+; 613  : 		}
+
+	ret	0
+?max_size@?$allocator@H@std@@QBEIXZ ENDP		; std::allocator<int>::max_size
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+;	COMDAT ?allocate@?$allocator@H@std@@QAEPAHI@Z
+_TEXT	SEGMENT
+__Count$ = 8						; size = 4
+?allocate@?$allocator@H@std@@QAEPAHI@Z PROC		; std::allocator<int>::allocate, COMDAT
+; _this$ = ecx
+
+; 577  : 		{	// allocate array of _Count elements
+
+	push	ebp
+	mov	ebp, esp
+
+; 25   : 	if (_Count == 0)
+
+	mov	eax, DWORD PTR __Count$[ebp]
+	xor	ecx, ecx
+	test	eax, eax
+	je	SHORT $LN4@allocate
+
+; 26   : 		;
+; 27   : 	else if (((size_t)(-1) / sizeof (_Ty) < _Count)
+; 28   : 		|| (_Ptr = ::operator new(_Count * sizeof (_Ty))) == 0)
+
+	cmp	eax, 1073741823				; 3fffffffH
+	ja	SHORT $LN11@allocate
+	shl	eax, 2
+	push	eax
+	call	??2@YAPAXI@Z				; operator new
+	mov	ecx, eax
+	add	esp, 4
+	test	ecx, ecx
+	je	SHORT $LN11@allocate
+$LN4@allocate:
+
+; 578  : 		return (_Allocate(_Count, (pointer)0));
+
+	mov	eax, ecx
+
+; 579  : 		}
+
+	pop	ebp
+	ret	4
+$LN11@allocate:
+
+; 29   : 		_Xbad_alloc();	// report no memory
+
+	call	?_Xbad_alloc@std@@YAXXZ			; std::_Xbad_alloc
+$LN13@allocate:
+$LN10@allocate:
+	int	3
+?allocate@?$allocator@H@std@@QAEPAHI@Z ENDP		; std::allocator<int>::allocate
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+;	COMDAT ?deallocate@?$allocator@H@std@@QAEXPAHI@Z
+_TEXT	SEGMENT
+__Ptr$ = 8						; size = 4
+___formal$ = 12						; size = 4
+?deallocate@?$allocator@H@std@@QAEXPAHI@Z PROC		; std::allocator<int>::deallocate, COMDAT
+; _this$ = ecx
+
+; 572  : 		{	// deallocate object at _Ptr, ignore size
+
+	push	ebp
+	mov	ebp, esp
+
+; 573  : 		::operator delete(_Ptr);
+
+	push	DWORD PTR __Ptr$[ebp]
+	call	??3@YAXPAX@Z				; operator delete
+	add	esp, 4
+
+; 574  : 		}
+
+	pop	ebp
+	ret	8
+?deallocate@?$allocator@H@std@@QAEXPAHI@Z ENDP		; std::allocator<int>::deallocate
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xmemory0
+;	COMDAT ??0?$allocator@H@std@@QAE@XZ
+_TEXT	SEGMENT
+??0?$allocator@H@std@@QAE@XZ PROC			; std::allocator<int>::allocator<int>, COMDAT
+; _this$ = ecx
+
+; 553  : 		{	// construct default allocator (do nothing)
+; 554  : 		}
+
+	mov	eax, ecx
+	ret	0
+??0?$allocator@H@std@@QAE@XZ ENDP			; std::allocator<int>::allocator<int>
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
@@ -11788,25 +19536,307 @@ _TEXT	SEGMENT
 ?StartImpact@CScene@@QAEXXZ PROC			; CScene::StartImpact, COMDAT
 ; _this$ = ecx
 
-; 756  : 	if (!impact)
+; 947  : 	if (!impact)
 
-	cmp	BYTE PTR [ecx+3084], 0
+	cmp	BYTE PTR [ecx+3360], 0
 	jne	SHORT $LN1@StartImpac
 
-; 757  : 	{
-; 758  : 		impact = true;
-; 759  : 		mShockTime = mShockLength;
+; 948  : 	{
+; 949  : 		impact = true;
+; 950  : 		mShockTime = mShockLength;
 
-	mov	eax, DWORD PTR [ecx+2976]
-	mov	BYTE PTR [ecx+3084], 1
-	mov	DWORD PTR [ecx+2968], eax
+	mov	eax, DWORD PTR [ecx+2984]
+	mov	BYTE PTR [ecx+3360], 1
+	mov	DWORD PTR [ecx+2976], eax
 $LN1@StartImpac:
 
-; 760  : 	}
-; 761  : }
+; 951  : 	}
+; 952  : }
 
 	ret	0
 ?StartImpact@CScene@@QAEXXZ ENDP			; CScene::StartImpact
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+;	COMDAT ?PostProcess@CScene@@AAEXH@Z
+_TEXT	SEGMENT
+_tDesc$ = -12						; size = 12
+_pSRV$ = 8						; size = 4
+_process$ = 8						; size = 4
+?PostProcess@CScene@@AAEXH@Z PROC			; CScene::PostProcess, COMDAT
+; _this$ = ecx
+
+; 912  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 12					; 0000000cH
+
+; 913  : 	D3D10_TECHNIQUE_DESC tDesc;
+; 914  : 	mPPTechniques[process]->GetDesc(&tDesc);
+
+	mov	eax, DWORD PTR _process$[ebp]
+	lea	edx, DWORD PTR _tDesc$[ebp]
+	push	ebx
+	push	esi
+	mov	esi, ecx
+	push	edi
+	push	edx
+	lea	ebx, DWORD PTR [esi+eax*4]
+	mov	eax, DWORD PTR [ebx+2564]
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+4]
+
+; 915  : 
+; 916  : 	ID3D10ShaderResourceView *const pSRV[1] = { NULL };
+; 917  : 	mpd3dDevice->PSSetShaderResources(0, 1, pSRV);
+
+	mov	eax, DWORD PTR [esi]
+	lea	edx, DWORD PTR _pSRV$[ebp]
+	push	edx
+	push	1
+	mov	DWORD PTR _pSRV$[ebp], 0
+	mov	ecx, DWORD PTR [eax]
+	push	0
+	push	eax
+	call	DWORD PTR [ecx+16]
+
+; 918  : 
+; 919  : 	for (unsigned int i = 0; i < tDesc.Passes; ++i)
+
+	xor	edi, edi
+	cmp	DWORD PTR _tDesc$[ebp+4], edi
+	jbe	$LN3@PostProces
+	npad	13
+$LL5@PostProces:
+
+; 920  : 	{
+; 921  : 		//set render target and source
+; 922  : 		if (ppDirection) // rendering "forwards"
+
+	cmp	BYTE PTR [esi+3344], 0
+
+; 923  : 		{
+; 924  : 			mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetTwo, DepthStencilView);
+
+	mov	ecx, DWORD PTR [esi]
+	push	DWORD PTR [esi+3528]
+	mov	edx, DWORD PTR [ecx]
+	je	SHORT $LN2@PostProces
+	lea	eax, DWORD PTR [esi+3332]
+	push	eax
+	push	1
+	push	ecx
+	call	DWORD PTR [edx+96]
+
+; 925  : 			mInitialTextureVar->SetResource(mTextureOneShader);
+
+	push	DWORD PTR [esi+3336]
+
+; 926  : 		}
+; 927  : 		else // rendering "backwards"
+
+	jmp	SHORT $LN12@PostProces
+$LN2@PostProces:
+
+; 928  : 		{
+; 929  : 			mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetOne, DepthStencilView);
+
+	lea	eax, DWORD PTR [esi+3328]
+	push	eax
+	push	1
+	push	ecx
+	call	DWORD PTR [edx+96]
+
+; 930  : 			mInitialTextureVar->SetResource(mTextureTwoShader);
+
+	push	DWORD PTR [esi+3340]
+$LN12@PostProces:
+	mov	eax, DWORD PTR [esi+2948]
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+100]
+
+; 931  : 		}
+; 932  : 
+; 933  : 		//Apply Post Processing Effect
+; 934  : 		mpd3dDevice->IASetInputLayout(NULL);
+
+	mov	eax, DWORD PTR [esi]
+	push	0
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+44]
+
+; 935  : 		mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+
+	mov	eax, DWORD PTR [esi]
+	push	5
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+72]
+
+; 936  : 		mPPTechniques[process]->GetPassByIndex(i)->Apply(0);
+
+	mov	eax, DWORD PTR [ebx+2564]
+	push	edi
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+16]
+	push	0
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+28]
+
+; 937  : 		mpd3dDevice->Draw(4, 0);
+
+	mov	eax, DWORD PTR [esi]
+	push	0
+	push	4
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+36]
+
+; 938  : 		mInitialTextureVar->SetResource(0);
+
+	mov	eax, DWORD PTR [esi+2948]
+	push	0
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+100]
+
+; 939  : 		
+; 940  : 		ppDirection = !ppDirection;
+
+	cmp	BYTE PTR [esi+3344], 0
+	sete	al
+	inc	edi
+	mov	BYTE PTR [esi+3344], al
+	cmp	edi, DWORD PTR _tDesc$[ebp+4]
+	jb	$LL5@PostProces
+$LN3@PostProces:
+	pop	edi
+	pop	esi
+	pop	ebx
+
+; 941  : 		//mPPTechniques[process]->GetPassByIndex(i)->Apply(0);
+; 942  : 	}
+; 943  : }
+
+	mov	esp, ebp
+	pop	ebp
+	ret	4
+?PostProcess@CScene@@AAEXH@Z ENDP			; CScene::PostProcess
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\math.h
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\math.h
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+;	COMDAT ?UpdateGaussianDist@CScene@@AAEXMH@Z
+_TEXT	SEGMENT
+_this$1$ = -4						; size = 4
+tv293 = 8						; size = 4
+_sigma$ = 8						; size = 4
+_samples$ = 12						; size = 4
+?UpdateGaussianDist@CScene@@AAEXMH@Z PROC		; CScene::UpdateGaussianDist, COMDAT
+; _this$ = ecx
+
+; 495  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	eax, ecx
+
+; 496  : 	//p(x) = exp(-(x - mu) ^ 2 / (2 * sigma ^ 2)) / sqrt(2 * pi*sigma ^ 2)
+; 497  : 
+; 498  : 	for (int i = 0; i < MAX_BLUR_RADIUS; i++)
+; 499  : 	{
+; 500  : 		mBlurWeights[i] = 0.0f;
+
+	mov	ecx, 64					; 00000040H
+	push	esi
+	push	edi
+	mov	DWORD PTR _this$1$[ebp], eax
+	lea	esi, DWORD PTR [eax+3036]
+	xor	eax, eax
+	mov	edi, esi
+	rep stosd
+
+; 501  : 	}
+; 502  : 
+; 503  : 	for (int i = 0; i < samples; i++)
+
+	mov	eax, DWORD PTR _samples$[ebp]
+	test	eax, eax
+	jle	SHORT $LN1@UpdateGaus
+	movss	xmm1, DWORD PTR _sigma$[ebp]
+	mulss	xmm1, DWORD PTR __real@40000000
+	cdq
+	sub	eax, edx
+	mov	edi, eax
+	mulss	xmm1, DWORD PTR _sigma$[ebp]
+	sar	edi, 1
+	movss	DWORD PTR tv293[ebp], xmm1
+$LL3@UpdateGaus:
+	movd	xmm0, edi
+
+; 504  : 	{	
+; 505  : 		float r = (samples / 2) - i;
+
+	cvtdq2ps xmm0, xmm0
+
+; 506  : 		mBlurWeights[i] = mBlurMean * exp( -(r*r) / (2 * sigma * sigma) );
+
+	mulss	xmm0, xmm0
+	divss	xmm0, xmm1
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\math.h
+
+; 1060 :         {return (expf(_X)); }
+
+	xorps	xmm0, DWORD PTR __xmm@80000000800000008000000080000000
+
+; 674  :     return (float)exp(_X);
+
+	cvtss2sd xmm0, xmm0
+	call	__libm_sse2_exp_precise
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+
+; 506  : 		mBlurWeights[i] = mBlurMean * exp( -(r*r) / (2 * sigma * sigma) );
+
+	mov	eax, DWORD PTR _this$1$[ebp]
+	lea	esi, DWORD PTR [esi+4]
+	movss	xmm1, DWORD PTR tv293[ebp]
+	dec	edi
+	dec	DWORD PTR _samples$[ebp]
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\math.h
+
+; 674  :     return (float)exp(_X);
+
+	cvtsd2ss xmm0, xmm0
+; File c:\users\simon\documents\github\post-processing\scene.cpp
+
+; 506  : 		mBlurWeights[i] = mBlurMean * exp( -(r*r) / (2 * sigma * sigma) );
+
+	mulss	xmm0, DWORD PTR [eax+3024]
+	movss	DWORD PTR [esi-4], xmm0
+	jne	SHORT $LL3@UpdateGaus
+$LN1@UpdateGaus:
+	pop	edi
+	pop	esi
+
+; 507  : 		//mBlurWeights[i] /= (2 * sigma * sigma);
+; 508  : 	}
+; 509  : 
+; 510  : }
+
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+?UpdateGaussianDist@CScene@@AAEXMH@Z ENDP		; CScene::UpdateGaussianDist
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
@@ -11815,34 +19845,34 @@ _TEXT	SEGMENT
 ?RenderImpact@CScene@@AAEXXZ PROC			; CScene::RenderImpact, COMDAT
 ; _this$ = ecx
 
-; 803  : {
+; 994  : {
 
 	push	ebx
 	push	esi
 	mov	ebx, ecx
 	push	edi
 
-; 804  : 	//PP One - Initial -> One, Blur.
-; 805  : 	mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetOne, DepthStencilView);
+; 995  : 	//PP One - Initial -> One, Blur.
+; 996  : 	mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetOne, DepthStencilView);
 
 	mov	edx, DWORD PTR [ebx]
-	lea	edi, DWORD PTR [ebx+3052]
-	push	DWORD PTR [ebx+3156]
+	lea	edi, DWORD PTR [ebx+3328]
+	push	DWORD PTR [ebx+3528]
 	push	edi
 	mov	eax, DWORD PTR [edx]
 	push	1
 	push	edx
 	call	DWORD PTR [eax+96]
 
-; 806  : 	mInitialTextureVar->SetResource(mInitialShaderResource);
+; 997  : 	mInitialTextureVar->SetResource(mInitialShaderResource);
 
-	mov	eax, DWORD PTR [ebx+2940]
-	push	DWORD PTR [ebx+2912]
+	mov	eax, DWORD PTR [ebx+2948]
+	push	DWORD PTR [ebx+2920]
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+100]
 
-; 807  : 	mpd3dDevice->IASetInputLayout(NULL);
+; 998  : 	mpd3dDevice->IASetInputLayout(NULL);
 
 	mov	eax, DWORD PTR [ebx]
 	push	0
@@ -11850,7 +19880,7 @@ _TEXT	SEGMENT
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+44]
 
-; 808  : 	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+; 999  : 	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
 
 	mov	eax, DWORD PTR [ebx]
 	push	5
@@ -11858,7 +19888,7 @@ _TEXT	SEGMENT
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+72]
 
-; 809  : 	mPPTechniques[5]->GetPassByIndex(0)->Apply(0);
+; 1000 : 	mPPTechniques[5]->GetPassByIndex(0)->Apply(0);
 
 	mov	eax, DWORD PTR [ebx+2584]
 	push	0
@@ -11870,7 +19900,7 @@ _TEXT	SEGMENT
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+28]
 
-; 810  : 	mpd3dDevice->Draw(4, 0);
+; 1001 : 	mpd3dDevice->Draw(4, 0);
 
 	mov	eax, DWORD PTR [ebx]
 	push	0
@@ -11879,15 +19909,15 @@ _TEXT	SEGMENT
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+36]
 
-; 811  : 	mInitialTextureVar->SetResource(0);
+; 1002 : 	mInitialTextureVar->SetResource(0);
 
-	mov	eax, DWORD PTR [ebx+2940]
+	mov	eax, DWORD PTR [ebx+2948]
 	push	0
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+100]
 
-; 812  : 	mPPTechniques[5]->GetPassByIndex(0)->Apply(0);
+; 1003 : 	mPPTechniques[5]->GetPassByIndex(0)->Apply(0);
 
 	mov	eax, DWORD PTR [ebx+2584]
 	push	0
@@ -11899,28 +19929,28 @@ _TEXT	SEGMENT
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+28]
 
-; 813  : 
-; 814  : 	//PP Two = One -> Two, Contrast
-; 815  : 	mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetTwo, DepthStencilView);
+; 1004 : 
+; 1005 : 	//PP Two = One -> Two, Contrast
+; 1006 : 	mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetTwo, DepthStencilView);
 
 	mov	ecx, DWORD PTR [ebx]
-	lea	esi, DWORD PTR [ebx+3056]
-	push	DWORD PTR [ebx+3156]
+	lea	esi, DWORD PTR [ebx+3332]
+	push	DWORD PTR [ebx+3528]
 	push	esi
 	mov	eax, DWORD PTR [ecx]
 	push	1
 	push	ecx
 	call	DWORD PTR [eax+96]
 
-; 816  : 	mInitialTextureVar->SetResource(mTextureOneShader);
+; 1007 : 	mInitialTextureVar->SetResource(mTextureOneShader);
 
-	mov	ecx, DWORD PTR [ebx+2940]
-	push	DWORD PTR [ebx+3060]
+	mov	ecx, DWORD PTR [ebx+2948]
+	push	DWORD PTR [ebx+3336]
 	push	ecx
 	mov	eax, DWORD PTR [ecx]
 	call	DWORD PTR [eax+100]
 
-; 817  : 	mpd3dDevice->IASetInputLayout(NULL);
+; 1008 : 	mpd3dDevice->IASetInputLayout(NULL);
 
 	mov	eax, DWORD PTR [ebx]
 	push	0
@@ -11928,7 +19958,7 @@ _TEXT	SEGMENT
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+44]
 
-; 818  : 	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+; 1009 : 	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
 
 	mov	eax, DWORD PTR [ebx]
 	push	5
@@ -11936,7 +19966,7 @@ _TEXT	SEGMENT
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+72]
 
-; 819  : 	mPPTechniques[8]->GetPassByIndex(0)->Apply(0);
+; 1010 : 	mPPTechniques[8]->GetPassByIndex(0)->Apply(0);
 
 	mov	eax, DWORD PTR [ebx+2596]
 	mov	ecx, DWORD PTR [eax]
@@ -11948,7 +19978,7 @@ _TEXT	SEGMENT
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+28]
 
-; 820  : 	mpd3dDevice->Draw(4, 0);
+; 1011 : 	mpd3dDevice->Draw(4, 0);
 
 	mov	eax, DWORD PTR [ebx]
 	push	0
@@ -11957,15 +19987,15 @@ _TEXT	SEGMENT
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+36]
 
-; 821  : 	mInitialTextureVar->SetResource(0);
+; 1012 : 	mInitialTextureVar->SetResource(0);
 
-	mov	eax, DWORD PTR [ebx+2940]
+	mov	eax, DWORD PTR [ebx+2948]
 	push	0
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+100]
 
-; 822  : 	mPPTechniques[8]->GetPassByIndex(0)->Apply(0);
+; 1013 : 	mPPTechniques[8]->GetPassByIndex(0)->Apply(0);
 
 	mov	eax, DWORD PTR [ebx+2596]
 	push	0
@@ -11977,27 +20007,27 @@ _TEXT	SEGMENT
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+28]
 
-; 823  : 
-; 824  : 	//PP Three = Two -> One, Tint
-; 825  : 	mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetOne, DepthStencilView);
+; 1014 : 
+; 1015 : 	//PP Three = Two -> One, Tint
+; 1016 : 	mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetOne, DepthStencilView);
 
 	mov	eax, DWORD PTR [ebx]
-	push	DWORD PTR [ebx+3156]
+	push	DWORD PTR [ebx+3528]
 	push	edi
 	mov	ecx, DWORD PTR [eax]
 	push	1
 	push	eax
 	call	DWORD PTR [ecx+96]
 
-; 826  : 	mInitialTextureVar->SetResource(mTextureTwoShader);
+; 1017 : 	mInitialTextureVar->SetResource(mTextureTwoShader);
 
-	mov	ecx, DWORD PTR [ebx+2940]
-	push	DWORD PTR [ebx+3064]
-	push	ecx
-	mov	eax, DWORD PTR [ecx]
-	call	DWORD PTR [eax+100]
+	mov	eax, DWORD PTR [ebx+2948]
+	push	DWORD PTR [ebx+3340]
+	push	eax
+	mov	ecx, DWORD PTR [eax]
+	call	DWORD PTR [ecx+100]
 
-; 827  : 	mpd3dDevice->IASetInputLayout(NULL);
+; 1018 : 	mpd3dDevice->IASetInputLayout(NULL);
 
 	mov	eax, DWORD PTR [ebx]
 	push	0
@@ -12005,7 +20035,7 @@ _TEXT	SEGMENT
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+44]
 
-; 828  : 	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+; 1019 : 	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
 
 	mov	eax, DWORD PTR [ebx]
 	push	5
@@ -12013,7 +20043,7 @@ _TEXT	SEGMENT
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+72]
 
-; 829  : 	mPPTechniques[1]->GetPassByIndex(0)->Apply(0);
+; 1020 : 	mPPTechniques[1]->GetPassByIndex(0)->Apply(0);
 
 	mov	eax, DWORD PTR [ebx+2568]
 	push	0
@@ -12025,7 +20055,7 @@ _TEXT	SEGMENT
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+28]
 
-; 830  : 	mpd3dDevice->Draw(4, 0);
+; 1021 : 	mpd3dDevice->Draw(4, 0);
 
 	mov	eax, DWORD PTR [ebx]
 	push	0
@@ -12034,15 +20064,15 @@ _TEXT	SEGMENT
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+36]
 
-; 831  : 	mInitialTextureVar->SetResource(0);
+; 1022 : 	mInitialTextureVar->SetResource(0);
 
-	mov	eax, DWORD PTR [ebx+2940]
+	mov	eax, DWORD PTR [ebx+2948]
 	push	0
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+100]
 
-; 832  : 	mPPTechniques[1]->GetPassByIndex(0)->Apply(0);
+; 1023 : 	mPPTechniques[1]->GetPassByIndex(0)->Apply(0);
 
 	mov	eax, DWORD PTR [ebx+2568]
 	push	0
@@ -12054,27 +20084,27 @@ _TEXT	SEGMENT
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+28]
 
-; 833  : 
-; 834  : 	//PP Four = One -> Two, Shake
-; 835  : 	mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetTwo, DepthStencilView);
+; 1024 : 
+; 1025 : 	//PP Four = One -> Two, Shake
+; 1026 : 	mpd3dDevice->OMSetRenderTargets(1, &mRenderTargetTwo, DepthStencilView);
 
 	mov	eax, DWORD PTR [ebx]
-	push	DWORD PTR [ebx+3156]
+	push	DWORD PTR [ebx+3528]
 	mov	ecx, DWORD PTR [eax]
 	push	esi
 	push	1
 	push	eax
 	call	DWORD PTR [ecx+96]
 
-; 836  : 	mInitialTextureVar->SetResource(mTextureOneShader);
+; 1027 : 	mInitialTextureVar->SetResource(mTextureOneShader);
 
-	mov	eax, DWORD PTR [ebx+2940]
-	push	DWORD PTR [ebx+3060]
+	mov	eax, DWORD PTR [ebx+2948]
+	push	DWORD PTR [ebx+3336]
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+100]
 
-; 837  : 	mpd3dDevice->IASetInputLayout(NULL);
+; 1028 : 	mpd3dDevice->IASetInputLayout(NULL);
 
 	mov	eax, DWORD PTR [ebx]
 	push	0
@@ -12082,7 +20112,7 @@ _TEXT	SEGMENT
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+44]
 
-; 838  : 	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+; 1029 : 	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
 
 	mov	eax, DWORD PTR [ebx]
 	push	5
@@ -12090,7 +20120,7 @@ _TEXT	SEGMENT
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+72]
 
-; 839  : 	mPPTechniques[2]->GetPassByIndex(0)->Apply(0);
+; 1030 : 	mPPTechniques[2]->GetPassByIndex(0)->Apply(0);
 
 	mov	eax, DWORD PTR [ebx+2572]
 	push	0
@@ -12102,7 +20132,7 @@ _TEXT	SEGMENT
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+28]
 
-; 840  : 	mpd3dDevice->Draw(4, 0);
+; 1031 : 	mpd3dDevice->Draw(4, 0);
 
 	mov	eax, DWORD PTR [ebx]
 	push	0
@@ -12111,95 +20141,17 @@ _TEXT	SEGMENT
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+36]
 
-; 841  : 	mInitialTextureVar->SetResource(0);
+; 1032 : 	mInitialTextureVar->SetResource(0);
 
-	mov	eax, DWORD PTR [ebx+2940]
+	mov	eax, DWORD PTR [ebx+2948]
 	push	0
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+100]
 
-; 842  : 	mPPTechniques[2]->GetPassByIndex(0)->Apply(0);
+; 1033 : 	mPPTechniques[2]->GetPassByIndex(0)->Apply(0);
 
 	mov	eax, DWORD PTR [ebx+2572]
-	push	0
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+16]
-	push	0
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+28]
-
-; 843  : 
-; 844  : 	//Copy to Output
-; 845  : 	mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
-
-	mov	ecx, DWORD PTR [ebx]
-	lea	eax, DWORD PTR [ebx+3160]
-	push	DWORD PTR [ebx+3156]
-	push	eax
-	mov	edx, DWORD PTR [ecx]
-	push	1
-	push	ecx
-	call	DWORD PTR [edx+96]
-
-; 846  : 	mInitialTextureVar->SetResource(mTextureTwoShader);
-
-	mov	eax, DWORD PTR [ebx+2940]
-	push	DWORD PTR [ebx+3064]
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+100]
-
-; 847  : 	mpd3dDevice->IASetInputLayout(NULL);
-
-	mov	eax, DWORD PTR [ebx]
-	push	0
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+44]
-
-; 848  : 	mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-
-	mov	eax, DWORD PTR [ebx]
-	push	5
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+72]
-
-; 849  : 	mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
-
-	mov	eax, DWORD PTR [ebx+2564]
-	push	0
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+16]
-	push	0
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+28]
-
-; 850  : 	mpd3dDevice->Draw(4, 0);
-
-	mov	eax, DWORD PTR [ebx]
-	mov	ecx, DWORD PTR [eax]
-	push	0
-	push	4
-	push	eax
-	call	DWORD PTR [ecx+36]
-
-; 851  : 	mInitialTextureVar->SetResource(0);
-
-	mov	eax, DWORD PTR [ebx+2940]
-	push	0
-	push	eax
-	mov	ecx, DWORD PTR [eax]
-	call	DWORD PTR [ecx+100]
-
-; 852  : 	mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
-
-	mov	eax, DWORD PTR [ebx+2564]
 	push	0
 	push	eax
 	mov	ecx, DWORD PTR [eax]
@@ -12210,10 +20162,25 @@ _TEXT	SEGMENT
 	call	DWORD PTR [ecx+28]
 	pop	edi
 	pop	esi
+
+; 1034 : 
+; 1035 : 	//Copy to Output
+; 1036 : 	//mpd3dDevice->OMSetRenderTargets(1, &RenderTargetView, DepthStencilView);
+; 1037 : 	//mInitialTextureVar->SetResource(mTextureTwoShader);
+; 1038 : 	//mpd3dDevice->IASetInputLayout(NULL);
+; 1039 : 	//mpd3dDevice->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+; 1040 : 	//mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
+; 1041 : 	//mpd3dDevice->Draw(4, 0);
+; 1042 : 	//mInitialTextureVar->SetResource(0);
+; 1043 : 	//mPPTechniques[0]->GetPassByIndex(0)->Apply(0);
+; 1044 : 
+; 1045 : 	ppDirection = true;
+
+	mov	BYTE PTR [ebx+3344], 1
 	pop	ebx
 
-; 853  : 
-; 854  : }
+; 1046 : 
+; 1047 : }
 
 	ret	0
 ?RenderImpact@CScene@@AAEXXZ ENDP			; CScene::RenderImpact
@@ -12231,7 +20198,7 @@ _frameTime$ = 8						; size = 4
 ?UpdateImpact@CScene@@AAEXM@Z PROC			; CScene::UpdateImpact, COMDAT
 ; _this$ = ecx
 
-; 764  : {
+; 955  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -12240,53 +20207,53 @@ _frameTime$ = 8						; size = 4
 	mov	esi, ecx
 	xorps	xmm0, xmm0
 
-; 765  : 	if (mShockTime < 0.0f)
+; 956  : 	if (mShockTime < 0.0f)
 
-	movss	xmm1, DWORD PTR [esi+2968]
+	movss	xmm1, DWORD PTR [esi+2976]
 	comiss	xmm0, xmm1
 	movss	DWORD PTR tv288[ebp], xmm1
 	jbe	SHORT $LN3@UpdateImpa
 
-; 766  : 	{
-; 767  : 		impact = false; 
+; 957  : 	{
+; 958  : 		impact = false; 
 
-	mov	BYTE PTR [esi+3084], 0
+	mov	BYTE PTR [esi+3360], 0
 	pop	esi
 
-; 800  : }
+; 991  : }
 
 	mov	esp, ebp
 	pop	ebp
 	ret	4
 $LN3@UpdateImpa:
 
-; 768  : 		return;
-; 769  : 	}
-; 770  : 
-; 771  : 	//mShock = sin(mShockSpeed * mShockTime);
-; 772  : 	//mShock -= 0.5f;
-; 773  : 	//mShock *= mShockStrength;
-; 774  : 	
-; 775  : 	
-; 776  : 
-; 777  : 	//build phase
-; 778  : 	if (mShockTime > 1.0f)
+; 959  : 		return;
+; 960  : 	}
+; 961  : 
+; 962  : 	//mShock = sin(mShockSpeed * mShockTime);
+; 963  : 	//mShock -= 0.5f;
+; 964  : 	//mShock *= mShockStrength;
+; 965  : 	
+; 966  : 	
+; 967  : 
+; 968  : 	//build phase
+; 969  : 	if (mShockTime > 1.0f)
 
 	movss	xmm2, DWORD PTR __real@3f800000
 
-; 779  : 	{
-; 780  : 		mContrastChange = -128.0f * (1.0f - (mShockTime - 1.0f));
+; 970  : 	{
+; 971  : 		mContrastChange = -128.0f * (1.0f - (mShockTime - 1.0f));
 
 	movaps	xmm0, xmm1
 	comiss	xmm1, xmm2
 
-; 781  : 		mTintColour.x = 1.0f;
+; 972  : 		mTintColour.x = 1.0f;
 
-	mov	DWORD PTR [esi+2992], 1065353216	; 3f800000H
+	mov	DWORD PTR [esi+3000], 1065353216	; 3f800000H
 	jbe	SHORT $LN2@UpdateImpa
 
-; 779  : 	{
-; 780  : 		mContrastChange = -128.0f * (1.0f - (mShockTime - 1.0f));
+; 970  : 	{
+; 971  : 		mContrastChange = -128.0f * (1.0f - (mShockTime - 1.0f));
 
 	subss	xmm0, xmm2
 	movaps	xmm1, xmm2
@@ -12294,37 +20261,37 @@ $LN3@UpdateImpa:
 	movaps	xmm0, xmm1
 $LN2@UpdateImpa:
 
-; 782  : 		mTintColour.y = 1.0f - (1.0f - (mShockTime - 1.0f));
-; 783  : 		mTintColour.z = 1.0f - (1.0f - (mShockTime - 1.0f));
-; 784  : 		mBlurRadius = 20 * (1.0f - (mShockTime - 1.0f));
-; 785  : 		mShock = mShockStrength * sin( mShockSpeed * (1.0f - (mShockTime - 1.0f)) );
-; 786  : 	}
-; 787  : 	else //fade phase
-; 788  : 	{
-; 789  : 		mContrastChange = -128.0f * mShockTime;
+; 973  : 		mTintColour.y = 1.0f - (1.0f - (mShockTime - 1.0f));
+; 974  : 		mTintColour.z = 1.0f - (1.0f - (mShockTime - 1.0f));
+; 975  : 		mBlurRadius = 20 * (1.0f - (mShockTime - 1.0f));
+; 976  : 		mShock = mShockStrength * sin( mShockSpeed * (1.0f - (mShockTime - 1.0f)) );
+; 977  : 	}
+; 978  : 	else //fade phase
+; 979  : 	{
+; 980  : 		mContrastChange = -128.0f * mShockTime;
 
 	mulss	xmm0, DWORD PTR __real@c3000000
 
-; 790  : 		mTintColour.x = 1.0f;
-; 791  : 		mTintColour.y = 1.0f - mShockTime;
+; 981  : 		mTintColour.x = 1.0f;
+; 982  : 		mTintColour.y = 1.0f - mShockTime;
 
 	subss	xmm2, xmm1
-	movss	DWORD PTR [esi+3028], xmm0
+	movss	DWORD PTR [esi+3300], xmm0
 
-; 792  : 		mTintColour.z = 1.0f - mShockTime;
-; 793  : 		mBlurRadius = 20 * mShockTime;
+; 983  : 		mTintColour.z = 1.0f - mShockTime;
+; 984  : 		mBlurRadius = 20 * mShockTime;
 
 	movaps	xmm0, xmm1
 	mulss	xmm0, DWORD PTR __real@41a00000
-	movss	DWORD PTR [esi+2996], xmm2
-	movss	DWORD PTR [esi+3000], xmm2
+	movss	DWORD PTR [esi+3004], xmm2
+	movss	DWORD PTR [esi+3008], xmm2
 	cvttss2si eax, xmm0
 
-; 794  : 		mShock = mShockStrength * sin(mShockSpeed * mShockTime);
+; 985  : 		mShock = mShockStrength * sin(mShockSpeed * mShockTime);
 
-	movss	xmm0, DWORD PTR [esi+2972]
+	movss	xmm0, DWORD PTR [esi+2980]
 	mulss	xmm0, xmm1
-	mov	DWORD PTR [esi+3008], eax
+	mov	DWORD PTR [esi+3016], eax
 ; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\math.h
 
 ; 765  :     return (float)sin(_X);
@@ -12333,9 +20300,9 @@ $LN2@UpdateImpa:
 	call	__libm_sse2_sin_precise
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 797  : 	mContrastFactor = (259 * (mContrastChange + 255.0f)) / (255.0f * (259.0f - mContrastChange));
+; 988  : 	mContrastFactor = (259 * (mContrastChange + 255.0f)) / (255.0f * (259.0f - mContrastChange));
 
-	movss	xmm2, DWORD PTR [esi+3028]
+	movss	xmm2, DWORD PTR [esi+3300]
 ; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\math.h
 
 ; 765  :     return (float)sin(_X);
@@ -12343,17 +20310,17 @@ $LN2@UpdateImpa:
 	cvtsd2ss xmm0, xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 797  : 	mContrastFactor = (259 * (mContrastChange + 255.0f)) / (255.0f * (259.0f - mContrastChange));
+; 988  : 	mContrastFactor = (259 * (mContrastChange + 255.0f)) / (255.0f * (259.0f - mContrastChange));
 
 	movaps	xmm3, xmm2
 
-; 798  : 
-; 799  : 	mShockTime -= (frameTime/2.0f);
+; 989  : 
+; 990  : 	mShockTime -= (frameTime/2.0f);
 
 	movss	xmm1, DWORD PTR tv288[ebp]
-	mulss	xmm0, DWORD PTR [esi+2964]
+	mulss	xmm0, DWORD PTR [esi+2972]
 	addss	xmm3, DWORD PTR __real@437f0000
-	movss	DWORD PTR [esi+2960], xmm0
+	movss	DWORD PTR [esi+2968], xmm0
 	movss	xmm0, DWORD PTR __real@43818000
 	mulss	xmm3, xmm0
 	subss	xmm0, xmm2
@@ -12361,12 +20328,12 @@ $LN2@UpdateImpa:
 	divss	xmm3, xmm0
 	movss	xmm0, DWORD PTR _frameTime$[ebp]
 	mulss	xmm0, DWORD PTR __real@3f000000
-	movss	DWORD PTR [esi+3032], xmm3
+	movss	DWORD PTR [esi+3304], xmm3
 	subss	xmm1, xmm0
-	movss	DWORD PTR [esi+2968], xmm1
+	movss	DWORD PTR [esi+2976], xmm1
 	pop	esi
 
-; 800  : }
+; 991  : }
 
 	mov	esp, ebp
 	pop	ebp
@@ -12398,7 +20365,7 @@ _mirror$ = 8						; size = 1
 ?DrawAllObjects@CScene@@AAEX_N@Z PROC			; CScene::DrawAllObjects, COMDAT
 ; _this$ = ecx
 
-; 573  : {
+; 743  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -12411,11 +20378,11 @@ _mirror$ = 8						; size = 1
 	mov	esi, ecx
 	push	edi
 
-; 574  : 	//
-; 575  : 	// Solid objects
-; 576  : 	//
-; 577  : 	//start rendering AFTER the mirror.
-; 578  : 	for(int i = 1; i < miNumObjects; i++)
+; 744  : 	//
+; 745  : 	// Solid objects
+; 746  : 	//
+; 747  : 	//start rendering AFTER the mirror.
+; 748  : 	for(int i = 1; i < miNumObjects; i++)
 
 	mov	edi, 1
 	cmp	DWORD PTR [esi+808], edi
@@ -12423,15 +20390,15 @@ _mirror$ = 8						; size = 1
 	lea	ebx, DWORD PTR [esi+12]
 $LL13@DrawAllObj:
 
-; 579  : 	{
-; 580  : 		if( !mpObjects[i]->IsTransparent() )
+; 749  : 	{
+; 750  : 		if( !mpObjects[i]->IsTransparent() )
 
 	mov	eax, DWORD PTR [ebx]
 	cmp	BYTE PTR [eax+33], 0
 	jne	SHORT $LN12@DrawAllObj
 
-; 581  : 		{
-; 582  : 			DrawObject(i, mirror);
+; 751  : 		{
+; 752  : 			DrawObject(i, mirror);
 
 	push	DWORD PTR _mirror$[ebp]
 	mov	ecx, esi
@@ -12439,11 +20406,11 @@ $LL13@DrawAllObj:
 	call	?DrawObject@CScene@@AAEXH_N@Z		; CScene::DrawObject
 $LN12@DrawAllObj:
 
-; 574  : 	//
-; 575  : 	// Solid objects
-; 576  : 	//
-; 577  : 	//start rendering AFTER the mirror.
-; 578  : 	for(int i = 1; i < miNumObjects; i++)
+; 744  : 	//
+; 745  : 	// Solid objects
+; 746  : 	//
+; 747  : 	//start rendering AFTER the mirror.
+; 748  : 	for(int i = 1; i < miNumObjects; i++)
 
 	inc	edi
 	add	ebx, 4
@@ -12451,15 +20418,15 @@ $LN12@DrawAllObj:
 	jl	SHORT $LL13@DrawAllObj
 $LN11@DrawAllObj:
 
-; 583  : 		}
-; 584  : 	}
-; 585  : 
-; 586  : 	//
-; 587  : 	// Light objects
-; 588  : 	//
-; 589  : 
-; 590  : 
-; 591  : 	for(int i = 0; i < miNumLights; i++)
+; 753  : 		}
+; 754  : 	}
+; 755  : 
+; 756  : 	//
+; 757  : 	// Light objects
+; 758  : 	//
+; 759  : 
+; 760  : 
+; 761  : 	for(int i = 0; i < miNumLights; i++)
 
 	xor	ebx, ebx
 	cmp	DWORD PTR [esi+932], ebx
@@ -12473,7 +20440,7 @@ $LL9@DrawAllObj:
 	mov	eax, DWORD PTR [edi]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 593  : 		WorldMatrixVar->SetMatrix( (float*)mpLights[i]->GetModel()->GetWorldMatrix() );
+; 763  : 		WorldMatrixVar->SetMatrix( (float*)mpLights[i]->GetModel()->GetWorldMatrix() );
 
 	lea	edx, DWORD PTR $T1[ebp]
 	push	edx
@@ -12495,9 +20462,9 @@ $LL9@DrawAllObj:
 	movdqu	xmm0, XMMWORD PTR [eax+96]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 593  : 		WorldMatrixVar->SetMatrix( (float*)mpLights[i]->GetModel()->GetWorldMatrix() );
+; 763  : 		WorldMatrixVar->SetMatrix( (float*)mpLights[i]->GetModel()->GetWorldMatrix() );
 
-	mov	eax, DWORD PTR [esi+3088]
+	mov	eax, DWORD PTR [esi+3460]
 	push	eax
 ; File c:\users\simon\documents\github\post-processing\model.h
 
@@ -12506,16 +20473,16 @@ $LL9@DrawAllObj:
 	movdqu	XMMWORD PTR $T1[ebp+48], xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 593  : 		WorldMatrixVar->SetMatrix( (float*)mpLights[i]->GetModel()->GetWorldMatrix() );
+; 763  : 		WorldMatrixVar->SetMatrix( (float*)mpLights[i]->GetModel()->GetWorldMatrix() );
 
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+100]
 
-; 594  : 		D3DXVECTOR3 mColour =  mpLights[i]->GetColourV();
+; 764  : 		D3DXVECTOR3 mColour =  mpLights[i]->GetColourV();
 
 	mov	eax, DWORD PTR [edi]
 
-; 595  : 		ModelColourVar->SetRawValue(mColour, 0, 12 );
+; 765  : 		ModelColourVar->SetRawValue(mColour, 0, 12 );
 
 	lea	edx, DWORD PTR _mColour$2[ebp]
 	push	12					; 0000000cH
@@ -12534,9 +20501,9 @@ $LL9@DrawAllObj:
 	movss	xmm0, DWORD PTR [eax+4]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 595  : 		ModelColourVar->SetRawValue(mColour, 0, 12 );
+; 765  : 		ModelColourVar->SetRawValue(mColour, 0, 12 );
 
-	mov	eax, DWORD PTR [esi+3112]
+	mov	eax, DWORD PTR [esi+3484]
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
 
 ; 321  :     x = fx;
@@ -12552,13 +20519,13 @@ $LL9@DrawAllObj:
 	movss	DWORD PTR _mColour$2[ebp+8], xmm2
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 595  : 		ModelColourVar->SetRawValue(mColour, 0, 12 );
+; 765  : 		ModelColourVar->SetRawValue(mColour, 0, 12 );
 
 	mov	ecx, DWORD PTR [eax]
 	push	eax
 	call	DWORD PTR [ecx+92]
 
-; 596  : 		if( mirror )
+; 766  : 		if( mirror )
 
 	cmp	BYTE PTR _mirror$[ebp], 0
 ; File c:\users\simon\documents\github\post-processing\light.h
@@ -12568,22 +20535,22 @@ $LL9@DrawAllObj:
 	mov	ecx, DWORD PTR [edi]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 598  : 			mpLights[i]->GetModel()->Render( mTechniquesMirror[0] );
+; 768  : 			mpLights[i]->GetModel()->Render( mTechniquesMirror[0] );
 
 	mov	ecx, DWORD PTR [ecx]
 	je	SHORT $LN6@DrawAllObj
-	push	DWORD PTR [esi+2736]
+	push	DWORD PTR [esi+2744]
 
-; 599  : 		}
-; 600  : 		else
+; 769  : 		}
+; 770  : 		else
 
 	jmp	SHORT $LN48@DrawAllObj
 $LN6@DrawAllObj:
 
-; 601  : 		{
-; 602  : 			mpLights[i]->GetModel()->Render( mTechniques[0] );
+; 771  : 		{
+; 772  : 			mpLights[i]->GetModel()->Render( mTechniques[0] );
 
-	push	DWORD PTR [esi+2616]
+	push	DWORD PTR [esi+2624]
 $LN48@DrawAllObj:
 	call	?Render@CModel@@QAEXPAUID3D10EffectTechnique@@@Z ; CModel::Render
 	inc	ebx
@@ -12592,14 +20559,14 @@ $LN48@DrawAllObj:
 	jl	$LL9@DrawAllObj
 $LN7@DrawAllObj:
 
-; 603  : 		}
-; 604  : 	}
-; 605  : 
-; 606  : 	//
-; 607  : 	// Transparent objects
-; 608  : 	//
-; 609  : 
-; 610  : 	for(int i = 1; i < miNumObjects; i++)
+; 773  : 		}
+; 774  : 	}
+; 775  : 
+; 776  : 	//
+; 777  : 	// Transparent objects
+; 778  : 	//
+; 779  : 
+; 780  : 	for(int i = 1; i < miNumObjects; i++)
 
 	mov	edi, 1
 	cmp	DWORD PTR [esi+808], edi
@@ -12607,15 +20574,15 @@ $LN7@DrawAllObj:
 	lea	ebx, DWORD PTR [esi+12]
 $LL4@DrawAllObj:
 
-; 611  : 	{
-; 612  : 		if( mpObjects[i]->IsTransparent() )
+; 781  : 	{
+; 782  : 		if( mpObjects[i]->IsTransparent() )
 
 	mov	eax, DWORD PTR [ebx]
 	cmp	BYTE PTR [eax+33], 0
 	je	SHORT $LN3@DrawAllObj
 
-; 613  : 		{
-; 614  : 			DrawObject(i, mirror);
+; 783  : 		{
+; 784  : 			DrawObject(i, mirror);
 
 	push	DWORD PTR _mirror$[ebp]
 	mov	ecx, esi
@@ -12623,14 +20590,14 @@ $LL4@DrawAllObj:
 	call	?DrawObject@CScene@@AAEXH_N@Z		; CScene::DrawObject
 $LN3@DrawAllObj:
 
-; 603  : 		}
-; 604  : 	}
-; 605  : 
-; 606  : 	//
-; 607  : 	// Transparent objects
-; 608  : 	//
-; 609  : 
-; 610  : 	for(int i = 1; i < miNumObjects; i++)
+; 773  : 		}
+; 774  : 	}
+; 775  : 
+; 776  : 	//
+; 777  : 	// Transparent objects
+; 778  : 	//
+; 779  : 
+; 780  : 	for(int i = 1; i < miNumObjects; i++)
 
 	inc	edi
 	add	ebx, 4
@@ -12638,9 +20605,9 @@ $LN3@DrawAllObj:
 	jl	SHORT $LL4@DrawAllObj
 $LN2@DrawAllObj:
 
-; 615  : 		}
-; 616  : 	}
-; 617  : }
+; 785  : 		}
+; 786  : 	}
+; 787  : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	pop	edi
@@ -12687,7 +20654,7 @@ _mirror$ = 12						; size = 1
 ?DrawObject@CScene@@AAEXH_N@Z PROC			; CScene::DrawObject, COMDAT
 ; _this$ = ecx
 
-; 528  : {
+; 698  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -12699,9 +20666,9 @@ _mirror$ = 12						; size = 1
 	push	edi
 	mov	edi, DWORD PTR _i$[ebp]
 
-; 529  : 	//first the wiggle value
-; 530  : 	float wiggle =  mpObjects[i]->GetWiggle();
-; 531  : 	dxWiggle->SetRawValue( &wiggle, 0, 4);
+; 699  : 	//first the wiggle value
+; 700  : 	float wiggle =  mpObjects[i]->GetWiggle();
+; 701  : 	dxWiggle->SetRawValue( &wiggle, 0, 4);
 
 	lea	edx, DWORD PTR _wiggle$[ebp]
 	mov	esi, ecx
@@ -12710,26 +20677,26 @@ _mirror$ = 12						; size = 1
 	push	edx
 	mov	eax, DWORD PTR [esi+edi*4+8]
 	movss	xmm0, DWORD PTR [eax+64]
-	mov	eax, DWORD PTR [esi+3136]
+	mov	eax, DWORD PTR [esi+3508]
 	movss	DWORD PTR _wiggle$[ebp], xmm0
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+92]
 
-; 532  : 
-; 533  : 	//outline thickness
-; 534  : 	float thickness = mpObjects[i]->GetOutlineThickness();
+; 702  : 
+; 703  : 	//outline thickness
+; 704  : 	float thickness = mpObjects[i]->GetOutlineThickness();
 
 	mov	eax, DWORD PTR [esi+edi*4+8]
 
-; 535  : 	dxOutlineThickness->SetRawValue( &thickness, 0, 4);
+; 705  : 	dxOutlineThickness->SetRawValue( &thickness, 0, 4);
 
 	lea	edx, DWORD PTR _thickness$[ebp]
 	push	4
 	push	0
 	push	edx
 	movss	xmm0, DWORD PTR [eax+68]
-	mov	eax, DWORD PTR [esi+3140]
+	mov	eax, DWORD PTR [esi+3512]
 	movss	DWORD PTR _thickness$[ebp], xmm0
 	push	eax
 	mov	ecx, DWORD PTR [eax]
@@ -12741,7 +20708,7 @@ _mirror$ = 12						; size = 1
 	mov	eax, DWORD PTR [esi+edi*4+8]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 538  : 	WorldMatrixVar->SetMatrix( (float*)mpObjects[i]->GetModel()->GetWorldMatrix() );
+; 708  : 	WorldMatrixVar->SetMatrix( (float*)mpObjects[i]->GetModel()->GetWorldMatrix() );
 
 	lea	edx, DWORD PTR $T1[ebp]
 	push	edx
@@ -12763,9 +20730,9 @@ _mirror$ = 12						; size = 1
 	movdqu	xmm0, XMMWORD PTR [eax+96]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 538  : 	WorldMatrixVar->SetMatrix( (float*)mpObjects[i]->GetModel()->GetWorldMatrix() );
+; 708  : 	WorldMatrixVar->SetMatrix( (float*)mpObjects[i]->GetModel()->GetWorldMatrix() );
 
-	mov	eax, DWORD PTR [esi+3088]
+	mov	eax, DWORD PTR [esi+3460]
 	push	eax
 ; File c:\users\simon\documents\github\post-processing\model.h
 
@@ -12774,49 +20741,49 @@ _mirror$ = 12						; size = 1
 	movdqu	XMMWORD PTR $T1[ebp+48], xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 538  : 	WorldMatrixVar->SetMatrix( (float*)mpObjects[i]->GetModel()->GetWorldMatrix() );
+; 708  : 	WorldMatrixVar->SetMatrix( (float*)mpObjects[i]->GetModel()->GetWorldMatrix() );
 
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+100]
 
-; 539  : 	
-; 540  : 	//pass the textures and maps, if there are any. 
-; 541  : 	if( mpObjects[i]->GetTexture() != nullptr )
+; 709  : 	
+; 710  : 	//pass the textures and maps, if there are any. 
+; 711  : 	if( mpObjects[i]->GetTexture() != nullptr )
 
 	mov	eax, DWORD PTR [esi+edi*4+8]
 	mov	edx, DWORD PTR [eax+24]
 	test	edx, edx
 	je	SHORT $LN5@DrawObject
 
-; 542  : 	{
-; 543  : 		DiffuseMapVar->SetResource( mpObjects[i]->GetTexture() );
+; 712  : 	{
+; 713  : 		DiffuseMapVar->SetResource( mpObjects[i]->GetTexture() );
 
-	mov	eax, DWORD PTR [esi+3104]
+	mov	eax, DWORD PTR [esi+3476]
 	push	edx
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+100]
 $LN5@DrawObject:
 
-; 544  : 	}
-; 545  : 	if( mpObjects[i]->GetNormalMap() != nullptr )
+; 714  : 	}
+; 715  : 	if( mpObjects[i]->GetNormalMap() != nullptr )
 
 	mov	eax, DWORD PTR [esi+edi*4+8]
 	mov	edx, DWORD PTR [eax+28]
 	test	edx, edx
 	je	SHORT $LN4@DrawObject
 
-; 546  : 	{
-; 547  : 		NormalMapVar->SetResource( mpObjects[i]->GetNormalMap() );
+; 716  : 	{
+; 717  : 		NormalMapVar->SetResource( mpObjects[i]->GetNormalMap() );
 
-	mov	eax, DWORD PTR [esi+3108]
+	mov	eax, DWORD PTR [esi+3480]
 	push	edx
 	push	eax
 	mov	ecx, DWORD PTR [eax]
 	call	DWORD PTR [ecx+100]
 $LN4@DrawObject:
 
-; 551  : 	ModelColourVar->SetRawValue( mpObjects[i]->GetColourV(), 0, 12 );
+; 721  : 	ModelColourVar->SetRawValue( mpObjects[i]->GetColourV(), 0, 12 );
 
 	mov	eax, DWORD PTR [esi+edi*4+8]
 	lea	edx, DWORD PTR $T2[ebp]
@@ -12836,9 +20803,9 @@ $LN4@DrawObject:
 	movss	xmm0, DWORD PTR [eax+4]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 551  : 	ModelColourVar->SetRawValue( mpObjects[i]->GetColourV(), 0, 12 );
+; 721  : 	ModelColourVar->SetRawValue( mpObjects[i]->GetColourV(), 0, 12 );
 
-	mov	eax, DWORD PTR [esi+3112]
+	mov	eax, DWORD PTR [esi+3484]
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
 
 ; 321  :     x = fx;
@@ -12854,7 +20821,7 @@ $LN4@DrawObject:
 	movss	DWORD PTR $T2[ebp+8], xmm2
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 551  : 	ModelColourVar->SetRawValue( mpObjects[i]->GetColourV(), 0, 12 );
+; 721  : 	ModelColourVar->SetRawValue( mpObjects[i]->GetColourV(), 0, 12 );
 
 	mov	ecx, DWORD PTR [eax]
 	push	eax
@@ -12866,12 +20833,12 @@ $LN4@DrawObject:
 	mov	edx, DWORD PTR [esi+edi*4+8]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 554  : 	if( mpObjects[i]->IsLit() )
+; 724  : 	if( mpObjects[i]->IsLit() )
 
 	cmp	BYTE PTR [edx+32], 0
 	je	SHORT $LN3@DrawObject
 
-; 556  : 		SetLights( mpObjects[i]->GetModel()->GetPosition(), mpLights, miNumLights);
+; 726  : 		SetLights( mpObjects[i]->GetModel()->GetPosition(), mpLights, miNumLights);
 
 	push	DWORD PTR [esi+932]
 ; File c:\users\simon\documents\github\post-processing\renderobject.h
@@ -12881,7 +20848,7 @@ $LN4@DrawObject:
 	mov	edx, DWORD PTR [edx]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 556  : 		SetLights( mpObjects[i]->GetModel()->GetPosition(), mpLights, miNumLights);
+; 726  : 		SetLights( mpObjects[i]->GetModel()->GetPosition(), mpLights, miNumLights);
 
 	lea	eax, DWORD PTR [esi+812]
 	push	eax
@@ -12895,15 +20862,15 @@ $LN4@DrawObject:
 	call	?SetLights@CScene@@AAEXUD3DXVECTOR3@@QAPAVCLight@@H@Z ; CScene::SetLights
 $LN3@DrawObject:
 
-; 557  : 	}
-; 558  : 
-; 559  : 	// choose how to render the model based on where we are rendering it. 
-; 560  : 	if( mirror )
+; 727  : 	}
+; 728  : 
+; 729  : 	// choose how to render the model based on where we are rendering it. 
+; 730  : 	if( mirror )
 
 	cmp	BYTE PTR _mirror$[ebp], 0
 
-; 561  : 	{
-; 562  : 		mpObjects[i]->RenderMirror();
+; 731  : 	{
+; 732  : 		mpObjects[i]->RenderMirror();
 
 	mov	ecx, DWORD PTR [esi+edi*4+8]
 	je	SHORT $LN2@DrawObject
@@ -12914,7 +20881,7 @@ $LN3@DrawObject:
 	push	DWORD PTR [ecx+20]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 564  : 	else
+; 734  : 	else
 
 	jmp	SHORT $LN42@DrawObject
 $LN2@DrawObject:
@@ -12928,7 +20895,7 @@ $LN42@DrawObject:
 	call	?Render@CModel@@QAEXPAUID3D10EffectTechnique@@@Z ; CModel::Render
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 569  : }
+; 739  : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	pop	edi
@@ -12955,7 +20922,7 @@ _wParam$ = 16						; size = 4
 _lParam$ = 20						; size = 4
 ?WndProc@CScene@@CGJPAUHWND__@@IIJ@Z PROC		; CScene::WndProc, COMDAT
 
-; 956  : {
+; 1149 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -12965,9 +20932,9 @@ _lParam$ = 20						; size = 4
 	mov	DWORD PTR __$ArrayPad$[ebp], eax
 	push	ebx
 
-; 957  : 	PAINTSTRUCT ps;
-; 958  : 	HDC hdc;
-; 959  : 	if( TwEventWin(hWnd, message, wParam, lParam) ) // send event message to AntTweakBar
+; 1150 : 	PAINTSTRUCT ps;
+; 1151 : 	HDC hdc;
+; 1152 : 	if( TwEventWin(hWnd, message, wParam, lParam) ) // send event message to AntTweakBar
 
 	mov	ebx, DWORD PTR _wParam$[ebp]
 	push	esi
@@ -12982,9 +20949,9 @@ _lParam$ = 20						; size = 4
 	test	eax, eax
 	jne	$LN7@WndProc
 
-; 960  :         return 0;
-; 961  : 
-; 962  : 	switch( message )
+; 1153 :         return 0;
+; 1154 : 
+; 1155 : 	switch( message )
 
 	cmp	esi, 15					; 0000000fH
 	ja	SHORT $LN12@WndProc
@@ -12995,22 +20962,22 @@ _lParam$ = 20						; size = 4
 	sub	eax, 3
 	jne	SHORT $LN1@WndProc
 
-; 982  : 		// catch window resize
-; 983  : 		case WM_SIZE:
-; 984  : 			RECT rc;
-; 985  : 			GetClientRect( hWnd, &rc );
+; 1175 : 		// catch window resize
+; 1176 : 		case WM_SIZE:
+; 1177 : 			RECT rc;
+; 1178 : 			GetClientRect( hWnd, &rc );
 
 	lea	eax, DWORD PTR _rc$1[ebp]
 	push	eax
 	push	edi
 	call	DWORD PTR __imp__GetClientRect@8
 
-; 986  : 			mViewportWidth = rc.right - rc.left;
+; 1179 : 			mViewportWidth = rc.right - rc.left;
 
 	mov	ecx, DWORD PTR _rc$1[ebp+8]
 	sub	ecx, DWORD PTR _rc$1[ebp]
 
-; 987  : 			mViewportHeight = rc.bottom - rc.top;
+; 1180 : 			mViewportHeight = rc.bottom - rc.top;
 
 	mov	eax, DWORD PTR _rc$1[ebp+12]
 	sub	eax, DWORD PTR _rc$1[ebp+4]
@@ -13024,47 +20991,47 @@ _lParam$ = 20						; size = 4
 	mov	DWORD PTR ?mViewportHeight@CCamera@@0HA, eax ; CCamera::mViewportHeight
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 990  : 			break;
+; 1183 : 			break;
 
 	jmp	SHORT $LN7@WndProc
 $LN5@WndProc:
 
-; 968  : 
-; 969  : 		case WM_DESTROY:
-; 970  : 			PostQuitMessage( 0 );
+; 1161 : 
+; 1162 : 		case WM_DESTROY:
+; 1163 : 			PostQuitMessage( 0 );
 
 	push	0
 	call	DWORD PTR __imp__PostQuitMessage@4
 
-; 971  : 			break;
+; 1164 : 			break;
 
 	jmp	SHORT $LN7@WndProc
 $LN6@WndProc:
 
-; 963  : 	{
-; 964  : 		case WM_PAINT:
-; 965  : 			hdc = BeginPaint( hWnd, &ps );
+; 1156 : 	{
+; 1157 : 		case WM_PAINT:
+; 1158 : 			hdc = BeginPaint( hWnd, &ps );
 
 	lea	eax, DWORD PTR _ps$[ebp]
 	push	eax
 	push	edi
 	call	DWORD PTR __imp__BeginPaint@8
 
-; 966  : 			EndPaint( hWnd, &ps );
+; 1159 : 			EndPaint( hWnd, &ps );
 
 	lea	eax, DWORD PTR _ps$[ebp]
 	push	eax
 	push	edi
 	call	DWORD PTR __imp__EndPaint@8
 
-; 967  : 			break;
+; 1160 : 			break;
 
 	jmp	SHORT $LN7@WndProc
 $LN12@WndProc:
 
-; 960  :         return 0;
-; 961  : 
-; 962  : 	switch( message )
+; 1153 :         return 0;
+; 1154 : 
+; 1155 : 	switch( message )
 
 	mov	eax, esi
 	sub	eax, 256				; 00000100H
@@ -13073,8 +21040,8 @@ $LN12@WndProc:
 	je	SHORT $LN3@WndProc
 $LN1@WndProc:
 
-; 991  : 		default:
-; 992  : 			return DefWindowProc( hWnd, message, wParam, lParam );
+; 1184 : 		default:
+; 1185 : 			return DefWindowProc( hWnd, message, wParam, lParam );
 
 	push	DWORD PTR _lParam$[ebp]
 	push	ebx
@@ -13085,10 +21052,10 @@ $LN1@WndProc:
 	pop	esi
 	pop	ebx
 
-; 993  : 	}
-; 994  : 
-; 995  : 	return 0;
-; 996  : }
+; 1186 : 	}
+; 1187 : 
+; 1188 : 	return 0;
+; 1189 : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	xor	ecx, ebp
@@ -13098,24 +21065,24 @@ $LN1@WndProc:
 	ret	16					; 00000010H
 $LN3@WndProc:
 
-; 977  : 			break;
-; 978  : 
-; 979  : 		case WM_KEYUP:
-; 980  : 			KeyUpEvent( static_cast<EKeyState>(wParam) );
+; 1170 : 			break;
+; 1171 : 
+; 1172 : 		case WM_KEYUP:
+; 1173 : 			KeyUpEvent( static_cast<EKeyState>(wParam) );
 
 	push	ebx
 	call	?KeyUpEvent@@YAXW4EKeyState@@@Z		; KeyUpEvent
 
-; 981  : 			break;
+; 1174 : 			break;
 
 	jmp	SHORT $LN15@WndProc
 $LN4@WndProc:
 
-; 972  : 
-; 973  : 		// These windows messages (WM_KEYXXXX) can be used to get keyboard input to the window
-; 974  : 		// This application has added some simple functions (not DirectX) to process these messages (all in Input.cpp/h)
-; 975  : 		case WM_KEYDOWN:
-; 976  : 			KeyDownEvent( static_cast<EKeyState>(wParam) );
+; 1165 : 
+; 1166 : 		// These windows messages (WM_KEYXXXX) can be used to get keyboard input to the window
+; 1167 : 		// This application has added some simple functions (not DirectX) to process these messages (all in Input.cpp/h)
+; 1168 : 		case WM_KEYDOWN:
+; 1169 : 			KeyDownEvent( static_cast<EKeyState>(wParam) );
 
 	push	ebx
 	call	?KeyDownEvent@@YAXW4EKeyState@@@Z	; KeyDownEvent
@@ -13123,10 +21090,10 @@ $LN15@WndProc:
 	add	esp, 4
 $LN7@WndProc:
 
-; 993  : 	}
-; 994  : 
-; 995  : 	return 0;
-; 996  : }
+; 1186 : 	}
+; 1187 : 
+; 1188 : 	return 0;
+; 1189 : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	xor	eax, eax
@@ -13148,14 +21115,14 @@ _a$ = 8							; size = 4
 _b$ = 12						; size = 4
 ?compareLights@CScene@@CAHPBX0@Z PROC			; CScene::compareLights, COMDAT
 
-; 1246 : {
+; 1447 : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 1247 : 	LightIndex* x = (LightIndex*)a;
-; 1248 : 	LightIndex* y = (LightIndex*)b;
-; 1249 : 	return int(x->distance - y->distance);
+; 1448 : 	LightIndex* x = (LightIndex*)a;
+; 1449 : 	LightIndex* y = (LightIndex*)b;
+; 1450 : 	return int(x->distance - y->distance);
 
 	mov	eax, DWORD PTR _a$[ebp]
 	movss	xmm0, DWORD PTR [eax+4]
@@ -13163,7 +21130,7 @@ _b$ = 12						; size = 4
 	subss	xmm0, DWORD PTR [eax+4]
 	cvttss2si eax, xmm0
 
-; 1250 : }
+; 1451 : }
 
 	pop	ebp
 	ret	0
@@ -13209,7 +21176,7 @@ _lightCount$ = 24					; size = 4
 ?SetLights@CScene@@AAEXUD3DXVECTOR3@@QAPAVCLight@@H@Z PROC ; CScene::SetLights, COMDAT
 ; _this$ = ecx
 
-; 1254 : {
+; 1455 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -13222,26 +21189,26 @@ _lightCount$ = 24					; size = 4
 	push	edi
 	mov	ebx, ecx
 
-; 1255 : 	LightIndex indexes[MAX_LIGHTS];
-; 1256 : 
-; 1257 : 	for(int i = 0; i < MAX_LIGHTS; i++)
+; 1456 : 	LightIndex indexes[MAX_LIGHTS];
+; 1457 : 
+; 1458 : 	for(int i = 0; i < MAX_LIGHTS; i++)
 
 	xor	eax, eax
 	npad	6
 $LL11@SetLights:
 
-; 1258 : 	{
-; 1259 : 		indexes[i].distance = 777777777.0f;
+; 1459 : 	{
+; 1460 : 		indexes[i].distance = 777777777.0f;
 
 	mov	DWORD PTR _indexes$[ebp+eax*8+4], 1312387018 ; 4e396fcaH
 	inc	eax
 	cmp	eax, 30					; 0000001eH
 	jl	SHORT $LL11@SetLights
 
-; 1260 : 	}
-; 1261 : 
-; 1262 : 	D3DXVECTOR3 vLight;
-; 1263 : 	for(int i = 0; i < lightCount; i++)
+; 1461 : 	}
+; 1462 : 
+; 1463 : 	D3DXVECTOR3 vLight;
+; 1464 : 	for(int i = 0; i < lightCount; i++)
 
 	mov	edi, DWORD PTR _lightCount$[ebp]
 	xor	ecx, ecx
@@ -13260,7 +21227,7 @@ $LL8@SetLights:
 	mov	eax, DWORD PTR [edx+ecx*4]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1265 : 		indexes[i].index = i;
+; 1466 : 		indexes[i].index = i;
 
 	mov	DWORD PTR _indexes$[ebp+ecx*8], ecx
 ; File c:\users\simon\documents\github\post-processing\light.h
@@ -13270,13 +21237,13 @@ $LL8@SetLights:
 	mov	eax, DWORD PTR [eax]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1266 : 		vLight = lightsSource[i]->GetModel()->GetPosition();
+; 1467 : 		vLight = lightsSource[i]->GetModel()->GetPosition();
 
 	movq	xmm0, QWORD PTR [eax+8]
 	mov	eax, DWORD PTR [eax+16]
 	movq	QWORD PTR _vLight$[ebp], xmm0
 
-; 1267 : 		indexes[i].distance = square(vLight.x - source.x) + square (vLight.y - source.y) + square(vLight.z - source.z);
+; 1468 : 		indexes[i].distance = square(vLight.x - source.x) + square (vLight.y - source.y) + square(vLight.z - source.z);
 
 	movss	xmm2, DWORD PTR _vLight$[ebp]
 	movss	xmm0, DWORD PTR _vLight$[ebp+4]
@@ -13294,7 +21261,7 @@ $LL8@SetLights:
 	mulss	xmm1, xmm1
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1267 : 		indexes[i].distance = square(vLight.x - source.x) + square (vLight.y - source.y) + square(vLight.z - source.z);
+; 1468 : 		indexes[i].distance = square(vLight.x - source.x) + square (vLight.y - source.y) + square(vLight.z - source.z);
 
 	addss	xmm2, xmm0
 	addss	xmm2, xmm1
@@ -13304,9 +21271,9 @@ $LL8@SetLights:
 	jl	SHORT $LL8@SetLights
 $LN6@SetLights:
 
-; 1268 : 	}
-; 1269 : 
-; 1270 : 	qsort( (void*) indexes, MAX_LIGHTS, sizeof(LightIndex), &CScene::compareLights);
+; 1469 : 	}
+; 1470 : 
+; 1471 : 	qsort( (void*) indexes, MAX_LIGHTS, sizeof(LightIndex), &CScene::compareLights);
 
 	push	OFFSET ?compareLights@CScene@@CAHPBX0@Z	; CScene::compareLights
 	push	8
@@ -13315,17 +21282,17 @@ $LN6@SetLights:
 	push	eax
 	call	_qsort
 
-; 1271 : 
-; 1272 : 	int count;
-; 1273 : 	
-; 1274 : 	if( lightCount < MAX_SHADER_LIGHTS )
+; 1472 : 
+; 1473 : 	int count;
+; 1474 : 	
+; 1475 : 	if( lightCount < MAX_SHADER_LIGHTS )
 
 	mov	esi, 12					; 0000000cH
 	add	esp, 16					; 00000010H
 	cmp	edi, esi
 	cmovl	esi, edi
 
-; 1287 : 	for(int i = 0; i < count; i++)
+; 1488 : 	for(int i = 0; i < count; i++)
 
 	xor	edi, edi
 	test	esi, esi
@@ -13337,7 +21304,7 @@ $LN6@SetLights:
 	mov	DWORD PTR $T1[ebp+12], edi
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1287 : 	for(int i = 0; i < count; i++)
+; 1488 : 	for(int i = 0; i < count; i++)
 
 	xor	edx, edx
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -13360,7 +21327,7 @@ $LN6@SetLights:
 $LL3@SetLights:
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1289 : 		int c = indexes[i].index;
+; 1490 : 		int c = indexes[i].index;
 
 	mov	eax, DWORD PTR _indexes$[ebp+edi*8]
 	lea	edx, DWORD PTR [edx+16]
@@ -13402,7 +21369,7 @@ $LL3@SetLights:
 	movss	DWORD PTR $T1[ebp+8], xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1290 : 		positions[i] = D3DXVECTOR4 (mpLights[c]->GetModel()->GetPosition(), 0 );
+; 1491 : 		positions[i] = D3DXVECTOR4 (mpLights[c]->GetModel()->GetPosition(), 0 );
 
 	movdqu	xmm0, XMMWORD PTR $T1[ebp]
 	movdqu	XMMWORD PTR _positions$[ebp+edx-16], xmm0
@@ -13433,7 +21400,7 @@ $LL3@SetLights:
 	movss	DWORD PTR $T2[ebp+8], xmm2
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1291 : 		colours[i] = D3DXVECTOR4 ( mpLights[c]->GetColourV(), 0 );
+; 1492 : 		colours[i] = D3DXVECTOR4 ( mpLights[c]->GetColourV(), 0 );
 
 	movdqu	xmm0, XMMWORD PTR $T2[ebp]
 	movdqu	XMMWORD PTR _colours$[ebp+edx-16], xmm0
@@ -13445,7 +21412,7 @@ $LL3@SetLights:
 	movss	DWORD PTR $T3[ebp], xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1292 : 		bright[i] = D3DXVECTOR4( mpLights[c]->GetBrightness(), 0, 0, 0 );   // vector 4 for packing, remaining variables would be useful for light type and angle. 
+; 1493 : 		bright[i] = D3DXVECTOR4( mpLights[c]->GetBrightness(), 0, 0, 0 );   // vector 4 for packing, remaining variables would be useful for light type and angle. 
 
 	movdqu	xmm0, XMMWORD PTR $T3[ebp]
 	movdqu	XMMWORD PTR _bright$[ebp+edx-16], xmm0
@@ -13453,11 +21420,11 @@ $LL3@SetLights:
 	jl	$LL3@SetLights
 $LN1@SetLights:
 
-; 1293 : 	}
-; 1294 : 
-; 1295 : 	dxLightPosA->SetRawValue( positions, 0, 16 * count );
+; 1494 : 	}
+; 1495 : 
+; 1496 : 	dxLightPosA->SetRawValue( positions, 0, 16 * count );
 
-	mov	ecx, DWORD PTR [ebx+3116]
+	mov	ecx, DWORD PTR [ebx+3488]
 	lea	edx, DWORD PTR _positions$[ebp]
 	shl	esi, 4
 	push	esi
@@ -13467,9 +21434,9 @@ $LN1@SetLights:
 	push	ecx
 	call	DWORD PTR [eax+92]
 
-; 1296 : 	dxLightColourA->SetRawValue( colours, 0, 16 * count );
+; 1497 : 	dxLightColourA->SetRawValue( colours, 0, 16 * count );
 
-	mov	eax, DWORD PTR [ebx+3124]
+	mov	eax, DWORD PTR [ebx+3496]
 	lea	edx, DWORD PTR _colours$[ebp]
 	push	esi
 	push	0
@@ -13478,9 +21445,9 @@ $LN1@SetLights:
 	push	eax
 	call	DWORD PTR [ecx+92]
 
-; 1297 : 	dxLightBrightnessA->SetRawValue( bright, 0, 16 * count );
+; 1498 : 	dxLightBrightnessA->SetRawValue( bright, 0, 16 * count );
 
-	mov	eax, DWORD PTR [ebx+3132]
+	mov	eax, DWORD PTR [ebx+3504]
 	lea	edx, DWORD PTR _bright$[ebp]
 	push	esi
 	push	0
@@ -13489,7 +21456,7 @@ $LN1@SetLights:
 	push	eax
 	call	DWORD PTR [ecx+92]
 
-; 1298 : }
+; 1499 : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	pop	edi
@@ -13563,7 +21530,7 @@ __$EHRec$ = -12						; size = 12
 ?TestItems@CScene@@AAE_NXZ PROC				; CScene::TestItems, COMDAT
 ; _this$ = ecx
 
-; 1447 : {
+; 1648 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -13583,13 +21550,13 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR fs:0, eax
 	mov	esi, ecx
 
-; 1448 : 	for( int i = 0; i < 30; i++)
+; 1649 : 	for( int i = 0; i < 30; i++)
 
 	xor	edi, edi
 	npad	1
 $LL7@TestItems:
 
-; 1450 : 		mpObjects[miNumObjects] = new CRenderObject("Teapot.x",D3DXVECTOR3(250, 10, i*30.0f), D3DXVECTOR3(1.0f, i/10.0f, i/10.0f), mTechniques[0], mTechniquesMirror[0], NULL, NULL, NULL, NULL);
+; 1651 : 		mpObjects[miNumObjects] = new CRenderObject("Teapot.x",D3DXVECTOR3(250, 10, i*30.0f), D3DXVECTOR3(1.0f, i/10.0f, i/10.0f), mTechniques[0], mTechniquesMirror[0], NULL, NULL, NULL, NULL);
 
 	push	72					; 00000048H
 	call	??2@YAPAXI@Z				; operator new
@@ -13607,10 +21574,10 @@ $LL7@TestItems:
 	push	0
 	push	0
 	push	0
-	push	DWORD PTR [esi+2736]
+	push	DWORD PTR [esi+2744]
 	movaps	xmm1, xmm0
 	mulss	xmm0, DWORD PTR __real@41f00000
-	push	DWORD PTR [esi+2616]
+	push	DWORD PTR [esi+2624]
 	divss	xmm1, xmm2
 	sub	esp, 12					; 0000000cH
 	mov	ecx, esp
@@ -13622,7 +21589,7 @@ $LL7@TestItems:
 	movss	DWORD PTR $T6[ebp+8], xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1450 : 		mpObjects[miNumObjects] = new CRenderObject("Teapot.x",D3DXVECTOR3(250, 10, i*30.0f), D3DXVECTOR3(1.0f, i/10.0f, i/10.0f), mTechniques[0], mTechniquesMirror[0], NULL, NULL, NULL, NULL);
+; 1651 : 		mpObjects[miNumObjects] = new CRenderObject("Teapot.x",D3DXVECTOR3(250, 10, i*30.0f), D3DXVECTOR3(1.0f, i/10.0f, i/10.0f), mTechniques[0], mTechniquesMirror[0], NULL, NULL, NULL, NULL);
 
 	movss	xmm0, DWORD PTR __real@3f800000
 	unpcklps xmm0, xmm1
@@ -13635,7 +21602,7 @@ $LL7@TestItems:
 	movss	DWORD PTR $T7[ebp+8], xmm1
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1450 : 		mpObjects[miNumObjects] = new CRenderObject("Teapot.x",D3DXVECTOR3(250, 10, i*30.0f), D3DXVECTOR3(1.0f, i/10.0f, i/10.0f), mTechniques[0], mTechniquesMirror[0], NULL, NULL, NULL, NULL);
+; 1651 : 		mpObjects[miNumObjects] = new CRenderObject("Teapot.x",D3DXVECTOR3(250, 10, i*30.0f), D3DXVECTOR3(1.0f, i/10.0f, i/10.0f), mTechniques[0], mTechniquesMirror[0], NULL, NULL, NULL, NULL);
 
 	mov	eax, DWORD PTR $T7[ebp+8]
 	mov	DWORD PTR [ecx+8], eax
@@ -13657,22 +21624,22 @@ $LN11@TestItems:
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	mov	DWORD PTR [esi+eax*4+8], ecx
 
-; 1451 : 		miNumObjects++;
+; 1652 : 		miNumObjects++;
 
 	inc	DWORD PTR [esi+808]
 	cmp	edi, 30					; 0000001eH
 	jl	$LL7@TestItems
 
-; 1452 : 	}
-; 1453 : 
-; 1454 : 	CModel* temp;
-; 1455 : 	for(int i = 0; i < 10; i++ )
+; 1653 : 	}
+; 1654 : 
+; 1655 : 	CModel* temp;
+; 1656 : 	for(int i = 0; i < 10; i++ )
 
 	mov	DWORD PTR _i$1$[ebp], 0
 	npad	6
 $LL4@TestItems:
 
-; 1457 : 		temp = new CModel;
+; 1658 : 		temp = new CModel;
 
 	push	1936					; 00000790H
 	call	??2@YAPAXI@Z				; operator new
@@ -13690,7 +21657,7 @@ $LL4@TestItems:
 	mov	DWORD PTR $T5[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1457 : 		temp = new CModel;
+; 1658 : 		temp = new CModel;
 
 	mov	eax, DWORD PTR $T5[ebp+8]
 	xorps	xmm1, xmm1
@@ -13702,7 +21669,7 @@ $LL4@TestItems:
 	mov	DWORD PTR $T4[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1457 : 		temp = new CModel;
+; 1658 : 		temp = new CModel;
 
 	movss	xmm0, xmm1
 	mov	DWORD PTR [esp+12], 1065353216		; 3f800000H
@@ -13724,7 +21691,7 @@ $LN12@TestItems:
 	xor	edi, edi
 $LN13@TestItems:
 
-; 1458 : 		mpLights[miNumLights] = new CLight();
+; 1659 : 		mpLights[miNumLights] = new CLight();
 
 	push	92					; 0000005cH
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -13750,7 +21717,7 @@ $LN15@TestItems:
 	push	OFFSET ??_C@_08EEMGLHJD@Sphere?4x?$AA@
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1458 : 		mpLights[miNumLights] = new CLight();
+; 1659 : 		mpLights[miNumLights] = new CLight();
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	mov	DWORD PTR [esi+eax*4+812], ecx
@@ -14846,10 +22813,10 @@ $LN15@TestItems:
 	call	?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@PBDI@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1459 : 		if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
+; 1660 : 		if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
 
 	push	0
-	push	DWORD PTR [esi+2616]
+	push	DWORD PTR [esi+2624]
 	lea	eax, DWORD PTR $T12[ebp]
 	mov	DWORD PTR __$EHRec$[ebp+8], 3
 	push	eax
@@ -15955,12 +23922,12 @@ $LN92@TestItems:
 	mov	BYTE PTR $T12[ebp], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1459 : 		if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
+; 1660 : 		if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
 
 	test	bl, bl
 	jne	$LN122@TestItems
 
-; 1461 : 		mpLights[miNumLights]->SetColour(i/10.0f, i/10.0f, 1.0f);
+; 1662 : 		mpLights[miNumLights]->SetColour(i/10.0f, i/10.0f, 1.0f);
 
 	mov	ebx, DWORD PTR _i$1$[ebp]
 	sub	esp, 12					; 0000000cH
@@ -15973,7 +23940,7 @@ $LN92@TestItems:
 	mov	eax, DWORD PTR [esi+eax*4+812]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1461 : 		mpLights[miNumLights]->SetColour(i/10.0f, i/10.0f, 1.0f);
+; 1662 : 		mpLights[miNumLights]->SetColour(i/10.0f, i/10.0f, 1.0f);
 
 	cvtdq2ps xmm0, xmm0
 	mov	DWORD PTR [esp+8], 1065353216		; 3f800000H
@@ -15984,7 +23951,7 @@ $LN92@TestItems:
 	mov	DWORD PTR [eax], edi
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1461 : 		mpLights[miNumLights]->SetColour(i/10.0f, i/10.0f, 1.0f);
+; 1662 : 		mpLights[miNumLights]->SetColour(i/10.0f, i/10.0f, 1.0f);
 
 	mov	ecx, DWORD PTR [esi+932]
 	divss	xmm0, DWORD PTR __real@41200000
@@ -16006,7 +23973,7 @@ $LN92@TestItems:
 	movd	xmm0, ebx
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1462 : 		mpLights[miNumLights]->GetModel()->SetPosition( D3DXVECTOR3(200, 10, i*30.0f) );
+; 1663 : 		mpLights[miNumLights]->GetModel()->SetPosition( D3DXVECTOR3(200, 10, i*30.0f) );
 
 	cvtdq2ps xmm0, xmm0
 ; File c:\users\simon\documents\github\post-processing\light.h
@@ -16021,7 +23988,7 @@ $LN92@TestItems:
 	mov	ecx, DWORD PTR [eax]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1462 : 		mpLights[miNumLights]->GetModel()->SetPosition( D3DXVECTOR3(200, 10, i*30.0f) );
+; 1663 : 		mpLights[miNumLights]->GetModel()->SetPosition( D3DXVECTOR3(200, 10, i*30.0f) );
 
 	mulss	xmm0, DWORD PTR __real@41f00000
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -16083,12 +24050,12 @@ $LN92@TestItems:
 	mov	ecx, DWORD PTR [esi+eax*4+812]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1464 : 		mpLights[miNumLights]->GetModel()->UpdateMatrix();
+; 1665 : 		mpLights[miNumLights]->GetModel()->UpdateMatrix();
 
 	mov	ecx, DWORD PTR [ecx]
 	call	?UpdateMatrix@CModel@@QAEXXZ		; CModel::UpdateMatrix
 
-; 1465 : 		miNumLights++;
+; 1666 : 		miNumLights++;
 
 	inc	DWORD PTR [esi+932]
 	inc	ebx
@@ -16096,19 +24063,19 @@ $LN92@TestItems:
 	cmp	ebx, 10					; 0000000aH
 	jl	$LL4@TestItems
 
-; 1466 : 	}
-; 1467 : 	return true;
+; 1667 : 	}
+; 1668 : 	return true;
 
 	mov	al, 1
 	jmp	SHORT $LN8@TestItems
 $LN122@TestItems:
 
-; 1459 : 		if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
+; 1660 : 		if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
 
 	xor	al, al
 $LN8@TestItems:
 
-; 1468 : }
+; 1669 : }
 
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, ecx
@@ -16373,7 +24340,7 @@ __$EHRec$ = -12						; size = 12
 ?SceneItems@CScene@@AAE_NXZ PROC			; CScene::SceneItems, COMDAT
 ; _this$ = ecx
 
-; 1471 : {
+; 1672 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -16393,7 +24360,7 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR fs:0, eax
 	mov	esi, ecx
 
-; 1478 : 	temp = new CModel;
+; 1679 : 	temp = new CModel;
 
 	push	1936					; 00000790H
 	call	??2@YAPAXI@Z				; operator new
@@ -16415,7 +24382,7 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR $T8[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1478 : 	temp = new CModel;
+; 1679 : 	temp = new CModel;
 
 	mov	eax, DWORD PTR $T8[ebp+8]
 	mov	ecx, esp
@@ -16427,7 +24394,7 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR $T5[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1478 : 	temp = new CModel;
+; 1679 : 	temp = new CModel;
 
 	unpcklps xmm0, xmm1
 	mov	DWORD PTR [esp+12], 1065353216		; 3f800000H
@@ -16448,7 +24415,7 @@ $LN6@SceneItems:
 	xor	edi, edi
 $LN7@SceneItems:
 
-; 1479 : 	mpLights[miNumLights] = new CLight();
+; 1680 : 	mpLights[miNumLights] = new CLight();
 
 	push	92					; 0000005cH
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -16474,7 +24441,7 @@ $LN9@SceneItems:
 	push	OFFSET ??_C@_08EEMGLHJD@Sphere?4x?$AA@
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1479 : 	mpLights[miNumLights] = new CLight();
+; 1680 : 	mpLights[miNumLights] = new CLight();
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	mov	DWORD PTR [esi+eax*4+812], ecx
@@ -17570,10 +25537,10 @@ $LN9@SceneItems:
 	call	?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@PBDI@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1480 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
+; 1681 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
 
 	push	0
-	push	DWORD PTR [esi+2616]
+	push	DWORD PTR [esi+2624]
 	lea	eax, DWORD PTR $T32[ebp]
 	mov	DWORD PTR __$EHRec$[ebp+8], 2
 	push	eax
@@ -17598,7 +25565,7 @@ $LN9@SceneItems:
 $LN110@SceneItems:
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1480 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
+; 1681 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
 
 	test	bl, bl
 	je	SHORT $LN3@SceneItems
@@ -17607,11 +25574,11 @@ $LN345@SceneItems:
 	jmp	$LN4@SceneItems
 $LN3@SceneItems:
 
-; 1481 : 	mpLights[miNumLights]->SetModel(temp);
+; 1682 : 	mpLights[miNumLights]->SetModel(temp);
 
 	mov	eax, DWORD PTR [esi+932]
 
-; 1482 : 	mpLights[miNumLights]->SetColour(1.0f, 1.0f, 1.0f);
+; 1683 : 	mpLights[miNumLights]->SetColour(1.0f, 1.0f, 1.0f);
 
 	sub	esp, 12					; 0000000cH
 	mov	eax, DWORD PTR [esi+eax*4+812]
@@ -17625,7 +25592,7 @@ $LN3@SceneItems:
 	mov	DWORD PTR [eax], edi
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1482 : 	mpLights[miNumLights]->SetColour(1.0f, 1.0f, 1.0f);
+; 1683 : 	mpLights[miNumLights]->SetColour(1.0f, 1.0f, 1.0f);
 
 	mov	ecx, DWORD PTR [esi+932]
 	mov	ecx, DWORD PTR [esi+ecx*4+812]
@@ -17728,7 +25695,7 @@ $LN3@SceneItems:
 	mov	DWORD PTR [ecx+40], eax
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1485 : 	mpLights[miNumLights]->SetBrightness( 10.0f );
+; 1686 : 	mpLights[miNumLights]->SetBrightness( 10.0f );
 
 	mov	eax, DWORD PTR [esi+932]
 ; File c:\users\simon\documents\github\post-processing\light.h
@@ -17738,7 +25705,7 @@ $LN3@SceneItems:
 	movq	QWORD PTR $T6[ebp], xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1485 : 	mpLights[miNumLights]->SetBrightness( 10.0f );
+; 1686 : 	mpLights[miNumLights]->SetBrightness( 10.0f );
 
 	mov	eax, DWORD PTR [esi+eax*4+812]
 ; File c:\users\simon\documents\github\post-processing\light.h
@@ -17753,16 +25720,16 @@ $LN3@SceneItems:
 	mov	eax, DWORD PTR [esi+eax*4+812]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1486 : 	mpLights[miNumLights]->GetModel()->UpdateMatrix();
+; 1687 : 	mpLights[miNumLights]->GetModel()->UpdateMatrix();
 
 	mov	ecx, DWORD PTR [eax]
 	call	?UpdateMatrix@CModel@@QAEXXZ		; CModel::UpdateMatrix
 
-; 1487 : 	miNumLights++;
+; 1688 : 	miNumLights++;
 
 	inc	DWORD PTR [esi+932]
 
-; 1489 : 	temp = new CModel;
+; 1690 : 	temp = new CModel;
 
 	push	1936					; 00000790H
 	call	??2@YAPAXI@Z				; operator new
@@ -17782,7 +25749,7 @@ $LN3@SceneItems:
 	mov	DWORD PTR $T18[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1489 : 	temp = new CModel;
+; 1690 : 	temp = new CModel;
 
 	mov	eax, DWORD PTR $T18[ebp+8]
 	movss	xmm0, xmm1
@@ -17801,7 +25768,7 @@ $LN3@SceneItems:
 	mov	DWORD PTR $T48[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1489 : 	temp = new CModel;
+; 1690 : 	temp = new CModel;
 
 	mov	eax, DWORD PTR $T48[ebp+8]
 	movq	QWORD PTR [ecx], xmm0
@@ -17814,7 +25781,7 @@ $LN10@SceneItems:
 	xor	edi, edi
 $LN11@SceneItems:
 
-; 1490 : 	mpLights[miNumLights] = new CLight();
+; 1691 : 	mpLights[miNumLights] = new CLight();
 
 	push	92					; 0000005cH
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -17840,7 +25807,7 @@ $LN13@SceneItems:
 	push	OFFSET ??_C@_08EEMGLHJD@Sphere?4x?$AA@
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1490 : 	mpLights[miNumLights] = new CLight();
+; 1691 : 	mpLights[miNumLights] = new CLight();
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	mov	DWORD PTR [esi+eax*4+812], ecx
@@ -18936,10 +26903,10 @@ $LN13@SceneItems:
 	call	?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@PBDI@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1491 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
+; 1692 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
 
 	push	0
-	push	DWORD PTR [esi+2616]
+	push	DWORD PTR [esi+2624]
 	lea	eax, DWORD PTR $T31[ebp]
 	mov	DWORD PTR __$EHRec$[ebp+8], 5
 	push	eax
@@ -18964,16 +26931,16 @@ $LN13@SceneItems:
 $LN208@SceneItems:
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1491 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
+; 1692 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
 
 	test	bl, bl
 	jne	$LN345@SceneItems
 
-; 1492 : 	mpLights[miNumLights]->SetModel(temp);
+; 1693 : 	mpLights[miNumLights]->SetModel(temp);
 
 	mov	eax, DWORD PTR [esi+932]
 
-; 1493 : 	mpLights[miNumLights]->SetColour(1.0f, 1.0f, 1.0f);
+; 1694 : 	mpLights[miNumLights]->SetColour(1.0f, 1.0f, 1.0f);
 
 	sub	esp, 12					; 0000000cH
 	mov	eax, DWORD PTR [esi+eax*4+812]
@@ -18987,7 +26954,7 @@ $LN208@SceneItems:
 	mov	DWORD PTR [eax], edi
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1493 : 	mpLights[miNumLights]->SetColour(1.0f, 1.0f, 1.0f);
+; 1694 : 	mpLights[miNumLights]->SetColour(1.0f, 1.0f, 1.0f);
 
 	mov	ecx, DWORD PTR [esi+932]
 	mov	ecx, DWORD PTR [esi+ecx*4+812]
@@ -19072,7 +27039,7 @@ $LN208@SceneItems:
 	mov	DWORD PTR [ecx+40], eax
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1496 : 	mpLights[miNumLights]->SetBrightness( 40.0f );
+; 1697 : 	mpLights[miNumLights]->SetBrightness( 40.0f );
 
 	mov	eax, DWORD PTR [esi+932]
 	mov	eax, DWORD PTR [esi+eax*4+812]
@@ -19088,16 +27055,16 @@ $LN208@SceneItems:
 	mov	eax, DWORD PTR [esi+eax*4+812]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1497 : 	mpLights[miNumLights]->GetModel()->UpdateMatrix();
+; 1698 : 	mpLights[miNumLights]->GetModel()->UpdateMatrix();
 
 	mov	ecx, DWORD PTR [eax]
 	call	?UpdateMatrix@CModel@@QAEXXZ		; CModel::UpdateMatrix
 
-; 1498 : 	miNumLights++;
+; 1699 : 	miNumLights++;
 
 	inc	DWORD PTR [esi+932]
 
-; 1500 : 	temp = new CModel;
+; 1701 : 	temp = new CModel;
 
 	push	1936					; 00000790H
 	call	??2@YAPAXI@Z				; operator new
@@ -19117,7 +27084,7 @@ $LN208@SceneItems:
 	mov	DWORD PTR $T46[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1500 : 	temp = new CModel;
+; 1701 : 	temp = new CModel;
 
 	mov	eax, DWORD PTR $T46[ebp+8]
 	movss	xmm0, xmm1
@@ -19136,7 +27103,7 @@ $LN208@SceneItems:
 	mov	DWORD PTR $T17[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1500 : 	temp = new CModel;
+; 1701 : 	temp = new CModel;
 
 	mov	eax, DWORD PTR $T17[ebp+8]
 	movq	QWORD PTR [ecx], xmm0
@@ -19149,7 +27116,7 @@ $LN14@SceneItems:
 	xor	edi, edi
 $LN15@SceneItems:
 
-; 1501 : 	mpLights[miNumLights] = new CLight();
+; 1702 : 	mpLights[miNumLights] = new CLight();
 
 	push	92					; 0000005cH
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -19168,7 +27135,7 @@ $LN16@SceneItems:
 $LN17@SceneItems:
 	mov	eax, DWORD PTR [esi+932]
 
-; 1502 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
+; 1703 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
 
 	push	OFFSET ??_C@_08EEMGLHJD@Sphere?4x?$AA@
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -19176,7 +27143,7 @@ $LN17@SceneItems:
 	lea	ecx, DWORD PTR $T30[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	push	0
-	push	DWORD PTR [esi+2616]
+	push	DWORD PTR [esi+2624]
 	lea	eax, DWORD PTR $T30[ebp]
 	mov	DWORD PTR __$EHRec$[ebp+8], 8
 	push	eax
@@ -20282,16 +28249,16 @@ $LN262@SceneItems:
 	mov	BYTE PTR $T30[ebp], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1502 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
+; 1703 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
 
 	test	bl, bl
 	jne	$LN345@SceneItems
 
-; 1503 : 	mpLights[miNumLights]->SetModel(temp);
+; 1704 : 	mpLights[miNumLights]->SetModel(temp);
 
 	mov	eax, DWORD PTR [esi+932]
 
-; 1504 : 	mpLights[miNumLights]->SetColour(1.0f, 1.0f, 1.0f);
+; 1705 : 	mpLights[miNumLights]->SetColour(1.0f, 1.0f, 1.0f);
 
 	sub	esp, 12					; 0000000cH
 	mov	eax, DWORD PTR [esi+eax*4+812]
@@ -20305,7 +28272,7 @@ $LN262@SceneItems:
 	mov	DWORD PTR [eax], edi
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1504 : 	mpLights[miNumLights]->SetColour(1.0f, 1.0f, 1.0f);
+; 1705 : 	mpLights[miNumLights]->SetColour(1.0f, 1.0f, 1.0f);
 
 	mov	ecx, DWORD PTR [esi+932]
 	mov	ecx, DWORD PTR [esi+ecx*4+812]
@@ -20385,7 +28352,7 @@ $LN262@SceneItems:
 	mov	DWORD PTR [ecx+40], eax
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1507 : 	mpLights[miNumLights]->SetBrightness( 40.0f );
+; 1708 : 	mpLights[miNumLights]->SetBrightness( 40.0f );
 
 	mov	eax, DWORD PTR [esi+932]
 	mov	eax, DWORD PTR [esi+eax*4+812]
@@ -20401,16 +28368,16 @@ $LN262@SceneItems:
 	mov	eax, DWORD PTR [esi+eax*4+812]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1508 : 	mpLights[miNumLights]->GetModel()->UpdateMatrix();
+; 1709 : 	mpLights[miNumLights]->GetModel()->UpdateMatrix();
 
 	mov	ecx, DWORD PTR [eax]
 	call	?UpdateMatrix@CModel@@QAEXXZ		; CModel::UpdateMatrix
 
-; 1509 : 	miNumLights++;
+; 1710 : 	miNumLights++;
 
 	inc	DWORD PTR [esi+932]
 
-; 1511 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x", D3DXVECTOR3(xOff, yOff, 25.0f+zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[TripleOutline], mTechniquesMirror[TripleOutline], mpMaps[9], NULL, true, true, false ); 
+; 1712 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x", D3DXVECTOR3(xOff, yOff, 25.0f+zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[TripleOutline], mTechniquesMirror[TripleOutline], mpMaps[9], NULL, true, true, false ); 
 
 	push	72					; 00000048H
 	call	??2@YAPAXI@Z				; operator new
@@ -20435,11 +28402,11 @@ $LN262@SceneItems:
 	mov	DWORD PTR $T44[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1511 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x", D3DXVECTOR3(xOff, yOff, 25.0f+zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[TripleOutline], mTechniquesMirror[TripleOutline], mpMaps[9], NULL, true, true, false ); 
+; 1712 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x", D3DXVECTOR3(xOff, yOff, 25.0f+zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[TripleOutline], mTechniquesMirror[TripleOutline], mpMaps[9], NULL, true, true, false ); 
 
-	push	DWORD PTR [esi+2800]
+	push	DWORD PTR [esi+2808]
 	mov	eax, DWORD PTR $T44[ebp+8]
-	push	DWORD PTR [esi+2680]
+	push	DWORD PTR [esi+2688]
 	unpcklps xmm0, xmm1
 	movss	xmm1, DWORD PTR __real@40a00000
 	sub	esp, 12					; 0000000cH
@@ -20451,7 +28418,7 @@ $LN262@SceneItems:
 	mov	DWORD PTR $T16[ebp+8], 1117126656	; 42960000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1511 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x", D3DXVECTOR3(xOff, yOff, 25.0f+zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[TripleOutline], mTechniquesMirror[TripleOutline], mpMaps[9], NULL, true, true, false ); 
+; 1712 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x", D3DXVECTOR3(xOff, yOff, 25.0f+zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[TripleOutline], mTechniquesMirror[TripleOutline], mpMaps[9], NULL, true, true, false ); 
 
 	sub	esp, 12					; 0000000cH
 	movq	QWORD PTR [ecx], xmm0
@@ -20489,7 +28456,7 @@ $LN19@SceneItems:
 	unpcklps xmm0, xmm1
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1511 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x", D3DXVECTOR3(xOff, yOff, 25.0f+zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[TripleOutline], mTechniquesMirror[TripleOutline], mpMaps[9], NULL, true, true, false ); 
+; 1712 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x", D3DXVECTOR3(xOff, yOff, 25.0f+zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[TripleOutline], mTechniquesMirror[TripleOutline], mpMaps[9], NULL, true, true, false ); 
 
 	mov	DWORD PTR [esi+eax*4+8], ecx
 ; File c:\users\simon\documents\github\post-processing\renderobject.h
@@ -20499,7 +28466,7 @@ $LN19@SceneItems:
 	mov	eax, DWORD PTR [esi+808]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1515 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x", D3DXVECTOR3(xOff, yOff, -25.0f+zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[TextureMorph], mTechniquesMirror[TextureMorph], mpMaps[10], mpMaps[11], true, false, false ); 
+; 1716 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x", D3DXVECTOR3(xOff, yOff, -25.0f+zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[TextureMorph], mTechniquesMirror[TextureMorph], mpMaps[10], mpMaps[11], true, false, false ); 
 
 	push	72					; 00000048H
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -20518,11 +28485,11 @@ $LN19@SceneItems:
 	mov	DWORD PTR [ecx+40], eax
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1513 : 	miNumObjects++;
+; 1714 : 	miNumObjects++;
 
 	inc	DWORD PTR [esi+808]
 
-; 1515 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x", D3DXVECTOR3(xOff, yOff, -25.0f+zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[TextureMorph], mTechniquesMirror[TextureMorph], mpMaps[10], mpMaps[11], true, false, false ); 
+; 1716 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x", D3DXVECTOR3(xOff, yOff, -25.0f+zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[TextureMorph], mTechniquesMirror[TextureMorph], mpMaps[10], mpMaps[11], true, false, false ); 
 
 	call	??2@YAPAXI@Z				; operator new
 	mov	edx, eax
@@ -20544,13 +28511,13 @@ $LN19@SceneItems:
 	mov	DWORD PTR $T43[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1515 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x", D3DXVECTOR3(xOff, yOff, -25.0f+zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[TextureMorph], mTechniquesMirror[TextureMorph], mpMaps[10], mpMaps[11], true, false, false ); 
+; 1716 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x", D3DXVECTOR3(xOff, yOff, -25.0f+zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[TextureMorph], mTechniquesMirror[TextureMorph], mpMaps[10], mpMaps[11], true, false, false ); 
 
 	push	DWORD PTR [esi+976]
 	mov	eax, DWORD PTR $T43[ebp+8]
-	push	DWORD PTR [esi+2804]
+	push	DWORD PTR [esi+2812]
 	unpcklps xmm0, xmm1
-	push	DWORD PTR [esi+2684]
+	push	DWORD PTR [esi+2692]
 	movss	xmm1, DWORD PTR __real@40a00000
 	sub	esp, 12					; 0000000cH
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -20560,7 +28527,7 @@ $LN19@SceneItems:
 	mov	DWORD PTR $T15[ebp+8], 1103626240	; 41c80000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1515 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x", D3DXVECTOR3(xOff, yOff, -25.0f+zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[TextureMorph], mTechniquesMirror[TextureMorph], mpMaps[10], mpMaps[11], true, false, false ); 
+; 1716 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x", D3DXVECTOR3(xOff, yOff, -25.0f+zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[TextureMorph], mTechniquesMirror[TextureMorph], mpMaps[10], mpMaps[11], true, false, false ); 
 
 	mov	ecx, esp
 	sub	esp, 12					; 0000000cH
@@ -20599,7 +28566,7 @@ $LN21@SceneItems:
 	unpcklps xmm0, xmm1
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1515 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x", D3DXVECTOR3(xOff, yOff, -25.0f+zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[TextureMorph], mTechniquesMirror[TextureMorph], mpMaps[10], mpMaps[11], true, false, false ); 
+; 1716 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x", D3DXVECTOR3(xOff, yOff, -25.0f+zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[TextureMorph], mTechniquesMirror[TextureMorph], mpMaps[10], mpMaps[11], true, false, false ); 
 
 	mov	DWORD PTR [esi+eax*4+8], ecx
 ; File c:\users\simon\documents\github\post-processing\renderobject.h
@@ -20614,7 +28581,7 @@ $LN21@SceneItems:
 	movq	xmm1, QWORD PTR $T3[ebp]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1521 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x", D3DXVECTOR3( xOff, yOff+5.0f, zOff), D3DXVECTOR3( 1.0f, 1.0f, 1.0f ), mTechniques[ParallaxMapped], mTechniquesMirror[ParallaxMapped], mpMaps[6], mpMaps[7], true, false, true);
+; 1722 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x", D3DXVECTOR3( xOff, yOff+5.0f, zOff), D3DXVECTOR3( 1.0f, 1.0f, 1.0f ), mTechniques[ParallaxMapped], mTechniquesMirror[ParallaxMapped], mpMaps[6], mpMaps[7], true, false, true);
 
 	push	72					; 00000048H
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -20674,7 +28641,7 @@ $LN21@SceneItems:
 	mov	DWORD PTR [ecx+28], eax
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1518 : 	mpObjects[miNumObjects]->SetWiggle( 2.0f );
+; 1719 : 	mpObjects[miNumObjects]->SetWiggle( 2.0f );
 
 	mov	eax, DWORD PTR [esi+808]
 	mov	eax, DWORD PTR [esi+eax*4+8]
@@ -20686,11 +28653,11 @@ $LN21@SceneItems:
 	mov	DWORD PTR [eax+60], 1073741824		; 40000000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1519 : 	miNumObjects++;
+; 1720 : 	miNumObjects++;
 
 	inc	DWORD PTR [esi+808]
 
-; 1521 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x", D3DXVECTOR3( xOff, yOff+5.0f, zOff), D3DXVECTOR3( 1.0f, 1.0f, 1.0f ), mTechniques[ParallaxMapped], mTechniquesMirror[ParallaxMapped], mpMaps[6], mpMaps[7], true, false, true);
+; 1722 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x", D3DXVECTOR3( xOff, yOff+5.0f, zOff), D3DXVECTOR3( 1.0f, 1.0f, 1.0f ), mTechniques[ParallaxMapped], mTechniquesMirror[ParallaxMapped], mpMaps[6], mpMaps[7], true, false, true);
 
 	call	??2@YAPAXI@Z				; operator new
 	mov	edx, eax
@@ -20712,13 +28679,13 @@ $LN21@SceneItems:
 	mov	DWORD PTR $T41[ebp+8], 1065353216	; 3f800000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1521 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x", D3DXVECTOR3( xOff, yOff+5.0f, zOff), D3DXVECTOR3( 1.0f, 1.0f, 1.0f ), mTechniques[ParallaxMapped], mTechniquesMirror[ParallaxMapped], mpMaps[6], mpMaps[7], true, false, true);
+; 1722 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x", D3DXVECTOR3( xOff, yOff+5.0f, zOff), D3DXVECTOR3( 1.0f, 1.0f, 1.0f ), mTechniques[ParallaxMapped], mTechniquesMirror[ParallaxMapped], mpMaps[6], mpMaps[7], true, false, true);
 
 	push	DWORD PTR [esi+960]
 	mov	eax, DWORD PTR $T41[ebp+8]
-	push	DWORD PTR [esi+2764]
+	push	DWORD PTR [esi+2772]
 	unpcklps xmm0, xmm1
-	push	DWORD PTR [esi+2644]
+	push	DWORD PTR [esi+2652]
 	movq	xmm1, QWORD PTR $T6[ebp]
 	sub	esp, 12					; 0000000cH
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -20728,7 +28695,7 @@ $LN21@SceneItems:
 	mov	DWORD PTR $T14[ebp+8], 1112014848	; 42480000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1521 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x", D3DXVECTOR3( xOff, yOff+5.0f, zOff), D3DXVECTOR3( 1.0f, 1.0f, 1.0f ), mTechniques[ParallaxMapped], mTechniquesMirror[ParallaxMapped], mpMaps[6], mpMaps[7], true, false, true);
+; 1722 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x", D3DXVECTOR3( xOff, yOff+5.0f, zOff), D3DXVECTOR3( 1.0f, 1.0f, 1.0f ), mTechniques[ParallaxMapped], mTechniquesMirror[ParallaxMapped], mpMaps[6], mpMaps[7], true, false, true);
 
 	mov	ecx, esp
 	sub	esp, 12					; 0000000cH
@@ -20766,7 +28733,7 @@ $LN23@SceneItems:
 	mov	DWORD PTR $T34[ebp+8], 1069547520	; 3fc00000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1521 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x", D3DXVECTOR3( xOff, yOff+5.0f, zOff), D3DXVECTOR3( 1.0f, 1.0f, 1.0f ), mTechniques[ParallaxMapped], mTechniquesMirror[ParallaxMapped], mpMaps[6], mpMaps[7], true, false, true);
+; 1722 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x", D3DXVECTOR3( xOff, yOff+5.0f, zOff), D3DXVECTOR3( 1.0f, 1.0f, 1.0f ), mTechniques[ParallaxMapped], mTechniquesMirror[ParallaxMapped], mpMaps[6], mpMaps[7], true, false, true);
 
 	mov	DWORD PTR [esi+eax*4+8], ecx
 ; File c:\users\simon\documents\github\post-processing\renderobject.h
@@ -20776,7 +28743,7 @@ $LN23@SceneItems:
 	mov	eax, DWORD PTR [esi+808]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1525 : 	mpObjects[miNumObjects] = new CRenderObject("Teapot.x", D3DXVECTOR3( xOff, yOff+12.5f, zOff), D3DXVECTOR3( 1.0f, 1.0f, 1.0f ), mTechniques[ParallaxMapped], mTechniquesMirror[ParallaxMapped], mpMaps[13], mpMaps[14], true, false, true);
+; 1726 : 	mpObjects[miNumObjects] = new CRenderObject("Teapot.x", D3DXVECTOR3( xOff, yOff+12.5f, zOff), D3DXVECTOR3( 1.0f, 1.0f, 1.0f ), mTechniques[ParallaxMapped], mTechniquesMirror[ParallaxMapped], mpMaps[13], mpMaps[14], true, false, true);
 
 	push	72					; 00000048H
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -20795,11 +28762,11 @@ $LN23@SceneItems:
 	mov	DWORD PTR [ecx+40], eax
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1523 : 	miNumObjects++;
+; 1724 : 	miNumObjects++;
 
 	inc	DWORD PTR [esi+808]
 
-; 1525 : 	mpObjects[miNumObjects] = new CRenderObject("Teapot.x", D3DXVECTOR3( xOff, yOff+12.5f, zOff), D3DXVECTOR3( 1.0f, 1.0f, 1.0f ), mTechniques[ParallaxMapped], mTechniquesMirror[ParallaxMapped], mpMaps[13], mpMaps[14], true, false, true);
+; 1726 : 	mpObjects[miNumObjects] = new CRenderObject("Teapot.x", D3DXVECTOR3( xOff, yOff+12.5f, zOff), D3DXVECTOR3( 1.0f, 1.0f, 1.0f ), mTechniques[ParallaxMapped], mTechniquesMirror[ParallaxMapped], mpMaps[13], mpMaps[14], true, false, true);
 
 	call	??2@YAPAXI@Z				; operator new
 	mov	edx, eax
@@ -20818,7 +28785,7 @@ $LN23@SceneItems:
 	movss	xmm1, DWORD PTR __real@418c0000
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1525 : 	mpObjects[miNumObjects] = new CRenderObject("Teapot.x", D3DXVECTOR3( xOff, yOff+12.5f, zOff), D3DXVECTOR3( 1.0f, 1.0f, 1.0f ), mTechniques[ParallaxMapped], mTechniquesMirror[ParallaxMapped], mpMaps[13], mpMaps[14], true, false, true);
+; 1726 : 	mpObjects[miNumObjects] = new CRenderObject("Teapot.x", D3DXVECTOR3( xOff, yOff+12.5f, zOff), D3DXVECTOR3( 1.0f, 1.0f, 1.0f ), mTechniques[ParallaxMapped], mTechniquesMirror[ParallaxMapped], mpMaps[13], mpMaps[14], true, false, true);
 
 	push	1
 	push	DWORD PTR [esi+992]
@@ -20831,11 +28798,11 @@ $LN23@SceneItems:
 	mov	DWORD PTR $T40[ebp+8], 1065353216	; 3f800000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1525 : 	mpObjects[miNumObjects] = new CRenderObject("Teapot.x", D3DXVECTOR3( xOff, yOff+12.5f, zOff), D3DXVECTOR3( 1.0f, 1.0f, 1.0f ), mTechniques[ParallaxMapped], mTechniquesMirror[ParallaxMapped], mpMaps[13], mpMaps[14], true, false, true);
+; 1726 : 	mpObjects[miNumObjects] = new CRenderObject("Teapot.x", D3DXVECTOR3( xOff, yOff+12.5f, zOff), D3DXVECTOR3( 1.0f, 1.0f, 1.0f ), mTechniques[ParallaxMapped], mTechniquesMirror[ParallaxMapped], mpMaps[13], mpMaps[14], true, false, true);
 
-	push	DWORD PTR [esi+2764]
+	push	DWORD PTR [esi+2772]
 	mov	eax, DWORD PTR $T40[ebp+8]
-	push	DWORD PTR [esi+2644]
+	push	DWORD PTR [esi+2652]
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
 
 ; 323  :     z = fz;
@@ -20843,7 +28810,7 @@ $LN23@SceneItems:
 	mov	DWORD PTR $T13[ebp+8], 1112014848	; 42480000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1525 : 	mpObjects[miNumObjects] = new CRenderObject("Teapot.x", D3DXVECTOR3( xOff, yOff+12.5f, zOff), D3DXVECTOR3( 1.0f, 1.0f, 1.0f ), mTechniques[ParallaxMapped], mTechniquesMirror[ParallaxMapped], mpMaps[13], mpMaps[14], true, false, true);
+; 1726 : 	mpObjects[miNumObjects] = new CRenderObject("Teapot.x", D3DXVECTOR3( xOff, yOff+12.5f, zOff), D3DXVECTOR3( 1.0f, 1.0f, 1.0f ), mTechniques[ParallaxMapped], mTechniquesMirror[ParallaxMapped], mpMaps[13], mpMaps[14], true, false, true);
 
 	sub	esp, 12					; 0000000cH
 	mov	ecx, esp
@@ -20866,7 +28833,7 @@ $LN24@SceneItems:
 $LN25@SceneItems:
 	mov	eax, DWORD PTR [esi+808]
 
-; 1529 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x", D3DXVECTOR3(xOff, yOff+15.0f, zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[LitGlass], mTechniquesMirror[LitGlass], mpMaps[8], NULL, true, true, false ); 
+; 1730 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x", D3DXVECTOR3(xOff, yOff+15.0f, zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[LitGlass], mTechniquesMirror[LitGlass], mpMaps[8], NULL, true, true, false ); 
 
 	push	72					; 00000048H
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -20887,7 +28854,7 @@ $LN25@SceneItems:
 	push	0
 	push	DWORD PTR [esi+968]
 	unpcklps xmm0, xmm0
-	push	DWORD PTR [esi+2792]
+	push	DWORD PTR [esi+2800]
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
 
 ; 323  :     z = fz;
@@ -20895,9 +28862,9 @@ $LN25@SceneItems:
 	mov	DWORD PTR $T39[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1529 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x", D3DXVECTOR3(xOff, yOff+15.0f, zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[LitGlass], mTechniquesMirror[LitGlass], mpMaps[8], NULL, true, true, false ); 
+; 1730 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x", D3DXVECTOR3(xOff, yOff+15.0f, zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[LitGlass], mTechniquesMirror[LitGlass], mpMaps[8], NULL, true, true, false ); 
 
-	push	DWORD PTR [esi+2672]
+	push	DWORD PTR [esi+2680]
 	mov	eax, DWORD PTR $T39[ebp+8]
 	sub	esp, 12					; 0000000cH
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -20907,7 +28874,7 @@ $LN25@SceneItems:
 	mov	DWORD PTR $T12[ebp+8], 1112014848	; 42480000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1529 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x", D3DXVECTOR3(xOff, yOff+15.0f, zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[LitGlass], mTechniquesMirror[LitGlass], mpMaps[8], NULL, true, true, false ); 
+; 1730 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x", D3DXVECTOR3(xOff, yOff+15.0f, zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[LitGlass], mTechniquesMirror[LitGlass], mpMaps[8], NULL, true, true, false ); 
 
 	mov	ecx, esp
 	sub	esp, 12					; 0000000cH
@@ -20941,7 +28908,7 @@ $LN27@SceneItems:
 	mov	DWORD PTR $T33[ebp+8], 1092616192	; 41200000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1529 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x", D3DXVECTOR3(xOff, yOff+15.0f, zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[LitGlass], mTechniquesMirror[LitGlass], mpMaps[8], NULL, true, true, false ); 
+; 1730 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x", D3DXVECTOR3(xOff, yOff+15.0f, zOff), D3DXVECTOR3( 0.8f, 0.8f, 0.0f ), mTechniques[LitGlass], mTechniquesMirror[LitGlass], mpMaps[8], NULL, true, true, false ); 
 
 	mov	DWORD PTR [esi+eax*4+8], ecx
 ; File c:\users\simon\documents\github\post-processing\renderobject.h
@@ -20960,13 +28927,13 @@ $LN27@SceneItems:
 	mov	DWORD PTR [ecx+40], eax
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1534 : 	return true;
+; 1735 : 	return true;
 
 	mov	al, 1
 	inc	DWORD PTR [esi+808]
 $LN4@SceneItems:
 
-; 1535 : }
+; 1736 : }
 
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, ecx
@@ -21391,7 +29358,7 @@ __$EHRec$ = -12						; size = 12
 ?BasicItems@CScene@@AAE_NXZ PROC			; CScene::BasicItems, COMDAT
 ; _this$ = ecx
 
-; 1301 : {
+; 1502 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -21411,7 +29378,7 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR fs:0, eax
 	mov	esi, ecx
 
-; 1304 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(0, 10, 0),			D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[7], mTechniquesMirror[7], mpMaps[3], mpMaps[4], true, false, true);
+; 1505 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(0, 10, 0),			D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[7], mTechniquesMirror[7], mpMaps[3], mpMaps[4], true, false, true);
 
 	push	72					; 00000048H
 	call	??2@YAPAXI@Z				; operator new
@@ -21437,13 +29404,13 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR $T21[ebp+8], 1065353216	; 3f800000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1304 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(0, 10, 0),			D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[7], mTechniquesMirror[7], mpMaps[3], mpMaps[4], true, false, true);
+; 1505 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(0, 10, 0),			D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[7], mTechniquesMirror[7], mpMaps[3], mpMaps[4], true, false, true);
 
 	push	DWORD PTR [esi+948]
 	mov	eax, DWORD PTR $T21[ebp+8]
-	push	DWORD PTR [esi+2764]
+	push	DWORD PTR [esi+2772]
 	unpcklps xmm0, xmm2
-	push	DWORD PTR [esi+2644]
+	push	DWORD PTR [esi+2652]
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
 
 ; 323  :     z = fz;
@@ -21451,7 +29418,7 @@ __$EHRec$ = -12						; size = 12
 	mov	DWORD PTR $T8[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1304 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(0, 10, 0),			D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[7], mTechniquesMirror[7], mpMaps[3], mpMaps[4], true, false, true);
+; 1505 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(0, 10, 0),			D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[7], mTechniquesMirror[7], mpMaps[3], mpMaps[4], true, false, true);
 
 	sub	esp, 12					; 0000000cH
 	mov	ecx, esp
@@ -21481,7 +29448,7 @@ $LN7@BasicItems:
 	movss	xmm0, DWORD PTR __real@3f000000
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1309 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(0, 10, 40),			D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[7], mTechniquesMirror[7], mpMaps[6], mpMaps[7], true, false, true);
+; 1510 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(0, 10, 40),			D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[7], mTechniquesMirror[7], mpMaps[6], mpMaps[7], true, false, true);
 
 	push	72					; 00000048H
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -21494,7 +29461,7 @@ $LN7@BasicItems:
 	movq	QWORD PTR $T11[ebp], xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1305 : 	mpObjects[miNumObjects]->SetSpinY(0.5f);
+; 1506 : 	mpObjects[miNumObjects]->SetSpinY(0.5f);
 
 	mov	eax, DWORD PTR [esi+eax*4+8]
 ; File c:\users\simon\documents\github\post-processing\renderobject.h
@@ -21505,11 +29472,11 @@ $LN7@BasicItems:
 	mov	DWORD PTR [eax+48], 1056964608		; 3f000000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1306 : 	miNumObjects++;
+; 1507 : 	miNumObjects++;
 
 	inc	DWORD PTR [esi+808]
 
-; 1309 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(0, 10, 40),			D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[7], mTechniquesMirror[7], mpMaps[6], mpMaps[7], true, false, true);
+; 1510 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(0, 10, 40),			D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[7], mTechniquesMirror[7], mpMaps[6], mpMaps[7], true, false, true);
 
 	call	??2@YAPAXI@Z				; operator new
 	mov	edx, eax
@@ -21533,13 +29500,13 @@ $LN7@BasicItems:
 	mov	DWORD PTR $T20[ebp+8], 1065353216	; 3f800000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1309 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(0, 10, 40),			D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[7], mTechniquesMirror[7], mpMaps[6], mpMaps[7], true, false, true);
+; 1510 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(0, 10, 40),			D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[7], mTechniquesMirror[7], mpMaps[6], mpMaps[7], true, false, true);
 
 	push	DWORD PTR [esi+960]
 	mov	eax, DWORD PTR $T20[ebp+8]
-	push	DWORD PTR [esi+2764]
+	push	DWORD PTR [esi+2772]
 	unpcklps xmm0, xmm1
-	push	DWORD PTR [esi+2644]
+	push	DWORD PTR [esi+2652]
 	movss	xmm1, DWORD PTR __real@41200000
 	sub	esp, 12					; 0000000cH
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -21549,7 +29516,7 @@ $LN7@BasicItems:
 	mov	DWORD PTR $T7[ebp+8], 1109393408	; 42200000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1309 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(0, 10, 40),			D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[7], mTechniquesMirror[7], mpMaps[6], mpMaps[7], true, false, true);
+; 1510 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(0, 10, 40),			D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[7], mTechniquesMirror[7], mpMaps[6], mpMaps[7], true, false, true);
 
 	mov	ecx, esp
 	sub	esp, 12					; 0000000cH
@@ -21571,7 +29538,7 @@ $LN8@BasicItems:
 $LN9@BasicItems:
 	mov	eax, DWORD PTR [esi+808]
 
-; 1315 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(40, 10, 40),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[8], mTechniquesMirror[8], mpMaps[6], NULL, true, true);
+; 1516 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(40, 10, 40),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[8], mTechniquesMirror[8], mpMaps[6], NULL, true, true);
 
 	push	72					; 00000048H
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -21586,11 +29553,11 @@ $LN9@BasicItems:
 	mov	DWORD PTR [eax+48], 1056964608		; 3f000000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1311 : 	miNumObjects++;
+; 1512 : 	miNumObjects++;
 
 	inc	DWORD PTR [esi+808]
 
-; 1315 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(40, 10, 40),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[8], mTechniquesMirror[8], mpMaps[6], NULL, true, true);
+; 1516 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(40, 10, 40),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[8], mTechniquesMirror[8], mpMaps[6], NULL, true, true);
 
 	call	??2@YAPAXI@Z				; operator new
 	mov	edx, eax
@@ -21613,11 +29580,11 @@ $LN9@BasicItems:
 	mov	DWORD PTR $T19[ebp+8], 1065353216	; 3f800000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1315 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(40, 10, 40),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[8], mTechniquesMirror[8], mpMaps[6], NULL, true, true);
+; 1516 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(40, 10, 40),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[8], mTechniquesMirror[8], mpMaps[6], NULL, true, true);
 
-	push	DWORD PTR [esi+2768]
+	push	DWORD PTR [esi+2776]
 	mov	eax, DWORD PTR $T19[ebp+8]
-	push	DWORD PTR [esi+2648]
+	push	DWORD PTR [esi+2656]
 	unpcklps xmm0, xmm1
 	movss	xmm1, DWORD PTR __real@41200000
 	sub	esp, 12					; 0000000cH
@@ -21629,7 +29596,7 @@ $LN9@BasicItems:
 	mov	DWORD PTR $T6[ebp+8], 1109393408	; 42200000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1315 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(40, 10, 40),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[8], mTechniquesMirror[8], mpMaps[6], NULL, true, true);
+; 1516 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(40, 10, 40),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[8], mTechniquesMirror[8], mpMaps[6], NULL, true, true);
 
 	sub	esp, 12					; 0000000cH
 	movq	QWORD PTR [ecx], xmm0
@@ -21650,7 +29617,7 @@ $LN10@BasicItems:
 $LN11@BasicItems:
 	mov	eax, DWORD PTR [esi+808]
 
-; 1320 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 20, 10, 0 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[1], mTechniquesMirror[1], mpMaps[0], NULL, false, false);
+; 1521 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 20, 10, 0 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[1], mTechniquesMirror[1], mpMaps[0], NULL, false, false);
 
 	push	72					; 00000048H
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -21665,11 +29632,11 @@ $LN11@BasicItems:
 	mov	DWORD PTR [eax+60], 1073741824		; 40000000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1317 : 	miNumObjects++;
+; 1518 : 	miNumObjects++;
 
 	inc	DWORD PTR [esi+808]
 
-; 1320 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 20, 10, 0 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[1], mTechniquesMirror[1], mpMaps[0], NULL, false, false);
+; 1521 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 20, 10, 0 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[1], mTechniquesMirror[1], mpMaps[0], NULL, false, false);
 
 	call	??2@YAPAXI@Z				; operator new
 	mov	edx, eax
@@ -21692,11 +29659,11 @@ $LN11@BasicItems:
 	mov	DWORD PTR $T18[ebp+8], 1065353216	; 3f800000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1320 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 20, 10, 0 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[1], mTechniquesMirror[1], mpMaps[0], NULL, false, false);
+; 1521 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 20, 10, 0 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[1], mTechniquesMirror[1], mpMaps[0], NULL, false, false);
 
-	push	DWORD PTR [esi+2740]
+	push	DWORD PTR [esi+2748]
 	mov	eax, DWORD PTR $T18[ebp+8]
-	push	DWORD PTR [esi+2620]
+	push	DWORD PTR [esi+2628]
 	unpcklps xmm0, xmm1
 	movss	xmm1, DWORD PTR __real@41200000
 	sub	esp, 12					; 0000000cH
@@ -21708,7 +29675,7 @@ $LN11@BasicItems:
 	mov	DWORD PTR $T5[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1320 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 20, 10, 0 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[1], mTechniquesMirror[1], mpMaps[0], NULL, false, false);
+; 1521 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 20, 10, 0 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[1], mTechniquesMirror[1], mpMaps[0], NULL, false, false);
 
 	sub	esp, 12					; 0000000cH
 	movq	QWORD PTR [ecx], xmm0
@@ -21729,7 +29696,7 @@ $LN12@BasicItems:
 $LN13@BasicItems:
 	mov	eax, DWORD PTR [esi+808]
 
-; 1325 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(-20, 10, 0),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[6], mTechniquesMirror[6], mpMaps[0], NULL, true, false);
+; 1526 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(-20, 10, 0),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[6], mTechniquesMirror[6], mpMaps[0], NULL, true, false);
 
 	push	72					; 00000048H
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -21758,11 +29725,11 @@ $LN13@BasicItems:
 	mov	DWORD PTR $T17[ebp+8], 1065353216	; 3f800000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1325 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(-20, 10, 0),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[6], mTechniquesMirror[6], mpMaps[0], NULL, true, false);
+; 1526 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(-20, 10, 0),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[6], mTechniquesMirror[6], mpMaps[0], NULL, true, false);
 
-	push	DWORD PTR [esi+2760]
+	push	DWORD PTR [esi+2768]
 	mov	eax, DWORD PTR $T17[ebp+8]
-	push	DWORD PTR [esi+2640]
+	push	DWORD PTR [esi+2648]
 	unpcklps xmm0, xmm1
 	movss	xmm1, DWORD PTR __real@41200000
 	sub	esp, 12					; 0000000cH
@@ -21774,7 +29741,7 @@ $LN13@BasicItems:
 	mov	DWORD PTR $T3[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1325 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(-20, 10, 0),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[6], mTechniquesMirror[6], mpMaps[0], NULL, true, false);
+; 1526 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3(-20, 10, 0),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[6], mTechniquesMirror[6], mpMaps[0], NULL, true, false);
 
 	sub	esp, 12					; 0000000cH
 	movq	QWORD PTR [ecx], xmm0
@@ -21795,7 +29762,7 @@ $LN14@BasicItems:
 $LN15@BasicItems:
 	mov	eax, DWORD PTR [esi+808]
 
-; 1329 : 	mpObjects[miNumObjects] = new CRenderObject("Teapot.x",	D3DXVECTOR3( 15, 5, 15 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[5], mTechniquesMirror[5], mpMaps[2], NULL, true, false);
+; 1530 : 	mpObjects[miNumObjects] = new CRenderObject("Teapot.x",	D3DXVECTOR3( 15, 5, 15 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[5], mTechniquesMirror[5], mpMaps[2], NULL, true, false);
 
 	push	72					; 00000048H
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -21819,7 +29786,7 @@ $LN15@BasicItems:
 	movss	xmm1, DWORD PTR __real@41700000
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1329 : 	mpObjects[miNumObjects] = new CRenderObject("Teapot.x",	D3DXVECTOR3( 15, 5, 15 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[5], mTechniquesMirror[5], mpMaps[2], NULL, true, false);
+; 1530 : 	mpObjects[miNumObjects] = new CRenderObject("Teapot.x",	D3DXVECTOR3( 15, 5, 15 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[5], mTechniquesMirror[5], mpMaps[2], NULL, true, false);
 
 	movss	xmm0, xmm2
 	push	0
@@ -21827,7 +29794,7 @@ $LN15@BasicItems:
 	push	0
 	push	DWORD PTR [esi+944]
 	unpcklps xmm0, xmm2
-	push	DWORD PTR [esi+2756]
+	push	DWORD PTR [esi+2764]
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
 
 ; 323  :     z = fz;
@@ -21835,9 +29802,9 @@ $LN15@BasicItems:
 	mov	DWORD PTR $T16[ebp+8], 1065353216	; 3f800000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1329 : 	mpObjects[miNumObjects] = new CRenderObject("Teapot.x",	D3DXVECTOR3( 15, 5, 15 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[5], mTechniquesMirror[5], mpMaps[2], NULL, true, false);
+; 1530 : 	mpObjects[miNumObjects] = new CRenderObject("Teapot.x",	D3DXVECTOR3( 15, 5, 15 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[5], mTechniquesMirror[5], mpMaps[2], NULL, true, false);
 
-	push	DWORD PTR [esi+2636]
+	push	DWORD PTR [esi+2644]
 	mov	eax, DWORD PTR $T16[ebp+8]
 	sub	esp, 12					; 0000000cH
 	unpcklps xmm1, xmm3
@@ -21849,7 +29816,7 @@ $LN15@BasicItems:
 	mov	DWORD PTR $T2[ebp+8], 1097859072	; 41700000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1329 : 	mpObjects[miNumObjects] = new CRenderObject("Teapot.x",	D3DXVECTOR3( 15, 5, 15 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[5], mTechniquesMirror[5], mpMaps[2], NULL, true, false);
+; 1530 : 	mpObjects[miNumObjects] = new CRenderObject("Teapot.x",	D3DXVECTOR3( 15, 5, 15 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[5], mTechniquesMirror[5], mpMaps[2], NULL, true, false);
 
 	sub	esp, 12					; 0000000cH
 	movq	QWORD PTR [ecx], xmm0
@@ -21868,7 +29835,7 @@ $LN16@BasicItems:
 $LN17@BasicItems:
 	mov	eax, DWORD PTR [esi+808]
 
-; 1336 : 	mpObjects[miNumObjects] = new CRenderObject("Sphere.x",	D3DXVECTOR3(50, 30, 10),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[2], mTechniquesMirror[2], mpMaps[0], NULL, false, true);
+; 1537 : 	mpObjects[miNumObjects] = new CRenderObject("Sphere.x",	D3DXVECTOR3(50, 30, 10),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[2], mTechniquesMirror[2], mpMaps[0], NULL, false, true);
 
 	push	72					; 00000048H
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -21883,7 +29850,7 @@ $LN17@BasicItems:
 	mov	DWORD PTR [eax+44], 1084227584		; 40a00000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1331 : 	mpObjects[miNumObjects]->SetSpinZ(2.5f);
+; 1532 : 	mpObjects[miNumObjects]->SetSpinZ(2.5f);
 
 	mov	eax, DWORD PTR [esi+808]
 	mov	eax, DWORD PTR [esi+eax*4+8]
@@ -21895,11 +29862,11 @@ $LN17@BasicItems:
 	mov	DWORD PTR [eax+52], 1075838976		; 40200000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1332 : 	miNumObjects++;
+; 1533 : 	miNumObjects++;
 
 	inc	DWORD PTR [esi+808]
 
-; 1336 : 	mpObjects[miNumObjects] = new CRenderObject("Sphere.x",	D3DXVECTOR3(50, 30, 10),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[2], mTechniquesMirror[2], mpMaps[0], NULL, false, true);
+; 1537 : 	mpObjects[miNumObjects] = new CRenderObject("Sphere.x",	D3DXVECTOR3(50, 30, 10),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[2], mTechniquesMirror[2], mpMaps[0], NULL, false, true);
 
 	call	??2@YAPAXI@Z				; operator new
 	mov	edx, eax
@@ -21924,11 +29891,11 @@ $LN17@BasicItems:
 	mov	DWORD PTR $T15[ebp+8], 1065353216	; 3f800000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1336 : 	mpObjects[miNumObjects] = new CRenderObject("Sphere.x",	D3DXVECTOR3(50, 30, 10),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[2], mTechniquesMirror[2], mpMaps[0], NULL, false, true);
+; 1537 : 	mpObjects[miNumObjects] = new CRenderObject("Sphere.x",	D3DXVECTOR3(50, 30, 10),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[2], mTechniquesMirror[2], mpMaps[0], NULL, false, true);
 
-	push	DWORD PTR [esi+2744]
+	push	DWORD PTR [esi+2752]
 	mov	eax, DWORD PTR $T15[ebp+8]
-	push	DWORD PTR [esi+2624]
+	push	DWORD PTR [esi+2632]
 	unpcklps xmm0, xmm1
 	movss	xmm1, DWORD PTR __real@41f00000
 	sub	esp, 12					; 0000000cH
@@ -21940,7 +29907,7 @@ $LN17@BasicItems:
 	mov	DWORD PTR $T58[ebp+8], 1092616192	; 41200000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1336 : 	mpObjects[miNumObjects] = new CRenderObject("Sphere.x",	D3DXVECTOR3(50, 30, 10),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[2], mTechniquesMirror[2], mpMaps[0], NULL, false, true);
+; 1537 : 	mpObjects[miNumObjects] = new CRenderObject("Sphere.x",	D3DXVECTOR3(50, 30, 10),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[2], mTechniquesMirror[2], mpMaps[0], NULL, false, true);
 
 	sub	esp, 12					; 0000000cH
 	movq	QWORD PTR [ecx], xmm0
@@ -21961,7 +29928,7 @@ $LN18@BasicItems:
 $LN19@BasicItems:
 	mov	eax, DWORD PTR [esi+808]
 
-; 1341 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 180, 5, 152 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[4], mTechniquesMirror[4], mpMaps[0], NULL, true, false);
+; 1542 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 180, 5, 152 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[4], mTechniquesMirror[4], mpMaps[0], NULL, true, false);
 
 	push	72					; 00000048H
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -21975,11 +29942,11 @@ $LN19@BasicItems:
 	mov	BYTE PTR [eax+40], 1
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1338 : 	miNumObjects++;
+; 1539 : 	miNumObjects++;
 
 	inc	DWORD PTR [esi+808]
 
-; 1341 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 180, 5, 152 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[4], mTechniquesMirror[4], mpMaps[0], NULL, true, false);
+; 1542 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 180, 5, 152 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[4], mTechniquesMirror[4], mpMaps[0], NULL, true, false);
 
 	call	??2@YAPAXI@Z				; operator new
 	mov	edx, eax
@@ -21997,7 +29964,7 @@ $LN19@BasicItems:
 	movss	xmm1, DWORD PTR __real@43340000
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1341 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 180, 5, 152 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[4], mTechniquesMirror[4], mpMaps[0], NULL, true, false);
+; 1542 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 180, 5, 152 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[4], mTechniquesMirror[4], mpMaps[0], NULL, true, false);
 
 	movss	xmm0, xmm2
 	push	0
@@ -22005,7 +29972,7 @@ $LN19@BasicItems:
 	push	0
 	push	DWORD PTR [esi+936]
 	unpcklps xmm0, xmm2
-	push	DWORD PTR [esi+2752]
+	push	DWORD PTR [esi+2760]
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
 
 ; 323  :     z = fz;
@@ -22013,9 +29980,9 @@ $LN19@BasicItems:
 	mov	DWORD PTR $T57[ebp+8], 1065353216	; 3f800000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1341 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 180, 5, 152 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[4], mTechniquesMirror[4], mpMaps[0], NULL, true, false);
+; 1542 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 180, 5, 152 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[4], mTechniquesMirror[4], mpMaps[0], NULL, true, false);
 
-	push	DWORD PTR [esi+2632]
+	push	DWORD PTR [esi+2640]
 	mov	eax, DWORD PTR $T57[ebp+8]
 	sub	esp, 12					; 0000000cH
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -22025,7 +29992,7 @@ $LN19@BasicItems:
 	mov	DWORD PTR $T14[ebp+8], 1125646336	; 43180000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1341 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 180, 5, 152 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[4], mTechniquesMirror[4], mpMaps[0], NULL, true, false);
+; 1542 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 180, 5, 152 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[4], mTechniquesMirror[4], mpMaps[0], NULL, true, false);
 
 	mov	ecx, esp
 	sub	esp, 12					; 0000000cH
@@ -22047,7 +30014,7 @@ $LN20@BasicItems:
 $LN21@BasicItems:
 	mov	eax, DWORD PTR [esi+808]
 
-; 1345 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 200, 5, 200 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[6], mTechniquesMirror[6], mpMaps[0], NULL, true, false);
+; 1546 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 200, 5, 200 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[6], mTechniquesMirror[6], mpMaps[0], NULL, true, false);
 
 	push	72					; 00000048H
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -22076,11 +30043,11 @@ $LN21@BasicItems:
 	mov	DWORD PTR $T56[ebp+8], 1065353216	; 3f800000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1345 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 200, 5, 200 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[6], mTechniquesMirror[6], mpMaps[0], NULL, true, false);
+; 1546 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 200, 5, 200 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[6], mTechniquesMirror[6], mpMaps[0], NULL, true, false);
 
-	push	DWORD PTR [esi+2760]
+	push	DWORD PTR [esi+2768]
 	mov	eax, DWORD PTR $T56[ebp+8]
-	push	DWORD PTR [esi+2640]
+	push	DWORD PTR [esi+2648]
 	unpcklps xmm0, xmm1
 	movq	xmm1, QWORD PTR $T23[ebp]
 	sub	esp, 12					; 0000000cH
@@ -22092,7 +30059,7 @@ $LN21@BasicItems:
 	mov	DWORD PTR $T82[ebp+8], 1128792064	; 43480000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1345 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 200, 5, 200 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[6], mTechniquesMirror[6], mpMaps[0], NULL, true, false);
+; 1546 : 	mpObjects[miNumObjects] = new CRenderObject("Cube.x",	D3DXVECTOR3( 200, 5, 200 ),		D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[6], mTechniquesMirror[6], mpMaps[0], NULL, true, false);
 
 	sub	esp, 12					; 0000000cH
 	movq	QWORD PTR [ecx], xmm0
@@ -22113,7 +30080,7 @@ $LN22@BasicItems:
 $LN23@BasicItems:
 	mov	eax, DWORD PTR [esi+808]
 
-; 1349 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 0, 0, -10 ),		D3DXVECTOR3( 0.0f, 0.0f, 0.0f), mTechniques[9], mTechniquesMirror[9], mpMaps[5], NULL, true, false);
+; 1550 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 0, 0, -10 ),		D3DXVECTOR3( 0.0f, 0.0f, 0.0f), mTechniques[9], mTechniquesMirror[9], mpMaps[5], NULL, true, false);
 
 	push	72					; 00000048H
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -22140,11 +30107,11 @@ $LN23@BasicItems:
 	mov	DWORD PTR $T81[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1349 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 0, 0, -10 ),		D3DXVECTOR3( 0.0f, 0.0f, 0.0f), mTechniques[9], mTechniquesMirror[9], mpMaps[5], NULL, true, false);
+; 1550 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 0, 0, -10 ),		D3DXVECTOR3( 0.0f, 0.0f, 0.0f), mTechniques[9], mTechniquesMirror[9], mpMaps[5], NULL, true, false);
 
-	push	DWORD PTR [esi+2772]
+	push	DWORD PTR [esi+2780]
 	mov	eax, DWORD PTR $T81[ebp+8]
-	push	DWORD PTR [esi+2652]
+	push	DWORD PTR [esi+2660]
 	unpcklps xmm0, xmm1
 	sub	esp, 12					; 0000000cH
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -22154,7 +30121,7 @@ $LN23@BasicItems:
 	mov	DWORD PTR $T55[ebp+8], -1054867456	; c1200000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1349 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 0, 0, -10 ),		D3DXVECTOR3( 0.0f, 0.0f, 0.0f), mTechniques[9], mTechniquesMirror[9], mpMaps[5], NULL, true, false);
+; 1550 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 0, 0, -10 ),		D3DXVECTOR3( 0.0f, 0.0f, 0.0f), mTechniques[9], mTechniquesMirror[9], mpMaps[5], NULL, true, false);
 
 	mov	ecx, esp
 	sub	esp, 12					; 0000000cH
@@ -22193,7 +30160,7 @@ $LN25@BasicItems:
 	unpcklps xmm0, xmm1
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1349 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 0, 0, -10 ),		D3DXVECTOR3( 0.0f, 0.0f, 0.0f), mTechniques[9], mTechniquesMirror[9], mpMaps[5], NULL, true, false);
+; 1550 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 0, 0, -10 ),		D3DXVECTOR3( 0.0f, 0.0f, 0.0f), mTechniques[9], mTechniquesMirror[9], mpMaps[5], NULL, true, false);
 
 	mov	DWORD PTR [esi+eax*4+8], ecx
 ; File c:\users\simon\documents\github\post-processing\renderobject.h
@@ -22203,7 +30170,7 @@ $LN25@BasicItems:
 	mov	eax, DWORD PTR [esi+808]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1354 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 0, 0, -30 ),		D3DXVECTOR3( 0.0f, 0.0f, 0.0f), mTechniques[10], mTechniquesMirror[10], mpMaps[5], NULL, true, false);
+; 1555 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 0, 0, -30 ),		D3DXVECTOR3( 0.0f, 0.0f, 0.0f), mTechniques[10], mTechniquesMirror[10], mpMaps[5], NULL, true, false);
 
 	push	72					; 00000048H
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -22222,11 +30189,11 @@ $LN25@BasicItems:
 	mov	DWORD PTR [ecx+40], eax
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1351 : 	miNumObjects++;
+; 1552 : 	miNumObjects++;
 
 	inc	DWORD PTR [esi+808]
 
-; 1354 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 0, 0, -30 ),		D3DXVECTOR3( 0.0f, 0.0f, 0.0f), mTechniques[10], mTechniquesMirror[10], mpMaps[5], NULL, true, false);
+; 1555 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 0, 0, -30 ),		D3DXVECTOR3( 0.0f, 0.0f, 0.0f), mTechniques[10], mTechniquesMirror[10], mpMaps[5], NULL, true, false);
 
 	call	??2@YAPAXI@Z				; operator new
 	mov	edx, eax
@@ -22249,11 +30216,11 @@ $LN25@BasicItems:
 	mov	DWORD PTR $T80[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1354 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 0, 0, -30 ),		D3DXVECTOR3( 0.0f, 0.0f, 0.0f), mTechniques[10], mTechniquesMirror[10], mpMaps[5], NULL, true, false);
+; 1555 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 0, 0, -30 ),		D3DXVECTOR3( 0.0f, 0.0f, 0.0f), mTechniques[10], mTechniquesMirror[10], mpMaps[5], NULL, true, false);
 
-	push	DWORD PTR [esi+2776]
+	push	DWORD PTR [esi+2784]
 	mov	eax, DWORD PTR $T80[ebp+8]
-	push	DWORD PTR [esi+2656]
+	push	DWORD PTR [esi+2664]
 	unpcklps xmm0, xmm1
 	sub	esp, 12					; 0000000cH
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -22263,7 +30230,7 @@ $LN25@BasicItems:
 	mov	DWORD PTR $T54[ebp+8], -1041235968	; c1f00000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1354 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 0, 0, -30 ),		D3DXVECTOR3( 0.0f, 0.0f, 0.0f), mTechniques[10], mTechniquesMirror[10], mpMaps[5], NULL, true, false);
+; 1555 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 0, 0, -30 ),		D3DXVECTOR3( 0.0f, 0.0f, 0.0f), mTechniques[10], mTechniquesMirror[10], mpMaps[5], NULL, true, false);
 
 	mov	ecx, esp
 	sub	esp, 12					; 0000000cH
@@ -22302,7 +30269,7 @@ $LN27@BasicItems:
 	unpcklps xmm0, xmm1
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1354 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 0, 0, -30 ),		D3DXVECTOR3( 0.0f, 0.0f, 0.0f), mTechniques[10], mTechniquesMirror[10], mpMaps[5], NULL, true, false);
+; 1555 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 0, 0, -30 ),		D3DXVECTOR3( 0.0f, 0.0f, 0.0f), mTechniques[10], mTechniquesMirror[10], mpMaps[5], NULL, true, false);
 
 	mov	DWORD PTR [esi+eax*4+8], ecx
 ; File c:\users\simon\documents\github\post-processing\renderobject.h
@@ -22312,7 +30279,7 @@ $LN27@BasicItems:
 	mov	eax, DWORD PTR [esi+808]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1360 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 20, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[11], mTechniquesMirror[11], mpMaps[3], mpMaps[4], true, true, true);
+; 1561 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 20, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[11], mTechniquesMirror[11], mpMaps[3], mpMaps[4], true, true, true);
 
 	push	72					; 00000048H
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -22331,11 +30298,11 @@ $LN27@BasicItems:
 	mov	DWORD PTR [ecx+40], eax
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1356 : 	miNumObjects++;
+; 1557 : 	miNumObjects++;
 
 	inc	DWORD PTR [esi+808]
 
-; 1360 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 20, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[11], mTechniquesMirror[11], mpMaps[3], mpMaps[4], true, true, true);
+; 1561 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 20, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[11], mTechniquesMirror[11], mpMaps[3], mpMaps[4], true, true, true);
 
 	call	??2@YAPAXI@Z				; operator new
 	mov	edx, eax
@@ -22357,13 +30324,13 @@ $LN27@BasicItems:
 	mov	DWORD PTR $T79[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1360 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 20, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[11], mTechniquesMirror[11], mpMaps[3], mpMaps[4], true, true, true);
+; 1561 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 20, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[11], mTechniquesMirror[11], mpMaps[3], mpMaps[4], true, true, true);
 
 	push	DWORD PTR [esi+948]
 	mov	eax, DWORD PTR $T79[ebp+8]
-	push	DWORD PTR [esi+2780]
+	push	DWORD PTR [esi+2788]
 	unpcklps xmm0, xmm1
-	push	DWORD PTR [esi+2660]
+	push	DWORD PTR [esi+2668]
 	movq	xmm1, QWORD PTR $T23[ebp]
 	sub	esp, 12					; 0000000cH
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -22373,7 +30340,7 @@ $LN27@BasicItems:
 	mov	DWORD PTR $T53[ebp+8], -1054867456	; c1200000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1360 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 20, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[11], mTechniquesMirror[11], mpMaps[3], mpMaps[4], true, true, true);
+; 1561 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 20, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[11], mTechniquesMirror[11], mpMaps[3], mpMaps[4], true, true, true);
 
 	mov	ecx, esp
 	sub	esp, 12					; 0000000cH
@@ -22412,7 +30379,7 @@ $LN29@BasicItems:
 	unpcklps xmm0, xmm1
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1360 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 20, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[11], mTechniquesMirror[11], mpMaps[3], mpMaps[4], true, true, true);
+; 1561 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 20, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[11], mTechniquesMirror[11], mpMaps[3], mpMaps[4], true, true, true);
 
 	mov	DWORD PTR [esi+eax*4+8], ecx
 ; File c:\users\simon\documents\github\post-processing\renderobject.h
@@ -22422,7 +30389,7 @@ $LN29@BasicItems:
 	mov	eax, DWORD PTR [esi+808]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1366 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 50, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[12], mTechniquesMirror[12], mpMaps[6], mpMaps[7], true, true, true);
+; 1567 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 50, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[12], mTechniquesMirror[12], mpMaps[6], mpMaps[7], true, true, true);
 
 	push	72					; 00000048H
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -22441,11 +30408,11 @@ $LN29@BasicItems:
 	mov	DWORD PTR [ecx+40], eax
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1362 : 	miNumObjects++;
+; 1563 : 	miNumObjects++;
 
 	inc	DWORD PTR [esi+808]
 
-; 1366 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 50, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[12], mTechniquesMirror[12], mpMaps[6], mpMaps[7], true, true, true);
+; 1567 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 50, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[12], mTechniquesMirror[12], mpMaps[6], mpMaps[7], true, true, true);
 
 	call	??2@YAPAXI@Z				; operator new
 	mov	edx, eax
@@ -22467,13 +30434,13 @@ $LN29@BasicItems:
 	mov	DWORD PTR $T78[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1366 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 50, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[12], mTechniquesMirror[12], mpMaps[6], mpMaps[7], true, true, true);
+; 1567 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 50, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[12], mTechniquesMirror[12], mpMaps[6], mpMaps[7], true, true, true);
 
 	push	DWORD PTR [esi+960]
 	mov	eax, DWORD PTR $T78[ebp+8]
-	push	DWORD PTR [esi+2784]
+	push	DWORD PTR [esi+2792]
 	unpcklps xmm0, xmm1
-	push	DWORD PTR [esi+2664]
+	push	DWORD PTR [esi+2672]
 	movq	xmm1, QWORD PTR $T4[ebp]
 	sub	esp, 12					; 0000000cH
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -22483,7 +30450,7 @@ $LN29@BasicItems:
 	mov	DWORD PTR $T52[ebp+8], -1054867456	; c1200000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1366 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 50, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[12], mTechniquesMirror[12], mpMaps[6], mpMaps[7], true, true, true);
+; 1567 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 50, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[12], mTechniquesMirror[12], mpMaps[6], mpMaps[7], true, true, true);
 
 	mov	ecx, esp
 	sub	esp, 12					; 0000000cH
@@ -22522,7 +30489,7 @@ $LN31@BasicItems:
 	unpcklps xmm0, xmm1
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1366 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 50, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[12], mTechniquesMirror[12], mpMaps[6], mpMaps[7], true, true, true);
+; 1567 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 50, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[12], mTechniquesMirror[12], mpMaps[6], mpMaps[7], true, true, true);
 
 	mov	DWORD PTR [esi+eax*4+8], ecx
 ; File c:\users\simon\documents\github\post-processing\renderobject.h
@@ -22532,7 +30499,7 @@ $LN31@BasicItems:
 	mov	eax, DWORD PTR [esi+808]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1371 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 80, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[13], mTechniquesMirror[13], mpMaps[6], mpMaps[7], true, true, true);
+; 1572 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 80, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[13], mTechniquesMirror[13], mpMaps[6], mpMaps[7], true, true, true);
 
 	push	72					; 00000048H
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -22551,11 +30518,11 @@ $LN31@BasicItems:
 	mov	DWORD PTR [ecx+40], eax
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1368 : 	miNumObjects++;
+; 1569 : 	miNumObjects++;
 
 	inc	DWORD PTR [esi+808]
 
-; 1371 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 80, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[13], mTechniquesMirror[13], mpMaps[6], mpMaps[7], true, true, true);
+; 1572 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 80, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[13], mTechniquesMirror[13], mpMaps[6], mpMaps[7], true, true, true);
 
 	call	??2@YAPAXI@Z				; operator new
 	mov	edx, eax
@@ -22574,7 +30541,7 @@ $LN31@BasicItems:
 	movss	xmm0, DWORD PTR __real@42a00000
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1371 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 80, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[13], mTechniquesMirror[13], mpMaps[6], mpMaps[7], true, true, true);
+; 1572 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 80, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[13], mTechniquesMirror[13], mpMaps[6], mpMaps[7], true, true, true);
 
 	push	1
 	push	DWORD PTR [esi+964]
@@ -22587,11 +30554,11 @@ $LN31@BasicItems:
 	mov	DWORD PTR $T77[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1371 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 80, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[13], mTechniquesMirror[13], mpMaps[6], mpMaps[7], true, true, true);
+; 1572 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 80, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[13], mTechniquesMirror[13], mpMaps[6], mpMaps[7], true, true, true);
 
-	push	DWORD PTR [esi+2788]
+	push	DWORD PTR [esi+2796]
 	mov	eax, DWORD PTR $T77[ebp+8]
-	push	DWORD PTR [esi+2668]
+	push	DWORD PTR [esi+2676]
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
 
 ; 323  :     z = fz;
@@ -22599,7 +30566,7 @@ $LN31@BasicItems:
 	mov	DWORD PTR $T51[ebp+8], -1054867456	; c1200000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1371 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 80, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[13], mTechniquesMirror[13], mpMaps[6], mpMaps[7], true, true, true);
+; 1572 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 80, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[13], mTechniquesMirror[13], mpMaps[6], mpMaps[7], true, true, true);
 
 	sub	esp, 12					; 0000000cH
 	mov	ecx, esp
@@ -22634,7 +30601,7 @@ $LN33@BasicItems:
 	mov	DWORD PTR $T64[ebp+8], 1084227584	; 40a00000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1371 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 80, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[13], mTechniquesMirror[13], mpMaps[6], mpMaps[7], true, true, true);
+; 1572 : 	mpObjects[miNumObjects] = new CRenderObject("Troll.x",	D3DXVECTOR3( 80, 5, -10 ),		D3DXVECTOR3( 0.5f, 0.5f, 0.0f), mTechniques[13], mTechniquesMirror[13], mpMaps[6], mpMaps[7], true, true, true);
 
 	mov	DWORD PTR [esi+eax*4+8], ecx
 ; File c:\users\simon\documents\github\post-processing\renderobject.h
@@ -22644,7 +30611,7 @@ $LN33@BasicItems:
 	mov	eax, DWORD PTR [esi+808]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1377 : 	mpObjects[miNumObjects] = new CRenderObject("Floor.x",	D3DXVECTOR3(0,0,0),				D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[6], mTechniquesMirror[6], mpMaps[1], NULL, true, false);
+; 1578 : 	mpObjects[miNumObjects] = new CRenderObject("Floor.x",	D3DXVECTOR3(0,0,0),				D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[6], mTechniquesMirror[6], mpMaps[1], NULL, true, false);
 
 	push	72					; 00000048H
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -22663,11 +30630,11 @@ $LN33@BasicItems:
 	mov	DWORD PTR [ecx+40], eax
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1373 : 	miNumObjects++;
+; 1574 : 	miNumObjects++;
 
 	inc	DWORD PTR [esi+808]
 
-; 1377 : 	mpObjects[miNumObjects] = new CRenderObject("Floor.x",	D3DXVECTOR3(0,0,0),				D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[6], mTechniquesMirror[6], mpMaps[1], NULL, true, false);
+; 1578 : 	mpObjects[miNumObjects] = new CRenderObject("Floor.x",	D3DXVECTOR3(0,0,0),				D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[6], mTechniquesMirror[6], mpMaps[1], NULL, true, false);
 
 	call	??2@YAPAXI@Z				; operator new
 	mov	edx, eax
@@ -22684,7 +30651,7 @@ $LN33@BasicItems:
 	push	0
 	push	DWORD PTR [esi+940]
 	unpcklps xmm0, xmm0
-	push	DWORD PTR [esi+2760]
+	push	DWORD PTR [esi+2768]
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
 
 ; 323  :     z = fz;
@@ -22692,9 +30659,9 @@ $LN33@BasicItems:
 	mov	DWORD PTR $T76[ebp+8], 1065353216	; 3f800000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1377 : 	mpObjects[miNumObjects] = new CRenderObject("Floor.x",	D3DXVECTOR3(0,0,0),				D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[6], mTechniquesMirror[6], mpMaps[1], NULL, true, false);
+; 1578 : 	mpObjects[miNumObjects] = new CRenderObject("Floor.x",	D3DXVECTOR3(0,0,0),				D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[6], mTechniquesMirror[6], mpMaps[1], NULL, true, false);
 
-	push	DWORD PTR [esi+2640]
+	push	DWORD PTR [esi+2648]
 	mov	eax, DWORD PTR $T76[ebp+8]
 	sub	esp, 12					; 0000000cH
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -22704,7 +30671,7 @@ $LN33@BasicItems:
 	mov	DWORD PTR $T50[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1377 : 	mpObjects[miNumObjects] = new CRenderObject("Floor.x",	D3DXVECTOR3(0,0,0),				D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[6], mTechniquesMirror[6], mpMaps[1], NULL, true, false);
+; 1578 : 	mpObjects[miNumObjects] = new CRenderObject("Floor.x",	D3DXVECTOR3(0,0,0),				D3DXVECTOR3(1.0f, 1.0f, 1.0f), mTechniques[6], mTechniquesMirror[6], mpMaps[1], NULL, true, false);
 
 	mov	ecx, esp
 	sub	esp, 12					; 0000000cH
@@ -22726,7 +30693,7 @@ $LN34@BasicItems:
 $LN35@BasicItems:
 	mov	eax, DWORD PTR [esi+808]
 
-; 1384 : 	temp = new CModel;
+; 1585 : 	temp = new CModel;
 
 	push	1936					; 00000790H
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -22749,7 +30716,7 @@ $LN35@BasicItems:
 	mov	DWORD PTR $T75[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1384 : 	temp = new CModel;
+; 1585 : 	temp = new CModel;
 
 	mov	eax, DWORD PTR $T75[ebp+8]
 	movss	xmm0, xmm1
@@ -22768,7 +30735,7 @@ $LN35@BasicItems:
 	mov	DWORD PTR $T49[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1384 : 	temp = new CModel;
+; 1585 : 	temp = new CModel;
 
 	mov	eax, DWORD PTR $T49[ebp+8]
 	movq	QWORD PTR [ecx], xmm0
@@ -22781,7 +30748,7 @@ $LN36@BasicItems:
 	xor	edi, edi
 $LN37@BasicItems:
 
-; 1385 : 	mpLights[miNumLights] = new CLight();
+; 1586 : 	mpLights[miNumLights] = new CLight();
 
 	push	92					; 0000005cH
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -22807,7 +30774,7 @@ $LN39@BasicItems:
 	push	OFFSET ??_C@_08EEMGLHJD@Sphere?4x?$AA@
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1385 : 	mpLights[miNumLights] = new CLight();
+; 1586 : 	mpLights[miNumLights] = new CLight();
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	mov	DWORD PTR [esi+eax*4+812], ecx
@@ -23903,10 +31870,10 @@ $LN39@BasicItems:
 	call	?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@PBDI@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1386 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
+; 1587 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
 
 	push	0
-	push	DWORD PTR [esi+2616]
+	push	DWORD PTR [esi+2624]
 	lea	eax, DWORD PTR $T60[ebp]
 	mov	DWORD PTR __$EHRec$[ebp+8], 17		; 00000011H
 	push	eax
@@ -23931,7 +31898,7 @@ $LN39@BasicItems:
 $LN242@BasicItems:
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1386 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
+; 1587 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
 
 	test	bl, bl
 	je	SHORT $LN3@BasicItems
@@ -23940,11 +31907,11 @@ $LN427@BasicItems:
 	jmp	$LN4@BasicItems
 $LN3@BasicItems:
 
-; 1387 : 	mpLights[miNumLights]->SetModel(temp);
+; 1588 : 	mpLights[miNumLights]->SetModel(temp);
 
 	mov	eax, DWORD PTR [esi+932]
 
-; 1388 : 	mpLights[miNumLights]->SetColour(1.0f, 0.0f, 0.7f);
+; 1589 : 	mpLights[miNumLights]->SetColour(1.0f, 0.0f, 0.7f);
 
 	sub	esp, 12					; 0000000cH
 	mov	eax, DWORD PTR [esi+eax*4+812]
@@ -23958,7 +31925,7 @@ $LN3@BasicItems:
 	mov	DWORD PTR [eax], edi
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1388 : 	mpLights[miNumLights]->SetColour(1.0f, 0.0f, 0.7f);
+; 1589 : 	mpLights[miNumLights]->SetColour(1.0f, 0.0f, 0.7f);
 
 	mov	ecx, DWORD PTR [esi+932]
 	mov	ecx, DWORD PTR [esi+ecx*4+812]
@@ -23970,7 +31937,7 @@ $LN3@BasicItems:
 	mov	eax, DWORD PTR [esi+932]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1392 : 	mpLights[miNumLights]->SetOrbit(  D3DXVECTOR3(0, 20, 0), 25.0f, 0.1f );
+; 1593 : 	mpLights[miNumLights]->SetOrbit(  D3DXVECTOR3(0, 20, 0), 25.0f, 0.1f );
 
 	sub	esp, 20					; 00000014H
 ; File c:\users\simon\documents\github\post-processing\model.h
@@ -23987,7 +31954,7 @@ $LN3@BasicItems:
 	mov	eax, DWORD PTR [esi+eax*4+812]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1392 : 	mpLights[miNumLights]->SetOrbit(  D3DXVECTOR3(0, 20, 0), 25.0f, 0.1f );
+; 1593 : 	mpLights[miNumLights]->SetOrbit(  D3DXVECTOR3(0, 20, 0), 25.0f, 0.1f );
 
 	movss	xmm1, DWORD PTR __real@41a00000
 ; File c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3dx10math.inl
@@ -23997,7 +31964,7 @@ $LN3@BasicItems:
 	mov	DWORD PTR $T74[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1392 : 	mpLights[miNumLights]->SetOrbit(  D3DXVECTOR3(0, 20, 0), 25.0f, 0.1f );
+; 1593 : 	mpLights[miNumLights]->SetOrbit(  D3DXVECTOR3(0, 20, 0), 25.0f, 0.1f );
 
 	mov	DWORD PTR [esp+16], 1036831949		; 3dcccccdH
 ; File c:\users\simon\documents\github\post-processing\light.h
@@ -24017,7 +31984,7 @@ $LN3@BasicItems:
 	mov	DWORD PTR $T63[ebp+8], 1036831949	; 3dcccccdH
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1392 : 	mpLights[miNumLights]->SetOrbit(  D3DXVECTOR3(0, 20, 0), 25.0f, 0.1f );
+; 1593 : 	mpLights[miNumLights]->SetOrbit(  D3DXVECTOR3(0, 20, 0), 25.0f, 0.1f );
 
 	mov	DWORD PTR [esp+12], 1103626240		; 41c80000H
 ; File c:\users\simon\documents\github\post-processing\model.h
@@ -24068,7 +32035,7 @@ $LN3@BasicItems:
 	movq	QWORD PTR [ecx+32], xmm0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1392 : 	mpLights[miNumLights]->SetOrbit(  D3DXVECTOR3(0, 20, 0), 25.0f, 0.1f );
+; 1593 : 	mpLights[miNumLights]->SetOrbit(  D3DXVECTOR3(0, 20, 0), 25.0f, 0.1f );
 
 	movss	xmm0, DWORD PTR $T12[ebp]
 ; File c:\users\simon\documents\github\post-processing\model.h
@@ -24078,7 +32045,7 @@ $LN3@BasicItems:
 	mov	DWORD PTR [ecx+40], eax
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1392 : 	mpLights[miNumLights]->SetOrbit(  D3DXVECTOR3(0, 20, 0), 25.0f, 0.1f );
+; 1593 : 	mpLights[miNumLights]->SetOrbit(  D3DXVECTOR3(0, 20, 0), 25.0f, 0.1f );
 
 	mov	ecx, esp
 	mov	eax, DWORD PTR [esi+932]
@@ -24092,7 +32059,7 @@ $LN3@BasicItems:
 	mov	DWORD PTR [eax+24], 1092616192		; 41200000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1392 : 	mpLights[miNumLights]->SetOrbit(  D3DXVECTOR3(0, 20, 0), 25.0f, 0.1f );
+; 1593 : 	mpLights[miNumLights]->SetOrbit(  D3DXVECTOR3(0, 20, 0), 25.0f, 0.1f );
 
 	mov	eax, DWORD PTR $T73[ebp+8]
 	mov	DWORD PTR [ecx+8], eax
@@ -24100,7 +32067,7 @@ $LN3@BasicItems:
 	mov	ecx, DWORD PTR [esi+ecx*4+812]
 	call	?SetOrbit@CLight@@QAEXUD3DXVECTOR3@@MM@Z ; CLight::SetOrbit
 
-; 1393 : 	mpLights[miNumLights]->SetColourCycle( 17.0f );
+; 1594 : 	mpLights[miNumLights]->SetColourCycle( 17.0f );
 
 	push	ecx
 	mov	ecx, DWORD PTR [esi+932]
@@ -24108,12 +32075,12 @@ $LN3@BasicItems:
 	mov	ecx, DWORD PTR [esi+ecx*4+812]
 	call	?SetColourCycle@CLight@@QAEXM@Z		; CLight::SetColourCycle
 
-; 1394 : 
-; 1395 : 	miNumLights++;
+; 1595 : 
+; 1596 : 	miNumLights++;
 
 	inc	DWORD PTR [esi+932]
 
-; 1398 : 	temp = new CModel;
+; 1599 : 	temp = new CModel;
 
 	push	1936					; 00000790H
 	call	??2@YAPAXI@Z				; operator new
@@ -24133,7 +32100,7 @@ $LN3@BasicItems:
 	mov	DWORD PTR $T72[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1398 : 	temp = new CModel;
+; 1599 : 	temp = new CModel;
 
 	mov	eax, DWORD PTR $T72[ebp+8]
 	movss	xmm0, xmm1
@@ -24152,7 +32119,7 @@ $LN3@BasicItems:
 	mov	DWORD PTR $T48[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1398 : 	temp = new CModel;
+; 1599 : 	temp = new CModel;
 
 	mov	eax, DWORD PTR $T48[ebp+8]
 	movq	QWORD PTR [ecx], xmm0
@@ -24165,7 +32132,7 @@ $LN40@BasicItems:
 	xor	edi, edi
 $LN41@BasicItems:
 
-; 1399 : 	mpLights[miNumLights] = new CLight();
+; 1600 : 	mpLights[miNumLights] = new CLight();
 
 	push	92					; 0000005cH
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -24191,7 +32158,7 @@ $LN43@BasicItems:
 	push	OFFSET ??_C@_08EEMGLHJD@Sphere?4x?$AA@
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1399 : 	mpLights[miNumLights] = new CLight();
+; 1600 : 	mpLights[miNumLights] = new CLight();
 
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
 	mov	DWORD PTR [esi+eax*4+812], ecx
@@ -25287,10 +33254,10 @@ $LN43@BasicItems:
 	call	?assign@?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAEAAV12@PBDI@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1400 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
+; 1601 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
 
 	push	0
-	push	DWORD PTR [esi+2616]
+	push	DWORD PTR [esi+2624]
 	lea	eax, DWORD PTR $T59[ebp]
 	mov	DWORD PTR __$EHRec$[ebp+8], 20		; 00000014H
 	push	eax
@@ -25315,16 +33282,16 @@ $LN43@BasicItems:
 $LN340@BasicItems:
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1400 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
+; 1601 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
 
 	test	bl, bl
 	jne	$LN427@BasicItems
 
-; 1401 : 	mpLights[miNumLights]->SetModel(temp);
+; 1602 : 	mpLights[miNumLights]->SetModel(temp);
 
 	mov	eax, DWORD PTR [esi+932]
 
-; 1402 : 	mpLights[miNumLights]->SetColour(1.0f, 0.8f, 0.2f);
+; 1603 : 	mpLights[miNumLights]->SetColour(1.0f, 0.8f, 0.2f);
 
 	sub	esp, 12					; 0000000cH
 	movss	xmm0, DWORD PTR __real@3e4ccccd
@@ -25340,7 +33307,7 @@ $LN340@BasicItems:
 	mov	DWORD PTR [eax], edi
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1402 : 	mpLights[miNumLights]->SetColour(1.0f, 0.8f, 0.2f);
+; 1603 : 	mpLights[miNumLights]->SetColour(1.0f, 0.8f, 0.2f);
 
 	mov	ecx, DWORD PTR [esi+932]
 	mov	ecx, DWORD PTR [esi+ecx*4+812]
@@ -25431,16 +33398,16 @@ $LN340@BasicItems:
 	mov	eax, DWORD PTR [esi+eax*4+812]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1405 : 	mpLights[miNumLights]->GetModel()->UpdateMatrix();
+; 1606 : 	mpLights[miNumLights]->GetModel()->UpdateMatrix();
 
 	mov	ecx, DWORD PTR [eax]
 	call	?UpdateMatrix@CModel@@QAEXXZ		; CModel::UpdateMatrix
 
-; 1406 : 	mpLights[miNumLights]->SetBrightness( 5.0f );
+; 1607 : 	mpLights[miNumLights]->SetBrightness( 5.0f );
 
 	mov	eax, DWORD PTR [esi+932]
 
-; 1407 : 	mpLights[miNumLights]->SetFade( 2.0f );
+; 1608 : 	mpLights[miNumLights]->SetFade( 2.0f );
 
 	push	ecx
 	mov	DWORD PTR [esp], 1073741824		; 40000000H
@@ -25452,18 +33419,18 @@ $LN340@BasicItems:
 	mov	DWORD PTR [eax+24], 1084227584		; 40a00000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1407 : 	mpLights[miNumLights]->SetFade( 2.0f );
+; 1608 : 	mpLights[miNumLights]->SetFade( 2.0f );
 
 	mov	ecx, DWORD PTR [esi+932]
 	mov	ecx, DWORD PTR [esi+ecx*4+812]
 	call	?SetFade@CLight@@QAEXM@Z		; CLight::SetFade
 
-; 1408 : 
-; 1409 : 	miNumLights++;
+; 1609 : 
+; 1610 : 	miNumLights++;
 
 	inc	DWORD PTR [esi+932]
 
-; 1413 : 	temp = new CModel;
+; 1614 : 	temp = new CModel;
 
 	push	1936					; 00000790H
 	call	??2@YAPAXI@Z				; operator new
@@ -25483,7 +33450,7 @@ $LN340@BasicItems:
 	mov	DWORD PTR $T70[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1413 : 	temp = new CModel;
+; 1614 : 	temp = new CModel;
 
 	mov	eax, DWORD PTR $T70[ebp+8]
 	movss	xmm0, xmm1
@@ -25501,7 +33468,7 @@ $LN340@BasicItems:
 	mov	DWORD PTR $T47[ebp+8], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1413 : 	temp = new CModel;
+; 1614 : 	temp = new CModel;
 
 	mov	eax, DWORD PTR $T47[ebp+8]
 	movq	QWORD PTR [ecx], xmm1
@@ -25514,7 +33481,7 @@ $LN44@BasicItems:
 	xor	edi, edi
 $LN45@BasicItems:
 
-; 1414 : 	mpLights[miNumLights] = new CLight();
+; 1615 : 	mpLights[miNumLights] = new CLight();
 
 	push	92					; 0000005cH
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -25533,7 +33500,7 @@ $LN46@BasicItems:
 $LN47@BasicItems:
 	mov	eax, DWORD PTR [esi+932]
 
-; 1415 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
+; 1616 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
 
 	push	OFFSET ??_C@_08EEMGLHJD@Sphere?4x?$AA@
 	mov	DWORD PTR __$EHRec$[ebp+8], -1
@@ -25541,7 +33508,7 @@ $LN47@BasicItems:
 	lea	ecx, DWORD PTR $T46[ebp]
 	call	??0?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@QAE@PBD@Z ; std::basic_string<char,std::char_traits<char>,std::allocator<char> >::basic_string<char,std::char_traits<char>,std::allocator<char> >
 	push	0
-	push	DWORD PTR [esi+2616]
+	push	DWORD PTR [esi+2624]
 	lea	eax, DWORD PTR $T46[ebp]
 	mov	DWORD PTR __$EHRec$[ebp+8], 23		; 00000017H
 	push	eax
@@ -26647,7 +34614,7 @@ $LN394@BasicItems:
 	mov	BYTE PTR $T46[ebp], 0
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1415 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
+; 1616 : 	if (!temp->	Load( "Sphere.x", mTechniques[0] )) return false;
 
 	test	bl, bl
 	jne	$LN427@BasicItems
@@ -26658,7 +34625,7 @@ $LN394@BasicItems:
 	mov	eax, DWORD PTR [esi+932]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1417 : 	mpLights[miNumLights]->SetColour(1.0f, 0.8f, 0.2f);
+; 1618 : 	mpLights[miNumLights]->SetColour(1.0f, 0.8f, 0.2f);
 
 	sub	esp, 12					; 0000000cH
 ; File c:\users\simon\documents\github\post-processing\light.h
@@ -26668,7 +34635,7 @@ $LN394@BasicItems:
 	mov	eax, DWORD PTR [esi+eax*4+812]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1417 : 	mpLights[miNumLights]->SetColour(1.0f, 0.8f, 0.2f);
+; 1618 : 	mpLights[miNumLights]->SetColour(1.0f, 0.8f, 0.2f);
 
 	mov	DWORD PTR [esp+8], 1045220557		; 3e4ccccdH
 	mov	DWORD PTR [esp+4], 1061997773		; 3f4ccccdH
@@ -26680,7 +34647,7 @@ $LN394@BasicItems:
 	mov	DWORD PTR [eax], edi
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1417 : 	mpLights[miNumLights]->SetColour(1.0f, 0.8f, 0.2f);
+; 1618 : 	mpLights[miNumLights]->SetColour(1.0f, 0.8f, 0.2f);
 
 	mov	ecx, DWORD PTR [esi+932]
 	mov	ecx, DWORD PTR [esi+ecx*4+812]
@@ -26762,7 +34729,7 @@ $LN394@BasicItems:
 	mov	ecx, DWORD PTR [esi+eax*4+812]
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1420 : 	mpLights[miNumLights]->GetModel()->UpdateMatrix();
+; 1621 : 	mpLights[miNumLights]->GetModel()->UpdateMatrix();
 
 	mov	ecx, DWORD PTR [ecx]
 	call	?UpdateMatrix@CModel@@QAEXXZ		; CModel::UpdateMatrix
@@ -26775,7 +34742,7 @@ $LN394@BasicItems:
 	mov	DWORD PTR [eax+24], 1084227584		; 40a00000H
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1422 : 	mpLights[miNumLights]->SetDisco();
+; 1623 : 	mpLights[miNumLights]->SetDisco();
 
 	mov	eax, DWORD PTR [esi+932]
 	mov	eax, DWORD PTR [esi+eax*4+812]
@@ -26788,13 +34755,13 @@ $LN394@BasicItems:
 	mov	BYTE PTR [eax+60], bl
 ; File c:\users\simon\documents\github\post-processing\scene.cpp
 
-; 1443 : 	return true;
+; 1644 : 	return true;
 
 	mov	al, 1
 	inc	DWORD PTR [esi+932]
 $LN4@BasicItems:
 
-; 1444 : }
+; 1645 : }
 
 	mov	ecx, DWORD PTR __$EHRec$[ebp]
 	mov	DWORD PTR fs:0, ecx
@@ -49651,6 +57618,31 @@ _TEXT	SEGMENT
 ??0?$allocator@D@std@@QAE@XZ ENDP			; std::allocator<char>::allocator<char>
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility
+;	COMDAT ?_Adopt@_Iterator_base0@std@@QAEXPBX@Z
+_TEXT	SEGMENT
+___formal$ = 8						; size = 4
+?_Adopt@_Iterator_base0@std@@QAEXPBX@Z PROC		; std::_Iterator_base0::_Adopt, COMDAT
+; _this$ = ecx
+
+; 55   : 		}
+
+	ret	4
+?_Adopt@_Iterator_base0@std@@QAEXPBX@Z ENDP		; std::_Iterator_base0::_Adopt
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\xutility
+;	COMDAT ?_Orphan_all@_Container_base0@std@@QAEXXZ
+_TEXT	SEGMENT
+?_Orphan_all@_Container_base0@std@@QAEXXZ PROC		; std::_Container_base0::_Orphan_all, COMDAT
+; _this$ = ecx
+
+; 44   : 		}
+
+	ret	0
+?_Orphan_all@_Container_base0@std@@QAEXXZ ENDP		; std::_Container_base0::_Orphan_all
+_TEXT	ENDS
+; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\iosfwd
 ;	COMDAT ?assign@?$char_traits@D@std@@SAXAADABD@Z
 _TEXT	SEGMENT
@@ -57669,6 +65661,34 @@ __X$ = 8						; size = 4
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\math.h
+;	COMDAT ?exp@@YAMM@Z
+_TEXT	SEGMENT
+tv65 = 8						; size = 4
+__X$ = 8						; size = 4
+?exp@@YAMM@Z PROC					; exp, COMDAT
+
+; 1060 :         {return (expf(_X)); }
+
+	push	ebp
+	mov	ebp, esp
+	movss	xmm0, DWORD PTR __X$[ebp]
+
+; 674  :     return (float)exp(_X);
+
+	cvtps2pd xmm0, xmm0
+	call	__libm_sse2_exp_precise
+	cvtsd2ss xmm0, xmm0
+
+; 1060 :         {return (expf(_X)); }
+
+	movss	DWORD PTR tv65[ebp], xmm0
+	fld	DWORD PTR tv65[ebp]
+	pop	ebp
+	ret	0
+?exp@@YAMM@Z ENDP					; exp
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\math.h
 ;	COMDAT _sinf
 _TEXT	SEGMENT
 tv68 = 8						; size = 4
@@ -57736,6 +65756,34 @@ _fmodf	PROC						; COMDAT
 	pop	ebp
 	ret	0
 _fmodf	ENDP
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\math.h
+;	COMDAT _expf
+_TEXT	SEGMENT
+tv68 = 8						; size = 4
+__X$ = 8						; size = 4
+_expf	PROC						; COMDAT
+
+; 673  : {
+
+	push	ebp
+	mov	ebp, esp
+	movss	xmm0, DWORD PTR __X$[ebp]
+
+; 674  :     return (float)exp(_X);
+
+	cvtps2pd xmm0, xmm0
+	call	__libm_sse2_exp_precise
+	cvtsd2ss xmm0, xmm0
+	movss	DWORD PTR tv68[ebp], xmm0
+	fld	DWORD PTR tv68[ebp]
+
+; 675  : }
+
+	pop	ebp
+	ret	0
+_expf	ENDP
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File c:\program files (x86)\microsoft visual studio 12.0\vc\include\math.h

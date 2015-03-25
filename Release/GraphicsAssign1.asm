@@ -34,7 +34,10 @@ PUBLIC	?digits10@?$numeric_limits@O@std@@2HB		; std::numeric_limits<long double>
 PUBLIC	?pmField@?$CVarTypeInfo@PAPAUIDispatch@@@ATL@@2QQtagVARIANT@@PAPAUIDispatch@@Q3@ ; ATL::CVarTypeInfo<IDispatch * *>::pmField
 PUBLIC	_IID_IAxWinHostWindow
 PUBLIC	?max_digits10@?$numeric_limits@O@std@@2HB	; std::numeric_limits<long double>::max_digits10
+PUBLIC	?MAX_LIGHTS@CScene@@0HB				; CScene::MAX_LIGHTS
+PUBLIC	?MAX_SHADER_LIGHTS@CScene@@0HB			; CScene::MAX_SHADER_LIGHTS
 PUBLIC	?max_exponent@?$numeric_limits@O@std@@2HB	; std::numeric_limits<long double>::max_exponent
+PUBLIC	?MAX_OBJECTS@CScene@@0HB			; CScene::MAX_OBJECTS
 PUBLIC	?max_exponent10@?$numeric_limits@O@std@@2HB	; std::numeric_limits<long double>::max_exponent10
 PUBLIC	?VT@?$CVarTypeInfo@TtagCY@@@ATL@@2GB		; ATL::CVarTypeInfo<tagCY>::VT
 PUBLIC	__GUID_00000000_0000_0000_c000_000000000046
@@ -73,10 +76,7 @@ PUBLIC	?is_integer@_Num_base@std@@2_NB			; std::_Num_base::is_integer
 PUBLIC	?is_modulo@_Num_base@std@@2_NB			; std::_Num_base::is_modulo
 PUBLIC	?is_signed@_Num_base@std@@2_NB			; std::_Num_base::is_signed
 PUBLIC	?is_specialized@_Num_base@std@@2_NB		; std::_Num_base::is_specialized
-PUBLIC	?MAX_LIGHTS@CScene@@0HB				; CScene::MAX_LIGHTS
-PUBLIC	?MAX_SHADER_LIGHTS@CScene@@0HB			; CScene::MAX_SHADER_LIGHTS
 PUBLIC	?tinyness_before@_Num_base@std@@2_NB		; std::_Num_base::tinyness_before
-PUBLIC	?MAX_OBJECTS@CScene@@0HB			; CScene::MAX_OBJECTS
 PUBLIC	?traps@_Num_base@std@@2_NB			; std::_Num_base::traps
 PUBLIC	?round_style@_Num_base@std@@2W4float_round_style@2@B ; std::_Num_base::round_style
 PUBLIC	?digits@_Num_base@std@@2HB			; std::_Num_base::digits
@@ -1377,21 +1377,9 @@ CONST	ENDS
 CONST	SEGMENT
 ?traps@_Num_base@std@@2_NB DB 00H			; std::_Num_base::traps
 CONST	ENDS
-;	COMDAT ?MAX_OBJECTS@CScene@@0HB
-CONST	SEGMENT
-?MAX_OBJECTS@CScene@@0HB DD 0c8H			; CScene::MAX_OBJECTS
-CONST	ENDS
 ;	COMDAT ?tinyness_before@_Num_base@std@@2_NB
 CONST	SEGMENT
 ?tinyness_before@_Num_base@std@@2_NB DB 00H		; std::_Num_base::tinyness_before
-CONST	ENDS
-;	COMDAT ?MAX_SHADER_LIGHTS@CScene@@0HB
-CONST	SEGMENT
-?MAX_SHADER_LIGHTS@CScene@@0HB DD 0cH			; CScene::MAX_SHADER_LIGHTS
-CONST	ENDS
-;	COMDAT ?MAX_LIGHTS@CScene@@0HB
-CONST	SEGMENT
-?MAX_LIGHTS@CScene@@0HB DD 01eH				; CScene::MAX_LIGHTS
 CONST	ENDS
 ;	COMDAT ?is_specialized@_Num_base@std@@2_NB
 CONST	SEGMENT
@@ -1630,9 +1618,21 @@ CONST	ENDS
 CONST	SEGMENT
 ?max_exponent10@?$numeric_limits@O@std@@2HB DD 0134H	; std::numeric_limits<long double>::max_exponent10
 CONST	ENDS
+;	COMDAT ?MAX_OBJECTS@CScene@@0HB
+CONST	SEGMENT
+?MAX_OBJECTS@CScene@@0HB DD 0c8H			; CScene::MAX_OBJECTS
+CONST	ENDS
 ;	COMDAT ?max_exponent@?$numeric_limits@O@std@@2HB
 CONST	SEGMENT
 ?max_exponent@?$numeric_limits@O@std@@2HB DD 0400H	; std::numeric_limits<long double>::max_exponent
+CONST	ENDS
+;	COMDAT ?MAX_SHADER_LIGHTS@CScene@@0HB
+CONST	SEGMENT
+?MAX_SHADER_LIGHTS@CScene@@0HB DD 0cH			; CScene::MAX_SHADER_LIGHTS
+CONST	ENDS
+;	COMDAT ?MAX_LIGHTS@CScene@@0HB
+CONST	SEGMENT
+?MAX_LIGHTS@CScene@@0HB DD 01eH				; CScene::MAX_LIGHTS
 CONST	ENDS
 ;	COMDAT ?max_digits10@?$numeric_limits@O@std@@2HB
 CONST	SEGMENT
@@ -32161,7 +32161,7 @@ _wWinMain@16 PROC					; COMDAT
 
 ; 43   : 	CScene* myScene = new CScene();
 
-	push	3188					; 00000c74H
+	push	3572					; 00000df4H
 	call	??2@YAPAXI@Z				; operator new
 	add	esp, 4
 	test	eax, eax
